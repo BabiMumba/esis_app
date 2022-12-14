@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storageReference: StorageReference
-    lateinit var filepath: Uri
+    var filepath: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -182,9 +182,21 @@ class RegisterActivity : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.setIcon(R.drawable.developement_ic)
         alertDialog.setTitle("genre")
-
-
-
+        val listgenre = arrayOf(
+            "Homme","Femme"
+        )
+        alertDialog.setSingleChoiceItems(listgenre,checkedItem[0]){
+            alertDialog, which ->
+            checkedItem[0] = which
+            val s = listgenre[which]
+            binding.genreChoice.text = s
+            alertDialog.dismiss()
+        }
+        alertDialog.setNegativeButton("Annuler"){ dialog, wich ->
+            dialog.dismiss()
+        }
+        val customeDialogue = alertDialog.create()
+        customeDialogue.show()
 
     }
 
