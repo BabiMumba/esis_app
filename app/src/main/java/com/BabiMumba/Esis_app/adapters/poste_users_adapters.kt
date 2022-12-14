@@ -1,4 +1,4 @@
-package com.babitech.esis.adapter
+package com.BabiMumba.Esis_app.adapters
 
 
 import android.app.DownloadManager
@@ -11,23 +11,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.babitech.esis.R
-import com.babitech.esis.activity.PosteDetaille
-import com.babitech.esis.model.poste_users_model
+import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import kotlinx.android.synthetic.main.activity_infos.view.*
 import java.net.MalformedURLException
 import java.net.URL
 
-class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):FirebaseRecyclerAdapter<poste_users_model,poste_users_adapters.viewholder>(options){
+class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):FirebaseRecyclerAdapter<poste_users_model, poste_users_adapters.viewholder>(options){
 
 
     var progressBar: ProgressBar? = null

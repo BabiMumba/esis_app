@@ -1,4 +1,4 @@
-package com.babitech.esis.adapter
+package com.BabiMumba.Esis_app.adapters
 
 
 import android.app.DownloadManager
@@ -11,14 +11,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
-import com.babitech.esis.R
-import com.babitech.esis.model.save_profil_syllabus
+import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.model.save_profil_syllabus
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import java.net.MalformedURLException
 import java.net.URL
 
-class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus>):FirebaseRecyclerAdapter<save_profil_syllabus,save_profil_adapters.viewholder>(options){
+class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus>):FirebaseRecyclerAdapter<save_profil_syllabus, save_profil_adapters.viewholder>(options){
 
 
     var progressBar: ProgressBar? = null

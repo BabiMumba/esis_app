@@ -12,6 +12,7 @@ import android.media.RingtoneManager
 import android.os.Vibrator
 import androidx.core.app.NotificationCompat
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.MainActivity
 import java.util.*
 
 class MyFirebaseMessaging : FirebaseMessagingService() {
@@ -22,7 +23,7 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
         val title = remoteMessage.notification!!.title
         val message_txt = remoteMessage.notification!!.body
 
-        val resultIntent = Intent(this, PosteDetaille::class.java)
+        val resultIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
         //creer une notification
