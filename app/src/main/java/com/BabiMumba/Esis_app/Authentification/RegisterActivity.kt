@@ -17,8 +17,12 @@ import com.BabiMumba.Esis_app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -31,11 +35,11 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        firebaseAuth = FirebaseAuth.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
         clikbtn()
-
     }
     private fun clikbtn(){
-
         binding.promotionText.setOnClickListener {
             choixpromo()
         }
@@ -103,10 +107,13 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun getInfoUser(){
-        ///photo_profil
+        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
+
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["nom"] = binding.nom.text.toString()
+        infor_user["date d'inscription"] = date_dins.toString()
         infor_user["post-nom"] = binding.postNom.text.toString()
         infor_user["prenom"] = binding.prenom.text.toString()
         infor_user["mail"] = binding.inputMail.text.toString()
