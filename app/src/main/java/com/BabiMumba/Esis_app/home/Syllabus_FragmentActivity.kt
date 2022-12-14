@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.viewpager.widget.ViewPager
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.adapters.tabs_adapters
 import com.google.android.material.tabs.TabLayout
 
 class Syllabus_FragmentActivity : AppCompatActivity() {
