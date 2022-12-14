@@ -102,6 +102,7 @@
             android:id="@+id/create_new_compte"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_30sdp"
             android:text="@string/creer_un_compte"
             android:textColor="@color/primary_text"
