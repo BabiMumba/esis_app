@@ -21,10 +21,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".InfosActivity"
+            android:name=".home.InfosActivity"
             android:exported="false" />
         <activity
-            android:name=".PosteDetaille"
+            android:name=".home.PosteDetaille"
             android:exported="false" />
         <activity
             android:name=".home.Syllabus_FragmentActivity"
