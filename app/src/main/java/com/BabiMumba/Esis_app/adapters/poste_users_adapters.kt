@@ -14,6 +14,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

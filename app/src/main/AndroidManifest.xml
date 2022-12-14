@@ -21,6 +21,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".InfosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PosteDetaille"
+            android:exported="false" />
+        <activity
             android:name=".home.Syllabus_FragmentActivity"
             android:exported="false" />
         <activity

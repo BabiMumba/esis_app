@@ -10,10 +10,13 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/background_image.xml" value="0.1945" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/background_input.xml" value="0.1935" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/backround_view_user_profil.xml" value="0.1005" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_comment_btn.xml" value="0.145" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_exit_to_app_black_24dp.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_import_contacts_black_24dp.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_menu_send.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_menu_share.xml" value="0.1" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_outline_thumb_up_24.xml" value="0.145" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_round_thumb_up_24.xml" value="0.145" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_schedule_black_24dp.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_settings_black_24dp.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/item_comment_bkground.xml" value="0.1005" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_resultat.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_syllabus_fragment.xml" value="0.17239583333333333" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/content_fragement_home.xml" value="0.22" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/feed_card_user.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_forum.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_prepa.xml" value="0.18645833333333334" />
@@ -33,6 +37,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/nav_header_main.xml" value="0.3333333333333333" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/non_internet.xml" value="0.18645833333333334" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/row_feed.xml" value="0.4466666666666667" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/syllabus_card_user.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/menu/menu_bottom_nav.xml" value="0.16666666666666666" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/menu/menu_navview.xml" value="0.1" />
       </map>
