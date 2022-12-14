@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "132494337284",
+    "project_id": "esis-app",
+    "storage_bucket": "esis-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:132494337284:android:ecf04254020b7ebfb9dc51",
+        "android_client_info": {
+          "package_name": "com.BabiMumba.Esis_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "132494337284-bn6cmdft6lvn3ihn9hd543r90np4abcl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.BabiMumba.Esis_app",
+            "certificate_hash": "209834108b83db17f270d06aadc0ffa5c4916357"
+          }
+        },
+        {
+          "client_id": "132494337284-4ftgktv9r5hd7m2p15qho5pgrvul4soe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqW39O17lld6YlaeymjbSrVjupTEBc-7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "132494337284-4ftgktv9r5hd7m2p15qho5pgrvul4soe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
