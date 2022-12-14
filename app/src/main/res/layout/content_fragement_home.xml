@@ -37,7 +37,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Hi..👋 Salut👋"
+                        android:text="Salut👋"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold" />
