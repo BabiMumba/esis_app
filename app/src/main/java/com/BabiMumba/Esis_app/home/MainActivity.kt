@@ -1,12 +1,25 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.Fragment
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.fragment.ForumFragment
+import com.BabiMumba.Esis_app.fragment.HomeFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
+
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,10 +27,107 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         firebaseAuth = FirebaseAuth.getInstance()
 
+        val navigationView = findViewById<View>(R.id.nav_view) as NavigationView
+        navigationView.setNavigationItemSelectedListener(this)
+
+        bottomNavigationView = findViewById(R.id.navigation)
+
+        loadFragmant(HomeFragment())
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        bottomNavigationView.selectedItemId = R.id.home
+
+
+
     }
 
+    private fun loadFragmant(fragment: Fragment) =
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.frame_layout,fragment)
+            commit()
+        }
     override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START)
+        } else {
+            val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+            drawer.openDrawer(GravityCompat.START)
+        }
     }
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+
+        when (item.itemId) {
+            R.id.syllabus -> {
+                Toast.makeText(this, "syllabus", Toast.LENGTH_SHORT).show()
+            }
+            R.id.actualite -> {
+                /*
+                 val actulaity_link = "https://www.esisalama.com/index.php?module=actualite"
+                val intent = Intent(this,ActualiteActivity::class.java)
+                intent.putExtra("url_link",actulaity_link)
+                startActivity(intent)
+                 */
+
+            }
+            R.id.nav_lectures -> {
+                //startActivity(Intent(this,LectureActivity_Pdf::class.java))
+            }
+            R.id.esis_web -> {
+                /*
+                 val actulaity_link = "https://www.esisalama.com/index.php"
+                val intent = Intent(this,ActualiteActivity::class.java)
+                intent.putExtra("url_link",actulaity_link)
+                startActivity(intent)
+                 */
+
+            }
+            R.id.horaire ->{
+                /*
+                 val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+                val intent = Intent(this,ActualiteActivity::class.java)
+                intent.putExtra("url_link",actulaity_link)
+                startActivity(intent)
+                 */
+
+            }
+            R.id.nav_settings -> {
+                //startActivity(Intent(this,SettingActivity::class.java))
+            }
+            R.id.nav_rate -> {
+                showtoast("noter l'application")
+            }
+            R.id.quit -> {
+                finish()
+            }
+            R.id.nav_share ->{
+                showtoast("partager")
+            }
+
+        }
+        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
+        drawer.closeDrawer(GravityCompat.START)
+        return true
+    }
+    private fun showtoast(message:String){
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private val mOnNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.forum -> {
+                    loadFragmant(ForumFragment())
+                }
+                R.id.home -> {
+                    loadFragmant(HomeFragment())
+                }
+                R.id.menu -> {
+                    val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
+                    drawer.openDrawer(GravityCompat.START)
+                }
+
+            }
+            true
+        }
+
 }
