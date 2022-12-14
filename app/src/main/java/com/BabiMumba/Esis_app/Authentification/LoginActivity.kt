@@ -35,7 +35,6 @@ class LoginActivity : AppCompatActivity() {
                 firebaseLogin()
             }
         }
-
     }
     private fun showtoast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
