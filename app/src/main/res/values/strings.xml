@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Esisalama</string>
+    <string name="bvn">Bienvenue</string>
+    <string name="txt_mail">Votre Mail</string>
+    <string name="pasword_text">Votre Mot de passe</string>
+    <string name="se_connecter">se connecter</string>
+    <string name="creer_un_compte">Creer un compte</string>
 </resources>
