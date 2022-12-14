@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.BabiMumba.Esis_app.fragment.tab.L1Fragment
 import com.BabiMumba.Esis_app.fragment.tab.PrepaFragment
+import com.BabiMumba.Esis_app.fragment.tab.TousFragment
 
 internal class  tabs_adapters (var context:Context, fm: FragmentManager?, var totalTabs:Int): FragmentPagerAdapter(
     fm!!
