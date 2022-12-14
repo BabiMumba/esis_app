@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import com.BabiMumba.Esis_app.MainActivity
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -25,9 +26,16 @@ class LoginActivity : AppCompatActivity() {
 
     }
     fun clicmethode(){
-        create_new_compte.setOnClickListener {
+
+        binding.createNewCompte.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
+        binding.btnSignin.setOnClickListener {
+            if (valide()){
+                firebaseLogin()
+            }
+        }
+
     }
     private fun showtoast(message: String) {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
@@ -40,6 +48,23 @@ class LoginActivity : AppCompatActivity() {
             binding.btnSignin.visibility = View.VISIBLE
             binding.progressBar.visibility = View.INVISIBLE
         }
+    }
+    private fun firebaseLogin() {
+        loading(true)
+        firebaseAuth.signInWithEmailAndPassword(binding.inputMail.text.toString(),binding.inputPassword.text.toString())
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+
+                    startActivity(Intent(this, MainActivity::class.java))
+                    loading(false)
+
+                }else{
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
+                    loading(false)
+                }
+
+            }
+
     }
     private fun valide():Boolean{
         return if(binding.inputMail.text.toString().trim().isEmpty()){
