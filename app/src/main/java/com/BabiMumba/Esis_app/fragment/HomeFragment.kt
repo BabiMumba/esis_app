@@ -15,6 +15,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.ActualiteActivity
 import com.BabiMumba.Esis_app.home.LectureActivity_Pdf
 import com.BabiMumba.Esis_app.home.ResultatActivity
+import com.BabiMumba.Esis_app.home.Syllabus_FragmentActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 

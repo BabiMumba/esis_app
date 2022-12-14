@@ -21,16 +21,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Syllabus_FragmentActivity"
+            android:name=".home.Syllabus_FragmentActivity"
             android:exported="false" />
         <activity
-            android:name=".LectureActivity_Pdf"
+            android:name=".home.LectureActivity_Pdf"
             android:exported="false" />
         <activity
-            android:name=".ResultatActivity"
+            android:name=".home.ResultatActivity"
             android:exported="false" />
         <activity
-            android:name=".ActualiteActivity"
+            android:name=".home.ActualiteActivity"
             android:exported="false" />
         <activity
             android:name=".Authentification.RegisterActivity"
