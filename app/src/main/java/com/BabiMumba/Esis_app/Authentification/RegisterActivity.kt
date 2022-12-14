@@ -1,7 +1,6 @@
 package com.BabiMumba.Esis_app.Authentification
 
 import android.app.ProgressDialog
-import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,7 +10,7 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import com.BabiMumba.Esis_app.MainActivity
+import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth

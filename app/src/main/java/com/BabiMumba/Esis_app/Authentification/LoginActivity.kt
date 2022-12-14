@@ -6,11 +6,9 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
-import com.BabiMumba.Esis_app.MainActivity
-import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth

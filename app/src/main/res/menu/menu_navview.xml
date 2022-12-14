@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/syllabus"
+            android:icon="@drawable/book2"
+            android:title="Syllabus" />
+
+        <item
+            android:id="@+id/actualite"
+            android:icon="@drawable/news"
+            android:title="Actualite" />
+        <item
+            android:id="@+id/esis_web"
+            android:icon="@drawable/internet"
+            android:title="Esis Web" />
+
+        <item
+            android:id="@+id/nav_lectures"
+            android:icon="@drawable/ic_import_contacts_black_24dp"
+            android:title="Lecture des livres" />
+        <item
+            android:id="@+id/horaire"
+            android:icon="@drawable/ic_schedule_black_24dp"
+            android:title="Horaire des cours" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Paramettre" />
+        <item
+            android:id="@+id/quit"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Quitte " />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="partager l'application" />
+            <item
+                android:id="@+id/nav_rate"
+                android:icon="@drawable/ic_menu_send"
+                android:title="noter l'application" />
+        </menu>
+    </item>
+
+</menu>
