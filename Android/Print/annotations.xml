@@ -1,0 +1,5 @@
+<root>
+    <item name='android.print.PrintDocumentAdapter.WriteResultCallback'>
+        <annotation name='java.lang.Deprecated' />
+    </item>
+</root>
