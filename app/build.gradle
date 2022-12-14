@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -55,7 +56,30 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 //gradien color
     implementation 'net.colindodd:gradientlayout:1.2'
-
     implementation 'com.android.volley:volley:1.2.1'
+
+    //firebase dependancy
+
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-core:21.1.1'
+    implementation 'com.firebase:firebase-client-android:2.4.0'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.karumi:dexter:6.2.3'
+
+    // FirebaseUI for Real time database
+
+    implementation 'com.firebaseui:firebase-ui-database:8.0.2'
+
+    // FirebaseUI for Cloud Firestore
+    implementation 'com.firebaseui:firebase-ui-firestore:8.0.2'
+
+    // FirebaseUI for Firebase Auth
+    implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
+
+    // FirebaseUI for Cloud Storage
+    implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
+
+
 
 }
