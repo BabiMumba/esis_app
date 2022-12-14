@@ -28,7 +28,9 @@ class LoginActivity : AppCompatActivity() {
     }
     fun chek_users(){
         if (firebaseAuth.currentUser != null){
-            startActivity(Intent(this, MainActivity::class.java))
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
     fun clicmethode(){
@@ -62,6 +64,7 @@ class LoginActivity : AppCompatActivity() {
 
                     startActivity(Intent(this, MainActivity::class.java))
                     loading(false)
+                    finish()
 
                 }else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()

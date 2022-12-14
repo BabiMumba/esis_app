@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:gl="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/white">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:padding="@dimen/_5sdp"
+                android:background="@drawable/backround_view_user_profil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <RelativeLayout
+                    android:layout_alignParentStart="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/salu"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Hi..👋 Salut👋"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/prenom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/salu"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+
+                        android:fontFamily="serif"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+
+
+                <ImageView
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/hero" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_3sdp"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/syllabus_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="10dp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:end_color="@color/gradientLightYellow"
+                            gl:start_color="@color/gradientViolet"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_60sdp"
+                                android:src="@drawable/livre_syllabus_u" />
+
+                            <TextView
+                                android:id="@+id/titre"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="Telecharger\nSyllabus"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/esis_web"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:end_color="@color/gradientLightYellow2"
+                            gl:start_color="@color/gradientLightOrange2"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_50sdp"
+                                android:src="@drawable/web_u" />
+
+                            <TextView
+                                android:fontFamily="serif"
+                                android:id="@+id/titre3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="Esis Web"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/resultat_cat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:start_color="@color/gradientLightYellow"
+                            gl:end_color="@color/gradientOrange"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_50sdp"
+                                android:src="@drawable/resulta_u" />
+
+                            <TextView
+                                android:fontFamily="serif"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="Resultat"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/lecture_cat"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:start_color="@color/gradientLightGreen"
+                            gl:end_color="@color/gradientLightBlue"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_60sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/apprendre_u" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="Lire\nSyllabus"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        android:id="@+id/horaire_cat"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:start_color="@color/gradientLightYellow"
+                            gl:end_color="@color/gradientOrange"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_60sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/horaire_u" />
+
+                            <TextView
+
+                                android:id="@+id/titre2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="Horaire"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/news_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_10sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:start_color="@color/gradientViolet"
+                            gl:end_color="@color/gradientLightOrange"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:adjustViewBounds="true"
+                                android:cropToPadding="true"
+                                android:maxHeight="@dimen/_60sdp"
+                                android:padding="@dimen/_5sdp"
+                                android:src="@drawable/news_u" />
+
+                            <TextView
+                                android:fontFamily="serif"
+                                android:id="@+id/titre4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:text="Actualite"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
 
-
-
     }
 
     private fun loadFragmant(fragment: Fragment) =

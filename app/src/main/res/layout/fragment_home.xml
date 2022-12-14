@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
-    <RelativeLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Home Fragment"
-            android:layout_centerInParent="true"
-            />
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:background="@color/contentBodyColor">
+
+        <include
+            layout="@layout/content_fragement_home" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 </FrameLayout>
