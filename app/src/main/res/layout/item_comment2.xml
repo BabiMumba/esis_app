@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_comment_bkground"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingLeft="@dimen/_5sdp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/user_image_profil"
+        android:layout_width="@dimen/_25sdp"
+        android:layout_height="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:src="@drawable/ic_propic1"
+        app:civ_border_color="@color/primary"
+        app:civ_border_width="1dp" />
+
+    <TextView
+        android:id="@+id/name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_toEndOf="@id/user_image_profil"
+        android:text="Jacques legrimm"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_8ssp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textDateTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name_user"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_toEndOf="@id/user_image_profil"
+        android:text="12/12/2023"
+        android:textColor="@color/secondary_text"
+        android:textSize="@dimen/_8ssp" />
+
+    <TextView
+        android:id="@+id/textcomment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_image_profil"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_toEndOf="@id/user_image_profil"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingBottom="@dimen/_2sdp"
+        android:text="bonjour juste savoir ce tp c'est a deposer quel day"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_10ssp"
+        app:layout_constraintWidth_max="wrap"
+        tools:ignore="RtlSymmetry" />
+
+
+
+
+</RelativeLayout>
