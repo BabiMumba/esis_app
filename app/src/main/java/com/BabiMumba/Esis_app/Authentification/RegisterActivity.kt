@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.app.ProgressDialog
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
@@ -10,10 +11,14 @@ import android.util.Patterns
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.BabiMumba.Esis_app.MainActivity
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -36,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
         }
         binding.btnSignup.setOnClickListener {
             if (isValidSignUpDetails()){
-                Toast.makeText(this, "tout est ok", Toast.LENGTH_SHORT).show()
+                firebaseSignUp()
             }
         }
 
@@ -55,6 +60,89 @@ class RegisterActivity : AppCompatActivity() {
         binding.genre.setOnClickListener {
             choigenre()
         }
+    }
+    private fun getprofil_link(p:String){
+        ///photo_profil
+        val database = FirebaseFirestore.getInstance()
+        val infor_user:MutableMap<String, Any> = HashMap()
+        infor_user["profil"] = p
+        database.collection("Utilisateurs")
+            .document(binding.inputMail.text.toString())
+            .set(infor_user, SetOptions.merge())
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    showtoast("yes document creer")
+                }else{
+                    showtoast(it.exception?.message.toString())
+                }
+            }
+    }
+    fun send_profil(){
+        val pd = ProgressDialog(this)
+        pd.setTitle("Creation du compte")
+        pd.show()
+        val name = "profil${System.currentTimeMillis()}"
+        val reference = storageReference.child("photo_profil/$name.png")
+        filepath?.let {
+            reference.putFile(it)
+                .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
+                    reference.downloadUrl.addOnSuccessListener { uri: Uri ->
+                        getprofil_link(uri.toString())
+                    }
+                }
+                .addOnFailureListener{
+                    Toast.makeText(this, "creation du compte echouer", Toast.LENGTH_SHORT).show()
+                    pd.dismiss()
+                }
+                .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
+                    val percent =
+                        (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
+                    pd.setMessage("validation du compte: " + percent.toInt() + "%")
+                    pd.setCancelable(false)
+                }
+        }
+    }
+    private fun getInfoUser(){
+        ///photo_profil
+        val database = FirebaseFirestore.getInstance()
+        val infor_user:MutableMap<String, Any> = HashMap()
+        infor_user["nom"] = binding.nom.text.toString()
+        infor_user["post-nom"] = binding.postNom.text.toString()
+        infor_user["prenom"] = binding.prenom.text.toString()
+        infor_user["mail"] = binding.inputMail.text.toString()
+        infor_user["sexe"] = binding.genreChoice.text.toString()
+        infor_user["Numero de telephone"] = binding.number.text.toString()
+        infor_user["promotion"] = binding.promotionChoice.text.toString()
+        infor_user["mot de passe"] = binding.inputPassword.text.toString()
+        database.collection("Utilisateurs")
+            .document(binding.inputMail.text.toString())
+            .set(infor_user)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    showtoast("yes document creer")
+                }else{
+                    showtoast(it.exception?.message.toString())
+                }
+            }
+    }
+    private fun firebaseSignUp() {
+        val mail = binding.inputMail.text.toString()
+        val motdpasse = binding.inputPassword.text.toString()
+
+        firebaseAuth.createUserWithEmailAndPassword(mail,motdpasse)
+            .addOnCompleteListener(this) {
+                if (it.isSuccessful){
+                    getInfoUser()
+                    send_profil()
+                    startActivity(Intent(this, MainActivity::class.java))
+                    loading(false)
+                    finish()
+                }else{
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                    loading(false)
+                }
+            }
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

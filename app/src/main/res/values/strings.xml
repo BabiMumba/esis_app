@@ -9,8 +9,8 @@
     <string name="name">nom</string>
     <string name="postn">post-nom</string>
     <string name="prenom">prenom</string>
-    <string name="num">numero</string>
-    <string name="confirmer_le_mot_de_passe">repeterr le mot de passe</string>
-    <string name="enregistre">enregistre</string>
+    <string name="num">numero de tel</string>
+    <string name="confirmer_le_mot_de_passe">repeter le mot de passe</string>
+    <string name="enregistre">Enregistre</string>
     <string name="my_count">j\'ai un compte</string>
 </resources>
