@@ -107,10 +107,10 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun getInfoUser(){
+        loading(true)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
-
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["nom"] = binding.nom.text.toString()
         infor_user["date d'inscription"] = date_dins.toString()
@@ -127,23 +127,25 @@ class RegisterActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     showtoast("yes document creer")
+                    loading(false)
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
                 }else{
                     showtoast(it.exception?.message.toString())
+                    loading(false)
                 }
             }
     }
     private fun firebaseSignUp() {
+        loading(true)
         val mail = binding.inputMail.text.toString()
         val motdpasse = binding.inputPassword.text.toString()
-
         firebaseAuth.createUserWithEmailAndPassword(mail,motdpasse)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful){
-                    getInfoUser()
                     send_profil()
-                    startActivity(Intent(this, MainActivity::class.java))
+                    getInfoUser()
                     loading(false)
-                    finish()
                 }else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                     loading(false)
