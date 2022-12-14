@@ -145,7 +145,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun choixpromo() {
         val checkedItem = intArrayOf(-1)
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setIcon(R.drawable.ic_launcher_background)
+        alertDialog.setIcon(R.drawable.developement_ic)
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
             "Preparatoire",
@@ -178,27 +178,14 @@ class RegisterActivity : AppCompatActivity() {
         customAlertDialog.show()
     }
     private fun choigenre(){
-
+        val checkedItem = intArrayOf(-1)
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setTitle("Genre")
-        alertDialog.setPositiveButton("valide", null)
-        alertDialog.setNeutralButton("Annuler", null)
-        val items = arrayOf("Homme", "Femme")
-        val checkItem = 1
-        alertDialog.setSingleChoiceItems(
-            items, checkItem
-        ) { _: DialogInterface?, which: Int ->
-            when (which) {
-                0 -> {
-                    binding.genreChoice.text = "Homme"
-                }
-                1 -> {
-                    binding.genreChoice.text = "Femme"
-                }
+        alertDialog.setIcon(R.drawable.developement_ic)
+        alertDialog.setTitle("genre")
 
-            }
-        }
-        alertDialog.show()
+
+
+
     }
 
 
