@@ -5,4 +5,12 @@
     <string name="pasword_text">Votre Mot de passe</string>
     <string name="se_connecter">se connecter</string>
     <string name="creer_un_compte">Creer un compte</string>
+    <string name="creer_un_compte_txt">Creer un compte</string>
+    <string name="name">nom</string>
+    <string name="postn">post-nom</string>
+    <string name="prenom">prenom</string>
+    <string name="num">numero</string>
+    <string name="confirmer_le_mot_de_passe">repeterr le mot de passe</string>
+    <string name="enregistre">enregistre</string>
+    <string name="my_count">j\'ai un compte</string>
 </resources>

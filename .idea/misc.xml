@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_login.xml" value="0.18645833333333334" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/background_btn.xml" value="0.1005" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/background_input.xml" value="0.1935" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_main.xml" value="0.18645833333333334" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_register.xml" value="0.17239583333333333" />
       </map>
