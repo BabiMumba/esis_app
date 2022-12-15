@@ -21,13 +21,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".InfosSyllabusActivity"
+            android:name=".home.InfosSyllabusActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailleActivity"
+            android:name=".home.DetailleActivity"
             android:exported="false" />
         <activity
-            android:name=".PublicationSyllabus"
+            android:name=".home.PublicationSyllabus"
             android:exported="false" />
         <activity
             android:name=".home.PublishPost"
