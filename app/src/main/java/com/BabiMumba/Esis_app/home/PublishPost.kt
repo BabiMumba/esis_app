@@ -36,7 +36,6 @@ class PublishPost : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     private lateinit var databaseReference: DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
-
     var mon_nom:String = ""
     var lien_image:String = ""
     var token_id:String = ""
@@ -46,16 +45,16 @@ class PublishPost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publish_post)
 
-
         firebaseAuth = FirebaseAuth.getInstance()
-
         storageReference = FirebaseStorage.getInstance().reference
+
 
         read_name()
         get_token()
         publish_btn.setOnClickListener {
             send_commnuniquee(filepath)
         }
+
         iimg.setOnClickListener {
             Dexter.withContext(
                 applicationContext
