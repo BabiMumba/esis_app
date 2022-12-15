@@ -23,14 +23,17 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_profil_user.*
+import kotlinx.android.synthetic.main.nav_header_main.*
+
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var firebaseAuth: FirebaseAuth
 
+    var nom_posten =""
+    var numero_tel =""
+    var image_glide =""
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         loadFragmant(HomeFragment())
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
+        readData()
 
         val navview = findViewById<NavigationView>(R.id.nav_view)
 
@@ -54,9 +58,12 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         val image_m: ImageView = image.findViewById(R.id.profile_image)
         val nom: TextView = tete.findViewById(R.id.name_user)
-        val mail_user: TextView = mail.findViewById(R.id.mail)
-        nom.text = "Elios mesio"
-        mail_user.text = "elios@gmail.com"
+        val mail_user: TextView = mail.findViewById(R.id.mail_text)
+       // nom.text = nom_posten
+       // mail_user.text = numero_tel
+
+
+
 
     }
 
@@ -74,10 +81,9 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     val num = document.data?.getValue("Numero de telephone").toString()
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
-
-
-
                     val imgetxt = document.data?.getValue("profil")
+                    name_user.text = "$prenoms $postname"
+                    mail_text.text = "+243 $num"
 
                     val circularProgressDrawable = CircularProgressDrawable(this)
                     circularProgressDrawable.strokeWidth = 5f
@@ -88,7 +94,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                         .load(imgetxt)
                         // .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(circularProgressDrawable)
-                        .into(imgView_proPic)
+                        .into(profile_image)
 
 
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
