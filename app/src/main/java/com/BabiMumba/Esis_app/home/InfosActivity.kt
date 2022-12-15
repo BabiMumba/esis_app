@@ -30,12 +30,9 @@ class InfosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos)
-
         firebaseAuth = FirebaseAuth.getInstance()
-
         val ad_mail = intent.getStringExtra("mail").toString()
         Toast.makeText(this, ad_mail, Toast.LENGTH_SHORT).show()
-
         read_name()
         setListener()
 
