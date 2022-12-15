@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
             }
             R.id.nav_settings -> {
-                //startActivity(Intent(this,SettingActivity::class.java))
+                startActivity(Intent(this,SettingActivity::class.java))
             }
             R.id.nav_rate -> {
                 showtoast("noter l'application")

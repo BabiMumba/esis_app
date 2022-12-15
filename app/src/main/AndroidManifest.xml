@@ -21,7 +21,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LectureActivity"
+            android:name=".SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.LectureActivity"
             android:exported="false" />
         <activity
             android:name=".home.InfosSyllabusActivity"
