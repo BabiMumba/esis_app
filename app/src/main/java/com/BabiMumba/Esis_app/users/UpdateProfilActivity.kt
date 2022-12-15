@@ -150,7 +150,6 @@ class UpdateProfilActivity : AppCompatActivity() {
             progressBar.visibility = View.INVISIBLE
         }
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val imageUri : Uri
@@ -160,7 +159,6 @@ class UpdateProfilActivity : AppCompatActivity() {
             filepath = data.data!!
         }
     }
-
     fun send_profil(){
         val pd = ProgressDialog(this)
         pd.setTitle("photo de profil change")
