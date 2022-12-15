@@ -1,10 +1,13 @@
 package com.BabiMumba.Esis_app.home
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var firebaseAuth: FirebaseAuth
 
+    @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,6 +39,17 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         loadFragmant(HomeFragment())
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
+
+        val navview = findViewById<NavigationView>(R.id.nav_view)
+
+        val tete:View = navview.getHeaderView(0)
+        val image:View = navview.getHeaderView(0)
+        val mail:View = navview.getHeaderView(0)
+
+        val image_mail: ImageView = image.findViewById(R.id.profil_user)
+        val nom: TextView = tete.findViewById(R.id.name)
+        val mail_user: TextView = mail.findViewById(R.id.mail_user)
+
 
     }
 
@@ -56,7 +71,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
         when (item.itemId) {
             R.id.syllabus -> {
-                Toast.makeText(this, "syllabus", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,Syllabus_FragmentActivity::class.java))
             }
             R.id.actualite -> {
                 val actulaity_link = "https://www.esisalama.com/index.php?module=actualite"
@@ -64,9 +79,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 intent.putExtra("url_link",actulaity_link)
                 startActivity(intent)
 
-            }
-            R.id.nav_lectures -> {
-                //startActivity(Intent(this,LectureActivity_Pdf::class.java))
             }
             R.id.esis_web -> {
                 val actulaity_link = "https://www.esisalama.com/index.php"

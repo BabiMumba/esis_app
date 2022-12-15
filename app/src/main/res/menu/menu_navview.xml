@@ -17,11 +17,6 @@
             android:id="@+id/esis_web"
             android:icon="@drawable/internet"
             android:title="Esis Web" />
-
-        <item
-            android:id="@+id/nav_lectures"
-            android:icon="@drawable/ic_import_contacts_black_24dp"
-            android:title="Lecture des livres" />
         <item
             android:id="@+id/horaire"
             android:icon="@drawable/ic_schedule_black_24dp"
