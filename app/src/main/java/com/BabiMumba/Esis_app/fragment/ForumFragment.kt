@@ -25,7 +25,6 @@ import kotlinx.android.synthetic.main.fragment_forum.*
 
 class ForumFragment : Fragment() {
 
-
     lateinit var communiqueAdapters: communique_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
 

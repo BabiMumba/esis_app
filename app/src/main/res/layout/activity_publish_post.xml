@@ -1,9 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="@dimen/_20sdp"
     tools:context=".home.PublishPost">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/iimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:text="Importe une image"
+        android:textAllCaps="false" />
+
+
+    <ImageView
+        android:id="@+id/image_file"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
+        android:layout_below="@id/iimg"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_baseline_add_24" />
+
+    <TextView
+        android:layout_below="@id/image_file"
+        android:id="@+id/sy_na"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Message: " />
+
+    <EditText
+        android:id="@+id/message_commnq"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sy_na"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/background_input"
+        android:hint="Ex: Votre communique"
+        android:imeOptions="actionDone"
+        android:inputType="textCapCharacters"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_50sdp"
+        tools:ignore="RtlSymmetry" />
+
+    <Button
+        android:id="@+id/publish_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_commnq"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:background="@drawable/background_btn"
+        android:text="Publier"
+        android:textAllCaps="false" />
+
+</RelativeLayout>
