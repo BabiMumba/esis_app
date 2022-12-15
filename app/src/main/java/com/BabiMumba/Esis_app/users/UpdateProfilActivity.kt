@@ -28,7 +28,6 @@ class UpdateProfilActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storageReference: StorageReference
     var filepath: Uri? = null
-    var lien_profil_ajour = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profil)

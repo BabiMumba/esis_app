@@ -59,34 +59,26 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                 Toast.makeText(this, "syllabus", Toast.LENGTH_SHORT).show()
             }
             R.id.actualite -> {
-                /*
-                 val actulaity_link = "https://www.esisalama.com/index.php?module=actualite"
+                val actulaity_link = "https://www.esisalama.com/index.php?module=actualite"
                 val intent = Intent(this,ActualiteActivity::class.java)
                 intent.putExtra("url_link",actulaity_link)
                 startActivity(intent)
-                 */
 
             }
             R.id.nav_lectures -> {
                 //startActivity(Intent(this,LectureActivity_Pdf::class.java))
             }
             R.id.esis_web -> {
-                /*
-                 val actulaity_link = "https://www.esisalama.com/index.php"
+                val actulaity_link = "https://www.esisalama.com/index.php"
                 val intent = Intent(this,ActualiteActivity::class.java)
                 intent.putExtra("url_link",actulaity_link)
                 startActivity(intent)
-                 */
-
             }
             R.id.horaire ->{
-                /*
-                 val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+                val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
                 val intent = Intent(this,ActualiteActivity::class.java)
                 intent.putExtra("url_link",actulaity_link)
                 startActivity(intent)
-                 */
-
             }
             R.id.nav_settings -> {
                 startActivity(Intent(this,SettingActivity::class.java))
