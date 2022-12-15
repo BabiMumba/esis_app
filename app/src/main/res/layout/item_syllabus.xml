@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardElevation="@dimen/_15sdp"
+    android:layout_marginBottom="@dimen/_2sdp"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/container_syllabuys"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+
+        >
+
+        <View
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/image_poste"
+            android:background="@color/gris" />
+        <RelativeLayout
+            android:id="@+id/name_users"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profil_user"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:src="@drawable/ic_propic1"
+                app:civ_border_color="@color/primary"
+                app:civ_border_width="2dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/_5ssp"
+                android:layout_toEndOf="@+id/profil_user"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/name_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-medium"
+                    android:text="jacque legrimm"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/date_de_publ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:text="21/12/2022"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8ssp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:fontFamily="sans-serif-condensed"
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name_users"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text="Esis mon ecole"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_13ssp" />
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/image_poste"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_marginTop="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/syllabus_icone"
+                android:layout_width="@dimen/_50sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:maxHeight="@dimen/_100sdp"
+                android:scaleType="fitXY"
+                android:src="@drawable/pdf_file" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/lin_syll_name"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_toEndOf="@id/syllabus_icone"
+                android:layout_marginStart="@dimen/_5ssp"
+                >
+                <TextView
+                    android:id="@+id/synam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Syllabus: "
+                    />
+                <TextView
+                    android:id="@+id/name_syllabus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Algo"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/lin_syll_prof"
+                android:layout_below="@id/lin_syll_name"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_toEndOf="@id/syllabus_icone"
+                android:layout_marginStart="@dimen/_5ssp"
+                >
+                <TextView
+                    android:id="@+id/synprof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Professeur: "
+                    />
+                <TextView
+                    android:id="@+id/prof_syllabus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="jean luc kawel"
+                    />
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/lin_syll_prof"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_toEndOf="@id/syllabus_icone"
+                android:layout_marginStart="@dimen/_5ssp"
+                >
+                <TextView
+                    android:id="@+id/pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Promotion: "
+                    />
+                <TextView
+                    android:id="@+id/nom_promo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:text="Preparatoire"
+                    />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/view_like"
+            android:layout_marginBottom="@dimen/_5ssp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@+id/view">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/layout_like"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_8ssp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    tools:ignore="RtlSymmetry">
+
+                    <ImageView
+                        android:id="@+id/like_btn"
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        app:srcCompat="@drawable/book2" />
+
+                    <TextView
+                        android:id="@+id/like_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/_4sdp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="18"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_8ssp"
+                    android:paddingEnd="@dimen/_10sdp"
+
+                    android:paddingBottom="@dimen/_8ssp"
+                    tools:ignore="RtlSymmetry">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_comment_btn" />
+
+                    <TextView
+                        android:id="@+id/tv_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_8sdp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="10"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:id="@+id/layout_tlc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_8ssp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_8ssp"
+                    tools:ignore="RtlSymmetry">
+
+                    <ImageView
+                        android:layout_width="@dimen/_15sdp"
+                        android:layout_height="@dimen/_15sdp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/ic_baseline_file_download_24" />
+
+                    <TextView
+                        android:id="@+id/tv_download"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="16"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

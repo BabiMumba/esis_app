@@ -130,6 +130,8 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
             android:layout_below="@id/l1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:id="@+id/layou_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -155,6 +157,8 @@
             </FrameLayout>
 
             <EditText
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:id="@+id/InputComment"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/_40sdp"

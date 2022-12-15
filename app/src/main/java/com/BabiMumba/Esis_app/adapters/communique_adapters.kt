@@ -170,6 +170,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                             false
                         } else {
                             likereference!!.child(postkey).child(userid).setValue(true)
+
                             if (model.token_users != token_id){
                                 FcmNotificationsSender.pushNotification(
                                     holder.message.context,
