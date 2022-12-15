@@ -21,6 +21,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.commentaire_poste_adapters
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
+import com.BabiMumba.Esis_app.model.commentaire_poste_model
 import com.BabiMumba.Esis_app.model.commnunique_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -119,11 +120,11 @@ class PosteDetaille : AppCompatActivity() {
     fun setListener(){
         delete_btn.setOnClickListener {
             val pop = PopupMenu(this@PosteDetaille, delete_btn)
-            pop.menuInflater.inflate(com.google.firebase.database.R.menu.popup_menu, pop.menu)
+            pop.menuInflater.inflate(R.menu.popup_menu, pop.menu)
             pop.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
                 PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem): Boolean {
-                    if (item.itemId == com.google.firebase.database.R.id.delete_id) {
+                    if (item.itemId == R.id.delete_id) {
                         Deletedialogue()
                     }
                     return true
@@ -149,36 +150,6 @@ class PosteDetaille : AppCompatActivity() {
             }
             override fun afterTextChanged(s: Editable) {}
         })
-    }
-
-    fun showDialog() {
-        val dialog = Dialog(this)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(com.google.firebase.database.R.layout.item_dialogu)
-        dialog.setCancelable(true)
-        val lp = WindowManager.LayoutParams()
-        lp.copyFrom(dialog.window!!.attributes)
-        lp.width = WindowManager.LayoutParams.WRAP_CONTENT
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-        val etPost = dialog.findViewById<EditText>(R.id.comment_txt)
-        val btSubmit: AppCompatButton = dialog.findViewById(R.id.comment_btn)
-        //val btPhoto = dialog.findViewById<ImageButton>(R.id.bt_photo)
-        etPost.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                btSubmit.isEnabled = etPost.length() > 0
-                btSubmit.setOnClickListener {
-                    //ajouter_data(etPost.text.toString())
-                    check_post(etPost.text.toString())
-                    //add_comment()
-                    dialog.dismiss()
-                    //Toast.makeText(this@PosteDetaille, etPost.text.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
-            override fun afterTextChanged(s: Editable) {}
-        })
-        dialog.show()
-        dialog.window!!.attributes = lp
     }
 
     fun ajouter_data(msg:String){
