@@ -22,6 +22,8 @@ import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.net.MalformedURLException
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.DetailleActivity
+import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
 import java.net.URL
 import java.util.HashMap
 
@@ -61,7 +63,9 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             .into(holder.image_user)
         holder.itemView.setOnClickListener {
            val cle = getRef(position).key
-            val intent = Intent(holder.itemView.context,DetailleActivity::class.java)
+
+            val intent = Intent(holder.itemView.context, DetailleActivity::class.java)
+
             intent.putExtra("lien_book",syllabusModel.lien_du_livre)
             intent.putExtra("nom_prof",syllabusModel.nom_prof)
             intent.putExtra("syllabus",syllabusModel.nom_syllabu)
@@ -78,7 +82,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         }
 
         holder.image_user.setOnClickListener{
-            val intent = Intent(holder.itemView.context,InfosSyllabusActivity::class.java)
+            val intent = Intent(holder.itemView.context, InfosSyllabusActivity::class.java)
             intent.putExtra("mail",syllabusModel.mail_users)
 
             holder.itemView.context.startActivity(intent)
