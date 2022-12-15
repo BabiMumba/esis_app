@@ -1,9 +1,11 @@
 package com.BabiMumba.Esis_app.home
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
@@ -12,13 +14,17 @@ import android.widget.Toast
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fragment.ForumFragment
 import com.BabiMumba.Esis_app.fragment.HomeFragment
+import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_profil_user.*
 
 class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelectedListener {
 
@@ -46,13 +52,55 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val image:View = navview.getHeaderView(0)
         val mail:View = navview.getHeaderView(0)
 
-        val image_mail: ImageView = image.findViewById(R.id.profil_user)
-        val nom: TextView = tete.findViewById(R.id.name)
-        val mail_user: TextView = mail.findViewById(R.id.mail_user)
-
+        val image_m: ImageView = image.findViewById(R.id.profile_image)
+        val nom: TextView = tete.findViewById(R.id.name_user)
+        val mail_user: TextView = mail.findViewById(R.id.mail)
+        nom.text = "Elios mesio"
+        mail_user.text = "elios@gmail.com"
 
     }
 
+    private fun readData(){
+        val fireuser= firebaseAuth.currentUser
+        val mail = fireuser?.email.toString()
+        val db = FirebaseFirestore.getInstance()
+        val docRef = db.collection("Utilisateurs")
+            .document(mail)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null){
+                    val name = document.data?.getValue("nom").toString()
+                    val postname = document.data?.getValue("post-nom").toString()
+                    val num = document.data?.getValue("Numero de telephone").toString()
+                    val prenoms = document.data?.getValue("prenom").toString()
+                    val mailTo = document.data?.getValue("mail").toString()
+
+
+
+                    val imgetxt = document.data?.getValue("profil")
+
+                    val circularProgressDrawable = CircularProgressDrawable(this)
+                    circularProgressDrawable.strokeWidth = 5f
+                    circularProgressDrawable.centerRadius = 30f
+                    circularProgressDrawable.start()
+                    Glide
+                        .with(this)
+                        .load(imgetxt)
+                        // .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .placeholder(circularProgressDrawable)
+                        .into(imgView_proPic)
+
+
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                }else{
+                    Log.d(ContentValues.TAG, "document inconnue")
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
+    }
     private fun loadFragmant(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_layout,fragment)
