@@ -1,9 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.DetailleActivity">
+    android:fitsSystemWindows="true"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:background="@color/white">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/toolbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:toolbarId="@+id/toolbar"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            >
+
+
+            <RelativeLayout
+                android:id="@+id/detaille_syllabus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp">
+
+                <ImageView
+                    android:id="@+id/pdf_id_icone"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_130sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/pdf_file" />
+
+                <TextView
+                    android:id="@+id/name_syllabus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:maxLines="1"
+                    android:text="Math"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_publ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name_syllabus"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/pdf_id_icone"
+                    android:text="Distribuer par: "
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/nom_du_prof"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/name_syllabus"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/tv_publ"
+                    android:maxLines="1"
+                    android:text="Jean luc"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_promo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_publ"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/pdf_id_icone"
+                    android:text="Promotion: "
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/my_txtv_pm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_publ"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/tv_promo"
+                    android:text="Prepa"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_distr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_txtv_pm"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/pdf_id_icone"
+                    android:text="Publier par: "
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/user_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/my_txtv_pm"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/tv_distr"
+                    android:text="Randy"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date_de_publ"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_id"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/pdf_id_icone"
+                    android:text="Date: "
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10ssp" />
+
+                <TextView
+                    android:id="@+id/date_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/user_id"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_toEndOf="@id/date_de_publ"
+                    android:text="12/12/2022"
+                    android:textColor="@color/primary_text"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_below="@id/pdf_id_icone"
+                    android:background="@color/black" />
+            </RelativeLayout>
+
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_syllabus" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
