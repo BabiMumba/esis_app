@@ -11,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -71,7 +72,7 @@ class SettingActivity : AppCompatActivity() {
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     fun clickmethode(){
         md.setOnClickListener {
-            startActivity(Intent(this,ProfilUser::class.java))
+            startActivity(Intent(this, ProfilUser::class.java))
         }
         rr4.setOnClickListener {
             if (isConnectedNetwork(this)){

@@ -8,6 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     >
+
     <RelativeLayout
         android:id="@+id/vv"
         android:layout_width="match_parent"
@@ -20,8 +21,16 @@
             android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
             android:layout_centerInParent="true"
+            android:src="@drawable/ic_user"
             app:civ_border_color="@color/primary_dark"
             app:civ_border_width="2dp" />
+
+        <ImageView
+            android:id="@+id/edit_img"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/ic_baseline_add_a_photo_24" />
 
     </RelativeLayout>
     <ScrollView
@@ -36,144 +45,97 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/_20sdp"
+            android:paddingBottom="@dimen/_10sdp"
             >
 
-
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/l1"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp">
-
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Nom:"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold" />
-
-                <TextView
+                    android:text="Nom"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    />
+                <EditText
                     android:id="@+id/ui_name"
-                    android:layout_width="wrap_content"
+                    android:hint="nom"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="kaisa"
-                    android:textColor="@color/secondary_text"
-                    android:textStyle="bold" />
+                    android:background="@drawable/background_input"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    />
+            </LinearLayout>
 
-
-            </RelativeLayout>
-
-            <View
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:id="@+id/v1"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gris"
-                android:layout_below="@id/l1"
-                />
-
-            <RelativeLayout
-                android:layout_below="@id/v1"
+            <LinearLayout
                 android:id="@+id/l2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp">
+                android:layout_below="@id/l1"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Post-nom:"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold" />
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:text="@string/postn" />
 
-                <TextView
+                <EditText
                     android:id="@+id/ui_post_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Mumba"
-                    android:textColor="@color/secondary_text"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
-
-            <View
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:id="@+id/v2"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gris"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:background="@drawable/background_input"
+                    android:hint="@string/postn"
+                    android:padding="@dimen/_10sdp" />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_below="@id/l2"
-                />
-
-            <RelativeLayout
                 android:id="@+id/l3"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/v2"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:padding="@dimen/_15sdp">
-
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="Prenom:"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold" />
-
-                <TextView
+                    android:text="@string/prenom"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    />
+                <EditText
                     android:id="@+id/prenom_ui"
-                    android:layout_width="wrap_content"
+                    android:hint="@string/prenom"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerVertical="true"
-                    android:text="Babi"
-                    android:textColor="@color/secondary_text"
-                    android:textStyle="bold" />
-
-
-            </RelativeLayout>
-
-            <View
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:id="@+id/v3"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gris"
-                android:layout_below="@id/l3"
-                />
+                    android:background="@drawable/background_input"
+                    android:padding="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    />
+            </LinearLayout>
 
             <RelativeLayout
-                android:layout_below="@id/v3"
                 android:id="@+id/l4"
+                android:layout_below="@id/l3"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/background_input"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp">
+                >
 
                 <TextView
                     android:id="@+id/genre"
@@ -194,16 +156,9 @@
                     android:textStyle="bold" />
 
 
+
             </RelativeLayout>
-            <View
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:id="@+id/v4"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gris"
-                android:layout_below="@id/l4"
-                />
+
             <RelativeLayout
                 android:id="@+id/l5"
                 android:layout_width="match_parent"
@@ -213,6 +168,7 @@
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/background_input"
                 android:padding="@dimen/_10sdp">
 
                 <TextView
@@ -235,15 +191,6 @@
 
 
             </RelativeLayout>
-            <View
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:id="@+id/v5"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_1sdp"
-                android:background="@color/gris"
-                android:layout_below="@id/l5"
-                />
             <RelativeLayout
                 android:id="@+id/l6"
                 android:layout_width="match_parent"
@@ -277,24 +224,31 @@
 
             </RelativeLayout>
 
+            <Button
+                android:id="@+id/save_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/l6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="@drawable/background_btn"
+                android:text="Enregistre"
+                android:textColor="@color/white"
+                android:textAllCaps="false" />
 
-
-
+            <ProgressBar
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/l6"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="center"
+                android:visibility="invisible"
+                android:id="@+id/progressBar"
+                />
 
         </RelativeLayout>
     </ScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/edit_profil"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        app:borderWidth="0dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:backgroundTint="@color/primary"
-        android:src="@drawable/ic_baseline_edit_24" />
 
 
 </RelativeLayout>
