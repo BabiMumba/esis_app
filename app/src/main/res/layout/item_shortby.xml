@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:id="@+id/ttle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="Trier les commentaires"
+        android:textColor="#272525"
+        android:textSize="@dimen/_11sdp"
+        android:textStyle="bold" />
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_below="@id/ttle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Commentaires les plus recents"
+                android:textColor="#272525"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Les commentaires les plus recents afficherons en premier"
+                android:textColor="#272525"
+                android:textStyle="normal|italic" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:id="@+id/r2"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_below="@id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Commentaires les plus anciens"
+                android:textColor="#272525"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="Les commentaires les plus anciens afficherons en premier"
+                android:textColor="#272525"
+                android:textStyle="normal|italic" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+</RelativeLayout>
