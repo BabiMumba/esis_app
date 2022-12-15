@@ -20,6 +20,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/p1"
+                android:src="@drawable/ic_propic1"
                 android:layout_width="@dimen/_80sdp"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_centerHorizontal="true"
