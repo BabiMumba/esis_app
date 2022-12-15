@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.PublishPost
 import com.BabiMumba.Esis_app.model.commnunique_model
 import com.babitech.esis.adapter.communique_adapters
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -48,7 +49,7 @@ class ForumFragment : Fragment() {
         val add_btn = viewf.findViewById<FloatingActionButton>(R.id.add_post)
 
         add_btn.setOnClickListener {
-            startActivity(Intent(activity, PublishCommunique::class.java))
+            startActivity(Intent(activity, PublishPost::class.java))
         }
         linearLayoutManager = LinearLayoutManager(activity)
         linearLayoutManager.reverseLayout = true

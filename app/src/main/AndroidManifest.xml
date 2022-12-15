@@ -21,6 +21,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".PublishPost"
+            android:exported="false" />
+        <activity
             android:name=".home.InfosActivity"
             android:exported="false" />
         <activity
