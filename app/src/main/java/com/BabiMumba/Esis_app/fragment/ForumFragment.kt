@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.PublishPost
 import com.BabiMumba.Esis_app.model.commnunique_model
-import com.babitech.esis.adapter.communique_adapters
+import com.BabiMumba.Esis_app.adapters.communique_adapters
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -33,7 +33,6 @@ class ForumFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val viewf = inflater.inflate(R.layout.fragment_forum, container, false)
-
 
         if (isConnectedNetwork(requireActivity().applicationContext)){
             Toast.makeText(activity, "connecter", Toast.LENGTH_SHORT).show()

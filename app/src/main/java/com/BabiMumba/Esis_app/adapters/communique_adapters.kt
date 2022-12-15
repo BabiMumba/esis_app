@@ -1,4 +1,4 @@
-package com.babitech.esis.adapter
+package com.BabiMumba.Esis_app.adapters
 
 
 import android.content.ContentValues
@@ -27,14 +27,13 @@ import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.HashMap
 
-class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):FirebaseRecyclerAdapter<commnunique_model,communique_adapters.viewholder>(options){
+class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):FirebaseRecyclerAdapter<commnunique_model, communique_adapters.viewholder>(options){
 
     var progressBar: ProgressBar? = null
     var likereference: DatabaseReference? = null
     var mon_nom = ""
     var token_id = ""
     private lateinit var firebaseAuth: FirebaseAuth
-
 
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
         var nom:TextView
@@ -50,7 +49,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
         var like_btn:ImageView
 
         init {
-            poste_image = itemview.findViewById(R.id.image_poste)
+            poste_image = itemview.findViewById(R.id.image_poste1)
             layout_like = itemview.findViewById(R.id.layout_like)
             like_btn = itemview.findViewById(R.id.like_btn)
             image = itemview.findViewById(R.id.imgView_proPic)

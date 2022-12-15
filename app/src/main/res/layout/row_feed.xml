@@ -35,8 +35,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:layout_toRightOf="@+id/imgView_proPic"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/imgView_proPic"
                 android:orientation="vertical">
 
                 <TextView
@@ -77,7 +77,7 @@
             android:textSize="16sp" />
 
         <ImageView
-            android:id="@+id/image_poste"
+            android:id="@+id/image_poste1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/message"
@@ -101,7 +101,7 @@
         <ImageView
             android:layout_margin="@dimen/_5sdp"
             android:id="@+id/like_personn_count"
-            android:layout_below="@id/image_poste"
+            android:layout_below="@id/image_poste1"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
             android:adjustViewBounds="true"
@@ -112,7 +112,7 @@
             android:id="@+id/like_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/image_poste"
+            android:layout_below="@id/image_poste1"
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_toEndOf="@id/like_personn_count"
             android:gravity="center"
