@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.fragment
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -16,6 +17,7 @@ import com.BabiMumba.Esis_app.home.ActualiteActivity
 import com.BabiMumba.Esis_app.home.LectureActivity_Pdf
 import com.BabiMumba.Esis_app.home.ResultatActivity
 import com.BabiMumba.Esis_app.home.Syllabus_FragmentActivity
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -56,29 +58,16 @@ class HomeFragment : Fragment() {
         viewF.findViewById<CardView>(R.id.lecture_cat).setOnClickListener {
             startActivity(Intent(activity, LectureActivity_Pdf::class.java))
         }
-        readname(viewF)
+        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        viewF.findViewById<TextView>(R.id.prenom).text = sharedPreferences.getString("prenom",null)
+        Glide
+            .with(requireActivity())
+            .load(sharedPreferences.getString("lien profil",null))
+            // .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(R.drawable.apprendre_u)
+            .into(viewF.findViewById(R.id.profile_image))
+
         return viewF
     }
-    fun readname(v:View){
 
-        val firebaseUser = firebaseAuth.currentUser
-        val mail = firebaseUser?.email.toString()
-        val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
-        docRef.get()
-            .addOnSuccessListener {
-                if (it!=null){
-                    val pren = it.data?.getValue("prenom").toString()
-                    v.findViewById<TextView>(R.id.prenom).text = pren
-
-                }else{
-                    Log.d(ContentValues.TAG,"no such document")
-                }
-            }
-
-            .addOnFailureListener {
-                Toast.makeText(requireActivity(), "${it}", Toast.LENGTH_SHORT).show()
-            }
-
-    }
 }

@@ -2,6 +2,7 @@ package com.BabiMumba.Esis_app.home
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,10 +31,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var firebaseAuth: FirebaseAuth
-
-    var nom_posten =""
-    var numero_tel =""
-    var image_glide =""
     @SuppressLint("CutPasteId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,10 +45,8 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         loadFragmant(HomeFragment())
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
-        readData()
 
         val navview = findViewById<NavigationView>(R.id.nav_view)
-
         val tete:View = navview.getHeaderView(0)
         val image:View = navview.getHeaderView(0)
         val mail:View = navview.getHeaderView(0)
@@ -59,57 +54,19 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val image_m: ImageView = image.findViewById(R.id.profile_image)
         val nom: TextView = tete.findViewById(R.id.name_user)
         val mail_user: TextView = mail.findViewById(R.id.mail_text)
-       // nom.text = nom_posten
-       // mail_user.text = numero_tel
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        nom.text = sharedPreferences.getString("prenom",null)
+        mail_user.text = sharedPreferences.getString("numero de telephone",null)
 
-
-
-
-    }
-
-    private fun readData(){
-        val fireuser= firebaseAuth.currentUser
-        val mail = fireuser?.email.toString()
-        val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs")
-            .document(mail)
-        docRef.get()
-            .addOnSuccessListener { document ->
-                if (document != null){
-                    val name = document.data?.getValue("nom").toString()
-                    val postname = document.data?.getValue("post-nom").toString()
-                    val num = document.data?.getValue("Numero de telephone").toString()
-                    val prenoms = document.data?.getValue("prenom").toString()
-                    val mailTo = document.data?.getValue("mail").toString()
-                    //val imgetxt = document.data?.getValue("profil")
-                    //name_user.text = "$prenoms $postname"
-                    //mail_text.text = "+243 $num"
-
-                    val circularProgressDrawable = CircularProgressDrawable(this)
-                    circularProgressDrawable.strokeWidth = 5f
-                    circularProgressDrawable.centerRadius = 30f
-                    circularProgressDrawable.start()
-                    /*
-                      Glide
-                        .with(this)
-                        .load(imgetxt)
-                        // .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(circularProgressDrawable)
-                        .into(profile_image)
-                     */
-
-
-
-                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
-                }else{
-                    Log.d(ContentValues.TAG, "document inconnue")
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
-            }
+        Glide
+            .with(this)
+            .load(sharedPreferences.getString("lien profil",null))
+            // .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(R.drawable.apprendre_u)
+            .into(image_m)
 
     }
+
     private fun loadFragmant(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.frame_layout,fragment)
