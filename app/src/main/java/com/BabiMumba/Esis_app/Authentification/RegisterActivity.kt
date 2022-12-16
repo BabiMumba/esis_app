@@ -137,18 +137,20 @@ class RegisterActivity : AppCompatActivity() {
             }
     }
     private fun SavePrefData(){
+        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val date_dins = sdf.format(Date())
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply(){
             putString("nom",binding.nom.text.toString())
-            putString("date d'inscription",binding.nom.text.toString())
-            putString("post-nom",binding.nom.text.toString())
-            putString("prenom",binding.nom.text.toString())
-            putString("mail",binding.nom.text.toString())
-            putString("sexe",binding.nom.text.toString())
-            putString("numero de telephone",binding.nom.text.toString())
-            putString("promotion",binding.nom.text.toString())
-            putString("mot de passe",binding.nom.text.toString())
+            putString("date d'inscription",date_dins.toString())
+            putString("post-nom",binding.postNom.text.toString())
+            putString("prenom",binding.prenom.text.toString())
+            putString("mail",binding.inputMail.text.toString())
+            putString("sexe",binding.genreChoice.text.toString())
+            putString("numero de telephone",binding.number.text.toString())
+            putString("promotion",binding.promotionChoice.text.toString())
+            putString("mot de passe",binding.inputPassword.text.toString())
 
         }.apply()
     }
