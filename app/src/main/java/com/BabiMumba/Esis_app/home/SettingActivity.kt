@@ -31,42 +31,25 @@ class SettingActivity : AppCompatActivity() {
         checkstate()
     }
     private fun readData(){
-        val fireuser= firebaseAuth.currentUser
-        val mail = fireuser?.email.toString()
-
-        val db = FirebaseFirestore.getInstance()
-        db.collection("Utilisateurs").document(mail)
-            .get()
-            .addOnSuccessListener { document ->
-                if (document != null){
-
-                    val name = document.data?.getValue("nom").toString()
-                    val num = document.data?.getValue("Numero de telephone").toString()
-                    val prenoms = document.data?.getValue("prenom").toString()
-                    val mail = document.data?.getValue("mail").toString()
-                    val imgetxt = document.data?.getValue("profil")
-                    txt2.text = "+243 $num"
-                    txt1.text = "$prenoms $name"
-                    mm=mail
-
-                    val circularProgressDrawable = CircularProgressDrawable(this)
-                    circularProgressDrawable.strokeWidth = 5f
-                    circularProgressDrawable.centerRadius = 30f
-                    circularProgressDrawable.start()
-                    Glide
-                        .with(this)
-                        .load(imgetxt)
-                        // .diskCacheStrategy(DiskCacheStrategy.ALL)
-                        .placeholder(circularProgressDrawable)
-                        .into(p1)
-                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
-                }else{
-                    Log.d(ContentValues.TAG, "document inconnue")
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "echec ${it.message}", Toast.LENGTH_SHORT).show()
-            }
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+            val name = sharedPreferences.getString("nom",null)
+            val num = sharedPreferences.getString("Numero de telephone",null)
+            val prenoms = sharedPreferences.getString("prenom",null)
+            val mail = sharedPreferences.getString("mail",null)
+            val imgetxt = sharedPreferences.getString("lien profil",null)
+            txt2.text = "+243 $num"
+            txt1.text = "$prenoms $name"
+            mm=mail.toString()
+            val circularProgressDrawable = CircularProgressDrawable(this)
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
+            Glide
+                .with(this)
+                .load(imgetxt)
+                // .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(p1)
 
     }
     @SuppressLint("UseSwitchCompatOrMaterialCode")

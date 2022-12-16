@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
         val mail_user: TextView = mail.findViewById(R.id.mail_text)
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         nom.text = sharedPreferences.getString("prenom",null)
-        mail_user.text = sharedPreferences.getString("numero de telephone",null)
+        mail_user.text = sharedPreferences.getString("mail",null)
 
         Glide
             .with(this)
