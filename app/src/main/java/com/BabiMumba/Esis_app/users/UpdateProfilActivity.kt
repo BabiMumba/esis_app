@@ -46,11 +46,9 @@ class UpdateProfilActivity : AppCompatActivity() {
         save_btn.setOnClickListener {
             if (filepath == null){
                 update_data()
-                Toast.makeText(this, "il est nulle le lien", Toast.LENGTH_SHORT).show()
             }else{
                 send_profil()
                 update_data()
-                Toast.makeText(this, "il as quelque chose", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -178,7 +176,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle("photo de profil change")
         pd.show()
-        val name = "profil${System.currentTimeMillis()}"
+        val name = "profil${u_mail.text}}"
         val reference = storageReference.child("photo_profil/$name.png")
         filepath?.let {
             reference.putFile(it)
