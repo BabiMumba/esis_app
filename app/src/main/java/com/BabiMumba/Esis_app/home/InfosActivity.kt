@@ -32,7 +32,6 @@ class InfosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_infos)
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
-        Toast.makeText(this, ad_mail, Toast.LENGTH_SHORT).show()
         read_name()
         setListener()
 
@@ -52,10 +51,8 @@ class InfosActivity : AppCompatActivity() {
 
     }
     fun read_name(){
-
         val ad_mail = intent.getStringExtra("mail").toString()
         val db = FirebaseFirestore.getInstance()
-
         val docRef = db.collection("Utilisateurs").document(ad_mail)
         docRef.get()
             .addOnSuccessListener {

@@ -19,13 +19,11 @@ import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_setting.*
 
 class SettingActivity : AppCompatActivity() {
-    private lateinit var firebaseAuth: FirebaseAuth
     var mm = ""
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setting)
-        firebaseAuth = FirebaseAuth.getInstance()
         readData()
         clickmethode()
         checkstate()
@@ -33,7 +31,7 @@ class SettingActivity : AppCompatActivity() {
     private fun readData(){
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
             val name = sharedPreferences.getString("nom",null)
-            val num = sharedPreferences.getString("Numero de telephone",null)
+            val num = sharedPreferences.getString("numero de telephone",null)
             val prenoms = sharedPreferences.getString("prenom",null)
             val mail = sharedPreferences.getString("mail",null)
             val imgetxt = sharedPreferences.getString("lien profil",null)

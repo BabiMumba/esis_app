@@ -43,9 +43,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt1"
-                android:hint="+243"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:hint="+243"
                 android:textColor="@color/primary_text"
                 android:textStyle="normal" />
 
