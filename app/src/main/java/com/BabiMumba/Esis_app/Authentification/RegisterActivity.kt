@@ -85,13 +85,14 @@ class RegisterActivity : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle("Creation du compte")
         pd.show()
-        val name = "profil${System.currentTimeMillis()}"
+        val name = "profil${binding.inputMail.text}"
         val reference = storageReference.child("photo_profil/$name.png")
         filepath?.let {
             reference.putFile(it)
                 .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                     reference.downloadUrl.addOnSuccessListener { uri: Uri ->
                         getprofil_link(uri.toString())
+                        SavePrefData(uri.toString())
                     }
                 }
                 .addOnFailureListener{
@@ -136,7 +137,7 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
     }
-    private fun SavePrefData(){
+    private fun SavePrefData(imagelink:String){
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
@@ -151,8 +152,10 @@ class RegisterActivity : AppCompatActivity() {
             putString("numero de telephone",binding.number.text.toString())
             putString("promotion",binding.promotionChoice.text.toString())
             putString("mot de passe",binding.inputPassword.text.toString())
+            putString("lien profil",imagelink)
 
         }.apply()
+        Toast.makeText(this, "save to shared prefence", Toast.LENGTH_SHORT).show()
     }
 
     private fun firebaseSignUp() {
