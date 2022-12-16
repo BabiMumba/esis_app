@@ -140,6 +140,15 @@ class RegisterActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply(){
+            putString("nom",binding.nom.text.toString())
+            putString("date d'inscription",binding.nom.text.toString())
+            putString("post-nom",binding.nom.text.toString())
+            putString("prenom",binding.nom.text.toString())
+            putString("mail",binding.nom.text.toString())
+            putString("sexe",binding.nom.text.toString())
+            putString("numero de telephone",binding.nom.text.toString())
+            putString("promotion",binding.nom.text.toString())
+            putString("mot de passe",binding.nom.text.toString())
 
         }.apply()
     }
