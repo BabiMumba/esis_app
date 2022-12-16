@@ -1,17 +1,13 @@
 package com.BabiMumba.Esis_app.users
 
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_profil_user.*
 
 class ProfilUser : AppCompatActivity() {
@@ -35,7 +31,6 @@ class ProfilUser : AppCompatActivity() {
 
     private fun readData(){
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-
             val name = sharedPreferences.getString("nom",null)
             val postname = sharedPreferences.getString("post-nom",null)
             val num = sharedPreferences.getString("numero de telephone",null)
@@ -43,14 +38,12 @@ class ProfilUser : AppCompatActivity() {
             val mailTo = sharedPreferences.getString("mail",null)
             val promotion = sharedPreferences.getString("promotion",null)
             val imgetxt = sharedPreferences.getString("lien profil",null)
-
             promot.text = promotion
             u_mail.text = mailTo
             u_nume.text = num
             ui_post_name.text = postname
             prenom_ui.text = prenoms
             ui_name.text = name
-
 
             val circularProgressDrawable = CircularProgressDrawable(this)
             circularProgressDrawable.strokeWidth = 5f

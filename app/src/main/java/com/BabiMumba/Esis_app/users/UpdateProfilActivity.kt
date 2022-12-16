@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.users
 import android.Manifest
 import android.app.ProgressDialog
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.MainActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -23,6 +25,9 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_update_profil.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.HashMap
 
 class UpdateProfilActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -115,6 +120,17 @@ class UpdateProfilActivity : AppCompatActivity() {
             }
 
     }
+    private fun SavePrefData() {
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply() {
+            putString("nom", ui_name.text.toString())
+            putString("post-nom", ui_post_name.text.toString())
+            putString("prenom", prenom_ui.text.toString())
+
+        }.apply()
+        showtoast("mise ajour reussi")
+    }
     private fun update_data(){
         loading(true)
         val fireuser= firebaseAuth.currentUser
@@ -129,8 +145,8 @@ class UpdateProfilActivity : AppCompatActivity() {
             .update(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+                    SavePrefData()
                     loading(false)
-                    showtoast("mise ajour reussi")
                 }else{
                     loading(false)
                     showtoast(it.exception?.message.toString())
@@ -185,7 +201,6 @@ class UpdateProfilActivity : AppCompatActivity() {
         }
     }
     private fun getprofil_link(p:String){
-
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val database = FirebaseFirestore.getInstance()
