@@ -66,7 +66,6 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun getprofil_link(p:String){
-        ///photo_profil
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
@@ -75,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
             .set(infor_user, SetOptions.merge())
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    showtoast("yes document creer")
+                    SavePrefData(p)
                 }else{
                     showtoast(it.exception?.message.toString())
                 }
@@ -92,7 +91,6 @@ class RegisterActivity : AppCompatActivity() {
                 .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                     reference.downloadUrl.addOnSuccessListener { uri: Uri ->
                         getprofil_link(uri.toString())
-                        SavePrefData(uri.toString())
                     }
                 }
                 .addOnFailureListener{
@@ -129,8 +127,6 @@ class RegisterActivity : AppCompatActivity() {
                 if (it.isSuccessful){
                     showtoast("yes document creer")
                     loading(false)
-                    startActivity(Intent(this, MainActivity::class.java))
-                    finish()
                 }else{
                     showtoast(it.exception?.message.toString())
                     loading(false)
@@ -155,6 +151,8 @@ class RegisterActivity : AppCompatActivity() {
             putString("lien profil",imagelink)
 
         }.apply()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
         Toast.makeText(this, "save to shared prefence", Toast.LENGTH_SHORT).show()
     }
 
@@ -165,8 +163,8 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth.createUserWithEmailAndPassword(mail,motdpasse)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful){
-                    send_profil()
                     getInfoUser()
+                    send_profil()
                     loading(false)
                 }else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()

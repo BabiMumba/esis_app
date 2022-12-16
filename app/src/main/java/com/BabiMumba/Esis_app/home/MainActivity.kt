@@ -81,20 +81,23 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     val num = document.data?.getValue("Numero de telephone").toString()
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
-                    val imgetxt = document.data?.getValue("profil")
-                    name_user.text = "$prenoms $postname"
-                    mail_text.text = "+243 $num"
+                    //val imgetxt = document.data?.getValue("profil")
+                    //name_user.text = "$prenoms $postname"
+                    //mail_text.text = "+243 $num"
 
                     val circularProgressDrawable = CircularProgressDrawable(this)
                     circularProgressDrawable.strokeWidth = 5f
                     circularProgressDrawable.centerRadius = 30f
                     circularProgressDrawable.start()
-                    Glide
+                    /*
+                      Glide
                         .with(this)
                         .load(imgetxt)
                         // .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(circularProgressDrawable)
                         .into(profile_image)
+                     */
+
 
 
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
