@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.Authentification
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -135,6 +136,14 @@ class RegisterActivity : AppCompatActivity() {
                 }
             }
     }
+    private fun SavePrefData(){
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply(){
+
+        }.apply()
+    }
+
     private fun firebaseSignUp() {
         loading(true)
         val mail = binding.inputMail.text.toString()
