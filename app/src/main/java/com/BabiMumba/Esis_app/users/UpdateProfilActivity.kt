@@ -185,6 +185,12 @@ class UpdateProfilActivity : AppCompatActivity() {
                 .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                     reference.downloadUrl.addOnSuccessListener { uri: Uri ->
                         getprofil_link(uri.toString())
+                        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.apply(){
+                            putString("lien profil",uri.toString())
+                        }.apply()
+
                         pd.dismiss()
                     }
                 }
