@@ -30,7 +30,7 @@ class SettingActivity : AppCompatActivity() {
     }
     private fun readData(){
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
-            val name = sharedPreferences.getString("nom",null)
+            val name = sharedPreferences.getString("post-nom",null)
             val num = sharedPreferences.getString("numero de telephone",null)
             val prenoms = sharedPreferences.getString("prenom",null)
             val mail = sharedPreferences.getString("mail",null)

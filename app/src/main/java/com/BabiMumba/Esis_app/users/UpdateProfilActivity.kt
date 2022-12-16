@@ -176,7 +176,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle("photo de profil change")
         pd.show()
-        val name = "profil${u_mail.text}}"
+        val name = "profil${u_mail.text}"
         val reference = storageReference.child("photo_profil/$name.png")
         filepath?.let {
             reference.putFile(it)

@@ -70,7 +70,8 @@
         android:backgroundTint="@color/primary"
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginBottom="@dimen/_5sdp"
-        android:src="@drawable/ic_comment_btn"
+        android:tint="@color/profilePrimaryDark"
+        android:src="@drawable/ic_baseline_edit_24"
         />
 
 
