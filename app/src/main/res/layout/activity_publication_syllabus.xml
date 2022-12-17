@@ -7,12 +7,25 @@
     android:padding="@dimen/_20sdp"
     >
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Partager un Syllabus"
+        android:textStyle="bold"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/primary_text"
+        android:id="@+id/title"
+        />
+
+
     <RelativeLayout
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_below="@id/title"
         android:id="@+id/upload_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/background_input_new"
-        android:orientation="horizontal"
         android:padding="@dimen/_12sdp">
 
         <ImageView
