@@ -22,7 +22,6 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
 
         val title = remoteMessage.notification!!.title
         val message_txt = remoteMessage.notification!!.body
-        val icon = remoteMessage.notification!!.icon
 
         val resultIntent = Intent(this, MainActivity::class.java)
         val pendingIntent = PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
@@ -31,7 +30,7 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
         val notificationBuilder = NotificationCompat.Builder(this, CANAL)
         notificationBuilder.setContentTitle(title)
         notificationBuilder.setContentText(message_txt)
-        notificationBuilder.setSmallIcon(R.drawable.ic_propic1)
+        notificationBuilder.setSmallIcon(R.mipmap.launcher_icon)
         notificationBuilder.setContentIntent(pendingIntent)
         notificationBuilder.setStyle(
             NotificationCompat.BigTextStyle().bigText(

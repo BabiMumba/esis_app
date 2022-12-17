@@ -18,7 +18,7 @@ class FcmNotificationsSender {
         private const val ServerKey =
             "key=AAAAHtlHJQQ:APA91bEc-qS2w945WB8EiR2NNmlFz6RClXctiT6bu8oY5YcycQkvEh5BjJ72jSn-0p_t8zhnMJWvCrh3g4FWYvXcZfV3nMzLA-wADFlWQHguzle11_jxDoyAfG1djJdO9R4MgYAsHqvv"
 
-        fun pushNotification(context: Context?, token: String?, title: String, message: String?,icon:String) {
+        fun pushNotification(context: Context?, token: String?, title: String, message: String?) {
             val policy = ThreadPolicy.Builder().permitAll().build()
             StrictMode.setThreadPolicy(policy)
             val queue = Volley.newRequestQueue(context)
@@ -28,7 +28,6 @@ class FcmNotificationsSender {
                 val notification = JSONObject()
                 notification.put("title", title)
                 notification.put("body", message)
-                notification.put("https://www.esisalama.org/publication/images/logoesis.png", icon)
                 json.put("notification", notification)
                 val request: JsonObjectRequest =
                     object : JsonObjectRequest(Method.POST, BASE_URL, json, Response.Listener {
