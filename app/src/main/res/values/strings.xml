@@ -19,4 +19,14 @@
     <string name="noti_channellid">channel_id</string>
     <string name="notif_channel_title">channel title</string>
     <string name="notif_channel_desc">channel description</string>
+    <string name="shre_book_txt">Partager un Syllabus</string>
+    <string name="importez_un_fichier_pdf">Importez un fichier pdf</string>
+    <string name="syllabus_de">Syllabus de *</string>
+    <string name="ex_logique">Ex: Logique</string>
+    <string name="nom_du_prof">Nom du prof *</string>
+    <string name="ex_jean_luc_kawel">Ex: jean luc kawel</string>
+    <string name="description">Description *</string>
+    <string name="fac">(facultatif)</string>
+    <string name="publier">Publier</string>
+    <string name="promotion">Promotion</string>
 </resources>
