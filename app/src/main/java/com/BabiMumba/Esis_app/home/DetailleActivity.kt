@@ -330,7 +330,12 @@ class DetailleActivity : AppCompatActivity() {
 
     fun check_post() {
         val cle = intent.getStringExtra("cle")
-        val pm = intent.getStringExtra("promo")
+        var pm = intent.getStringExtra("promo")
+
+        if (pm != "Preparatoire" && pm != "L1") {
+            pm = "Tous"
+        }
+
         val ref = FirebaseDatabase.getInstance().getReference("syllabus").child(pm.toString())
             .child(cle.toString())
         val eventListener: ValueEventListener = object : ValueEventListener {
