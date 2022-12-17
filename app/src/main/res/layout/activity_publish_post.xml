@@ -8,28 +8,35 @@
     android:padding="@dimen/_20sdp"
     tools:context=".home.PublishPost">
 
-    <Button
+    <androidx.cardview.widget.CardView
         android:id="@+id/iimg"
+        android:layout_alignParentStart="true"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:text="Importe une image"
-        android:textAllCaps="false" />
+        app:cardCornerRadius="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/image_file"
+                android:layout_width="@dimen/_100sdp"
+                android:layout_height="@dimen/_100sdp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ajouter une image"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
 
 
-    <ImageView
-        android:id="@+id/image_file"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
-        android:layout_below="@id/iimg"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_baseline_add_24" />
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:layout_below="@id/image_file"
+        android:layout_below="@id/iimg"
         android:id="@+id/sy_na"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,10 +49,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/sy_na"
         android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/background_input"
-        android:hint="Ex: Votre communique"
+        android:background="@drawable/background_input_new"
+        android:hint="Ex:A quoi pensez-vous"
         android:imeOptions="actionDone"
-        android:inputType="textCapCharacters"
+        android:inputType="text|textMultiLine|textCapSentences"
         android:paddingStart="@dimen/_6sdp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_50sdp"
