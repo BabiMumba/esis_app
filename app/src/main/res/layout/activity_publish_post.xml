@@ -24,7 +24,6 @@
                 >
 
                 <ImageView
-                    android:src="@drawable/banner_principale"
                     android:scaleType="fitXY"
                     android:id="@+id/image_file"
                     android:layout_width="@dimen/_100sdp"
@@ -33,11 +32,11 @@
                     />
 
                 <TextView
+                    android:id="@+id/txt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="ajouter une image"
-                    android:id="@+id/txt1"
                     android:textColor="@color/secondary_text"
                     android:textSize="@dimen/_10ssp" />
             </RelativeLayout>

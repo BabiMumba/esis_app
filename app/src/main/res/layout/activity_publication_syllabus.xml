@@ -88,7 +88,7 @@
             android:hint="@string/ex_logique"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
-            android:inputType="textCapCharacters"
+            android:inputType="text"
             android:padding="@dimen/_10sdp" />
 
         <TextView
@@ -109,6 +109,7 @@
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_jean_luc_kawel"
             android:imeOptions="actionNext"
+            android:inputType="textPersonName"
             android:importantForAutofill="no"
             android:padding="@dimen/_10sdp" />
 
@@ -133,6 +134,7 @@
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
             android:paddingStart="@dimen/_5sdp"
+            android:inputType="text|textMultiLine|textCapSentences"
             android:paddingTop="@dimen/_3sdp"
             android:paddingBottom="@dimen/_30sdp"
             android:textSize="@dimen/_10sdp"

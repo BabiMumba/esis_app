@@ -53,7 +53,7 @@
         android:fontFamily="sans-serif-condensed"
         android:paddingEnd="@dimen/_12sdp"
         android:paddingBottom="@dimen/_2sdp"
-        android:text="bonjour juste savoir ce tp c'est a deposer quel day"
+        android:text="bonjour la team vous allez bien j'espers 👍👍✅"
         android:textColor="@color/black"
         android:textSize="@dimen/_10ssp"
         app:layout_constraintWidth_max="wrap"
