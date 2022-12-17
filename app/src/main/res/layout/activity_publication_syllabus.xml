@@ -11,7 +11,7 @@
         android:id="@+id/upload_file"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_input"
+        android:background="@drawable/background_input_new"
         android:orientation="horizontal"
         android:padding="@dimen/_12sdp">
 
@@ -28,7 +28,7 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_toEndOf="@id/file_icone"
-            android:text="Selectionnez un fichier pdf"
+            android:text="Importez un fichier pdf"
             android:textColor="@color/primary_text" />
 
         <ImageView
@@ -52,12 +52,13 @@
     </RelativeLayout>
 
     <TextView
+        android:textColor="@color/black_v"
         android:id="@+id/sy_na"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/promotion_choice"
         android:layout_marginTop="@dimen/_10sdp"
-        android:text="Syllabus de: " />
+        android:text="Syllabus de* " />
 
     <EditText
         android:id="@+id/nom_du_syllabus"
@@ -65,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/sy_na"
         android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/background_input"
+        android:background="@drawable/background_input_new"
         android:hint="Ex: Logique"
         android:imeOptions="actionNext"
         android:importantForAutofill="no"
@@ -78,7 +79,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/nom_du_syllabus"
         android:layout_marginTop="@dimen/_5sdp"
-        android:text="Nom du prof :" />
+        android:text="Nom du prof*"
+        android:textColor="@color/black_v" />
 
     <EditText
         android:id="@+id/nom_du_prof"
@@ -86,13 +88,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ns"
         android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/background_input"
+        android:background="@drawable/background_input_new"
         android:hint="Ex: jean luc kawel"
         android:imeOptions="actionNext"
         android:importantForAutofill="no"
         android:padding="@dimen/_10sdp" />
-
-
 
 
     <TextView
@@ -100,9 +100,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/nom_du_prof"
-        android:text="Description: "
         android:layout_marginTop="@dimen/_5sdp"
-        />
+        android:text="Description*"
+        android:textColor="@color/black_v" />
 
     <EditText
         android:id="@+id/description"
@@ -110,7 +110,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/ds"
         android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/background_input"
+        android:background="@drawable/background_input_new"
         android:hint="Ex: Prier de telecharger le syllabus de logique (facultatif)"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
@@ -137,25 +137,25 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/publish_file"
         />
+
     <RelativeLayout
         android:id="@+id/promotion_choice"
-        android:layout_below="@+id/upload_file"
-        android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_45sdp"
-        android:background="@drawable/background_input"
+        android:layout_below="@+id/upload_file"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/background_input_new"
         android:orientation="horizontal"
         android:paddingStart="@dimen/_16sdp"
-        android:layout_gravity="center"
-        android:paddingEnd="@dimen/_16sdp"
-        >
+        android:paddingEnd="@dimen/_16sdp">
 
         <TextView
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="Promotion ?"
+            android:text="Promotion"
             android:textColor="@color/primary_text"
             android:textStyle="bold" />
 
@@ -168,7 +168,6 @@
             android:text=""
             android:textColor="@color/secondary_text"
             android:textStyle="bold" />
-
 
 
     </RelativeLayout>
