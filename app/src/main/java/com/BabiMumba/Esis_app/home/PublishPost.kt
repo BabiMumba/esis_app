@@ -8,6 +8,7 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
@@ -99,6 +100,7 @@ class PublishPost : AppCompatActivity() {
         if (requestCode == 101 && resultCode == RESULT_OK) {
             imageUri = data?.data!!
             image_file.setImageURI(imageUri)
+            txt1.visibility = View.GONE
             filepath = data.data!!
         }
     }

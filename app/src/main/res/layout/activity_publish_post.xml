@@ -1,73 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="@dimen/_20sdp"
-    tools:context=".home.PublishPost">
+    android:layout_height="match_parent">
+    <RelativeLayout
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/iimg"
-        android:layout_alignParentStart="true"
-        android:layout_width="wrap_content"
-        app:cardCornerRadius="@dimen/_10sdp"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            >
-            <ImageView
-                android:id="@+id/image_file"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ajouter une image"
-                android:layout_centerInParent="true"
-                />
-        </RelativeLayout>
-
-
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:layout_below="@id/iimg"
-        android:id="@+id/sy_na"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:text="Message: " />
-
-    <EditText
-        android:id="@+id/message_commnq"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/sy_na"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/background_input_new"
-        android:hint="Ex:A quoi pensez-vous"
-        android:imeOptions="actionDone"
-        android:inputType="text|textMultiLine|textCapSentences"
-        android:paddingStart="@dimen/_6sdp"
-        android:paddingTop="@dimen/_5sdp"
-        android:paddingBottom="@dimen/_50sdp"
-        tools:ignore="RtlSymmetry" />
+        android:padding="@dimen/_20sdp"
+        tools:context=".home.PublishPost">
 
-    <Button
-        android:id="@+id/publish_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/message_commnq"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:textColor="@color/white"
-        android:background="@drawable/background_btn"
-        android:text="Publier"
-        android:textAllCaps="false" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/iimg"
+            android:layout_alignParentStart="true"
+            android:layout_width="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
 
-</RelativeLayout>
+                <ImageView
+                    android:src="@drawable/banner_principale"
+                    android:scaleType="fitXY"
+                    android:id="@+id/image_file"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
+
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="ajouter une image"
+                    android:id="@+id/txt1"
+                    android:textColor="@color/secondary_text"
+                    android:textSize="@dimen/_10ssp" />
+            </RelativeLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_below="@id/iimg"
+            android:id="@+id/sy_na"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="Message: " />
+
+        <EditText
+            android:id="@+id/message_commnq"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/sy_na"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input_new"
+            android:hint="Ex:A quoi pensez-vous"
+            android:imeOptions="actionDone"
+            android:inputType="text|textMultiLine|textCapSentences"
+            android:paddingStart="@dimen/_6sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_50sdp"
+            tools:ignore="RtlSymmetry" />
+
+        <Button
+            android:id="@+id/publish_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/message_commnq"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_btn"
+            android:text="Publier"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+</ScrollView>
