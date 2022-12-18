@@ -38,17 +38,19 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true">
 
-                    <TextView
+                    <com.airbnb.lottie.LottieAnimationView
                         android:id="@+id/salu"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_40sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Salut👋"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold" />
+                        android:maxHeight="@dimen/_80sdp"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/bonjour" />
+
+
 
                     <TextView
                         android:id="@+id/prenom"
@@ -147,15 +149,14 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_70sdp"
                                 android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:adjustViewBounds="true"
-                                android:cropToPadding="true"
-                                android:maxHeight="@dimen/_50sdp"
-                                android:src="@drawable/web_u" />
+                                android:maxHeight="@dimen/_80sdp"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/web_icon" />
 
                             <TextView
                                 android:fontFamily="serif"
@@ -195,7 +196,7 @@
                                 android:maxHeight="@dimen/_80sdp"
                                 app:lottie_autoPlay="true"
                                 app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/celebrate" />
+                                app:lottie_rawRes="@raw/eureux" />
 
                             <TextView
                                 android:fontFamily="serif"
@@ -237,16 +238,14 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <com.airbnb.lottie.LottieAnimationView
+                                android:layout_width="@dimen/_70sdp"
+                                android:layout_height="@dimen/_70sdp"
                                 android:layout_alignParentEnd="true"
-                                android:layout_centerVertical="true"
-                                android:adjustViewBounds="true"
-                                android:cropToPadding="true"
-                                android:maxHeight="@dimen/_60sdp"
-                                android:padding="@dimen/_5sdp"
-                                android:src="@drawable/apprendre_u" />
+                                android:maxHeight="@dimen/_80sdp"
+                                app:lottie_autoPlay="true"
+                                app:lottie_loop="true"
+                                app:lottie_rawRes="@raw/read" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -287,7 +286,6 @@
                                 app:lottie_rawRes="@raw/horaire" />
 
                             <TextView
-
                                 android:id="@+id/titre2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
