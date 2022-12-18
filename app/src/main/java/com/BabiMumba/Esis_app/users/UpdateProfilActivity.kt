@@ -6,13 +6,13 @@ import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
-import com.BabiMumba.Esis_app.home.MainActivity
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -25,9 +25,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_update_profil.*
-import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 class UpdateProfilActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -59,15 +57,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                        val intent = Intent()
-                        intent.type = "image/*"
-                        intent.action = Intent.ACTION_PICK
-                        startActivityForResult(
-                            Intent.createChooser(
-                                intent,
-                                "Selectionner un fichier"
-                            ), 101
-                        )
+                        setImage()
                     }
 
                     override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
@@ -118,6 +108,28 @@ class UpdateProfilActivity : AppCompatActivity() {
             }
 
     }
+    private fun setImage() {
+        ImagePicker.Companion.with(this)
+            .crop() //Crop image(Optional), Check Customization for more option
+            .compress(1024) //Final image size will be less than 1 MB(Optional)
+            .maxResultSize(
+                1080,
+                1080
+            ) //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(123)
+    }
+    private fun pick_image() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_PICK
+        startActivityForResult(
+            Intent.createChooser(
+                intent,
+                "Selectionner un fichier"
+            ), 101
+        )
+    }
+
     private fun SavePrefData() {
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
