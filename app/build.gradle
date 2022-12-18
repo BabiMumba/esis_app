@@ -80,7 +80,10 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
     implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
 
-    implementation 'com.github.dhaval2404:imagepicker:1.7.1'
+
+    implementation 'com.github.dhaval2404:imagepicker:1.7.1'//image picker
+    implementation 'com.airbnb.android:lottie:3.5.0'//lottie animation
+
 
 
 
