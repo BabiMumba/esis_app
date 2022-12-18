@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
@@ -17,6 +18,7 @@ import com.BabiMumba.Esis_app.home.ActualiteActivity
 import com.BabiMumba.Esis_app.home.LectureActivity_Pdf
 import com.BabiMumba.Esis_app.home.ResultatActivity
 import com.BabiMumba.Esis_app.home.Syllabus_FragmentActivity
+import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -60,11 +62,15 @@ class HomeFragment : Fragment() {
         }
         val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
         viewF.findViewById<TextView>(R.id.prenom).text = sharedPreferences.getString("prenom",null)
+        viewF.findViewById<ImageView>(R.id.profile_image).setOnClickListener {
+            startActivity(Intent(activity, ProfilUser::class.java))
+        }
+
         Glide
             .with(requireActivity())
             .load(sharedPreferences.getString("lien profil",null))
             // .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .placeholder(R.drawable.apprendre_u)
+            .placeholder(R.drawable.ic_baseline_person_pin_24)
             .into(viewF.findViewById(R.id.profile_image))
 
         return viewF
