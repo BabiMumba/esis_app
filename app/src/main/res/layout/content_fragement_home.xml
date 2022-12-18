@@ -33,6 +33,7 @@
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
                     >
+
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/profile_image"
                         android:layout_width="@dimen/_40sdp"
@@ -40,6 +41,8 @@
                         android:layout_marginStart="@dimen/_10sdp"
                         android:layout_marginTop="@dimen/_10sdp"
                         android:layout_marginEnd="@dimen/_10sdp"
+                        app:civ_border_width="@dimen/_2sdp"
+                        app:civ_border_color="@color/white"
                         android:src="@drawable/ic_propic1" />
                 </RelativeLayout>
 
@@ -56,11 +59,11 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_25sdp"
                         android:text="Babistone"
                         android:fontFamily="serif"
                         android:maxEms="6"
-                        android:layout_marginStart="@dimen/_15sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_10sdp"
                         android:textStyle="bold"
@@ -72,7 +75,6 @@
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_width="@dimen/_60sdp"
                         android:layout_height="@dimen/_40sdp"
-                        android:layout_marginStart="@dimen/_5sdp"
                         android:maxHeight="@dimen/_80sdp"
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
