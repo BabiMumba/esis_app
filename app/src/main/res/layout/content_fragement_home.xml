@@ -24,14 +24,37 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profile_image"
-                    android:layout_width="@dimen/_40sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:src="@drawable/ic_propic1"
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
                     android:layout_alignParentEnd="true"
-                    android:layout_margin="@dimen/_10sdp"
-                    />
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    >
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profile_image"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/ic_propic1" />
+                    <TextView
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:id="@+id/prenom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/profile_image"
+                        android:text="babi"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="serif"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+                </RelativeLayout>
+
 
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -49,22 +72,6 @@
                         app:lottie_autoPlay="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/bonjour" />
-
-
-
-                    <TextView
-                        android:id="@+id/prenom"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/salu"
-                        android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_marginTop="@dimen/_10sdp"
-
-                        android:fontFamily="serif"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/_10sdp"
-                        android:textStyle="bold" />
-
 
                 </RelativeLayout>
 
@@ -196,7 +203,7 @@
                                 android:maxHeight="@dimen/_80sdp"
                                 app:lottie_autoPlay="true"
                                 app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/eureux" />
+                                app:lottie_rawRes="@raw/jump" />
 
                             <TextView
                                 android:fontFamily="serif"
