@@ -148,7 +148,7 @@ class PublicationSyllabus : AppCompatActivity() {
 
             fil_path.text = filename
 
-            if (filename == "pdf") {
+            if (filename == "pdf"|| filename.contains("documents")) {
                 //
                 icone_failed.visibility = View.GONE
                 icone_succes.visibility = View.VISIBLE

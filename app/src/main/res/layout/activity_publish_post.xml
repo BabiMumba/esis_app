@@ -24,10 +24,10 @@
                 >
 
                 <ImageView
-                    android:scaleType="fitXY"
                     android:id="@+id/image_file"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
+                    android:scaleType="fitXY"
 
                     />
 
