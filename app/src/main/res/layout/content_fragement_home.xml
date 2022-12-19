@@ -163,14 +163,12 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:layout_width="@dimen/_70sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/web_icon" />
+                                android:src="@drawable/web_u" />
 
                             <TextView
                                 android:fontFamily="serif"
@@ -252,14 +250,13 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:layout_width="@dimen/_70sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/read" />
+                                android:src="@drawable/apprendre_u"
+                                />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -290,14 +287,12 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:layout_width="@dimen/_70sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/horaire" />
+                                android:src="@drawable/horaire_u" />
 
                             <TextView
                                 android:id="@+id/titre2"
