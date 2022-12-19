@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/icone_salama1"
     android:layout_height="match_parent"
     tools:context=".home.LectureActivity_Pdf">
 
+    <View
+        android:background="#7C252424"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:padding="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="4"
@@ -15,4 +23,4 @@
         android:id="@+id/my_recyclerview"
         />
 
-</LinearLayout>
+</RelativeLayout>
