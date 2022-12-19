@@ -199,15 +199,12 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:layout_width="@dimen/_70sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_enableMergePathsForKitKatAndAbove="true"
-                                app:lottie_rawRes="@raw/jump" />
+                                android:src="@drawable/resulta_u" />
 
                             <TextView
                                 android:fontFamily="serif"
@@ -322,15 +319,12 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:layout_width="@dimen/_70sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_enableMergePathsForKitKatAndAbove="true"
-                                app:lottie_rawRes="@raw/news_lotti" />
+                                android:src="@drawable/news_u" />
 
                             <TextView
                                 android:fontFamily="serif"
