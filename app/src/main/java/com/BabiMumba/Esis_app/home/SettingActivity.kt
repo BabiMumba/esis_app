@@ -139,10 +139,6 @@ class SettingActivity : AppCompatActivity() {
         }
 
     }
-    override fun onResume() {
-        readData()
-        super.onResume()
-    }
     override fun onStart() {
         readData()
         super.onStart()

@@ -36,6 +36,7 @@ class HomeFragment : Fragment() {
         viewF.findViewById<CardView>(R.id.syllabus_card).setOnClickListener {
             startActivity(Intent(activity, Syllabus_FragmentActivity::class.java))
         }
+
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
             val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             val intent = Intent(activity, ActualiteActivity::class.java)

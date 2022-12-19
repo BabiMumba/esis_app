@@ -77,6 +77,7 @@
                         android:layout_height="@dimen/_40sdp"
                         android:maxHeight="@dimen/_80sdp"
                         app:lottie_autoPlay="true"
+                        app:lottie_enableMergePathsForKitKatAndAbove="true"
                         app:lottie_loop="true"
                         app:lottie_rawRes="@raw/bonjour" />
 
@@ -123,15 +124,12 @@
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
-                            <com.airbnb.lottie.LottieAnimationView
-                                android:id="@+id/animationView"
-                                android:layout_width="@dimen/_50sdp"
-                                android:layout_height="@dimen/_70sdp"
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                app:lottie_autoPlay="true"
-                                app:lottie_loop="true"
-                                app:lottie_rawRes="@raw/lotti_download_book" />
+                                android:src="@drawable/livre_syllabus_u" />
 
                             <TextView
                                 android:id="@+id/titre"
@@ -208,6 +206,7 @@
                                 android:maxHeight="@dimen/_80sdp"
                                 app:lottie_autoPlay="true"
                                 app:lottie_loop="true"
+                                app:lottie_enableMergePathsForKitKatAndAbove="true"
                                 app:lottie_rawRes="@raw/jump" />
 
                             <TextView
@@ -330,6 +329,7 @@
                                 android:maxHeight="@dimen/_80sdp"
                                 app:lottie_autoPlay="true"
                                 app:lottie_loop="true"
+                                app:lottie_enableMergePathsForKitKatAndAbove="true"
                                 app:lottie_rawRes="@raw/news_lotti" />
 
                             <TextView

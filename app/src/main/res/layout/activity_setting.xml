@@ -75,15 +75,15 @@
             android:layout_width="match_parent"
             android:layout_below="@id/r1"
             android:layout_height="wrap_content">
+
             <ImageView
 
-                android:layout_alignParentStart="true"
                 android:id="@+id/i1"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_notifications"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/_5sdp"
-                />
+                android:src="@drawable/ic_notifications" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
