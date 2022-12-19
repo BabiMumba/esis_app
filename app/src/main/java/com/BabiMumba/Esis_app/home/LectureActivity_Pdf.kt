@@ -29,6 +29,7 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
+        runtimePermissions()
 
     }
 
