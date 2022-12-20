@@ -11,6 +11,7 @@ class AboutDeveloppeur : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about_developpeur)
+        clicmethode()
 
     }
     fun clicmethode(){
@@ -23,6 +24,12 @@ class AboutDeveloppeur : AppCompatActivity() {
         wtsp.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse("https://api.whatsapp.com/send?phone=243975937553")
+            startActivity(i)
+        }
+        call_btn.setOnClickListener {
+            val nume = "tel:+243975937553"
+            val i = Intent(Intent.ACTION_CALL)
+            i.data=Uri.parse(nume)
             startActivity(i)
         }
         gith.setOnClickListener {

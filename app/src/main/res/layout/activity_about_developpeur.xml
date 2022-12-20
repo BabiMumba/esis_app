@@ -80,6 +80,7 @@
                 android:src="@drawable/gmail_ic"
                 />
             <ImageView
+                android:id="@+id/call_btn"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
