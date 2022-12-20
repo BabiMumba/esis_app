@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    android:background="@color/primary"
+    tools:context=".home.AboutDeveloppeur">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/p1"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/stone_profil"
+            app:civ_border_color="@color/input_background"
+            app:civ_border_width="@dimen/_2sdp" />
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_name"
+            android:layout_below="@id/p1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/fuction"
+            android:layout_below="@id/t1"
+            android:fontFamily="serif"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:layout_below="@id/t2"
+            android:textSize="@dimen/_9ssp"
+            android:id="@+id/about_me"
+            android:gravity="center"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_1sdp"
+            android:text="@string/me"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/primary_text"
+            android:textStyle="normal|italic"
+           />
+        <LinearLayout
+            android:id="@+id/l1"
+            android:layout_width="match_parent"
+            android:layout_below="@id/about_me"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/whatsapp_ic"
+                />
+            <ImageView
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/gmail_ic"
+                />
+            <ImageView
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_phone"
+                />
+            <ImageView
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/githa_ic"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:id="@+id/t3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/l1"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/like_this_app"
+            android:gravity="center"
+            android:textStyle="normal"
+            android:textColor="@color/primary_text"
+            android:fontFamily="sans-serif-medium"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
+            android:id="@+id/t4"
+            android:layout_below="@id/t3"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="Autres Application"
+            android:textStyle="bold"
+            android:textSize="@dimen/_12sdp"
+            />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/c2"
+            android:backgroundTint="#1B023B"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+           android:layout_below="@id/t4">
+            <RelativeLayout
+                android:padding="@dimen/_10sdp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/i1"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+                    android:src="@drawable/logokitabu2"/>
+                <TextView
+                    android:id="@+id/t6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kitabu Pdf"
+                    android:layout_toEndOf="@id/i1"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <TextView
+                    android:id="@+id/t7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kitabu_de"
+                    android:layout_below="@id/t6"
+                    android:layout_toStartOf="@id/btn_installer"
+                    android:layout_toEndOf="@id/i1"
+                    android:textColor="@color/gris"
+                    android:textSize="@dimen/_8ssp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    />
+                <Button
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:id="@+id/btn_installer"
+                    android:text="Installer"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:background="@drawable/background_btn"
+                    />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+            
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
