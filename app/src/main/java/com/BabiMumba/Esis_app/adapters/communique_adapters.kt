@@ -133,7 +133,6 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
             intent.putExtra("cle",cle)
             intent.putExtra("texte",model.message)
             intent.putExtra("token",model.token_users)
-            holder.poste_image.visibility = if (model.image_poste.isEmpty()) View.GONE else View.VISIBLE
 
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
@@ -151,6 +150,8 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                 }
             holder.itemView.context.startActivity(intent)
         }
+        holder.poste_image.visibility = if (model.image_poste=="1") View.GONE else View.VISIBLE
+
         Glide
             .with(holder.poste_image.context)
             .load(model.image_poste)
