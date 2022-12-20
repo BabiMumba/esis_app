@@ -23,7 +23,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AboutDeveloppeur"
+            android:name=".home.AboutDeveloppeur"
             android:exported="false" />
         <activity
             android:name=".home.DocumentActivity2"

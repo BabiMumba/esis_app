@@ -55,6 +55,10 @@ class SettingActivity : AppCompatActivity() {
         md.setOnClickListener {
             startActivity(Intent(this, ProfilUser::class.java))
         }
+        rr5.setOnClickListener {
+            startActivity(Intent(this, AboutDeveloppeur::class.java))
+        }
+
         rr4.setOnClickListener {
             if (isConnectedNetwork(this)){
                 val intent = Intent(this,InfosActivity::class.java)
