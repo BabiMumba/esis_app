@@ -115,12 +115,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/l1"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="@string/like_this_app"
-            android:gravity="center"
-            android:textStyle="normal"
-            android:textColor="@color/primary_text"
             android:fontFamily="sans-serif-medium"
-            />
+            android:gravity="center"
+            android:textSize="@dimen/_10sdp"
+            android:text="@string/like_this_app"
+            android:textColor="@color/primary_text"
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/t4"

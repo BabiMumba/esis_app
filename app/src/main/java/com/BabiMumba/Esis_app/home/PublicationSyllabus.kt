@@ -97,8 +97,14 @@ class PublicationSyllabus : AppCompatActivity() {
         publish_file.setOnClickListener {
             if (promotion_text.text.toString() == ""){
                 Toast.makeText(this, "choicissez une promotion", Toast.LENGTH_SHORT).show()
+            }else if (nom_du_syllabus.text.toString().trim().isEmpty())
+            {
+               nom_du_syllabus.error = "obligatoire"
+            }else if (nom_du_prof.text.toString().trim().isEmpty()){
+                nom_du_prof.error = "obligatoire"
             }else{
-                processupload(filepath)
+                Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
+                //processupload(filepath)
             }
 
         }

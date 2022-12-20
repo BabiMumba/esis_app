@@ -40,7 +40,7 @@ class PublishPost : AppCompatActivity() {
     var mon_nom:String = ""
     var lien_image:String = ""
     var token_id:String = ""
-    lateinit var filepath: Uri
+    var filepath: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +53,13 @@ class PublishPost : AppCompatActivity() {
         read_name()
         get_token()
         publish_btn.setOnClickListener {
-            send_commnuniquee(filepath)
+            if (filepath == null){
+                Toast.makeText(this, "importer une image", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
+                publish_poste(filepath)
+            }
+
         }
 
         iimg.setOnClickListener {
@@ -105,7 +111,7 @@ class PublishPost : AppCompatActivity() {
         }
     }
 
-    fun send_commnuniquee(filepath: Uri?) {
+    fun publish_poste(filepath: Uri?) {
 
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
