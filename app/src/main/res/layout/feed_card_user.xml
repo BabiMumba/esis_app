@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
+    android:background="@drawable/background_input_new"
     android:layout_marginTop="@dimen/_5sdp"
     android:layout_height="wrap_content">
 
@@ -13,4 +14,16 @@
         android:scaleType="fitXY"
         android:src="@drawable/stone_profil"
         />
+    <TextView
+        android:id="@+id/post_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Merci vraiment"
+        android:textColor="@color/primary_text"
+        android:layout_below="@id/image_poste"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerHorizontal="true"
+        />
+
 </RelativeLayout>
