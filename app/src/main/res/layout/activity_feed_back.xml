@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="@dimen/_40sdp"
     android:layout_height="match_parent"
     tools:context=".home.FeedBack">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_input_new"
+            android:inputType="textMultiLine"
+            android:padding="@dimen/_20sdp"
+            android:hint="Rediger votre probleme ici"
+            android:id="@+id/txt_feedback"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="envoyer"
+            android:layout_below="@id/txt_feedback"
+            android:layout_alignParentEnd="true"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="@drawable/background_btn"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </RelativeLayout>
+
+</ScrollView>
