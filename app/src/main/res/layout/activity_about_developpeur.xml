@@ -67,11 +67,13 @@
             android:orientation="horizontal"
             android:layout_height="wrap_content">
             <ImageView
+                android:id="@+id/wtsp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:src="@drawable/whatsapp_ic"
                 />
             <ImageView
+                android:id="@+id/mail_brn"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
@@ -84,6 +86,7 @@
                 android:src="@drawable/ic_phone"
                 />
             <ImageView
+                android:id="@+id/gith"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
@@ -92,6 +95,19 @@
 
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/note_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/t3"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/background_btn"
+            android:text="noter"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+
         <TextView
             android:id="@+id/t3"
             android:layout_width="wrap_content"
@@ -104,17 +120,17 @@
             android:textColor="@color/primary_text"
             android:fontFamily="sans-serif-medium"
             />
+
         <TextView
+            android:id="@+id/t4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/primary_text"
-            android:id="@+id/t4"
-            android:layout_below="@id/t3"
+            android:layout_below="@id/note_btn"
             android:layout_marginTop="@dimen/_20sdp"
             android:text="Autres Application"
-            android:textStyle="bold"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/_12sdp"
-            />
+            android:textStyle="bold" />
         <androidx.cardview.widget.CardView
             android:id="@+id/c2"
             android:backgroundTint="#1B023B"
