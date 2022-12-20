@@ -14,6 +14,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.commnunique_model
 import com.BabiMumba.Esis_app.model.poste_users_model
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -57,7 +58,7 @@ class PublishPost : AppCompatActivity() {
                 Toast.makeText(this, "importer une image", Toast.LENGTH_SHORT).show()
             }else{
                 Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
-                publish_poste(filepath)
+                //publish_poste(filepath)
             }
 
         }
@@ -69,15 +70,7 @@ class PublishPost : AppCompatActivity() {
                 .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                        val intent = Intent()
-                        intent.type = "image/*"
-                        intent.action = Intent.ACTION_PICK
-                        startActivityForResult(
-                            Intent.createChooser(
-                                intent,
-                                "Selectionner un fichier"
-                            ), 101
-                        )
+                        pick_image()
                     }
 
                     override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
@@ -109,6 +102,16 @@ class PublishPost : AppCompatActivity() {
             txt1.visibility = View.GONE
             filepath = data.data!!
         }
+    }
+    private fun pick_image() {
+        ImagePicker.Companion.with(this)
+            .crop() //Crop image(Optional), Check Customization for more option
+            .compress(8024) //Final image size will be less than 8 MB(Optional)
+            .maxResultSize(
+                700,
+                700
+            ) //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(101)
     }
 
     fun publish_poste(filepath: Uri?) {

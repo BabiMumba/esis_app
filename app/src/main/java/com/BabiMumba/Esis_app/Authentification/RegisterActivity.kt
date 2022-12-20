@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.Manifest
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
@@ -14,12 +15,19 @@ import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.databinding.ActivityRegisterBinding
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -50,15 +58,29 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         binding.layoutImage.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            startActivityForResult(
-                Intent.createChooser(
-                    intent,
-                    "Selectionner une image"
-                ), 101
+            Dexter.withContext(
+                applicationContext
             )
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                        pick_image()
+                    }
 
+                    override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                        Toast.makeText(
+                            this@RegisterActivity,
+                            "vous devez accepter pour continuer",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissionRequest: PermissionRequest,
+                        permissionToken: PermissionToken
+                    ) {
+                        permissionToken.continuePermissionRequest()
+                    }
+                }).check()
         }
 
         binding.genre.setOnClickListener {
@@ -154,6 +176,16 @@ class RegisterActivity : AppCompatActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
         Toast.makeText(this, "save to shared prefence", Toast.LENGTH_SHORT).show()
+    }
+    private fun pick_image() {
+        ImagePicker.Companion.with(this)
+            .crop() //Crop image(Optional), Check Customization for more option
+            .compress(1024) //Final image size will be less than 1 MB(Optional)
+            .maxResultSize(
+                512,
+                512
+            ) //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(101)
     }
 
     private fun firebaseSignUp() {
