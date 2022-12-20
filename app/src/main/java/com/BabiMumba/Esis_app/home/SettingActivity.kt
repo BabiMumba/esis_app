@@ -58,6 +58,9 @@ class SettingActivity : AppCompatActivity() {
         rr5.setOnClickListener {
             startActivity(Intent(this, AboutDeveloppeur::class.java))
         }
+        rr6.setOnClickListener {
+            startActivity(Intent(this, FeedBack::class.java))
+        }
 
         rr4.setOnClickListener {
             if (isConnectedNetwork(this)){

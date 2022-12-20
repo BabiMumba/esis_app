@@ -5,13 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="@dimen/_40sdp"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".home.FeedBack">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <EditText
+            android:textColor="@color/primary_text"
             android:layout_width="match_parent"
+            android:gravity="start"
             android:layout_height="wrap_content"
             android:background="@drawable/background_input_new"
             android:inputType="textMultiLine"
@@ -30,9 +33,6 @@
             android:background="@drawable/background_btn"
             android:layout_marginTop="@dimen/_10sdp"
             />
-
-
-
 
     </RelativeLayout>
 

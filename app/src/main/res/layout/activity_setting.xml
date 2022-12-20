@@ -374,12 +374,13 @@
 
 
                 </RelativeLayout>
+
                 <RelativeLayout
-                    android:layout_below="@id/rr5"
                     android:id="@+id/rr6"
-                    android:padding="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr5"
+                    android:padding="@dimen/_10sdp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -391,10 +392,10 @@
 
 
                     <ImageView
-                        android:src="@drawable/ic_more"
-                        android:layout_alignParentEnd="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
                         app:tint="@color/white" />
 
 
