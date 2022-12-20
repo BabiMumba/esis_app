@@ -110,6 +110,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
         holder.comment.text = model.commentaire.toString()
         holder.nb_vue.text = model.vue.toString()
        //holder.image.setImageBitmap(getConversionImage(model.profil))
+
         Glide
             .with(holder.image.context)
             .load(model.profil)
@@ -132,6 +133,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
             intent.putExtra("cle",cle)
             intent.putExtra("texte",model.message)
             intent.putExtra("token",model.token_users)
+            holder.poste_image.visibility = if (model.image_poste.isEmpty()) View.GONE else View.VISIBLE
 
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
@@ -149,16 +151,16 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                 }
             holder.itemView.context.startActivity(intent)
         }
-
         Glide
             .with(holder.poste_image.context)
             .load(model.image_poste)
             //.apply(new RequestOptions().override(600, 200))
-                //.diskCacheStrategy(DiskCacheStrategy.ALL)
+            //.diskCacheStrategy(DiskCacheStrategy.ALL)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             //.apply(RequestOptions.overrideOf(400,400))
             .placeholder(circularProgressDrawable)
             .into(holder.poste_image)
+
         holder.getlikebuttonstatus(postkey,userid)
         holder.layout_like.setOnClickListener {
             testclick = true
