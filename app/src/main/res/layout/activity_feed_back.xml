@@ -12,28 +12,41 @@
         android:layout_marginTop="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <EditText
-            android:textColor="@color/primary_text"
+            android:id="@+id/txt_feedback"
             android:layout_width="match_parent"
-            android:gravity="start"
             android:layout_height="wrap_content"
             android:background="@drawable/background_input_new"
+            android:gravity="start"
+            android:hint="@string/probleme_txt"
             android:inputType="textMultiLine"
             android:padding="@dimen/_20sdp"
-            android:hint="@string/probleme_txt"
-            android:id="@+id/txt_feedback"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="envoyer"
+            android:textColor="@color/primary_text" />
+
+        <ProgressBar
+            android:visibility="gone"
+            android:id="@+id/progress_bar"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
             android:layout_below="@id/txt_feedback"
             android:layout_alignParentEnd="true"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:background="@drawable/background_btn"
             android:layout_marginTop="@dimen/_10sdp"
             />
+
+
+        <Button
+
+            android:id="@+id/btn_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_feedback"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_btn"
+            android:text="envoyer"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 
