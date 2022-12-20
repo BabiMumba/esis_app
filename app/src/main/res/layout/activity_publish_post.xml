@@ -24,11 +24,12 @@
                 >
 
                 <ImageView
+
                     android:id="@+id/image_file"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
-                    android:scaleType="fitXY"
-
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/gst"
                     />
 
                 <TextView
@@ -36,7 +37,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="ajouter une image"
                     android:textColor="@color/secondary_text"
                     android:textSize="@dimen/_10ssp" />
             </RelativeLayout>
@@ -60,7 +60,7 @@
             android:layout_below="@id/sy_na"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
-            android:hint="Ex:A quoi pensez-vous"
+            android:hint="A quoi pensez-vous"
             android:imeOptions="actionDone"
             android:inputType="text|textMultiLine|textCapSentences"
             android:paddingStart="@dimen/_6sdp"

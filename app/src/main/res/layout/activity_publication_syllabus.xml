@@ -151,12 +151,6 @@
             android:text="@string/publier"
             android:textAllCaps="false" />
 
-        <TextView
-            android:id="@+id/fil_path"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/publish_file"
-            />
 
         <RelativeLayout
             android:id="@+id/promotion_choice"

@@ -57,8 +57,8 @@ class PublishPost : AppCompatActivity() {
             if (filepath == null){
                 Toast.makeText(this, "importer une image", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
-                //publish_poste(filepath)
+                //Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
+                publish_poste(filepath)
             }
 
         }

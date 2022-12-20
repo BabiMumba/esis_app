@@ -103,8 +103,8 @@ class PublicationSyllabus : AppCompatActivity() {
             }else if (nom_du_prof.text.toString().trim().isEmpty()){
                 nom_du_prof.error = "obligatoire"
             }else{
-                Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
-                //processupload(filepath)
+                //Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
+                processupload(filepath)
             }
 
         }
@@ -152,14 +152,12 @@ class PublicationSyllabus : AppCompatActivity() {
             filepath = data!!.data!!
             val filename = filepath.toString().substringAfter(".","")
 
-            fil_path.text = filename
-
             if (filename == "pdf"|| filename.contains("documents")) {
                 //
                 icone_failed.visibility = View.GONE
                 icone_succes.visibility = View.VISIBLE
                 publish_file.isEnabled = true
-                Toast.makeText(this, "fichier pdf ", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "fichier pdf ", Toast.LENGTH_SHORT).show()
 
             }else
             {
@@ -181,7 +179,7 @@ class PublicationSyllabus : AppCompatActivity() {
 
         val currentDate = sdf.format(Date())
         val pd = ProgressDialog(this)
-        pd.setTitle("File Uploading....!!!")
+        pd.setTitle("Imporatation du fichier....!!!")
         pd.show()
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
