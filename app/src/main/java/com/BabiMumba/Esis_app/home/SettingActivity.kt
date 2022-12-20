@@ -59,7 +59,8 @@ class SettingActivity : AppCompatActivity() {
             startActivity(Intent(this, AboutDeveloppeur::class.java))
         }
         rr6.setOnClickListener {
-            startActivity(Intent(this, FeedBack::class.java))
+            startActivity(Intent(this, FeedBack::class.java).putExtra("mail",mm))
+
         }
 
         rr4.setOnClickListener {

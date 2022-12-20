@@ -12,6 +12,9 @@ class FeedBack : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_back)
+        btn_send.setOnClickListener {
+            sen_message_feedback()
+        }
 
     }
     fun loading(isLoading: Boolean){
@@ -26,7 +29,7 @@ class FeedBack : AppCompatActivity() {
     fun sen_message_feedback(){
         loading(true)
         val data:MutableMap<String,Any> = HashMap()
-        val nom = intent.getStringExtra("")
+        val nom = intent.getStringExtra("mail")
         data["message"] = "$nom : ${txt_feedback.text}"
         val db = FirebaseFirestore.getInstance()
         // val message = db.collection("feedback").document(nom)
@@ -34,6 +37,7 @@ class FeedBack : AppCompatActivity() {
             .add(data)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+                    Toast.makeText(this, "message envoyer", Toast.LENGTH_SHORT).show()
                     loading(false)
 
                 }else{
