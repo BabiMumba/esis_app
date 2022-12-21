@@ -192,14 +192,15 @@ class PublicationSyllabus : AppCompatActivity() {
         }
 
         val name_save_sta = "livres/$nn/$name.pdf"
-
+        val link_cover = "https://www.pngfind.com/pngs/m/350-3500642_pdf-icon-download-download-hd-png-download.png"
         val reference = storageReference.child(name_save_sta)
         val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
             .addOnSuccessListener {
+
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
                     val obj = syllabus_model(
-                        name.toUpperCase(),
+                        name.toUpperCase(),link_cover,
                         mail_users,
                         id_users,
                         name_save_sta,

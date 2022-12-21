@@ -2,6 +2,7 @@ package com.BabiMumba.Esis_app.model
 
 class syllabus_model{
     lateinit var nom_syllabu: String
+    lateinit var pochette: String
     lateinit var mail_users: String
     lateinit var id_user: String
     lateinit var lien_pdf: String
@@ -20,6 +21,7 @@ class syllabus_model{
     constructor(){}
     constructor(
         nom_syllabu: String,
+        pochette: String,
         mail_users: String,
         id_user: String,
         lien_pdf: String,
@@ -36,6 +38,7 @@ class syllabus_model{
         comment: Int
     ) {
         this.nom_syllabu = nom_syllabu
+        this.pochette = pochette
         this.mail_users = mail_users
         this.id_user = id_user
         this.lien_pdf = lien_pdf
