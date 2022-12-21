@@ -16,6 +16,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.save_profil_syllabus
 import com.BabiMumba.Esis_app.model.syllabus_model
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -94,6 +95,7 @@ class PublicationSyllabus : AppCompatActivity() {
                     }
                 }).check()
         }
+
         publish_file.setOnClickListener {
             if (promotion_text.text.toString() == ""){
                 Toast.makeText(this, "choicissez une promotion", Toast.LENGTH_SHORT).show()
@@ -108,6 +110,7 @@ class PublicationSyllabus : AppCompatActivity() {
             }
 
         }
+
         val checkedItem = intArrayOf(-1)
         promotion_choice.setOnClickListener {
             val alertDialog = AlertDialog.Builder(this)
@@ -144,6 +147,16 @@ class PublicationSyllabus : AppCompatActivity() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
+    }
+    fun pick_image() {
+        ImagePicker.Companion.with(this)
+            .crop() //Crop image(Optional), Check Customization for more option
+            .compress(1024) //Final image size will be less than 8 MB(Optional)
+            .maxResultSize(
+                400,
+                400
+            ) //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(102)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

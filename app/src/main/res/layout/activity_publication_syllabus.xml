@@ -152,13 +152,13 @@
             android:textAllCaps="false" />
 
         <TextView
+            android:id="@+id/cober_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Couverture"
-            android:background="@drawable/background_input_new"
             android:layout_below="@id/description"
             android:layout_marginTop="@dimen/_10sdp"
-            />
+            android:background="@drawable/background_input_new"
+            android:text="Couverture" />
 
         <ImageView
             android:visibility="gone"
