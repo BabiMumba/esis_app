@@ -33,15 +33,8 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     FirebaseRecyclerAdapter<syllabus_model, syllabus_adapters.myviewholder>(options) {
 
     var progressBar: ProgressBar? = null
-    var likereference: DatabaseReference? = null
 
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
-        var testclick = false
-
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        val userid = firebaseUser!!.uid
-        val postkey = getRef(position).key
-
         holder.description.text = syllabusModel.description
         holder.nom_user.text = syllabusModel.nom_user
         holder.date.text = syllabusModel.date_heure
@@ -61,6 +54,14 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .placeholder(circularProgressDrawable)
             .into(holder.image_user)
+        Glide
+            .with(holder.image_user.context)
+            .load(syllabusModel.pochette)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(circularProgressDrawable)
+            .into(holder.syllabus_icone)
+
+
         holder.itemView.setOnClickListener {
            val cle = getRef(position).key
 
