@@ -3,12 +3,14 @@ package com.BabiMumba.Esis_app.home
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.users.ProfilUser
@@ -52,6 +54,19 @@ class SettingActivity : AppCompatActivity() {
     }
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     fun clickmethode(){
+        rr6.setOnClickListener {
+            val builder = AlertDialog.Builder(this)
+                .setTitle("suppression de compte")
+                .setMessage("Vous etes sur le point de supprimer toute vos donnez y compris vos syllabus telecharger")
+                .setPositiveButton("supprimer") { dialogInterface, i ->
+
+                    dialogInterface.dismiss()
+                }
+                .setNegativeButton("Annuler") { dialogInterface, i ->
+                    Toast.makeText(this, "annuler", Toast.LENGTH_SHORT).show()
+                    dialogInterface.dismiss()
+                }
+        }
         md.setOnClickListener {
             startActivity(Intent(this, ProfilUser::class.java))
         }

@@ -193,7 +193,6 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                 }
             })
         }
-
     }
     override fun onDataChanged() {
         super.onDataChanged()
