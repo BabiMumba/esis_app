@@ -129,22 +129,7 @@ class LoginActivity : AppCompatActivity() {
             true
         }
     }
-    fun show_dialogue(){
-        val builder = AlertDialog.Builder(this)
-            .setTitle("Quitter")
-            .setPositiveButton("oui") { dialogInterface, i ->
-               finish()
-                dialogInterface.dismiss()
-            }
-            .setNegativeButton("Annuler") { dialogInterface, i ->
-                Toast.makeText(this, "annuler", Toast.LENGTH_SHORT).show()
-                dialogInterface.dismiss()
-            }
-        val customAlertDialog = builder.create()
-        customAlertDialog.show()
-    }
     override fun onBackPressed() {
-        show_dialogue()
     }
 
 }

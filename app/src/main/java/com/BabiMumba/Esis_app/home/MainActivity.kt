@@ -73,13 +73,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             commit()
         }
     override fun onBackPressed() {
-        val drawer = findViewById<DrawerLayout>(R.id.drawer_layout)
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
-        } else {
-            val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
-            drawer.openDrawer(GravityCompat.START)
-        }
     }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
 
@@ -111,9 +104,6 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
             }
             R.id.nav_rate -> {
                 showtoast("noter l'application")
-            }
-            R.id.quit -> {
-                finish()
             }
             R.id.nav_share ->{
                 showtoast("partager")
