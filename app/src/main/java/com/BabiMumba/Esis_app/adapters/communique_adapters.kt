@@ -179,7 +179,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                                     holder.message.context,
                                     model.token_users,
                                     holder.itemView.context.getString(R.string.app_name),
-                                    "${mon_nom} a aimer votre photo",
+                                    "${mon_nom} a aimer votre publication",
                                 )
                             }
 

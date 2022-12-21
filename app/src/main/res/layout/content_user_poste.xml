@@ -15,7 +15,6 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            app:reverseLayout="true"
             android:id="@+id/recycler_users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

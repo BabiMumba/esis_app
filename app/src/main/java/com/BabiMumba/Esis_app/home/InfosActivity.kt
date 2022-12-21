@@ -48,6 +48,7 @@ class InfosActivity : AppCompatActivity() {
             .build()
         adpter = poste_users_adapters(options)
         recycler_users.adapter = adpter
+        mLayoutManager!!.reverseLayout = true
     }
     fun read_name(){
         val ad_mail = intent.getStringExtra("mail").toString()

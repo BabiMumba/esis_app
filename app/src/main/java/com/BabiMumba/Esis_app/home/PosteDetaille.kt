@@ -346,7 +346,7 @@ class PosteDetaille : AppCompatActivity() {
                 this,
                 id_token,
                 getString(R.string.app_name),
-                "${mon_nom} et $nb autres personnes ont commenter votre photo",
+                "${mon_nom} et $nb autres personnes ont commenter votre publication",
 
                 )
         }
@@ -360,7 +360,7 @@ class PosteDetaille : AppCompatActivity() {
                 this,
                 id_token,
                 getString(R.string.app_name),
-                "${mon_nom} a commenter votre photo",
+                "${mon_nom} a commenter votre publication",
 
                 )
         }
