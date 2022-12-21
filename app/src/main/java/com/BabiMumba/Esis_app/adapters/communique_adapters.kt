@@ -138,7 +138,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
 
             val increment: MutableMap<String, Any> = HashMap()
             increment["vue"] = ServerValue.increment(1)
-            FirebaseDatabase.getInstance().reference.child("communique")
+            FirebaseDatabase.getInstance().reference.child("forum_discussion")
                 .child((getRef(position).key.toString()))
                 .updateChildren(increment)
                 .addOnCompleteListener {

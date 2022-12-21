@@ -112,7 +112,7 @@ class PublishPost : AppCompatActivity() {
             filepath = data.data!!
         }
     }
-    private fun pick_image() {
+    fun pick_image() {
         ImagePicker.Companion.with(this)
             .crop() //Crop image(Optional), Check Customization for more option
             .compress(8024) //Final image size will be less than 8 MB(Optional)
@@ -122,22 +122,24 @@ class PublishPost : AppCompatActivity() {
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(101)
     }
-
     fun publish_poste(filepath: Uri?) {
+
+        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val date_de_pub = sdf.format(Date())
 
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val pd = ProgressDialog(this)
         pd.setTitle("publication")
         pd.show()
-        val name = "post_image${System.currentTimeMillis()}"
+        val name = "post_image$date_de_pub"
         val name_image = "forum_post/$mail/$name.png"
         val reference = storageReference.child(name_image)
         reference.putFile(filepath!!)
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
-                    publish_post2(uri)
-
+                    publish_post2(uri,name_image)
+                    pd.dismiss()
                 }
             }
             .addOnFailureListener{
@@ -178,17 +180,16 @@ class PublishPost : AppCompatActivity() {
                 }
             }
     }
-    fun publish_post2(uri: Uri){
+    fun publish_post2(uri: Uri,name_image:String){
         loading(true)
-        databaseReference = FirebaseDatabase.getInstance().getReference("forum")
+        databaseReference = FirebaseDatabase.getInstance().getReference("forum_discussion")
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_de_pub = sdf.format(Date())
-        val name = "image${System.currentTimeMillis()}"
+
         val msg = message_commnq.text.toString()
-        val name_image = "forum_post/$mail/$name.png"
         val id_pst = databaseReference.push().key!!.toString()
         val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
         databaseReference.child(id_pst).setValue(donnee)
@@ -205,7 +206,6 @@ class PublishPost : AppCompatActivity() {
                 }
             }
     }
-
     fun read_name(){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
@@ -255,7 +255,6 @@ class PublishPost : AppCompatActivity() {
 
 
     }
-
     fun sendnotif() {
         FcmNotificationsSender.pushNotification(
             this,

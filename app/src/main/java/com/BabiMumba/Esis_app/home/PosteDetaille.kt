@@ -94,7 +94,7 @@ class PosteDetaille : AppCompatActivity() {
         mLayoutManager = LinearLayoutManager(this@PosteDetaille)
 
         poste_recyclerview.layoutManager = mLayoutManager
-        val ref = FirebaseDatabase.getInstance().getReference("communique")
+        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
         val options = FirebaseRecyclerOptions.Builder<commentaire_poste_model>()
             .setQuery(
                 ref.child(cle.toString()).child("commente_poste"),
@@ -168,7 +168,7 @@ class PosteDetaille : AppCompatActivity() {
         hashMap["date"] = strDate.toString()
         hashMap["profil"]= photo_profil
 
-        val ref = FirebaseDatabase.getInstance().getReference("communique")
+        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
         ref.child(cle.toString()).child("commente_poste").child(ref.push().key!!)
             .setValue(hashMap)
             .addOnSuccessListener {
@@ -215,7 +215,7 @@ class PosteDetaille : AppCompatActivity() {
         val cle = intent.getStringExtra("cle")
         val increment: MutableMap<String, Any> = HashMap()
         increment["commentaire"] = ServerValue.increment(1)
-        FirebaseDatabase.getInstance().reference.child("communique")
+        FirebaseDatabase.getInstance().reference.child("forum_discussion")
             .child((cle.toString()))
             .updateChildren(increment)
             .addOnCompleteListener {
@@ -247,15 +247,14 @@ class PosteDetaille : AppCompatActivity() {
     fun DeletePoste(){
         val cle = intent.getStringExtra("cle")
         val image_poster = intent.getStringExtra("post_image")
-        val ref = FirebaseDatabase.getInstance().getReference("communique")
+        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
         ref.child(cle.toString()).removeValue()
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    DeletePosteMyprofil()
                     if (image_poster != "1"){
                         DeletePosteStorage()
                     }
-
+                    DeletePosteMyprofil()
                     Toast.makeText(this, "publication supprimenr", Toast.LENGTH_SHORT).show()
 
                 }else{
@@ -271,9 +270,7 @@ class PosteDetaille : AppCompatActivity() {
         ref.child(mail).child(cle.toString()).removeValue()
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    DeletePosteStorage()
-
-                    Toast.makeText(this, "delete to my profil", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
 
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
@@ -288,7 +285,6 @@ class PosteDetaille : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "image supprime", Toast.LENGTH_SHORT).show()
-                    onBackPressed()
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
@@ -297,7 +293,7 @@ class PosteDetaille : AppCompatActivity() {
     }
     fun check_post(msg: String){
         val cle = intent.getStringExtra("cle")
-        val ref = FirebaseDatabase.getInstance().getReference("communique").child(cle.toString())
+        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion").child(cle.toString())
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -318,7 +314,6 @@ class PosteDetaille : AppCompatActivity() {
 
 
     }
-
     fun ShortDialog() {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -376,7 +371,7 @@ class PosteDetaille : AppCompatActivity() {
     fun getAuterDate(){
 
         val cle = intent.getStringExtra("cle")
-        val ref = FirebaseDatabase.getInstance().getReference("communique").child(cle.toString())
+        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion").child(cle.toString())
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val donne: commnunique_model? = dataSnapshot.getValue(commnunique_model::class.java)
