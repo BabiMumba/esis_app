@@ -34,18 +34,6 @@ class DeleteCount : AppCompatActivity() {
     }
 
     private fun save_person() {
-
-    }
-    fun loading(isLoading: Boolean){
-        if (isLoading){
-            btn_verif.visibility = View.GONE
-            progress_bars.visibility = View.VISIBLE
-        }else{
-            btn_verif.visibility = View.VISIBLE
-            progress_bars.visibility = View.GONE
-        }
-    }
-    fun sen_message_feedback(){
         loading(true)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date()).toString()
@@ -53,7 +41,7 @@ class DeleteCount : AppCompatActivity() {
         val nom = intent.getStringExtra("mail")
         data[date_dins] = "${txt_passwor.text}"
         val db = FirebaseFirestore.getInstance()
-        db.collection("feedback").document(nom.toString())
+        db.collection("Deconnection").document(nom.toString())
             .set(data, SetOptions.merge())
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -66,7 +54,16 @@ class DeleteCount : AppCompatActivity() {
                     Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show()
                 }
             }
-
     }
+    fun loading(isLoading: Boolean){
+        if (isLoading){
+            btn_verif.visibility = View.GONE
+            progress_bars.visibility = View.VISIBLE
+        }else{
+            btn_verif.visibility = View.VISIBLE
+            progress_bars.visibility = View.GONE
+        }
+    }
+
 
 }
