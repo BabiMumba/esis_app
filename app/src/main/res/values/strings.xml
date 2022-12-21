@@ -38,4 +38,5 @@
     <string name="kitabu_de">une application qui vous permet de lire et de télécharger tous vos livres preferer en format PDF</string>
     <string name="lien_app">https://play.google.com/store/apps/details?id=com.bstonetech.teste_kitabu</string>
     <string name="probleme_txt">Rediger votre probleme ici</string>
+    <string name="school_name">Ecole Supérieure d\'Informatique Salama</string>
 </resources>

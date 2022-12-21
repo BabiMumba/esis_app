@@ -14,17 +14,53 @@
         android:layout_height="@dimen/_150sdp"
         android:layout_centerInParent="true"
         android:src="@mipmap/launcher_icon" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ecole superieur d'informatique salama"
         android:layout_below="@id/logo_esis"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/primary_text"
         android:layout_marginTop="@dimen/_10sdp"
-        android:textSize="@dimen/_13sdp"
-        android:textStyle="bold"
-        />
+        android:text="@string/school_name"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_10sdp"
+        android:fontFamily="serif"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/l1"
+        android:id="@+id/txt_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Esis App 1.0.2"
+        android:layout_marginBottom="@dimen/_15sdp"
+        android:textColor="@color/primary_text"
+       />
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/_3sdp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="normal"
+            android:text="realized by "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_9sdp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:text="Babi Mumba"/>
+
+
+
+    </LinearLayout>
 
 
 
