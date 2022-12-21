@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.SplashScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -55,8 +56,9 @@ class DeleteCount : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     loading(false)
-                   // auth.signOut()
-
+                   val it = Intent(this,SplashScreen::class.java)
+                    startActivity(it)
+                    finish()
                 }else{
                     loading(false)
                     Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()

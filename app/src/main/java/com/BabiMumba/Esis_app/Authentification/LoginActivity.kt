@@ -6,8 +6,10 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.databinding.ActivityLoginBinding
+import com.BabiMumba.Esis_app.users.DeleteCount
 import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
@@ -22,13 +24,6 @@ class LoginActivity : AppCompatActivity() {
 
 
         clicmethode()
-    }
-    fun chek_users(){
-        if (firebaseAuth.currentUser != null){
-            val intent = Intent(this,MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
     }
     fun clicmethode(){
 
@@ -86,6 +81,25 @@ class LoginActivity : AppCompatActivity() {
         }else{
             true
         }
+    }
+
+    override fun onBackPressed() {
+        show_dialogue()
+        super.onBackPressed()
+    }
+    fun show_dialogue(){
+        val builder = AlertDialog.Builder(this)
+            .setTitle("Quitter")
+            .setPositiveButton("quitter") { dialogInterface, i ->
+               finish()
+                dialogInterface.dismiss()
+            }
+            .setNegativeButton("Annuler") { dialogInterface, i ->
+                Toast.makeText(this, "annuler", Toast.LENGTH_SHORT).show()
+                dialogInterface.dismiss()
+            }
+        val customAlertDialog = builder.create()
+        customAlertDialog.show()
     }
 
 }
