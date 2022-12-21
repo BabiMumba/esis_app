@@ -45,6 +45,7 @@ class PublicationSyllabus : AppCompatActivity() {
     var token_id:String = ""
     var lien_image:String = ""
     lateinit var filepath: Uri
+    var cover_path: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -147,6 +148,9 @@ class PublicationSyllabus : AppCompatActivity() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
+        cober_btn.setOnClickListener {
+            pick_image()
+        }
     }
     fun pick_image() {
         ImagePicker.Companion.with(this)
@@ -160,18 +164,14 @@ class PublicationSyllabus : AppCompatActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 101 && resultCode == RESULT_OK) {
-
+        if (requestCode == 101 && resultCode == RESULT_OK)
+        {
             filepath = data!!.data!!
             val filename = filepath.toString().substringAfter(".","")
-
             if (filename == "pdf"|| filename.contains("documents")) {
-                //
                 icone_failed.visibility = View.GONE
                 icone_succes.visibility = View.VISIBLE
                 publish_file.isEnabled = true
-               // Toast.makeText(this, "fichier pdf ", Toast.LENGTH_SHORT).show()
-
             }else
             {
                 icone_failed.visibility = View.VISIBLE
@@ -179,6 +179,15 @@ class PublicationSyllabus : AppCompatActivity() {
                 Toast.makeText(this, "Selectionner un fichier pdf ", Toast.LENGTH_SHORT).show()
                 publish_file.isEnabled = false
             }
+
+        }
+        val imageUri:Uri
+        if (requestCode == 102 && resultCode == RESULT_OK){
+            imageUri = data?.data!!
+            syllabus_icone.setImageURI(imageUri)
+            cober_btn.visibility = View.GONE
+            syllabus_icone.visibility = View.VISIBLE
+            cover_path = data.data!!
 
         }
     }
