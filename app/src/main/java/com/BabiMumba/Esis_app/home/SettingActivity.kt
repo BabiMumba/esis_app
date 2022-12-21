@@ -55,7 +55,7 @@ class SettingActivity : AppCompatActivity() {
     }
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     fun clickmethode(){
-        rr6.setOnClickListener {
+        rr7.setOnClickListener {
             val builder = AlertDialog.Builder(this)
                 .setTitle("suppression de compte")
                 .setMessage("Vous etes sur le point de supprimer toute vos donnez y compris vos syllabus telecharger")

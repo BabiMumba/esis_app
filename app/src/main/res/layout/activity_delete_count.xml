@@ -35,8 +35,6 @@
 
 
         <Button
-            android:paddingStart="@dimen/_5sdp"
-            android:paddingEnd="@dimen/_5sdp"
             android:id="@+id/btn_verif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,6 +42,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_btn"
+            android:paddingStart="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
             android:text="verifier et supprimer"
             android:textAllCaps="false"
             android:textColor="@color/white" />

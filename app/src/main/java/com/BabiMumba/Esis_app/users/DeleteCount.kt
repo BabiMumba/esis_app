@@ -26,13 +26,14 @@ class DeleteCount : AppCompatActivity() {
 
     }
     fun clik_method(){
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        val password = sharedPreferences.getString("mot de passe",null)
-
-        if (txt_passwor.text.toString() != password){
-            Toast.makeText(this, "mot de passe incorecte", Toast.LENGTH_SHORT).show()
-        }else{
-            save_person()
+        btn_verif.setOnClickListener {
+            val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+            val password = sharedPreferences.getString("mot de passe",null)
+            if (txt_passwor.text.toString() != password){
+                Toast.makeText(this, "mot de passe incorecte", Toast.LENGTH_SHORT).show()
+            }else{
+                save_person()
+            }
         }
 
     }
