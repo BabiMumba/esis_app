@@ -89,8 +89,6 @@ class PosteDetaille : AppCompatActivity() {
                 .into(poste_image_id)
         }
 
-
-
         setListener()
         get_token()
         mLayoutManager = LinearLayoutManager(this@PosteDetaille)
@@ -248,12 +246,16 @@ class PosteDetaille : AppCompatActivity() {
     }
     fun DeletePoste(){
         val cle = intent.getStringExtra("cle")
+        val image_poster = intent.getStringExtra("post_image")
         val ref = FirebaseDatabase.getInstance().getReference("communique")
         ref.child(cle.toString()).removeValue()
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     DeletePosteMyprofil()
-                    DeletePosteStorage()
+                    if (image_poster != "1"){
+                        DeletePosteStorage()
+                    }
+
                     Toast.makeText(this, "publication supprimenr", Toast.LENGTH_SHORT).show()
 
                 }else{

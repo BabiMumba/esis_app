@@ -126,30 +126,15 @@ class PublishPost : AppCompatActivity() {
         val date_de_pub = sdf.format(Date())
         val name = "image${System.currentTimeMillis()}"
         val msg = message_commnq.text.toString()
-        val name_image = "image_communique/$name.png"
+        val name_image = "forum_post/$mail/$name.png"
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("communique")
+        databaseReference = FirebaseDatabase.getInstance().getReference("forum")
 
         val reference = storageReference.child(name_image)
         reference.putFile(filepath!!)
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
-                    val id_pst = databaseReference.push().key!!.toString()
-                    val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
-                    databaseReference.child(id_pst).setValue(donnee)
-                        .addOnCompleteListener {
-                            if (it.isSuccessful){
-                                pd.dismiss()
-                                save_post_mprfl(id_user,uri.toString(),lien_image,id_pst,msg)
-                                // Toast.makeText(this, "communique envoyer", Toast.LENGTH_SHORT).show()
-                                message_commnq.setText("")
-                                message_commnq.hint = "nouveau poste"
-                                sendnotif()
-                            }else{
-                                pd.dismiss()
-                                Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                            }
-                        }
+
                 }
             }
             .addOnFailureListener{
@@ -163,6 +148,36 @@ class PublishPost : AppCompatActivity() {
                 pd.setCancelable(false)
             }
     }
+    fun publish_post1(){
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val id_user = firebaseUser?.uid.toString()
+        val pd = ProgressDialog(this)
+        pd.setTitle("publication")
+        pd.show()
+        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val date_de_pub = sdf.format(Date())
+        val name = "image${System.currentTimeMillis()}"
+        val msg = message_commnq.text.toString()
+        val name_image = "forum_post/$mail/$name.png"
+
+        val id_pst = databaseReference.push().key!!.toString()
+        val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
+        databaseReference.child(id_pst).setValue(donnee)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    pd.dismiss()
+                    save_post_mprfl(id_user,"1",lien_image,id_pst,msg)
+                    message_commnq.setText("")
+                    message_commnq.hint = "nouveau poste"
+                    sendnotif()
+                }else{
+                    pd.dismiss()
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+
     fun read_name(){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
