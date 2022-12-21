@@ -17,14 +17,13 @@ class DeleteCount : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delete_count)
-
-
-
+        clik_method()
 
     }
     fun clik_method(){
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val password = sharedPreferences.getString("mot de passe",null)
+
         if (txt_passwor.text.toString() != password){
             Toast.makeText(this, "mot de passe different", Toast.LENGTH_SHORT).show()
         }else{
@@ -34,12 +33,18 @@ class DeleteCount : AppCompatActivity() {
     }
 
     private fun save_person() {
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val promo = sharedPreferences.getString("promotion",null)
+        val mail = sharedPreferences.getString("mail",null)
+
         loading(true)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date()).toString()
         val data:MutableMap<String,Any> = HashMap()
         val nom = intent.getStringExtra("mail")
-        data[date_dins] = "${txt_passwor.text}"
+        data["Date"] = date_dins
+        data["promotion"] = "$promo"
+        data["mail"] = "$mail"
         val db = FirebaseFirestore.getInstance()
         db.collection("Deconnection").document(nom.toString())
             .set(data, SetOptions.merge())
