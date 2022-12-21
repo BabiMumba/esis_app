@@ -33,8 +33,10 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
 
         var poste_image:RoundedImageView
+        var text_sh:TextView
 
         init {
+            text_sh = itemview.findViewById(R.id.text_sh)
             poste_image = itemview.findViewById(R.id.image_poste)
         }
 
@@ -47,6 +49,8 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
 
     override fun onBindViewHolder(holder: viewholder, position: Int, model: poste_users_model) {
 
+
+        holder.poste_image.visibility = if (model.image_poste == "1") View.GONE else View.VISIBLE
 
         val circularProgressDrawable = CircularProgressDrawable(holder.poste_image.context)
         circularProgressDrawable.strokeWidth = 5f
@@ -72,6 +76,8 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             holder.itemView.context.startActivity(intent)
         }
+        holder.text_sh.text = model.message_texte
+
 
     }
     override fun onDataChanged() {

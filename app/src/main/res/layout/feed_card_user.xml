@@ -20,19 +20,19 @@
             android:layout_alignParentTop="true"
             android:scaleType="fitCenter"
             android:src="@drawable/gst" />
+
         <TextView
-            android:layout_margin="@dimen/_5sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_10sdp"
-            android:text="@string/txt_lorem2"
-            android:ellipsize="end"
-            android:maxLines="1"
             android:layout_below="@id/image_poste"
             android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_5sdp"
+            android:ellipsize="end"
+            android:id="@+id/text_sh"
+            android:maxLines="1"
+            android:text="@string/txt_lorem2"
             android:textColor="@color/primary_text"
-            android:layout_marginTop="@dimen/_5sdp"
-            />
+            android:textSize="@dimen/_10sdp" />
 
 
     </RelativeLayout>
