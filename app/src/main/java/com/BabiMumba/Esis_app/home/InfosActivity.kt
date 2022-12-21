@@ -48,7 +48,6 @@ class InfosActivity : AppCompatActivity() {
             .build()
         adpter = poste_users_adapters(options)
         recycler_users.adapter = adpter
-
     }
     fun read_name(){
         val ad_mail = intent.getStringExtra("mail").toString()

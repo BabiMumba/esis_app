@@ -155,10 +155,9 @@ class PosteDetaille : AppCompatActivity() {
             override fun afterTextChanged(s: Editable) {}
         })
     }
-
     fun ajouter_data(msg:String){
         val cal = Calendar.getInstance()
-        val sdf1 = SimpleDateFormat(" HH:mm dd/M/yyyy")
+        val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("cle")
 
