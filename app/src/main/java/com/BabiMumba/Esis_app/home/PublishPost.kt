@@ -124,7 +124,7 @@ class PublishPost : AppCompatActivity() {
     }
     fun publish_poste(filepath: Uri?) {
 
-        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_de_pub = sdf.format(Date())
 
         val firebaseUser = firebaseAuth.currentUser
@@ -159,7 +159,7 @@ class PublishPost : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
-        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val sdf = SimpleDateFormat("HH:mm dd/M/yyyy ")
         val date_de_pub = sdf.format(Date())
         val name = "image${System.currentTimeMillis()}"
         val msg = message_commnq.text.toString()
@@ -186,9 +186,8 @@ class PublishPost : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
-        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val sdf = SimpleDateFormat("HH:mm dd/M/yyyy ")
         val date_de_pub = sdf.format(Date())
-
         val msg = message_commnq.text.toString()
         val id_pst = databaseReference.push().key!!.toString()
         val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
