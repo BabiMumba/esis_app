@@ -171,7 +171,6 @@ class DetailleActivity : AppCompatActivity() {
     }
 
     private fun telecharger() {
-
         val intent = intent
         val lien = intent.getStringExtra("lien_book")
         val nom = intent.getStringExtra("syllabus")
@@ -297,6 +296,33 @@ class DetailleActivity : AppCompatActivity() {
         }
         val increment: MutableMap<String, Any> = HashMap()
         increment["download"] = ServerValue.increment(1)
+        FirebaseDatabase.getInstance().reference.child("syllabus")
+            .child(promo.toString()).child((cle.toString()))
+            .updateChildren(increment)
+            .addOnSuccessListener {
+                Toast.makeText(
+                    this@DetailleActivity,
+                    "plus 1",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(
+                    this@DetailleActivity,
+                    e.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
+    fun add_view() {
+        var promo = intent.getStringExtra("promo")
+        val cle = intent.getStringExtra("cle")
+
+        if (promo != "Preparatoire" && promo != "L1") {
+            promo = "Tous"
+        }
+        val increment: MutableMap<String, Any> = HashMap()
+        increment["like"] = ServerValue.increment(1)
         FirebaseDatabase.getInstance().reference.child("syllabus")
             .child(promo.toString()).child((cle.toString()))
             .updateChildren(increment)
