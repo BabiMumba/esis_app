@@ -1,11 +1,13 @@
 package com.BabiMumba.Esis_app.users
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_delete_count.*
@@ -14,9 +16,12 @@ import java.util.*
 import kotlin.collections.HashMap
 
 class DeleteCount : AppCompatActivity() {
+    lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_delete_count)
+        auth = FirebaseAuth.getInstance()
         clik_method()
 
     }
@@ -36,23 +41,20 @@ class DeleteCount : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val promo = sharedPreferences.getString("promotion",null)
         val mail = sharedPreferences.getString("mail",null)
-
         loading(true)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date()).toString()
         val data:MutableMap<String,Any> = HashMap()
-        val nom = intent.getStringExtra("mail")
         data["Date"] = date_dins
         data["promotion"] = "$promo"
         data["mail"] = "$mail"
         val db = FirebaseFirestore.getInstance()
-        db.collection("Deconnection").document(nom.toString())
-            .set(data, SetOptions.merge())
+        db.collection("Deconnection")
+            .add(data)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(this, "message envoyer", Toast.LENGTH_SHORT).show()
-                    txt_passwor.setText("")
                     loading(false)
+                   // auth.signOut()
 
                 }else{
                     loading(false)
