@@ -55,9 +55,8 @@ class PublishPost : AppCompatActivity() {
         get_token()
         publish_btn.setOnClickListener {
             if (filepath == null){
-                Toast.makeText(this, "importer une image", Toast.LENGTH_SHORT).show()
+                publish_post1()
             }else{
-                //Toast.makeText(this, "tres bien", Toast.LENGTH_SHORT).show()
                 publish_poste(filepath)
             }
 
@@ -93,6 +92,16 @@ class PublishPost : AppCompatActivity() {
 
     }
 
+    fun loading(isLoading: Boolean){
+        if (isLoading){
+            progress_bar.visibility = View.VISIBLE
+            publish_btn.visibility = View.GONE
+        }else{
+            progress_bar.visibility = View.GONE
+            publish_btn.visibility = View.VISIBLE
+
+        }
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         val imageUri : Uri
@@ -125,11 +134,11 @@ class PublishPost : AppCompatActivity() {
         val name_image = "forum_post/$mail/$name.png"
 
         databaseReference = FirebaseDatabase.getInstance().getReference("forum")
-
         val reference = storageReference.child(name_image)
         reference.putFile(filepath!!)
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
+                    publish_post2(uri)
 
                 }
             }
@@ -145,6 +154,7 @@ class PublishPost : AppCompatActivity() {
             }
     }
     fun publish_post1(){
+        loading(true)
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
@@ -158,11 +168,41 @@ class PublishPost : AppCompatActivity() {
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+
                     save_post_mprfl(id_user,"1",lien_image,id_pst,msg)
                     message_commnq.setText("")
                     message_commnq.hint = "nouveau poste"
                     sendnotif()
+                    loading(false)
                 }else{
+                    loading(false)
+                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
+                }
+            }
+    }
+    fun publish_post2(uri: Uri){
+        loading(true)
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val id_user = firebaseUser?.uid.toString()
+        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val date_de_pub = sdf.format(Date())
+        val name = "image${System.currentTimeMillis()}"
+        val msg = message_commnq.text.toString()
+        val name_image = "forum_post/$mail/$name.png"
+        val id_pst = databaseReference.push().key!!.toString()
+        val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
+        databaseReference.child(id_pst).setValue(donnee)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+
+                    save_post_mprfl(id_user,uri.toString(),lien_image,id_pst,msg)
+                    message_commnq.setText("")
+                    message_commnq.hint = "nouveau poste"
+                    sendnotif()
+                    loading(false)
+                }else{
+                    loading(false)
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }

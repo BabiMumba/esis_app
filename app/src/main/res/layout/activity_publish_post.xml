@@ -67,6 +67,16 @@
             android:paddingTop="@dimen/_5sdp"
             android:paddingBottom="@dimen/_50sdp"
             tools:ignore="RtlSymmetry" />
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:visibility="gone"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_below="@id/message_commnq"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            />
+
 
         <Button
             android:id="@+id/publish_btn"
