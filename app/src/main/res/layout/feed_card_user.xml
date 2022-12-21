@@ -1,226 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="@dimen/_3sdp"
-    android:background="@color/white"
-    >
+    android:layout_width="wrap_content"
+    android:background="@drawable/background_input_new"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/image_poste"
+        android:layout_width="@dimen/_80sdp"
+        android:layout_height="@dimen/_80sdp"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/stone_profil" />
+
+    <TextView
+        android:id="@+id/post_txt"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:background="@color/white"
-        >
+        android:text="Merci vraiment"
+        android:textColor="@color/primary_text"
+        android:layout_below="@id/image_poste"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textSize="@dimen/_8sdp"
+        android:layout_centerHorizontal="true"
+        />
 
-        <RelativeLayout
-            android:id="@+id/name_users"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp">
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgView_proPic"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:src="@drawable/ic_propic1"
-                app:civ_border_color="@color/primary"
-                app:civ_border_width="2dp" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="10dp"
-                android:layout_toEndOf="@+id/imgView_proPic"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-medium"
-                    android:text="jacque legrimm"
-                    android:textColor="@color/black"
-                    android:textSize="17sp" />
-
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif"
-                    android:text="11/2/2020"
-                    android:textColor="@color/gris"
-                    android:textSize="13sp" />
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/name_users"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="15dp"
-            android:ellipsize="end"
-            android:fontFamily="sans-serif-condensed"
-            android:maxLines="6"
-            android:text="@string/txt_lorem2"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <ImageView
-            android:id="@+id/image_poste1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/message"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="10dp"
-            android:adjustViewBounds="true"
-            android:background="@color/white"
-            android:maxHeight="@dimen/_350sdp"
-            android:src="@drawable/banner_principale"
-            android:transitionName="poste_trans" />
-
-        <View
-            android:id="@+id/view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_below="@id/like_personn_count"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:background="@color/gris" />
-
-        <ImageView
-            android:layout_margin="@dimen/_5sdp"
-            android:id="@+id/like_personn_count"
-            android:layout_below="@id/image_poste1"
-            android:layout_width="@dimen/_15sdp"
-            android:layout_height="@dimen/_15sdp"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/ic_like" />
-
-        <TextView
-            android:id="@+id/like_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/image_poste1"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_toEndOf="@id/like_personn_count"
-            android:gravity="center"
-            android:text="20" />
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_below="@+id/view">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:id="@+id/layout_like"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
-
-                    <ImageView
-                        android:id="@+id/like_btn"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/ic_outline_thumb_up_24" />
-
-                    <TextView
-                        android:id="@+id/nb_like"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="20"
-                        android:layout_gravity="center"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="click"
-                        android:textColor="@color/gris"
-                        android:textSize="13sp"
-                        />
-
-                    <TextView
-                        android:id="@+id/nb_vue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="10"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true">
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        app:srcCompat="@drawable/ic_comment_btn" />
-
-                    <TextView
-                        android:id="@+id/nb_comment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="sans-serif-medium"
-                        android:text="23"
-                        android:textColor="@color/black"
-                        android:textSize="13sp" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

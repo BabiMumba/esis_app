@@ -20,6 +20,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.makeramen.roundedimageview.RoundedImageView
 import java.net.MalformedURLException
 import java.net.URL
 
@@ -30,8 +31,7 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
 
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
 
-        var poste_image:ImageView
-
+        var poste_image:RoundedImageView
 
         init {
             poste_image = itemview.findViewById(R.id.image_poste)
