@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import com.BabiMumba.Esis_app.Authentification.LoginActivity
 import com.BabiMumba.Esis_app.R
 import com.google.firebase.auth.FirebaseAuth
@@ -14,7 +15,11 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         firebaseAuth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
-        chek_users()
+        Handler().postDelayed(
+            {
+           chek_users()
+
+        },3000)
 
     }
     fun chek_users(){

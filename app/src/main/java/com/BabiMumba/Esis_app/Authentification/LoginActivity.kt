@@ -19,12 +19,9 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
-        chek_users()
+
+
         clicmethode()
-    }
-    override fun onStart() {
-        super.onStart()
-        chek_users()
     }
     fun chek_users(){
         if (firebaseAuth.currentUser != null){

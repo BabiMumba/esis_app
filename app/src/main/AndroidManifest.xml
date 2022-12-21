@@ -27,7 +27,7 @@
             android:name=".users.DeleteCount"
             android:exported="false" />
         <activity
-            android:name=".home.SplashScreen"
+            android:name=".Authentification.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".home.FeedBack"
@@ -87,7 +87,7 @@
             android:name=".home.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.LoginActivity"
+            android:name=".home.SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
