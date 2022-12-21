@@ -186,6 +186,7 @@ class PublicationSyllabus : AppCompatActivity() {
             imageUri = data?.data!!
             syllabus_icone.setImageURI(imageUri)
             cober_btn.visibility = View.GONE
+            fcl.visibility = View.GONE
             syllabus_icone.visibility = View.VISIBLE
             cover_path = data.data!!
 
