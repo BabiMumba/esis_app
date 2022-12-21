@@ -1,8 +1,10 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.content.ContentValues
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.widget.Toast
@@ -11,6 +13,8 @@ import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.databinding.ActivityLoginBinding
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_update_profil.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -24,6 +28,32 @@ class LoginActivity : AppCompatActivity() {
 
 
         clicmethode()
+    }
+    fun readData(){
+        val fireuser= firebaseAuth.currentUser
+        val mail = fireuser?.email.toString()
+        val db = FirebaseFirestore.getInstance()
+        val docRef = db.collection("Utilisateurs")
+            .document(mail)
+        docRef.get()
+            .addOnSuccessListener { document ->
+                if (document != null){
+                    val name = document.data?.getValue("nom").toString()
+                    val postname = document.data?.getValue("post-nom").toString()
+                    val num = document.data?.getValue("Numero de telephone").toString()
+                    val prenoms = document.data?.getValue("prenom").toString()
+                    val mailTo = document.data?.getValue("mail").toString()
+                    val promotion = document.data?.getValue("promotion").toString()
+
+                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                }else{
+                    Log.d(ContentValues.TAG, "document inconnue")
+                }
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
     }
     fun clicmethode(){
 
@@ -54,7 +84,6 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     startActivity(Intent(this, MainActivity::class.java))
-
                     loading(false)
                     finish()
 
