@@ -16,16 +16,30 @@
         android:src="@mipmap/launcher_icon" />
 
     <TextView
+        android:id="@+id/name_esis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo_esis"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
+        android:fontFamily="serif"
         android:text="@string/school_name"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_10sdp"
-        android:fontFamily="serif"
         android:textStyle="bold" />
+    <TextView
+        android:id="@+id/slogan"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Une ecole un metier"
+        android:layout_below="@id/name_esis"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"
+        />
     <TextView
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/l1"

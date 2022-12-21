@@ -4,9 +4,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.view.View
 import com.BabiMumba.Esis_app.Authentification.LoginActivity
 import com.BabiMumba.Esis_app.R
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
@@ -17,7 +19,10 @@ class SplashScreen : AppCompatActivity() {
         supportActionBar?.hide()
         Handler().postDelayed(
             {
-           chek_users()
+                slogan.visibility = View.VISIBLE
+                Handler().postDelayed({
+                  chek_users()
+                },3000)
 
         },3000)
 
