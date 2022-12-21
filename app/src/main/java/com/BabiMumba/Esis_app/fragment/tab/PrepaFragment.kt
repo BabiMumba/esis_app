@@ -34,6 +34,8 @@ class PrepaFragment : Fragment() {
         val recp = v.findViewById<RecyclerView>(R.id.recycler_prepa)
 
         if (isConnectedNetwork(requireActivity())){
+
+        }else{
             v.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
             Toast.makeText(requireActivity(), "verifier votre connection", Toast.LENGTH_SHORT).show()
         }

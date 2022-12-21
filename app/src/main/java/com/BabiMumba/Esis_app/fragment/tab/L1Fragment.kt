@@ -34,6 +34,8 @@ class L1Fragment : Fragment() {
         val v = inflater.inflate(R.layout.fragment_l1, container, false)
         val recp = v.findViewById<RecyclerView>(R.id.recycler_l1)
         if (isConnectedNetwork(requireActivity())){
+
+        }else{
             v.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
             Toast.makeText(requireActivity(), "verifier votre connection", Toast.LENGTH_SHORT).show()
         }

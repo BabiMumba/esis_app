@@ -34,6 +34,8 @@ class TousFragment : Fragment() {
 
         val v = inflater.inflate(R.layout.fragment_tous, container, false)
         if (isConnectedNetwork(requireActivity())){
+
+        }else{
             v.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
             Toast.makeText(requireActivity(), "verifier votre connection", Toast.LENGTH_SHORT).show()
         }
