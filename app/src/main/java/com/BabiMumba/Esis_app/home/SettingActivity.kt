@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -59,13 +60,14 @@ class SettingActivity : AppCompatActivity() {
                 .setTitle("suppression de compte")
                 .setMessage("Vous etes sur le point de supprimer toute vos donnez y compris vos syllabus telecharger")
                 .setPositiveButton("supprimer") { dialogInterface, i ->
-
+                    startActivity(Intent(this,DeleteCount::class.java))
                     dialogInterface.dismiss()
                 }
                 .setNegativeButton("Annuler") { dialogInterface, i ->
                     Toast.makeText(this, "annuler", Toast.LENGTH_SHORT).show()
                     dialogInterface.dismiss()
                 }
+            builder.show()
         }
         md.setOnClickListener {
             startActivity(Intent(this, ProfilUser::class.java))
