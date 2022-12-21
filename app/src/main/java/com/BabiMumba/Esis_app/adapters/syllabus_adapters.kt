@@ -43,6 +43,8 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         holder.nom_syllabus.text = syllabusModel.nom_syllabu
         holder.nb_comment.text = syllabusModel.comment.toString()
         holder.nb_download.text = syllabusModel.download.toString()
+        holder.like_text.text = syllabusModel.like.toString()
+
        // holder.image_user.setImageBitmap(getConversionImage(syllabusModel.lien_profil))
         val circularProgressDrawable = CircularProgressDrawable(holder.nom_user.context)
         circularProgressDrawable.strokeWidth = 5f
@@ -64,9 +66,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
 
         holder.itemView.setOnClickListener {
            val cle = getRef(position).key
-
             val intent = Intent(holder.itemView.context, DetailleActivity::class.java)
-
             intent.putExtra("lien_book",syllabusModel.lien_du_livre)
             intent.putExtra("nom_prof",syllabusModel.nom_prof)
             intent.putExtra("syllabus",syllabusModel.nom_syllabu)
@@ -142,7 +142,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             nom_prof = itemView.findViewById(R.id.prof_syllabus)
             nb_comment = itemView.findViewById(R.id.tv_comment)
             nb_download = itemView.findViewById(R.id.tv_download)
-            like_text = itemView.findViewById(R.id.like_text)
+            like_text = itemView.findViewById(R.id.read_view)
             promotion = itemView.findViewById(R.id.nom_promo)
 
         }

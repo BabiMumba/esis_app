@@ -80,13 +80,13 @@ class DetailleActivity : AppCompatActivity() {
             .into(pdf_id_icone)
 
         setListener()
-
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
 
         if (id_uses.toString() != id_last) {
             dele_pst.visibility = View.GONE
         } else {
+
             dele_pst.visibility = View.VISIBLE
         }
 
