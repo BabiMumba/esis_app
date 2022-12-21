@@ -67,7 +67,8 @@ class SettingActivity : AppCompatActivity() {
                     Toast.makeText(this, "annuler", Toast.LENGTH_SHORT).show()
                     dialogInterface.dismiss()
                 }
-            builder.show()
+            val customAlertDialog = builder.create()
+            customAlertDialog.show()
         }
         md.setOnClickListener {
             startActivity(Intent(this, ProfilUser::class.java))

@@ -24,7 +24,7 @@ class SplashScreen : AppCompatActivity() {
                   chek_users()
                 },3000)
 
-        },3000)
+        },2000)
 
     }
     fun chek_users(){
