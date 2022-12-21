@@ -1,11 +1,15 @@
 package com.BabiMumba.Esis_app.fragment.tab
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
@@ -28,6 +32,11 @@ class PrepaFragment : Fragment() {
     ): View? {
         val v = inflater.inflate(R.layout.fragment_prepa, container, false)
         val recp = v.findViewById<RecyclerView>(R.id.recycler_prepa)
+
+        if (isConnectedNetwork(requireActivity())){
+            v.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
+            Toast.makeText(requireActivity(), "verifier votre connection", Toast.LENGTH_SHORT).show()
+        }
         v.findViewById<FloatingActionButton>(R.id.add_post).setOnClickListener {
             startActivity(Intent(requireActivity(), PublicationSyllabus::class.java))
         }
@@ -49,6 +58,7 @@ class PrepaFragment : Fragment() {
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
 
+
         return v
     }
 
@@ -61,5 +71,9 @@ class PrepaFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         myadaptes_syllabus.stopListening()
+    }
+    fun isConnectedNetwork(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
 }
