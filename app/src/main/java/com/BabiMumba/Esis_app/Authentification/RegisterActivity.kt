@@ -133,6 +133,7 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
+
         infor_user["nom"] = binding.nom.text.toString()
         infor_user["date d'inscription"] = date_dins.toString()
         infor_user["post-nom"] = binding.postNom.text.toString()

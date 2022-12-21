@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.Authentification
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -38,15 +39,24 @@ class LoginActivity : AppCompatActivity() {
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null){
-                    val name = document.data?.getValue("nom").toString()
-                    val postname = document.data?.getValue("post-nom").toString()
-                    val num = document.data?.getValue("Numero de telephone").toString()
-                    val prenoms = document.data?.getValue("prenom").toString()
-                    val mailTo = document.data?.getValue("mail").toString()
-                    val promotion = document.data?.getValue("promotion").toString()
+                    val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.apply(){
+                        putString("nom",document.data?.getValue("nom").toString())
+                        putString("date d'inscription",document.data?.getValue("date d'inscription").toString())
+                        putString("post-nom",document.data?.getValue("post-nom").toString())
+                        putString("prenom",document.data?.getValue("prenom").toString())
+                        putString("mail",document.data?.getValue("mail").toString())
+                        putString("sexe",document.data?.getValue("sexe").toString())
+                        putString("numero de telephone",document.data?.getValue("Numero de telephone").toString())
+                        putString("promotion",document.data?.getValue("promotion").toString())
+                        putString("mot de passe",document.data?.getValue("mot de passe").toString())
+                        putString("lien profil",document.data?.getValue("profil").toString())
 
-                    Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
+                    }.apply()
+                    
                 }else{
+                    Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show()
                     Log.d(ContentValues.TAG, "document inconnue")
                 }
             }
