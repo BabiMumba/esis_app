@@ -70,8 +70,8 @@
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp"
             android:ellipsize="end"
-            android:fontFamily="sans-serif-condensed"
             android:maxLines="6"
+            android:fontFamily="sans-serif-condensed"
             android:text="@string/txt_lorem2"
             android:textColor="@color/black"
             android:textSize="16sp" />

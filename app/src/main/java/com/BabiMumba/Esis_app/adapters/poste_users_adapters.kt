@@ -17,6 +17,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -54,8 +55,8 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
         Glide
             .with(holder.itemView.context)
             .load(model.image_poste)
-            //.diskCacheStrategy(DiskCacheStrategy.ALL)
-            .apply(RequestOptions.overrideOf(300,600))
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            //.apply(RequestOptions.overrideOf(300,600))
             .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.poste_image)
