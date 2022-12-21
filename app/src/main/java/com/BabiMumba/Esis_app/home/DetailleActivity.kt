@@ -118,7 +118,6 @@ class DetailleActivity : AppCompatActivity() {
         comment_recyclerview!!.recycledViewPool.clear()
         adpter.notifyDataSetChanged()
     }
-
     override fun onStop() {
         super.onStop()
         adpter.stopListening()
@@ -151,6 +150,7 @@ class DetailleActivity : AppCompatActivity() {
             val intent = Intent(this, LectureActivity::class.java)
             intent.putExtra("nom", name_syllabus.text.toString())
             intent.putExtra("lien_book", lien)
+            add_view()
             startActivity(intent)
         }
         check_teste()
@@ -326,19 +326,12 @@ class DetailleActivity : AppCompatActivity() {
         FirebaseDatabase.getInstance().reference.child("syllabus")
             .child(promo.toString()).child((cle.toString()))
             .updateChildren(increment)
-            .addOnSuccessListener {
-                Toast.makeText(
-                    this@DetailleActivity,
-                    "plus 1",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(
-                    this@DetailleActivity,
-                    e.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
+            .addOnCompleteListener { 
+                if (it.isSuccessful){
+                    
+                }else{
+                    Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
+                }
             }
     }
 
