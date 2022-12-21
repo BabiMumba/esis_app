@@ -150,6 +150,16 @@
             android:background="@drawable/file_background"
             android:text="@string/publier"
             android:textAllCaps="false" />
+        <ImageView
+            android:layout_below="@id/description"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/syllabus_icone"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:maxHeight="@dimen/_100sdp"
+            android:scaleType="fitXY"
+            android:src="@drawable/pdf_file" />
 
 
         <RelativeLayout
