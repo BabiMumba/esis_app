@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -15,6 +16,7 @@ import com.BabiMumba.Esis_app.databinding.ActivityLoginBinding
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.activity_update_profil.*
 
 class LoginActivity : AppCompatActivity() {
@@ -27,10 +29,12 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
 
-
         clicmethode()
     }
-    fun readData(){
+    fun getData(){
+        val pd = ProgressDialog(this)
+        pd.setTitle("recuperation de votre compte")
+        pd.show()
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val db = FirebaseFirestore.getInstance()
@@ -54,8 +58,14 @@ class LoginActivity : AppCompatActivity() {
                         putString("lien profil",document.data?.getValue("profil").toString())
 
                     }.apply()
+                    pd.dismiss()
+
+                    startActivity(Intent(this, MainActivity::class.java))
+                    finish()
+
                     
                 }else{
+                    pd.dismiss()
                     Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show()
                     Log.d(ContentValues.TAG, "document inconnue")
                 }
@@ -93,10 +103,8 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(binding.inputMail.text.toString(),binding.inputPassword.text.toString())
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    startActivity(Intent(this, MainActivity::class.java))
                     loading(false)
-                    finish()
-
+                    getData()
                 }else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_LONG).show()
                     loading(false)
