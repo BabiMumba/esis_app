@@ -130,10 +130,8 @@ class PublishPost : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle("publication")
         pd.show()
-        val name = "image${System.currentTimeMillis()}"
+        val name = "post_image${System.currentTimeMillis()}"
         val name_image = "forum_post/$mail/$name.png"
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("forum")
         val reference = storageReference.child(name_image)
         reference.putFile(filepath!!)
             .addOnSuccessListener { taskSnapshot: UploadTask.TaskSnapshot? ->
@@ -155,6 +153,7 @@ class PublishPost : AppCompatActivity() {
     }
     fun publish_post1(){
         loading(true)
+        databaseReference = FirebaseDatabase.getInstance().getReference("forum_discussion")
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
@@ -168,7 +167,6 @@ class PublishPost : AppCompatActivity() {
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-
                     save_post_mprfl(id_user,"1",lien_image,id_pst,msg)
                     message_commnq.setText("")
                     message_commnq.hint = "nouveau poste"
@@ -182,6 +180,7 @@ class PublishPost : AppCompatActivity() {
     }
     fun publish_post2(uri: Uri){
         loading(true)
+        databaseReference = FirebaseDatabase.getInstance().getReference("forum")
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val id_user = firebaseUser?.uid.toString()
@@ -195,7 +194,6 @@ class PublishPost : AppCompatActivity() {
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-
                     save_post_mprfl(id_user,uri.toString(),lien_image,id_pst,msg)
                     message_commnq.setText("")
                     message_commnq.hint = "nouveau poste"

@@ -57,7 +57,7 @@ class ForumFragment : Fragment() {
         recyclerv.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<commnunique_model>()
             .setQuery(
-                FirebaseDatabase.getInstance().reference.child("forum"),
+                FirebaseDatabase.getInstance().reference.child("forum_discussion"),
                 commnunique_model::class.java
             )
             .build()
