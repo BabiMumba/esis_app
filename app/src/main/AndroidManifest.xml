@@ -24,7 +24,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DeleteCount"
+            android:name=".users.DeleteCount"
+            android:exported="false" />
+        <activity
+            android:name=".home.SplashScreen"
             android:exported="false" />
         <activity
             android:name=".home.FeedBack"

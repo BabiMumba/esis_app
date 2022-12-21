@@ -30,7 +30,7 @@ class DeleteCount : AppCompatActivity() {
         val password = sharedPreferences.getString("mot de passe",null)
 
         if (txt_passwor.text.toString() != password){
-            Toast.makeText(this, "mot de passe different", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "mot de passe incorecte", Toast.LENGTH_SHORT).show()
         }else{
             save_person()
         }
@@ -58,7 +58,7 @@ class DeleteCount : AppCompatActivity() {
 
                 }else{
                     loading(false)
-                    Toast.makeText(this, "erreur", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
