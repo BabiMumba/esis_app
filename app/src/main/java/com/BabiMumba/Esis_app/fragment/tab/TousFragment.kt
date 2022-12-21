@@ -37,6 +37,7 @@ class TousFragment : Fragment() {
 
         }else{
             v.findViewById<ProgressBar>(R.id.progressBar).visibility = View.GONE
+            v.findViewById<FloatingActionButton>(R.id.add_post).visibility = View.GONE
             Toast.makeText(requireActivity(), "verifier votre connection", Toast.LENGTH_SHORT).show()
         }
         v.findViewById<FloatingActionButton>(R.id.add_post).setOnClickListener {
