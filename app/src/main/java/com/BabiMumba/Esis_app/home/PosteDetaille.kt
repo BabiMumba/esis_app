@@ -70,7 +70,6 @@ class PosteDetaille : AppCompatActivity() {
             delete_btn.visibility = View.VISIBLE
         }
 
-        val image_poster = intent.getStringExtra("post_image")
 
         descri.text = txtdescrip
         val circularProgressDrawable = CircularProgressDrawable(this)
@@ -78,12 +77,19 @@ class PosteDetaille : AppCompatActivity() {
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
 
-        Glide
-            .with(this)
-            .load(image_poster)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .placeholder(circularProgressDrawable)
-            .into(poste_image_id)
+        val image_poster = intent.getStringExtra("post_image")
+        if (image_poster == "1"){
+            poste_image_id.visibility = View.GONE
+        }else{
+            Glide
+                .with(this)
+                .load(image_poster)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(poste_image_id)
+        }
+
+
 
         setListener()
         get_token()
