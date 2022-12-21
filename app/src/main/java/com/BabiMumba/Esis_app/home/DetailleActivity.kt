@@ -16,9 +16,12 @@ import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.commentaire_adapters
 import com.BabiMumba.Esis_app.model.commentaire_model
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -56,6 +59,7 @@ class DetailleActivity : AppCompatActivity() {
         var promo = intent.getStringExtra("promo").toString()
         val cles = intent.getStringExtra("cle")
         val descrip = intent.getStringExtra("description")
+        val cover_ic = intent.getStringExtra("couverture")
 
         nom_du_prof.text = nom_prof
         name_syllabus.text = syllabus
@@ -63,6 +67,17 @@ class DetailleActivity : AppCompatActivity() {
         date_id.text = date
         description_tv.text = descrip
         my_txtv_pm.text = promo
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+
+        Glide
+            .with(this)
+            .load(cover_ic)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(circularProgressDrawable)
+            .into(pdf_id_icone)
 
         setListener()
 

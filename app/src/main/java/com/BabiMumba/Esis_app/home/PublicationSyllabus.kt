@@ -213,8 +213,10 @@ class PublicationSyllabus : AppCompatActivity() {
         }
 
         val name_save_sta = "livres/$nn/$name.pdf"
-        val name_cover = "livres/$nn/$name.png"
+        val name_cover = "couverture/$nn/$name.png"
+
         val link_cover = "https://www.pngfind.com/pngs/m/350-3500642_pdf-icon-download-download-hd-png-download.png"
+
         val reference = storageReference.child(name_save_sta)
         val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
@@ -227,7 +229,8 @@ class PublicationSyllabus : AppCompatActivity() {
                                     if (it.isSuccessful){
                                         ref.downloadUrl.addOnSuccessListener { lien:Uri ->
                                             val obj = syllabus_model(
-                                                name.toUpperCase(),lien.toString(),
+                                                name.toUpperCase(),
+                                                lien.toString(),
                                                 mail_users,
                                                 id_users,
                                                 name_save_sta,
@@ -240,8 +243,19 @@ class PublicationSyllabus : AppCompatActivity() {
                                                 currentDate,
                                                 lien_image, 0, 0, 0)
                                             databaseReference.child(nn).child(id_poste).setValue(obj)
+                                            pd.dismiss()
+                                            Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
+                                            icone_failed.visibility = View.VISIBLE
+                                            icone_succes.visibility = View.GONE
+                                            publish_file.isEnabled = false
+                                            sendnotif(promotion_text.text.toString())
+                                            save_syllabus_mprfl(uri.toString(),name,id_poste)
+                                            nom_du_syllabus.setText("")
+                                            nom_du_prof.setText("")
+                                            description.setText("")
                                         }
                                     }else{
+                                        Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
 
                                     }
                                 }
@@ -260,18 +274,19 @@ class PublicationSyllabus : AppCompatActivity() {
                             currentDate,
                             lien_image, 0, 0, 0)
                         databaseReference.child(nn).child(id_poste).setValue(obj)
+                        pd.dismiss()
+                        Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
+                        icone_failed.visibility = View.VISIBLE
+                        icone_succes.visibility = View.GONE
+                        publish_file.isEnabled = false
+                        sendnotif(promotion_text.text.toString())
+                        save_syllabus_mprfl(uri.toString(),name,id_poste)
+                        nom_du_syllabus.setText("")
+                        nom_du_prof.setText("")
+                        description.setText("")
                     }
 
-                    pd.dismiss()
-                    Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
-                    icone_failed.visibility = View.VISIBLE
-                    icone_succes.visibility = View.GONE
-                    publish_file.isEnabled = false
-                    sendnotif(promotion_text.text.toString())
-                    save_syllabus_mprfl(uri.toString(),name,id_poste)
-                    nom_du_syllabus.setText("")
-                    nom_du_prof.setText("")
-                    description.setText("")
+
                 }
             }
             .addOnFailureListener{

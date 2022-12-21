@@ -76,6 +76,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             intent.putExtra("description",syllabusModel.description)
             intent.putExtra("promo",syllabusModel.nom_promotion)
             intent.putExtra("image_url",syllabusModel.lien_pdf)
+            intent.putExtra("couverture",syllabusModel.pochette)
             intent.putExtra("cle",cle)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             holder.itemView.context.startActivity(intent)
