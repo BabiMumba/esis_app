@@ -194,12 +194,10 @@ class PublicationSyllabus : AppCompatActivity() {
     }
 
     fun processupload(filepath: Uri?) {
-
         val firebaseUser = firebaseAuth.currentUser
         val id_users = firebaseUser?.uid.toString()
         val mail_users = firebaseUser?.email.toString()
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
-
         val currentDate = sdf.format(Date())
         val pd = ProgressDialog(this)
         pd.setTitle("Imporatation du fichier....!!!")
@@ -215,29 +213,57 @@ class PublicationSyllabus : AppCompatActivity() {
         }
 
         val name_save_sta = "livres/$nn/$name.pdf"
+        val name_cover = "livres/$nn/$name.png"
         val link_cover = "https://www.pngfind.com/pngs/m/350-3500642_pdf-icon-download-download-hd-png-download.png"
         val reference = storageReference.child(name_save_sta)
         val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
             .addOnSuccessListener {
-
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
-                    val obj = syllabus_model(
-                        name.toUpperCase(),link_cover,
-                        mail_users,
-                        id_users,
-                        name_save_sta,
-                        token_id,
-                        promotion_text.text.toString(),
-                        descp,
-                        nameProf,
-                        uri.toString()
-                        ,mon_nom,
-                        currentDate,
-                        lien_image, 0, 0, 0)
-                    databaseReference.child(nn).child(id_poste).setValue(obj)
+                    if (cover_path != null){
+                        val ref = storageReference.child(name_cover)
+                            ref.putFile(cover_path!!)
+                                .addOnCompleteListener{
+                                    if (it.isSuccessful){
+                                        ref.downloadUrl.addOnSuccessListener { lien:Uri ->
+                                            val obj = syllabus_model(
+                                                name.toUpperCase(),lien.toString(),
+                                                mail_users,
+                                                id_users,
+                                                name_save_sta,
+                                                token_id,
+                                                promotion_text.text.toString(),
+                                                descp,
+                                                nameProf,
+                                                uri.toString()
+                                                ,mon_nom,
+                                                currentDate,
+                                                lien_image, 0, 0, 0)
+                                            databaseReference.child(nn).child(id_poste).setValue(obj)
+                                        }
+                                    }else{
+
+                                    }
+                                }
+                    }else{
+                        val obj = syllabus_model(
+                            name.toUpperCase(),link_cover,
+                            mail_users,
+                            id_users,
+                            name_save_sta,
+                            token_id,
+                            promotion_text.text.toString(),
+                            descp,
+                            nameProf,
+                            uri.toString()
+                            ,mon_nom,
+                            currentDate,
+                            lien_image, 0, 0, 0)
+                        databaseReference.child(nn).child(id_poste).setValue(obj)
+                    }
+
                     pd.dismiss()
-                    Toast.makeText(applicationContext, "Fichier publier", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                     icone_failed.visibility = View.VISIBLE
                     icone_succes.visibility = View.GONE
                     publish_file.isEnabled = false
