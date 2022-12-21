@@ -32,7 +32,7 @@
         android:id="@+id/txt_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Esis App 1.0.2"
+        android:text="@string/app_version"
         android:layout_marginBottom="@dimen/_15sdp"
         android:textColor="@color/primary_text"
        />
@@ -49,14 +49,15 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/_9sdp"
             android:textStyle="normal"
-            android:text="realized by "/>
+            android:text="@string/copy_txt"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_9sdp"
             android:textStyle="bold"
+            android:layout_marginStart="@dimen/_2sdp"
             android:textColor="@color/black"
-            android:text="Babi Mumba"/>
+            android:text="@string/may_name"/>
 
 
 

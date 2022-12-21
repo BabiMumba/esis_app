@@ -39,4 +39,7 @@
     <string name="lien_app">https://play.google.com/store/apps/details?id=com.bstonetech.teste_kitabu</string>
     <string name="probleme_txt">Rediger votre probleme ici</string>
     <string name="school_name">Ecole Supérieure d\'Informatique Salama</string>
+    <string name="app_version">Esis App 1.0.2</string>
+    <string name="may_name">Babi Mumba</string>
+    <string name="copy_txt">realized by</string>
 </resources>
