@@ -53,8 +53,8 @@ class LoginActivity : AppCompatActivity() {
         firebaseAuth.signInWithEmailAndPassword(binding.inputMail.text.toString(),binding.inputPassword.text.toString())
             .addOnCompleteListener {
                 if (it.isSuccessful){
-
                     startActivity(Intent(this, MainActivity::class.java))
+
                     loading(false)
                     finish()
 
@@ -82,15 +82,10 @@ class LoginActivity : AppCompatActivity() {
             true
         }
     }
-
-    override fun onBackPressed() {
-        show_dialogue()
-        super.onBackPressed()
-    }
     fun show_dialogue(){
         val builder = AlertDialog.Builder(this)
             .setTitle("Quitter")
-            .setPositiveButton("quitter") { dialogInterface, i ->
+            .setPositiveButton("oui") { dialogInterface, i ->
                finish()
                 dialogInterface.dismiss()
             }
@@ -100,6 +95,9 @@ class LoginActivity : AppCompatActivity() {
             }
         val customAlertDialog = builder.create()
         customAlertDialog.show()
+    }
+    override fun onBackPressed() {
+        show_dialogue()
     }
 
 }
