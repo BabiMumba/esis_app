@@ -36,9 +36,7 @@ class FeedBack : AppCompatActivity() {
         val date_dins = sdf.format(Date()).toString()
         val data:MutableMap<String,Any> = HashMap()
         val nom = intent.getStringExtra("mail")
-        val doc = " ${System.currentTimeMillis()}"
-
-        data[date_dins] = "${txt_feedback.text}"
+          data[date_dins] = "${txt_feedback.text}"
         val db = FirebaseFirestore.getInstance()
         db.collection("feedback").document(nom.toString())
             .set(data, SetOptions.merge())
