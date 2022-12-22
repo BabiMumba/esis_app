@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
@@ -19,6 +20,7 @@ import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.fragment_tous.*
 
 class TousFragment : Fragment() {
@@ -45,6 +47,7 @@ class TousFragment : Fragment() {
         }
 
         val recp = v.findViewById<RecyclerView>(R.id.recycler_tous)
+        val sort = v.findViewById<RecyclerView>(R.id.sort_data)
 
         linearLayoutManager = LinearLayoutManager(activity)
         linearLayoutManager.reverseLayout = true
@@ -62,6 +65,42 @@ class TousFragment : Fragment() {
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
+        sort.setOnClickListener {
+            val checkedItem = intArrayOf(-1)
+            val alertDialog = AlertDialog.Builder(requireActivity())
+            alertDialog.setIcon(R.drawable.pdf_file)
+            alertDialog.setTitle("Promotion")
+            val listItems = arrayOf(
+                "Preparatoire",
+                "L1",
+                "G2 ",
+                "GL",
+                "G2 MSI",
+                "G2 DSG",
+                "G2 AS",
+                "G2 TLC",
+                "G3 GL",
+                "G3 MSI",
+                "G3 DSG",
+                "G3 AS",
+                "G3 TLC",
+                " M1 AS-TLC",
+                "M1 DESIGN",
+                "M1 MIAGE"
+            )
+            alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
+                checkedItem[0] = which
+                val s = listItems[which]
+                //promotion_text.text = s
+                Toast.makeText(requireActivity(), "vous avez selectionnez $s", Toast.LENGTH_SHORT).show()
+                dialog.dismiss()
+            }
+            alertDialog.setNegativeButton("Annuler") { dialog, which ->
+                dialog.dismiss()
+            }
+            val customAlertDialog = alertDialog.create()
+            customAlertDialog.show()
+        }
         return v
     }
     override fun onStart() {
