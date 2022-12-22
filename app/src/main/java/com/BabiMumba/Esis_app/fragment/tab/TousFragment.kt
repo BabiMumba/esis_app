@@ -20,7 +20,10 @@ import com.BabiMumba.Esis_app.home.PublicationSyllabus
 import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.database.*
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.fragment_tous.*
 
@@ -89,33 +92,42 @@ class TousFragment : Fragment() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
-        val ref2:Query = ref.orderByChild("nom_promotion").equalTo("$choice")
+        ref.orderByChild("nom_promotion").equalTo("$choice").addListenerForSingleValueEvent(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if (snapshot.exists()){
+                    val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+                        .setQuery(
+                            ref,
+                            syllabus_model::class.java
+                        )
+                        .build()
+                    myadaptes_syllabus = syllabus_adapters(options)
+                    recp.adapter = myadaptes_syllabus
+                    myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+                    myadaptes_syllabus.startListening()
+                    Toast.makeText(requireActivity(), "il existe", Toast.LENGTH_SHORT).show()
+
+                }else{
+                    Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(requireActivity(), "$error", Toast.LENGTH_SHORT).show()
+            }
+
+        })
         recp.layoutManager = linearLayoutManager
-        if (choice==null){
-            val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
-                .setQuery(
-                    ref,
-                    syllabus_model::class.java
-                )
-                .build()
-            myadaptes_syllabus = syllabus_adapters(options)
-            recp.adapter = myadaptes_syllabus
-            myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-            myadaptes_syllabus.startListening()
-        }else{
-            val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
-                .setQuery(
-                    ref2,
-                    syllabus_model::class.java
-                )
-                .build()
-            myadaptes_syllabus = syllabus_adapters(options)
-            recp.adapter = myadaptes_syllabus
-            myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-            myadaptes_syllabus.startListening()
-
-        }
-
+        val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+            .setQuery(
+                ref,
+                syllabus_model::class.java
+            )
+            .build()
+        myadaptes_syllabus = syllabus_adapters(options)
+        recp.adapter = myadaptes_syllabus
+        myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        myadaptes_syllabus.startListening()
 
         return v
     }
@@ -134,20 +146,3 @@ class TousFragment : Fragment() {
         myadaptes_syllabus.stopListening()
     }
 }
-
-/*
-var ref2:Query = ref.orderByChild("nom_promotion").equalTo("$choice").addListenerForSingleValueEvent(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    Toast.makeText(requireActivity(), "il existe", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireActivity(), "$error", Toast.LENGTH_SHORT).show()
-            }
-
-        })
- */
