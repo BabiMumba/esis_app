@@ -92,9 +92,10 @@ class TousFragment : Fragment() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
-        ref.orderByChild("nom_promotion").equalTo("$choice").addListenerForSingleValueEvent(object:ValueEventListener{
+        ref.orderByChild("nom_promotion").equalTo("G2 MSI").addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
+                    recp.layoutManager = linearLayoutManager
                     val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
                         .setQuery(
                             ref,
@@ -117,7 +118,8 @@ class TousFragment : Fragment() {
             }
 
         })
-        recp.layoutManager = linearLayoutManager
+        /*
+         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
             .setQuery(
                 ref,
@@ -128,6 +130,8 @@ class TousFragment : Fragment() {
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
+
+         */
 
         return v
     }
