@@ -34,7 +34,7 @@
                 android:layout_gravity="bottom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:rotationy="180"
+                android:rotationY="180"
                 android:src="@drawable/ic_baseline_sort_24"
                 />
 

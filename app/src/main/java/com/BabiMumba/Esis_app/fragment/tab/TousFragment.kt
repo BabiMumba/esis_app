@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +48,7 @@ class TousFragment : Fragment() {
         }
 
         val recp = v.findViewById<RecyclerView>(R.id.recycler_tous)
-        val sort = v.findViewById<RecyclerView>(R.id.sort_data)
+        val sort = v.findViewById<TextView>(R.id.sort_data)
 
         linearLayoutManager = LinearLayoutManager(activity)
         linearLayoutManager.reverseLayout = true
