@@ -20,7 +20,10 @@ import com.BabiMumba.Esis_app.home.PublicationSyllabus
 import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.fragment_tous.*
 
@@ -91,7 +94,20 @@ class TousFragment : Fragment() {
                 checkedItem[0] = which
                 val s = listItems[which]
                 FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous")
-                    .orderByChild("nom_promotion/$s")
+                    .orderByChild("nom_promotion").equalTo("$s").addListenerForSingleValueEvent(object:ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                          if (snapshot.exists()){
+                              Toast.makeText(requireActivity(), "il existe", Toast.LENGTH_SHORT).show()
+                          }else{
+                              Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
+                          }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            Toast.makeText(requireActivity(), "$error", Toast.LENGTH_SHORT).show()
+                        }
+
+                    })
                 dialog.dismiss()
             }
             alertDialog.setNegativeButton("Annuler") { dialog, which ->
