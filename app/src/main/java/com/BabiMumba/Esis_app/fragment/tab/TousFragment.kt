@@ -68,11 +68,9 @@ class TousFragment : Fragment() {
         sort.setOnClickListener {
             val checkedItem = intArrayOf(-1)
             val alertDialog = AlertDialog.Builder(requireActivity())
-            alertDialog.setIcon(R.drawable.pdf_file)
-            alertDialog.setTitle("Promotion")
+            alertDialog.setIcon(R.drawable.ic_baseline_sort_24)
+            alertDialog.setTitle("trier par")
             val listItems = arrayOf(
-                "Preparatoire",
-                "L1",
                 "G2 ",
                 "GL",
                 "G2 MSI",
