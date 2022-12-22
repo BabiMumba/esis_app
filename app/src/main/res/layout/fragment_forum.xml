@@ -12,27 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <LinearLayout
-            android:layout_alignParentTop="true"
-            android:layout_marginBottom="@dimen/_10sdp"
-            android:id="@+id/l1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:textColor="@color/primary_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tout"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_sort_24"
-
-
-
-        </LinearLayout>
 
         <ProgressBar
             android:indeterminate="true"
@@ -43,7 +22,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_frg"
-            android:layout_below="@id/l1"
+           android:layout_alignParentTop="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:itemCount="3"
