@@ -90,8 +90,8 @@ class TousFragment : Fragment() {
             alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
                 checkedItem[0] = which
                 val s = listItems[which]
-                //promotion_text.text = s
-                Toast.makeText(requireActivity(), "vous avez selectionnez $s", Toast.LENGTH_SHORT).show()
+                FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous")
+                    .orderByChild("nom_promotion/$s")
                 dialog.dismiss()
             }
             alertDialog.setNegativeButton("Annuler") { dialog, which ->
