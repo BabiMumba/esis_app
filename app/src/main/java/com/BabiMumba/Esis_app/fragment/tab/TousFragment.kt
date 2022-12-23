@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.fragment.tab
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -31,14 +32,11 @@ class TousFragment : Fragment() {
 
     lateinit var myadaptes_syllabus: syllabus_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
-    var choice:String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         val v = inflater.inflate(R.layout.fragment_tous, container, false)
         if (isConnectedNetwork(requireActivity())){
 
@@ -53,12 +51,24 @@ class TousFragment : Fragment() {
 
         val recp = v.findViewById<RecyclerView>(R.id.recycler_tous)
         val sort = v.findViewById<TextView>(R.id.sort_data)
-
         linearLayoutManager = LinearLayoutManager(activity)
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
         val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous")
+
+        recp.layoutManager = linearLayoutManager
+        val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+            .setQuery(
+                ref,
+                syllabus_model::class.java
+            )
+            .build()
+        myadaptes_syllabus = syllabus_adapters(options)
+        recp.adapter = myadaptes_syllabus
+        myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+        myadaptes_syllabus.startListening()
+
         sort.setOnClickListener {
             val checkedItem = intArrayOf(-1)
             val alertDialog = AlertDialog.Builder(requireActivity())
@@ -83,7 +93,21 @@ class TousFragment : Fragment() {
             alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
                 checkedItem[0] = which
                 val s = listItems[which]
-                choice = s
+                ref.orderByChild("nom_promotion").equalTo("$s").addListenerForSingleValueEvent(object:ValueEventListener{
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        if (snapshot.exists()){
+                            val s = snapshot.childrenCount
+                            Toast.makeText(requireActivity(), "il existe $s", Toast.LENGTH_SHORT).show()
+
+                        }else{
+                            Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    override fun onCancelled(error: DatabaseError) {
+                        Toast.makeText(requireActivity(), "$error", Toast.LENGTH_SHORT).show()
+                    }
+
+                })
                 dialog.dismiss()
             }
             alertDialog.setNegativeButton("Annuler") { dialog, which ->
@@ -92,49 +116,10 @@ class TousFragment : Fragment() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
-        ref.orderByChild("nom_promotion").equalTo("G2 MSI").addListenerForSingleValueEvent(object:ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
-                    recp.layoutManager = linearLayoutManager
-                    val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
-                        .setQuery(
-                            ref,
-                            syllabus_model::class.java
-                        )
-                        .build()
-                    myadaptes_syllabus = syllabus_adapters(options)
-                    recp.adapter = myadaptes_syllabus
-                    myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-                    myadaptes_syllabus.startListening()
-                    Toast.makeText(requireActivity(), "il existe", Toast.LENGTH_SHORT).show()
-
-                }else{
-                    Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(requireActivity(), "$error", Toast.LENGTH_SHORT).show()
-            }
-
-        })
-        /*
-         recp.layoutManager = linearLayoutManager
-        val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
-            .setQuery(
-                ref,
-                syllabus_model::class.java
-            )
-            .build()
-        myadaptes_syllabus = syllabus_adapters(options)
-        recp.adapter = myadaptes_syllabus
-        myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-        myadaptes_syllabus.startListening()
-
-         */
 
         return v
     }
+    @SuppressLint("NotifyDataSetChanged")
     override fun onStart() {
         recycler_tous.recycledViewPool.clear()
         myadaptes_syllabus.notifyDataSetChanged()
