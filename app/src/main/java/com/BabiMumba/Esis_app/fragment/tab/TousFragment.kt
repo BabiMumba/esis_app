@@ -21,10 +21,7 @@ import com.BabiMumba.Esis_app.home.PublicationSyllabus
 import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.fragment_tous.*
 
@@ -93,11 +90,23 @@ class TousFragment : Fragment() {
             alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
                 checkedItem[0] = which
                 val s = listItems[which]
+                val query:Query = ref.orderByChild("nom_promotion").equalTo("$s")
                 ref.orderByChild("nom_promotion").equalTo("$s").addListenerForSingleValueEvent(object:ValueEventListener{
                     override fun onDataChange(snapshot: DataSnapshot) {
                         if (snapshot.exists()){
-                            val s = snapshot.childrenCount
-                            Toast.makeText(requireActivity(), "il existe $s", Toast.LENGTH_SHORT).show()
+                            val t = snapshot.childrenCount
+                            recp.layoutManager = linearLayoutManager
+                            val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+                                .setQuery(
+                                    query,
+                                    syllabus_model::class.java
+                                )
+                                .build()
+                            myadaptes_syllabus = syllabus_adapters(options)
+                            recp.adapter = myadaptes_syllabus
+                            myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+                            myadaptes_syllabus.startListening()
+                            Toast.makeText(requireActivity(), "il ya $t syllabus de $s", Toast.LENGTH_SHORT).show()
 
                         }else{
                             Toast.makeText(requireActivity(), "donee no trouver", Toast.LENGTH_SHORT).show()
