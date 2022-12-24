@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.view.Menu
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +21,8 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_lecture_pdf.*
 import java.io.File
-import java.util.ArrayList
+import java.util.*
+import kotlin.collections.ArrayList
 
 class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     lateinit var pdfAdapter: pdfAdapter2
@@ -73,7 +76,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     }
     private fun displaypdf() {
         recyclerView = findViewById(R.id.my_recyclerview)
-
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this,)
         pdfList = ArrayList()
@@ -87,4 +89,40 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
                 .putExtra("path", file.absolutePath)
         )
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.recherche_pdf,menu)
+        val menuitem = menu!!.findItem(R.id.app_bar_search)
+        if (menuitem!=null){
+            val rech = menuitem.actionView as SearchView
+            rech.queryHint = "Rechercher vos syllabus"
+            rech.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(p0: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    if (newText!!.isNotEmpty()){
+                        pdfList.clear()
+                        val search = newText.toLowerCase(Locale.getDefault())
+                        pdfList.forEach {
+                            if (it.name.toLowerCase(Locale.getDefault()).contains(search)){
+                                pdfList.add(it)
+                            }
+                        }
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }else{
+                        pdfList.clear()
+                        pdfList = ArrayList()
+                        pdfList.addAll(findpdf(Environment.getExternalStorageDirectory()))
+                        recyclerView.adapter!!.notifyDataSetChanged()
+                    }
+                    return true
+                }
+            })
+        }
+        return super.onCreateOptionsMenu(menu)
+
+    }
+
 }

@@ -72,6 +72,7 @@
             android:name=".home.Syllabus_FragmentActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Theme.Mydark"
             android:name=".home.LectureActivity_Pdf"
             android:exported="false" />
         <activity
