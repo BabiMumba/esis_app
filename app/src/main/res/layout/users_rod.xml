@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/image_profil"
+        android:id="@+id/image_profil_rod"
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:src="@drawable/ic_propic1"
@@ -18,17 +18,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="babi Mumba"
-        android:layout_toEndOf="@id/image_profil"
+        android:layout_toEndOf="@id/image_profil_rod"
         android:layout_marginStart="@dimen/_5sdp"
         android:textColor="@color/primary_text"
         />
     <TextView
+        android:id="@+id/mail_user"
         android:layout_below="@id/name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="babi@gmail.com"
         android:textStyle="bold"
-        android:layout_toEndOf="@id/image_profil"
+        android:layout_toEndOf="@id/image_profil_rod"
         android:layout_marginStart="@dimen/_5sdp"
         android:textColor="@color/primary_text"
         />
