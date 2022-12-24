@@ -6,6 +6,12 @@
         <item name="android:windowAnimationStyle">
             @style/MyCustomActivityAnimation</item>
     </style>
+    <style name="Theme.Mydark" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/primary</item>
+        <item name="android:windowAnimationStyle">
+            @style/MyCustomActivityAnimation</item>
+    </style>
     <style name="MyCustomActivityAnimation"
         parent="@android:style/Animation.Activity">
         <item name="android:activityOpenEnterAnimation">
