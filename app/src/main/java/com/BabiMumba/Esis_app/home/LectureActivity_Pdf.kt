@@ -105,6 +105,9 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
                     if (newText!!.isNotEmpty()){
                         pdfList.clear()
                         val search = newText.toLowerCase(Locale.getDefault())
+                        pdfList = ArrayList()
+                        pdfList.addAll(findpdf(Environment.getExternalStorageDirectory()))
+
                         pdfList.forEach {
                             if (it.name.toLowerCase(Locale.getDefault()).contains(search)){
                                 pdfList.add(it)
