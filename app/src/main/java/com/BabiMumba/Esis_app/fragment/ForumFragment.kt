@@ -9,6 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -44,7 +46,12 @@ class ForumFragment : Fragment() {
         }
 
         val recyclerv = viewf.findViewById<RecyclerView>(R.id.recycler_frg)
-        val add_btn = viewf.findViewById<FloatingActionButton>(R.id.add_post)
+        val add_btn = viewf.findViewById<RelativeLayout>(R.id.r1)
+        val txt = viewf.findViewById<TextView>(R.id.txt1)
+        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val prenom = sharedPreferences.getString("prenom",null)
+
+        txt.text = "Quoi de neuf $prenom ?"
 
         add_btn.setOnClickListener {
             startActivity(Intent(activity, PublishPost::class.java))
