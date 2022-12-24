@@ -43,7 +43,6 @@ class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus
     }
 
     override fun onBindViewHolder(holder: viewholder, position: Int, model: save_profil_syllabus) {
-
         holder.name.text = model.nom_livre
         holder.download.setOnClickListener {
             try {
