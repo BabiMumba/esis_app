@@ -216,7 +216,6 @@ class PublicationSyllabus : AppCompatActivity() {
         val name_cover = "couverture/$nn/$name.png"
 
         val link_cover = "https://www.pngfind.com/pngs/m/350-3500642_pdf-icon-download-download-hd-png-download.png"
-
         val reference = storageReference.child(name_save_sta)
         val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
@@ -253,6 +252,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                             nom_du_syllabus.setText("")
                                             nom_du_prof.setText("")
                                             description.setText("")
+                                            onBackPressed()
                                         }
                                     }else{
                                         Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
@@ -284,6 +284,7 @@ class PublicationSyllabus : AppCompatActivity() {
                         nom_du_syllabus.setText("")
                         nom_du_prof.setText("")
                         description.setText("")
+                        onBackPressed()
                     }
 
 
