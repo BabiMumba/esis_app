@@ -32,6 +32,7 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
+        title = "Lecture syllabus"
         runtimePermissions()
 
     }
@@ -88,44 +89,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
             Intent(this, DocumentActivity2::class.java)
                 .putExtra("path", file.absolutePath)
         )
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.recherche_pdf,menu)
-        val menuitem = menu!!.findItem(R.id.app_bar_search)
-        if (menuitem!=null){
-            val rech = menuitem.actionView as SearchView
-            rech.queryHint = "Rechercher vos syllabus"
-            rech.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
-                override fun onQueryTextSubmit(p0: String?): Boolean {
-                    return true
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-                    if (newText!!.isNotEmpty()){
-                        pdfList.clear()
-                        val search = newText.toLowerCase(Locale.getDefault())
-                        pdfList = ArrayList()
-                        pdfList.addAll(findpdf(Environment.getExternalStorageDirectory()))
-
-                        pdfList.forEach {
-                            if (it.name.toLowerCase(Locale.getDefault()).contains(search)){
-                                pdfList.add(it)
-                            }
-                        }
-                        recyclerView.adapter!!.notifyDataSetChanged()
-                    }else{
-                        pdfList.clear()
-                        pdfList = ArrayList()
-                        pdfList.addAll(findpdf(Environment.getExternalStorageDirectory()))
-                        recyclerView.adapter!!.notifyDataSetChanged()
-                    }
-                    return true
-                }
-            })
-        }
-        return super.onCreateOptionsMenu(menu)
-
     }
 
 }

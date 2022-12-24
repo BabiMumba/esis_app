@@ -24,6 +24,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".SaleControleActivity"
+            android:exported="false" />
+        <activity
             android:name=".users.DeleteCount"
             android:exported="false" />
         <activity
@@ -72,9 +75,9 @@
             android:name=".home.Syllabus_FragmentActivity"
             android:exported="false" />
         <activity
-            android:theme="@style/Theme.Mydark"
             android:name=".home.LectureActivity_Pdf"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Mydark" />
         <activity
             android:name=".home.ResultatActivity"
             android:exported="false" />
@@ -89,8 +92,8 @@
             android:exported="false" />
         <activity
             android:name=".home.SplashScreen"
-            android:screenOrientation="fullSensor"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
