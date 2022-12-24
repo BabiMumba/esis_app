@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="@dimen/_5sdp"
+    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/image_profil"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_propic1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/_5sdp"
+        />
+    <TextView
+        android:id="@+id/name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="babi Mumba"
+        android:layout_toEndOf="@id/image_profil"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textColor="@color/primary_text"
+        />
+    <TextView
+        android:layout_below="@id/name_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="babi@gmail.com"
+        android:textStyle="bold"
+        android:layout_toEndOf="@id/image_profil"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:textColor="@color/primary_text"
+        />
+
+
+
+</RelativeLayout>
