@@ -3,9 +3,9 @@ package com.BabiMumba.Esis_app.admin.model
 class modeluser {
 
     lateinit var nom:String
+    lateinit var administrateur:String
     lateinit var mail:String
     lateinit var profil:String
-    lateinit var administrateur:String
 
     constructor(){}
     constructor(

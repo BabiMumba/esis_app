@@ -47,13 +47,14 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
         val sharedPreferences = holder.image.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val mail_cach = sharedPreferences.getString("mail",null)
+        val admin = sharedPreferences.getString("administrateur",null)
 
         holder.name.text = model.nom
         holder.mail.text = model.mail
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
-        holder.admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
+        holder.admin.visibility = if (model.administrateur != admin) View.VISIBLE else View.GONE
 
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
