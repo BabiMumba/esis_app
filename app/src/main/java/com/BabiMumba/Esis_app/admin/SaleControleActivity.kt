@@ -10,12 +10,16 @@ class SaleControleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sale_controle)
+
+       clikmethode()
+
+    }
+    fun clikmethode(){
         users_page.setOnClickListener {
             startActivity(Intent(this,AllusersActivity::class.java))
         }
         logout_users.setOnClickListener {
             startActivity(Intent(this,LogoutActivity::class.java))
         }
-
     }
 }
