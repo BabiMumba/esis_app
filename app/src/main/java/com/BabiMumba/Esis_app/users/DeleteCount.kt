@@ -32,9 +32,16 @@ class DeleteCount : AppCompatActivity() {
             val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
             val password = sharedPreferences.getString("mot de passe",null)
             if (txt_passwor.text.toString() != password){
-                Toast.makeText(this, "mot de passe incorecte", Toast.LENGTH_SHORT).show()
-            }else{
-                save_person()
+                Toast.makeText(this, "mot de passe incorrecte", Toast.LENGTH_SHORT).show()
+            }else if (txt_passwor.text.toString()==password){
+
+                txt_message.visibility = View.VISIBLE
+
+                if (txt_message.text.toString().trim().isNotEmpty()){
+                    save_person()
+                }else{
+                    txt_message.error = "champ obligatoire"
+                }
             }
         }
 

@@ -23,6 +23,7 @@
             android:inputType="textMultiLine"
             android:textColor="@color/primary_text" />
         <EditText
+            android:visibility="gone"
             android:layout_marginTop="@dimen/_10sdp"
             android:id="@+id/txt_message"
             android:layout_width="match_parent"
@@ -56,7 +57,7 @@
             android:background="@drawable/background_btn"
             android:paddingStart="@dimen/_5sdp"
             android:paddingEnd="@dimen/_5sdp"
-            android:text="verifier et supprimer"
+            android:text="verifier"
             android:textAllCaps="false"
             android:textColor="@color/white" />
 
