@@ -95,35 +95,9 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
                 .placeholder(circularProgressDrawable)
                 .into(profil_us)
 
-
-
             dialog.show()
             dialog.window!!.attributes = lp
         }
     }
 
-    fun ShortDialog(context: Context) {
-        val dialog = Dialog(context)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setContentView(R.layout.item_shortby)
-        dialog.setCancelable(true)
-        val lp = WindowManager.LayoutParams()
-        lp.copyFrom(dialog.window!!.attributes)
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-        val recent_cm = dialog.findViewById<RelativeLayout>(R.id.r1)
-        val old_cm = dialog.findViewById<RelativeLayout>(R.id.r2)
-        recent_cm.setOnClickListener {
-
-            dialog.dismiss()
-        }
-        old_cm.setOnClickListener {
-
-            dialog.dismiss()
-
-        }
-
-        dialog.show()
-        dialog.window!!.attributes = lp
-    }
 }
