@@ -1,11 +1,10 @@
 package com.BabiMumba.Esis_app.admin.adpters
 
 
+import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -68,6 +67,30 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.image)
+    }
 
+    fun ShortDialog(context: Context) {
+        val dialog = Dialog(context)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.item_shortby)
+        dialog.setCancelable(true)
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window!!.attributes)
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        val recent_cm = dialog.findViewById<RelativeLayout>(R.id.r1)
+        val old_cm = dialog.findViewById<RelativeLayout>(R.id.r2)
+        recent_cm.setOnClickListener {
+
+            dialog.dismiss()
+        }
+        old_cm.setOnClickListener {
+
+            dialog.dismiss()
+
+        }
+
+        dialog.show()
+        dialog.window!!.attributes = lp
     }
 }
