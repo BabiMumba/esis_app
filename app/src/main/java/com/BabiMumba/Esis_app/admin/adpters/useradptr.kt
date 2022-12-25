@@ -27,12 +27,14 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
         var image:CircleImageView
         var name:TextView
         var mail:TextView
+        var admin:TextView
         var rela_id:RelativeLayout
 
         init {
             image = item.findViewById(R.id.image_profil_rod)
             name = item.findViewById(R.id.name_user)
             mail = item.findViewById(R.id.mail_user)
+            admin = item.findViewById(R.id.admin_v)
             rela_id = item.findViewById(R.id.rela_id)
         }
     }
@@ -51,6 +53,8 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
+        holder.admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
+
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
