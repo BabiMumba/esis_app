@@ -9,12 +9,13 @@
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
         android:src="@drawable/stone_profil" />
+
     <LinearLayout
         android:id="@+id/l1"
         android:layout_marginStart="@dimen/_5sdp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pro_i"
+        android:layout_below="@id/l0"
         android:orientation="horizontal"
         android:layout_marginTop="@dimen/_5sdp"
         >
@@ -29,6 +30,30 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="G3"
+            android:textColor="@color/primary_text"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l0"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pro_i"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nom"
+            />
+        <TextView
+            android:id="@+id/nm"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="babi"
             android:textColor="@color/primary_text"
 
             />

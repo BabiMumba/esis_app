@@ -83,15 +83,8 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             val promotion = dialog.findViewById<TextView>(R.id.pm)
             val genre = dialog.findViewById<TextView>(R.id.sx)
             val date = dialog.findViewById<TextView>(R.id.dt)
-            recent_cm.setOnClickListener {
+            date.text = model.
 
-                dialog.dismiss()
-            }
-            old_cm.setOnClickListener {
-
-                dialog.dismiss()
-
-            }
 
             dialog.show()
             dialog.window!!.attributes = lp
