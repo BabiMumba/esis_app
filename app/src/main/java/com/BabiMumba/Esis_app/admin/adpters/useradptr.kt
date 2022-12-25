@@ -6,8 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.modeluser
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -36,6 +39,18 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
         holder.name.text = model.nom
         holder.mail.text = model.mail
+        val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+        Glide
+            .with(holder.itemView.context)
+            .load(model.profil)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            //.apply(RequestOptions.overrideOf(300,600))
+            .centerInside()
+            .placeholder(circularProgressDrawable)
+            .into(holder.image)
 
     }
 }
