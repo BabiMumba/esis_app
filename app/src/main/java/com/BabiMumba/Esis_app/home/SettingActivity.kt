@@ -56,7 +56,7 @@ class SettingActivity : AppCompatActivity() {
     }
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     fun clickmethode(){
-        rr8.setOnClickListener {
+        rr9.setOnClickListener {
             startActivity(Intent(this,SaleControleActivity::class.java))
         }
         rr7.setOnClickListener {
