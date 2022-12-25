@@ -50,7 +50,8 @@ class DeleteCount : AppCompatActivity() {
     private fun save_person() {
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val promo = sharedPreferences.getString("promotion",null)
-        val mail = sharedPreferences.getString("mail",null)
+        val pstom = sharedPreferences.getString("post-nom",null)
+        val prenom = sharedPreferences.getString("prenom",null)
         val profil_users = sharedPreferences.getString("lien profil",null)
         loading(true)
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm")
@@ -58,7 +59,7 @@ class DeleteCount : AppCompatActivity() {
         val data:MutableMap<String,Any> = HashMap()
         data["Date"] = date_dins
         data["promotion"] = "$promo"
-        data["mail"] = "$mail"
+        data["nom"] = "$prenom $pstom"
         data["profil"] = "$profil_users"
         data["Raison"] = txt_message.text.toString()
         val db = FirebaseFirestore.getInstance()
