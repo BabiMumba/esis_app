@@ -141,8 +141,7 @@ class DetailleActivity : AppCompatActivity() {
 
         }
         btn_downl.setOnClickListener {
-            add_downloas()
-            //telecharger()
+            telecharger()
             // Toast.makeText(this, "telechargement", Toast.LENGTH_SHORT).show()
         }
         btn_read.setOnClickListener {
@@ -194,7 +193,8 @@ class DetailleActivity : AppCompatActivity() {
         )
         val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
-        Toast.makeText(this, "Telechargement Encours", Toast.LENGTH_SHORT).show()
+        add_downloas()
+        Toast.makeText(this, "lancement du telechargement", Toast.LENGTH_SHORT).show()
     }
 
     fun ajouter_data() {

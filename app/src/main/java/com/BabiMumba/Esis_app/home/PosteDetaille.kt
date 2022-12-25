@@ -313,7 +313,7 @@ class PosteDetaille : AppCompatActivity() {
 
 
     }
-    fun ShortDialog() {
+    fun ShortDialog()  {
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.item_shortby)

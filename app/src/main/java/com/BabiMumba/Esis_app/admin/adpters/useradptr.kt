@@ -70,7 +70,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             .placeholder(circularProgressDrawable)
             .into(holder.image)
 
-        holder.image.setOnClickListener {
+        holder.itemView.setOnClickListener {
             val dialog = Dialog(holder.image.context)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setContentView(R.layout.inforamtion_user_dialgue)
@@ -85,7 +85,8 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             val genre = dialog.findViewById<TextView>(R.id.sx)
             val nom = dialog.findViewById<TextView>(R.id.nm)
             val edite_admin = dialog.findViewById<EditText>(R.id.admin_edit)
-            edite_admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
+
+            edite_admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
             nom.text = model.mail
             promotion.text = model.promotion
             genre.text = model.sexe

@@ -125,6 +125,8 @@
                 android:background="@drawable/backgound_chat_input"
                 android:hint="Votre commentaire"
                 android:imeOptions="actionDone"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:importantForAutofill="no"
                 android:inputType="text|textMultiLine|textCapSentences"
                 android:paddingStart="@dimen/_16sdp"
