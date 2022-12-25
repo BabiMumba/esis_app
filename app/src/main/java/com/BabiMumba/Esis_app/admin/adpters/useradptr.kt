@@ -1,6 +1,8 @@
 package com.BabiMumba.Esis_app.admin.adpters
 
 
+import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,8 +43,14 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
     }
 
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
+        val sharedPreferences = holder.image.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("mail",null)
+
         holder.name.text = model.nom
         holder.mail.text = model.mail
+
+        //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
+        holder.itemView.visibility = if ()
 
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
