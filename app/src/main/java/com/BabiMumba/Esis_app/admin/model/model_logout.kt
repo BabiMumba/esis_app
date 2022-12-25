@@ -3,7 +3,7 @@ package com.BabiMumba.Esis_app.admin.model
 class model_logout {
 
     lateinit var nom:String
-    lateinit var date:String
+    lateinit var Date:String
     lateinit var profil:String
     lateinit var promotion:String
     lateinit var Raison:String
@@ -17,7 +17,7 @@ class model_logout {
         Raison:String,
     ) {
         this.nom = nom
-        this.date = date
+        this.Date = date
         this.profil = profil
         this.promotion = promotion
         this.Raison = Raison

@@ -22,6 +22,7 @@ class LogoutActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_logout)
         firebaseAuth = FirebaseAuth.getInstance()
+
         layoutManager = LinearLayoutManager(this@LogoutActivity)
         count_delete_id.layoutManager = layoutManager
         val ref = FirebaseFirestore.getInstance().collection("Deconnection")

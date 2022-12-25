@@ -2,10 +2,7 @@ package com.BabiMumba.Esis_app.admin.adpters
 
 
 import android.app.Dialog
-import android.content.Context
-import android.graphics.Color
 import android.view.*
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -13,11 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.model_logout
-import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import de.hdodenhof.circleimageview.CircleImageView
@@ -48,7 +42,7 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
 
     override fun onBindViewHolder(holder: delete_adapters.viewholder, position: Int, model: model_logout) {
         holder.name.text = model.nom
-        holder.date .text = model.date
+        holder.date .text = model.Date
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
@@ -81,7 +75,7 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
 
             nom.text = model.nom
             promotion.text = model.promotion
-            genre.text = model.date
+            genre.text = model.Date
             Glide
                 .with(holder.itemView.context)
                 .load(model.profil)
