@@ -199,7 +199,7 @@ class DetailleActivity : AppCompatActivity() {
 
     fun ajouter_data() {
         val cal = Calendar.getInstance()
-        val sdf1 = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("cle")
         var pm = intent.getStringExtra("promo")
