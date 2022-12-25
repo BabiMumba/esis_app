@@ -135,7 +135,7 @@ class RegisterActivity : AppCompatActivity() {
         val infor_user:MutableMap<String, Any> = HashMap()
 
         infor_user["nom"] = binding.nom.text.toString()
-        infor_user["date d'inscription"] = date_dins.toString()
+        infor_user["date arriver"] = date_dins.toString()
         infor_user["post-nom"] = binding.postNom.text.toString()
         infor_user["prenom"] = binding.prenom.text.toString()
         infor_user["mail"] = binding.inputMail.text.toString()
@@ -166,7 +166,7 @@ class RegisterActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.apply(){
             putString("nom",binding.nom.text.toString())
-            putString("date d'inscription",date_dins.toString())
+            putString("date arriver",date_dins.toString())
             putString("post-nom",binding.postNom.text.toString())
             putString("prenom",binding.prenom.text.toString())
             putString("mail",binding.inputMail.text.toString())
