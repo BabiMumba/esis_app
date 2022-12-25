@@ -144,6 +144,7 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["promotion"] = binding.promotionChoice.text.toString()
         infor_user["mot de passe"] = binding.inputPassword.text.toString()
         infor_user["premium"] = "non"
+        infor_user["administrateur"] = "non"
 
         database.collection("Utilisateurs")
             .document(binding.inputMail.text.toString())
@@ -175,6 +176,7 @@ class RegisterActivity : AppCompatActivity() {
             putString("mot de passe",binding.inputPassword.text.toString())
             putString("lien profil",imagelink)
             putString("premium","non")
+            putString("administrateur","non")
 
         }.apply()
         startActivity(Intent(this, MainActivity::class.java))
