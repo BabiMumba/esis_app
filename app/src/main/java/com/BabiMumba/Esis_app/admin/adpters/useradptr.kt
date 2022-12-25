@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.view.*
+import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -67,6 +68,34 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             .centerInside()
             .placeholder(circularProgressDrawable)
             .into(holder.image)
+
+        holder.image.setOnClickListener {
+            val dialog = Dialog(holder.image.context)
+            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setContentView(R.layout.inforamtion_user_dialgue)
+            dialog.setCancelable(true)
+            val lp = WindowManager.LayoutParams()
+            lp.copyFrom(dialog.window!!.attributes)
+            lp.width = WindowManager.LayoutParams.MATCH_PARENT
+            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+
+            val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
+            val promotion = dialog.findViewById<TextView>(R.id.pm)
+            val genre = dialog.findViewById<TextView>(R.id.sx)
+            val date = dialog.findViewById<TextView>(R.id.dt)
+            recent_cm.setOnClickListener {
+
+                dialog.dismiss()
+            }
+            old_cm.setOnClickListener {
+
+                dialog.dismiss()
+
+            }
+
+            dialog.show()
+            dialog.window!!.attributes = lp
+        }
     }
 
     fun ShortDialog(context: Context) {

@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
+
     <ImageView
         android:id="@+id/pro_i"
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
-        android:src="@drawable/stone_profil"
-        />
+        android:src="@drawable/stone_profil" />
     <LinearLayout
         android:id="@+id/l1"
         android:layout_marginStart="@dimen/_5sdp"
@@ -24,6 +24,7 @@
             android:text="@string/promotion"
             />
         <TextView
+            android:id="@+id/pm"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,6 +48,7 @@
             android:text="Genre"
             />
         <TextView
+            android:id="@+id/sx"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,6 +72,7 @@
             android:text="date d'inscription"
             />
         <TextView
+            android:id="@+id/dt"
             android:layout_marginStart="@dimen/_2sdp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -78,5 +81,6 @@
             />
 
     </LinearLayout>
+
 
 </RelativeLayout>
