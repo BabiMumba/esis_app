@@ -18,6 +18,8 @@ class AllusersActivity : AppCompatActivity() {
 
     private var layoutManager:LinearLayoutManager?= null
     lateinit var firebaseAuth: FirebaseAuth
+    lateinit var adaps: useradptr
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_allusers)
@@ -26,14 +28,26 @@ class AllusersActivity : AppCompatActivity() {
         users_recyclerview.layoutManager = layoutManager
         val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
 
-        val options = FirestoreRecyclerOptions.Builder<useradptr>()
+        val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,
-                useradptr::class.java
+                modeluser::class.java
             )
             .build()
+        adaps = useradptr(options)
+        users_recyclerview.adapter = adaps
         }
 
+    override fun onStart() {
+        adaps.startListening()
+        users_recyclerview.recycledViewPool.clear()
+        adaps.notifyDataSetChanged()
+        super.onStart()
+    }
 
+    override fun onStop() {
+        adaps.stopListening()
+        super.onStop()
+    }
 
     }

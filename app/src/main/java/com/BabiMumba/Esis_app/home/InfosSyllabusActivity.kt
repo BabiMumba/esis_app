@@ -86,6 +86,7 @@ class InfosSyllabusActivity : AppCompatActivity() {
                 Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
             }
     }
+
     override fun onStart() {
         super.onStart()
         adpter.startListening()
