@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.view.*
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
@@ -83,7 +84,9 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             val promotion = dialog.findViewById<TextView>(R.id.pm)
             val genre = dialog.findViewById<TextView>(R.id.sx)
             val nom = dialog.findViewById<TextView>(R.id.nm)
-            nom.text = model.nom
+            val edite_admin = dialog.findViewById<EditText>(R.id.admin_edit)
+            edite_admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
+            nom.text = model.mail
             promotion.text = model.promotion
             genre.text = model.sexe
             Glide

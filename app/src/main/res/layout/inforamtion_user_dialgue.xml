@@ -6,10 +6,10 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_alignParentTop="true"
         android:id="@+id/pro_i"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_200sdp"
+        android:layout_alignParentTop="true"
         android:src="@drawable/gst" />
 
     <LinearLayout
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="nom"
+            android:text="mail"
             />
         <TextView
             android:id="@+id/nm"
@@ -85,6 +85,18 @@
             />
 
     </LinearLayout>
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/admin_edit"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:background="@drawable/background_input_new"
+        android:layout_below="@id/l2"
+        android:hint="admin"
+        />
 
 
 </RelativeLayout>
