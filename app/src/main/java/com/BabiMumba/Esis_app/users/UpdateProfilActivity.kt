@@ -99,6 +99,10 @@ class UpdateProfilActivity : AppCompatActivity() {
                     ui_post_name.setText(postname)
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
+                    premium_txt.text = premium
+                    if (premium_txt.text.toString()=="oui"){
+                        l7.visibility = View.GONE
+                    }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{
                     Log.d(ContentValues.TAG, "document inconnue")
