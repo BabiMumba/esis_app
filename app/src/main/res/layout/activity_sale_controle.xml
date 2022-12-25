@@ -95,7 +95,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/c4"
+            android:id="@+id/logout_users"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="@dimen/_10sdp"
             android:backgroundTint="#1B023B"

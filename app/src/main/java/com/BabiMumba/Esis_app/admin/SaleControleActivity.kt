@@ -13,6 +13,9 @@ class SaleControleActivity : AppCompatActivity() {
         users_page.setOnClickListener {
             startActivity(Intent(this,AllusersActivity::class.java))
         }
+        logout_users.setOnClickListener {
+            startActivity(Intent(this,LogoutActivity::class.java))
+        }
 
     }
 }
