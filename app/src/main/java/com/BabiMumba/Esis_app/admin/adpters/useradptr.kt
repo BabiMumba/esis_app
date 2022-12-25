@@ -10,9 +10,11 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
-class useradptr(options: FirebaseRecyclerOptions<modeluser>):FirebaseRecyclerAdapter<modeluser,useradptr.viewholder>(options) {
+class useradptr  {
 
 
     inner  class  viewholder(item: View):RecyclerView.ViewHolder(item){
@@ -33,6 +35,8 @@ class useradptr(options: FirebaseRecyclerOptions<modeluser>):FirebaseRecyclerAda
     }
 
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
+        holder.name.text = model.nom
+        holder.mail.text = model.mail
 
     }
 }
