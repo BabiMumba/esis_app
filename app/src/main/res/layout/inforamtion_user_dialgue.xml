@@ -53,6 +53,30 @@
             android:text="homme"
             android:textColor="@color/primary_text"
             />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l2"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date d'inscription"
+            />
+        <TextView
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/2002"
+            android:textColor="@color/primary_text"
+            />
+
     </LinearLayout>
 
 
