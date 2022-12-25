@@ -24,7 +24,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".LogoutActivity"
+            android:name=".admin.LogoutActivity"
             android:exported="false" />
         <activity
             android:name=".admin.AllusersActivity"

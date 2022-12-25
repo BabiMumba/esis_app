@@ -41,7 +41,7 @@
             android:id="@+id/progress_bars"
             android:layout_width="@dimen/_25sdp"
             android:layout_height="@dimen/_25sdp"
-            android:layout_below="@id/txt_passwor"
+            android:layout_below="@id/txt_message"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             />
