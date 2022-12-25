@@ -54,7 +54,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
-        holder.admin.visibility = if (model.administrateur != admin) View.VISIBLE else View.GONE
+        holder.admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
 
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
