@@ -11,11 +11,18 @@
         android:layout_alignParentTop="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Etudiant ayant supprimer leur compte"
+        android:text="@string/studen_how_"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
         android:textColor="@color/primary_text"
         android:textStyle="bold"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt1"
+        android:layout_marginTop="@dimen/_5sdp"
+        tools:listitem="@layout/users_rod"
         />
 
 
