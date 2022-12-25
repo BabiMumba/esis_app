@@ -26,5 +26,4 @@
         tools:listitem="@layout/users_rod"
         />
 
-
 </RelativeLayout>
