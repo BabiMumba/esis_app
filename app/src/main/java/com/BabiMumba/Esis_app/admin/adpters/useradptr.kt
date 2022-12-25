@@ -82,8 +82,19 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
             val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
             val promotion = dialog.findViewById<TextView>(R.id.pm)
             val genre = dialog.findViewById<TextView>(R.id.sx)
-            val date = dialog.findViewById<TextView>(R.id.dt)
-            date.text = model.
+            val nom = dialog.findViewById<TextView>(R.id.nm)
+            nom.text = model.nom
+            promotion.text = model.promotion
+            genre.text = model.sexe
+            Glide
+                .with(holder.itemView.context)
+                .load(model.profil)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                //.apply(RequestOptions.overrideOf(300,600))
+                .centerInside()
+                .placeholder(circularProgressDrawable)
+                .into(profil_us)
+
 
 
             dialog.show()
