@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:padding="@dimen/_5sdp"
     android:layout_marginTop="@dimen/_5sdp"
+    android:id="@+id/rela_id"
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView

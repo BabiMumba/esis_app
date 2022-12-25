@@ -4,6 +4,7 @@ package com.BabiMumba.Esis_app.admin.adpters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -24,10 +25,13 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
         var image:CircleImageView
         var name:TextView
         var mail:TextView
+        var rela_id:RelativeLayout
+
         init {
             image = item.findViewById(R.id.image_profil_rod)
             name = item.findViewById(R.id.name_user)
             mail = item.findViewById(R.id.mail_user)
+            rela_id = item.findViewById(R.id.rela_id)
         }
     }
 
@@ -39,6 +43,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecycler
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
         holder.name.text = model.nom
         holder.mail.text = model.mail
+
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
