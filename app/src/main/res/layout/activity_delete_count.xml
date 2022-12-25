@@ -22,6 +22,18 @@
             android:hint="@string/pasword_text"
             android:inputType="textMultiLine"
             android:textColor="@color/primary_text" />
+        <EditText
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/txt_message"
+            android:layout_width="match_parent"
+            android:layout_below="@id/txt_passwor"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_input_new"
+            android:gravity="start"
+            android:paddingBottom="@dimen/_30sdp"
+            android:hint="Dite-nous votre probleme pour ameliorer"
+            android:inputType="textMultiLine"
+            android:textColor="@color/primary_text" />
 
         <ProgressBar
             android:visibility="gone"
@@ -38,7 +50,7 @@
             android:id="@+id/btn_verif"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txt_passwor"
+            android:layout_below="@id/txt_message"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_btn"
