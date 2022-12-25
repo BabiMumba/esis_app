@@ -60,6 +60,7 @@ class DeleteCount : AppCompatActivity() {
         data["promotion"] = "$promo"
         data["mail"] = "$mail"
         data["profil"] = "$profil_users"
+        data["Raison"] = txt_message.text.toString()
         val db = FirebaseFirestore.getInstance()
         db.collection("Deconnection")
             .add(data)
