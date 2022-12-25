@@ -145,13 +145,13 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["mot de passe"] = binding.inputPassword.text.toString()
         infor_user["premium"] = "non"
         infor_user["administrateur"] = "non"
+        infor_user["AdminP"] = "non"
 
         database.collection("Utilisateurs")
             .document(binding.inputMail.text.toString())
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    showtoast("yes document creer")
                     loading(false)
                 }else{
                     showtoast(it.exception?.message.toString())
@@ -177,11 +177,11 @@ class RegisterActivity : AppCompatActivity() {
             putString("lien profil",imagelink)
             putString("premium","non")
             putString("administrateur","non")
+            putString("AdminP","non")
 
         }.apply()
         startActivity(Intent(this, MainActivity::class.java))
         finish()
-        Toast.makeText(this, "save to shared prefence", Toast.LENGTH_SHORT).show()
     }
     private fun pick_image() {
         ImagePicker.Companion.with(this)
