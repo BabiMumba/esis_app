@@ -31,7 +31,7 @@
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/c2"
+            android:id="@+id/users_page"
             android:layout_marginStart="@dimen/_10sdp"
             android:backgroundTint="#1B023B"
             android:layout_marginTop="@dimen/_15sdp"

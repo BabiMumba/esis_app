@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.admin.SaleControleActivity
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
@@ -55,6 +56,9 @@ class SettingActivity : AppCompatActivity() {
     }
     @SuppressLint("UseSwitchCompatOrMaterialCode")
     fun clickmethode(){
+        rr8.setOnClickListener {
+            startActivity(Intent(this,SaleControleActivity::class.java))
+        }
         rr7.setOnClickListener {
             val builder = AlertDialog.Builder(this)
                 .setTitle("suppression de compte")

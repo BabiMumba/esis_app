@@ -23,6 +23,7 @@ class AllusersActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_allusers)
+
         firebaseAuth = FirebaseAuth.getInstance()
        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager

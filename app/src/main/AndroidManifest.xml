@@ -24,10 +24,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AllusersActivity"
+            android:name=".admin.AllusersActivity"
             android:exported="false" />
         <activity
-            android:name=".SaleControleActivity"
+            android:name=".admin.SaleControleActivity"
             android:exported="false" />
         <activity
             android:name=".users.DeleteCount"
