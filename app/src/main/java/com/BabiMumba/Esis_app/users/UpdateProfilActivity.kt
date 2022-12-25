@@ -100,8 +100,14 @@ class UpdateProfilActivity : AppCompatActivity() {
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
                     premium_txt.text = premium
-                    if (premium_txt.text.toString()=="oui"){
+                    if (premium_txt.text.toString()=="non"){
                         l7.visibility = View.GONE
+                    }else{
+                        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.apply() {
+                            putString("premium", "oui")
+                        }.apply()
                     }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{
