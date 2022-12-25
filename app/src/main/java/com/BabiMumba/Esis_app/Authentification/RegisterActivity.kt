@@ -143,6 +143,8 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["promotion"] = binding.promotionChoice.text.toString()
         infor_user["mot de passe"] = binding.inputPassword.text.toString()
+        infor_user["premium"] = "non"
+
         database.collection("Utilisateurs")
             .document(binding.inputMail.text.toString())
             .set(infor_user)
@@ -172,6 +174,7 @@ class RegisterActivity : AppCompatActivity() {
             putString("promotion",binding.promotionChoice.text.toString())
             putString("mot de passe",binding.inputPassword.text.toString())
             putString("lien profil",imagelink)
+            putString("premium","non")
 
         }.apply()
         startActivity(Intent(this, MainActivity::class.java))
