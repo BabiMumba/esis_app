@@ -228,7 +228,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                     if (it.isSuccessful){
                                         ref.downloadUrl.addOnSuccessListener { lien:Uri ->
                                             val obj = syllabus_model(
-                                                name.toUpperCase(),
+                                                name,
                                                 lien.toString(),
                                                 mail_users,
                                                 id_users,
@@ -275,7 +275,7 @@ class PublicationSyllabus : AppCompatActivity() {
                             lien_image, 0, 0, 0)
                         databaseReference.child(nn).child(id_poste).setValue(obj)
                         pd.dismiss()
-                        Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
+                        Toast.makeText(applicationContext, "Syllabus partager", Toast.LENGTH_LONG).show()
                         icone_failed.visibility = View.VISIBLE
                         icone_succes.visibility = View.GONE
                         publish_file.isEnabled = false
@@ -353,7 +353,6 @@ class PublicationSyllabus : AppCompatActivity() {
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(this, "save poste to my profil syllabus ", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }

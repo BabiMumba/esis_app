@@ -216,7 +216,6 @@ class PublishPost : AppCompatActivity() {
                     val pren = it.data?.getValue("prenom").toString()
                     val postn = it.data?.getValue("post-nom").toString()
                     val imgetxt = it.data?.getValue("profil")
-
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()
                 }else{
@@ -244,7 +243,6 @@ class PublishPost : AppCompatActivity() {
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    Toast.makeText(this, "save poste to my profil", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }

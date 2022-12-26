@@ -28,11 +28,10 @@
                     android:id="@+id/image_file"
                     android:layout_width="@dimen/_100sdp"
                     android:layout_height="@dimen/_100sdp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/gst"
-                    />
+                    android:scaleType="fitCenter" />
 
                 <TextView
+                    android:text="image"
                     android:id="@+id/txt1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
