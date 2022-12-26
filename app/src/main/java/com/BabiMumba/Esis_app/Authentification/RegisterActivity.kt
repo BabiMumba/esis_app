@@ -178,6 +178,7 @@ class RegisterActivity : AppCompatActivity() {
             putString("premium","non")
             putString("administrateur","non")
             putString("AdminP","non")
+            putInt("count",1)
 
         }.apply()
         startActivity(Intent(this, MainActivity::class.java))
