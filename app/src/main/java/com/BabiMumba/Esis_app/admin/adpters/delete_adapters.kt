@@ -59,7 +59,7 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
         holder.itemView.setOnClickListener {
             val dialog = Dialog(holder.image.context)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.inforamtion_user_dialgue)
+            dialog.setContentView(R.layout.delete_info_users)
             dialog.setCancelable(true)
             val lp = WindowManager.LayoutParams()
             lp.copyFrom(dialog.window!!.attributes)
