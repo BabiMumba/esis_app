@@ -69,10 +69,10 @@ class PosteDetaille : AppCompatActivity() {
         val admin_state = sharedPreferences.getString("administrateur",null)
 
 
-        if ((user_id.toString() != id_last)|| admin_state=="oui"){
-            delete_btn.visibility = View.GONE
-        }else{
+        if ((user_id.toString() == id_last)||( admin_state=="oui")){
             delete_btn.visibility = View.VISIBLE
+        }else{
+            delete_btn.visibility = View.GONE
         }
 
 
