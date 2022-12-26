@@ -238,7 +238,7 @@ class DetailleActivity : AppCompatActivity() {
         desertRef.delete()
             .addOnCompleteListener {
                 if (it.isSuccessful) {
-                    Toast.makeText(this, "image supprime", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "fichier supprime", Toast.LENGTH_SHORT).show()
                     onBackPressed()
                 } else {
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()

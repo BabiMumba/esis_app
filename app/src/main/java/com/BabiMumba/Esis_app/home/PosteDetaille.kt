@@ -289,6 +289,7 @@ class PosteDetaille : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "image supprime", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
