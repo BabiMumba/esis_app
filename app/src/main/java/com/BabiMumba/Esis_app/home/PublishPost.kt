@@ -55,7 +55,12 @@ class PublishPost : AppCompatActivity() {
         get_token()
         publish_btn.setOnClickListener {
             if (filepath == null){
-                publish_post1()
+                if (message_commnq.text.toString().trim().isEmpty()){
+                    message_commnq.error = "entrer quelque chose"
+                }else{
+                    publish_post1()
+                }
+
             }else{
                 publish_poste(filepath)
             }

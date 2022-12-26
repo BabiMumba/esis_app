@@ -110,7 +110,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                         editor.apply() {
                             putString("premium", "oui")
                         }.apply()
-                        Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
                     }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{
