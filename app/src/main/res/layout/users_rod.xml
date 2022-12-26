@@ -33,17 +33,17 @@
         android:layout_marginStart="@dimen/_5sdp"
         android:textColor="@color/primary_text"
         />
+
     <TextView
         android:id="@+id/mail_user"
-        android:layout_below="@id/name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="babi@gmail.com"
-        android:textStyle="bold"
-        android:layout_toEndOf="@id/image_profil_rod"
+        android:layout_below="@id/name_user"
         android:layout_marginStart="@dimen/_5sdp"
+        android:layout_toEndOf="@id/image_profil_rod"
+        android:text="babi@gmail.com"
         android:textColor="@color/primary_text"
-        />
+        android:textStyle="bold" />
 
 
 
