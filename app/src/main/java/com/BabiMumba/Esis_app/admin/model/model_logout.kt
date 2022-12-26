@@ -6,7 +6,7 @@ class model_logout {
     lateinit var Raison:String
     lateinit var profil:String
     lateinit var promotion:String
-    lateinit var Date:String
+    lateinit var date:String
 
     constructor(){}
     constructor(
@@ -14,13 +14,13 @@ class model_logout {
         Raison: String,
         profil:String,
         promotion:String,
-        Date:String,
+        date:String,
     ) {
         this.nom = nom
         this.Raison = Raison
         this.profil = profil
         this.promotion = promotion
-        this.Date = Date
+        this.date = date
     }
 
 }

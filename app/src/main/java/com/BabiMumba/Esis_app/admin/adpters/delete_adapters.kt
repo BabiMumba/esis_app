@@ -74,7 +74,7 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
             val nom = dialog.findViewById<TextView>(R.id.nm)
             nom.text = model.nom
             promotion.text = model.promotion
-            datsp.text = model.Date
+            datsp.text = model.date
             raison.text = model.Raison
             Glide
                 .with(holder.itemView.context)

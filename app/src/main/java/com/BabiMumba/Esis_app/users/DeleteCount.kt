@@ -58,7 +58,7 @@ class DeleteCount : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm")
         val date_dins = sdf.format(Date()).toString()
         val data:MutableMap<String,Any> = HashMap()
-        data["Date"] = date_dins
+        data["date"] = date_dins
         data["promotion"] = "$promo"
         data["nom"] = "$prenom $pstom"
         data["profil"] = "$profil_users"
