@@ -22,7 +22,8 @@ class SplashScreen : AppCompatActivity() {
         Handler().postDelayed(
             {
                 val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-                val name = sharedPreferences.getString("premium",null)
+                val name = sharedPreferences.getInt("count",0)
+
 
 
                 slogan.visibility = View.VISIBLE
