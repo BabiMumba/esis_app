@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:paddingBottom="@dimen/_10sdp"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/pro_i"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/gst" />
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l0"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/promotion"
+            />
+        <TextView
+            android:id="@+id/pm"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="G3"
+            android:textColor="@color/primary_text"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+
+        android:id="@+id/l0"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pro_i"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nom"
+            />
+        <TextView
+            android:id="@+id/nm"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="babi"
+            android:textColor="@color/primary_text"
+
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l1"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Genre"
+            />
+        <TextView
+            android:id="@+id/sx"
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="homme"
+            android:textColor="@color/primary_text"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l2"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="date de suppression"
+            />
+        <TextView
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/12/1212"
+            android:textColor="@color/primary_text"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/l4"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/l3"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/_5sdp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Raison"
+            />
+        <TextView
+            android:layout_marginStart="@dimen/_2sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="rien de neuf mon vieux"
+            android:textColor="@color/primary_text"
+            />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

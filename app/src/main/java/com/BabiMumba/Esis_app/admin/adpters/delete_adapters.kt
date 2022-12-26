@@ -65,12 +65,10 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
             lp.copyFrom(dialog.window!!.attributes)
             lp.width = WindowManager.LayoutParams.MATCH_PARENT
             lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-
             val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
             val promotion = dialog.findViewById<TextView>(R.id.pm)
             val genre = dialog.findViewById<TextView>(R.id.sx)
             val nom = dialog.findViewById<TextView>(R.id.nm)
-
             nom.text = model.nom
             promotion.text = model.promotion
             Glide
