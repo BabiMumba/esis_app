@@ -3,7 +3,7 @@ package com.BabiMumba.Esis_app.admin.model
 class model_logout {
 
     lateinit var nom:String
-    lateinit var Raison:String
+    lateinit var raison:String
     lateinit var profil:String
     lateinit var promotion:String
     lateinit var date:String
@@ -11,13 +11,13 @@ class model_logout {
     constructor(){}
     constructor(
         nom: String,
-        Raison: String,
+        raison: String,
         profil:String,
         promotion:String,
         date:String,
     ) {
         this.nom = nom
-        this.Raison = Raison
+        this.raison = raison
         this.profil = profil
         this.promotion = promotion
         this.date = date

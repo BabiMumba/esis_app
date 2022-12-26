@@ -75,7 +75,7 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
             nom.text = model.nom
             promotion.text = model.promotion
             datsp.text = model.date
-            raison.text = model.Raison
+            raison.text = model.raison
             Glide
                 .with(holder.itemView.context)
                 .load(model.profil)
