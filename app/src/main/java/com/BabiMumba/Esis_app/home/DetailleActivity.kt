@@ -2,6 +2,7 @@ package com.BabiMumba.Esis_app.home
 
 import android.app.DownloadManager
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -82,8 +83,12 @@ class DetailleActivity : AppCompatActivity() {
         setListener()
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val admin_state = sharedPreferences.getString("administrateur",null)
 
-        if (id_uses.toString() != id_last) {
+
+
+        if ((id_uses.toString() != id_last)|| admin_state == "oui") {
             dele_pst.visibility = View.GONE
         } else {
 
