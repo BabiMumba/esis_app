@@ -37,7 +37,6 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
-
         holder.description.text = syllabusModel.description
         holder.nom_user.text = syllabusModel.nom_user
         holder.date.text = syllabusModel.date_heure

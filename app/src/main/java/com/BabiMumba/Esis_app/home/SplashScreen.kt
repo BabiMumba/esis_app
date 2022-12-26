@@ -24,11 +24,6 @@ class SplashScreen : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
                 val name = sharedPreferences.getString("premium",null)
 
-                if (name=="oui"){
-                    Toast.makeText(this, "vous etes en mode payant", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(this, "vous etes en mode grauit", Toast.LENGTH_SHORT).show()
-                }
 
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
