@@ -145,7 +145,7 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["mot de passe"] = binding.inputPassword.text.toString()
         infor_user["premium"] = "non"
         infor_user["administrateur"] = "non"
-        infor_user["AdminP"] = "non"
+        infor_user["adminP"] = "non"
         infor_user["ouverture application"] = 1
 
         database.collection("Utilisateurs")
