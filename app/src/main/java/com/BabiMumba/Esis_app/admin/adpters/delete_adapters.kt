@@ -24,14 +24,13 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
         var name:TextView
         var date:TextView
         var admin:TextView
-        var rela_id:RelativeLayout
+
 
         init {
             image = item.findViewById(R.id.image_profil_rod)
             name = item.findViewById(R.id.name_user)
             date = item.findViewById(R.id.mail_user)
             admin = item.findViewById(R.id.admin_v)
-            rela_id = item.findViewById(R.id.rela_id)
         }
     }
 
@@ -42,7 +41,6 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
 
     override fun onBindViewHolder(holder: delete_adapters.viewholder, position: Int, model: model_logout) {
         holder.name.text = model.nom
-        holder.date .text = model.Date
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
@@ -75,7 +73,6 @@ class delete_adapters (options: FirestoreRecyclerOptions<model_logout>):Firestor
 
             nom.text = model.nom
             promotion.text = model.promotion
-            genre.text = model.Date
             Glide
                 .with(holder.itemView.context)
                 .load(model.profil)

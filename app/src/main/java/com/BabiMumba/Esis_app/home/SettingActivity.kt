@@ -169,9 +169,10 @@ class SettingActivity : AppCompatActivity() {
         }
 
     }
-    override fun onStart() {
+
+    override fun onResume() {
         readData()
-        super.onStart()
+        super.onResume()
     }
     private fun checkstate(){
         val sharedPreferences = getSharedPreferences("save", MODE_PRIVATE)

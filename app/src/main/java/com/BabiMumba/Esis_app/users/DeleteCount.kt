@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.admin.model.model_logout
 import com.BabiMumba.Esis_app.home.SplashScreen
 import com.firebase.client.Firebase
 import com.google.firebase.auth.FirebaseAuth
