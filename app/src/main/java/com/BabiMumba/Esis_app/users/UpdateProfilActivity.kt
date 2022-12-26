@@ -95,6 +95,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
                     val promotion = document.data?.getValue("promotion").toString()
+                    val admin = document.data?.getValue("administrateur").toString()
                     val premium = document.data?.getValue("premium").toString()
                     promot.text = promotion
                     u_mail.text = mailTo
@@ -103,7 +104,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
                   
-                    if (state_admin!= premium){
+                    if (state_admin!= admin){
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
