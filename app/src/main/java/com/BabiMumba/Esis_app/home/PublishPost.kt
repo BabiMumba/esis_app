@@ -177,6 +177,7 @@ class PublishPost : AppCompatActivity() {
                     save_post_mprfl(id_user,"1",lien_image,id_pst,msg)
                     message_commnq.setText("")
                     message_commnq.hint = "nouveau poste"
+                    Toast.makeText(this, "publier avec succes", Toast.LENGTH_SHORT).show()
                     sendnotif()
                     loading(false)
                 }else{
@@ -202,6 +203,7 @@ class PublishPost : AppCompatActivity() {
                     save_post_mprfl(id_user,uri.toString(),lien_image,id_pst,msg)
                     message_commnq.setText("")
                     message_commnq.hint = "nouveau poste"
+                    Toast.makeText(this, "publier avec succes", Toast.LENGTH_SHORT).show()
                     sendnotif()
                     loading(false)
                 }else{

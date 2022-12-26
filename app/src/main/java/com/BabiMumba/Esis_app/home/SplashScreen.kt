@@ -29,7 +29,7 @@ class SplashScreen : AppCompatActivity() {
                 val editor = sharedPreferences.edit()
                 editor.apply() {
                     putInt("count", lnb!!)
-                    Toast.makeText(this@SplashScreen, "sa fait $lnb", Toast.LENGTH_SHORT).show()
+                   // Toast.makeText(this@SplashScreen, "sa fait $lnb", Toast.LENGTH_SHORT).show()
                 }
                     .apply()
 
