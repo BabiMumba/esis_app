@@ -21,6 +21,17 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginRight="15dp">
+            <TextView
+                android:visibility="gone"
+                android:layout_alignParentTop="true"
+                android:id="@+id/admin_ic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/primary"
+                android:layout_marginStart="@dimen/_2sdp"
+                />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imgView_proPic"
