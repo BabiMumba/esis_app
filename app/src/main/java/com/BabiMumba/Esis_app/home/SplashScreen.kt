@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_splash_screen.*
 
 class SplashScreen : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
+    var lnb: Int? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
@@ -23,8 +24,13 @@ class SplashScreen : AppCompatActivity() {
             {
                 val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
                 val name = sharedPreferences.getInt("count",0)
+                lnb = name+1
 
-
+                val editor = sharedPreferences.edit()
+                editor.apply() {
+                    putInt("count", lnb!!)
+                }
+                    .apply()
 
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
