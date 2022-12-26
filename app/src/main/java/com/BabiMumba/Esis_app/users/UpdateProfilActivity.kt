@@ -78,9 +78,6 @@ class UpdateProfilActivity : AppCompatActivity() {
     }
 
     private fun readData(){
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        val state_admin = sharedPreferences.getString("premium",null)
-        
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val db = FirebaseFirestore.getInstance()
@@ -104,13 +101,19 @@ class UpdateProfilActivity : AppCompatActivity() {
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
                   
-                    if (state_admin!= admin){
+                    if (admin=="oui"){
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
                             putString("administrateur", "oui")
                         }.apply()
                         //Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
+                    }else{
+                        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                        val editor = sharedPreferences.edit()
+                        editor.apply() {
+                            putString("administrateur", "non")
+                        }.apply()
                     }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{

@@ -91,7 +91,6 @@ class DetailleActivity : AppCompatActivity() {
         if ((id_uses.toString() == id_last)|| (admin_state == "oui")) {
             dele_pst.visibility = View.VISIBLE
         } else {
-
             dele_pst.visibility = View.GONE
         }
 
