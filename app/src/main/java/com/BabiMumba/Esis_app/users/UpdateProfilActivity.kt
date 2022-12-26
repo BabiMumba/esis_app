@@ -108,7 +108,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
-                            putString("premium", "oui")
+                            putString("administrateur", "oui")
                         }.apply()
                         //Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
                     }
