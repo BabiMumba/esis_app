@@ -48,7 +48,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         holder.nb_download.text = syllabusModel.download.toString()
         holder.like_text.text = syllabusModel.like.toString()
 
-        holder.admin_i.visibility = if (state_admin=="oui") View.VISIBLE else View.GONE
+        holder.admin_i.visibility = if (syllabusModel.mail_users=="babimumba243@gmail.com") View.VISIBLE else View.GONE
 
        // holder.image_user.setImageBitmap(getConversionImage(syllabusModel.lien_profil))
         val circularProgressDrawable = CircularProgressDrawable(holder.nom_user.context)

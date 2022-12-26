@@ -98,7 +98,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
 
-        holder.admin_i.visibility = if (state_admin == "oui") View.VISIBLE else View.GONE
+        holder.admin_i.visibility = if (model.ad_mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
 
         read_name()
         get_token()
