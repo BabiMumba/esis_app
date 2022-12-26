@@ -35,6 +35,9 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     var progressBar: ProgressBar? = null
 
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
+        val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val state_admin = sharedPreferences.getString("premium",null)
+
         holder.description.text = syllabusModel.description
         holder.nom_user.text = syllabusModel.nom_user
         holder.date.text = syllabusModel.date_heure
@@ -44,6 +47,8 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         holder.nb_comment.text = syllabusModel.comment.toString()
         holder.nb_download.text = syllabusModel.download.toString()
         holder.like_text.text = syllabusModel.like.toString()
+
+        holder.admin_i.visibility = if (state_admin=="oui") View.VISIBLE else View.GONE
 
        // holder.image_user.setImageBitmap(getConversionImage(syllabusModel.lien_profil))
         val circularProgressDrawable = CircularProgressDrawable(holder.nom_user.context)
@@ -127,6 +132,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         var nb_comment:TextView
         var nb_download:TextView
         var promotion:TextView
+        var admin_i:TextView
 
 
         init {
@@ -144,6 +150,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             nb_download = itemView.findViewById(R.id.tv_download)
             like_text = itemView.findViewById(R.id.read_view)
             promotion = itemView.findViewById(R.id.nom_promo)
+            admin_i = itemView.findViewById(R.id.admin_ic)
 
         }
 
