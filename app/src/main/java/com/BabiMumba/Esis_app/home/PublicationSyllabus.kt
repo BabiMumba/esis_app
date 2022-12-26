@@ -261,7 +261,8 @@ class PublicationSyllabus : AppCompatActivity() {
                                 }
                     }else{
                         val obj = syllabus_model(
-                            name.toUpperCase(),link_cover,
+                            name,
+                            link_cover,
                             mail_users,
                             id_users,
                             name_save_sta,
