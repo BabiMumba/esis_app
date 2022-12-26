@@ -29,6 +29,14 @@
             android:layout_marginLeft="@dimen/_10sdp"
             android:layout_marginRight="@dimen/_10sdp"
             android:layout_marginTop="@dimen/_10sdp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/primary"
+                android:layout_marginStart="@dimen/_2sdp"
+                />
 
 
             <de.hdodenhof.circleimageview.CircleImageView
