@@ -2,6 +2,7 @@ package com.BabiMumba.Esis_app.adapters
 
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
@@ -47,6 +48,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
         var image:CircleImageView
         var poste_image:ImageView
         var like_btn:ImageView
+        var admin_i:TextView
 
         init {
             poste_image = itemview.findViewById(R.id.image_poste1)
@@ -60,6 +62,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
             comment = itemview.findViewById(R.id.nb_comment)
             message = itemview.findViewById(R.id.message)
             date = itemview.findViewById(R.id.date)
+            admin_i = itemview.findViewById(R.id.admin_ir)
         }
 
         fun getlikebuttonstatus(postkey: String?, userid: String?) {
@@ -91,6 +94,11 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
     }
 
     override fun onBindViewHolder(holder: viewholder, position: Int, model: commnunique_model) {
+
+        val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val state_admin = sharedPreferences.getString("premium",null)
+
+        holder.admin_i.visibility = if (state_admin == "oui") View.VISIBLE else View.GONE
 
         read_name()
         get_token()
