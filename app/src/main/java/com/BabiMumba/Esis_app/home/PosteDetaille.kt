@@ -2,6 +2,7 @@ package com.BabiMumba.Esis_app.home
 
 import android.app.Dialog
 import android.content.ContentValues
+import android.content.Context
 import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -64,7 +65,11 @@ class PosteDetaille : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
 
-        if (user_id.toString() != id_last){
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val admin_state = sharedPreferences.getString("administrateur",null)
+
+
+        if ((user_id.toString() != id_last)|| admin_state=="oui"){
             delete_btn.visibility = View.GONE
         }else{
             delete_btn.visibility = View.VISIBLE
