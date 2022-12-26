@@ -78,6 +78,9 @@ class UpdateProfilActivity : AppCompatActivity() {
     }
 
     private fun readData(){
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val state_admin = sharedPreferences.getString("premium",null)
+        
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val db = FirebaseFirestore.getInstance()
@@ -99,15 +102,16 @@ class UpdateProfilActivity : AppCompatActivity() {
                     ui_post_name.setText(postname)
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
-                    premium_txt.text = premium
-                    if (premium_txt.text.toString()=="non"){
-                        l7.visibility = View.GONE
-                    }else{
+                  
+                    if (state_admin!= premium){
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
                             putString("premium", "oui")
                         }.apply()
+                        Toast.makeText(this, "on a changer", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this, "meme chose", Toast.LENGTH_SHORT).show()
                     }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{
