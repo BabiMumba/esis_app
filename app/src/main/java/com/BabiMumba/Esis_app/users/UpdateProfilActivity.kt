@@ -156,6 +156,9 @@ class UpdateProfilActivity : AppCompatActivity() {
         showtoast("mise ajour reussi")
     }
     private fun update_data(){
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val count_app = sharedPreferences.getInt("count",0)
+
         loading(true)
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
@@ -164,6 +167,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         infor_user["nom"] = ui_name.text.toString()
         infor_user["post-nom"] = ui_post_name.text.toString()
         infor_user["prenom"] = prenom_ui.text.toString()
+        infor_user["ouverture_application"] = count_app
         database.collection("Utilisateurs")
             .document(mail)
             .update(infor_user)

@@ -146,7 +146,7 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["premium"] = "non"
         infor_user["administrateur"] = "non"
         infor_user["adminP"] = "non"
-        infor_user["ouverture application"] = 1
+        infor_user["ouverture_application"] = 1
 
         database.collection("Utilisateurs")
             .document(binding.inputMail.text.toString())
