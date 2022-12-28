@@ -72,7 +72,8 @@ class ForumFragment : Fragment() {
         recyclerv.adapter = communiqueAdapters
         communiqueAdapters.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         communiqueAdapters.startListening()
-        return viewf   }
+        return viewf
+    }
 
     override fun onStart() {
         super.onStart()
@@ -83,7 +84,6 @@ class ForumFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         communiqueAdapters.stopListening()
-
     }
 
     fun isConnectedNetwork(context: Context): Boolean {

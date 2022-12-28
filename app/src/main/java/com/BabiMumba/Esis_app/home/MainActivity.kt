@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         firebaseAuth = FirebaseAuth.getInstance()
 
         val navigationView = findViewById<View>(R.id.nav_view) as NavigationView

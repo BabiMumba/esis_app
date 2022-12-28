@@ -61,7 +61,6 @@ class PrepaFragment : Fragment() {
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
 
-
         return v
     }
 
