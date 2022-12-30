@@ -35,10 +35,11 @@ class UpdateProfilActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profil)
         storageReference = FirebaseStorage.getInstance().reference
-
         firebaseAuth = FirebaseAuth.getInstance()
+
         readData()
         setListener()
+
     }
     fun setListener(){
         save_btn.setOnClickListener {

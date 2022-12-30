@@ -44,7 +44,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
                 override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
                     displaypdf()
                 }
-
                 override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
                     Toast.makeText(
                         this@LectureActivity_Pdf,
