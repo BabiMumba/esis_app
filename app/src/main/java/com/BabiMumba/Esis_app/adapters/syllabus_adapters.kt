@@ -179,7 +179,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
         request.setDestinationInExternalPublicDir(
-            Environment.DIRECTORY_DOWNLOADS, "$nom.pdf"
+            Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
         )
         val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
