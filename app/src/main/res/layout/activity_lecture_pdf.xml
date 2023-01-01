@@ -9,17 +9,25 @@
     tools:context=".home.LectureActivity_Pdf">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/no_internet"
+        android:id="@+id/empty_list"
         android:layout_width="@dimen/_300sdp"
         android:layout_height="@dimen/_300sdp"
         android:layout_centerInParent="true"
         app:lottie_rawRes="@raw/rien"
+        android:visibility="gone"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"/>
     <TextView
+        android:id="@+id/empty_txtv"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="pas de syllabus pour l'instant"
+        android:layout_below="@id/empty_list"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/primary_text"
+        android:fontFamily="sans-serif-black"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:padding="@dimen/_5sdp"
         android:layout_width="match_parent"
