@@ -79,7 +79,13 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this,)
         pdfList = ArrayList()
-        pdfList.addAll( findpdf(Environment.getExternalStorageDirectory()))
+        pdfList.addAll(
+            findpdf( File(
+                Environment.getExternalStorageDirectory()
+                    .toString() + "/" + Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/"
+            ))
+
+        )
         pdfAdapter = pdfAdapter2(this, pdfList, this)
         my_recyclerview.adapter = pdfAdapter
     }
