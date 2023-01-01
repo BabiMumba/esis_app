@@ -98,17 +98,6 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/note_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/t3"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/background_btn"
-            android:text="noter"
-            android:textAllCaps="false"
-            android:textColor="@color/white" />
-
 
         <TextView
             android:id="@+id/t3"
@@ -124,12 +113,12 @@
             android:textStyle="normal" />
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_200sdp"
-            android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:id="@+id/non_internet"
+            android:layout_height="wrap_content"
+           android:layout_centerHorizontal="true"
+            android:layout_below="@id/t3"
+            android:id="@+id/note_btn"
             ads:lottie_autoPlay="true"
-            ads:lottie_rawRes="@raw/non_internet"
+            ads:lottie_rawRes="@raw/rating_app"
             ads:lottie_loop="true"/>
 
 
