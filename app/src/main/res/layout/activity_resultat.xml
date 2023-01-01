@@ -23,6 +23,16 @@
         ads:lottie_autoPlay="true"
         ads:lottie_rawRes="@raw/ni"
         ads:lottie_loop="true"/>
+    <TextView
+        android:id="@+id/txvp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/non_internet"
+        android:text="Pas de connexion Internet"
+        android:textColor="@color/primary_text"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

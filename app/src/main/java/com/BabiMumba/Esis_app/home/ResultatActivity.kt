@@ -80,6 +80,8 @@ class ResultatActivity : AppCompatActivity() {
             //Toast.makeText(this, "connecter", Toast.LENGTH_SHORT).show()
         } else {
             web_eventmtn.visibility = View.GONE
+            txvp.visibility = View.GONE
+            fab.visibility = View.GONE
             non_internet.visibility = View.VISIBLE
            // showDialog()
         }
