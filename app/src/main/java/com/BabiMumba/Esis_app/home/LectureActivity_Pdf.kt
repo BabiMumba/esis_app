@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -33,6 +34,10 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
         title = "Lecture syllabus"
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val point = sharedPreferences.getInt("point",0)
+
+
         runtimePermissions()
 
     }
