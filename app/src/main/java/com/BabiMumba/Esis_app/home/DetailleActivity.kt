@@ -345,6 +345,7 @@ class DetailleActivity : AppCompatActivity() {
         if (promo != "Preparatoire" && promo != "L1") {
             promo = "Tous"
         }
+
         increment["comment"] = ServerValue.increment(1)
         FirebaseDatabase.getInstance().reference.child("syllabus")
             .child(promo).child((cle))
