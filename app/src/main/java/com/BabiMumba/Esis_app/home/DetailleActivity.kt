@@ -41,6 +41,7 @@ class DetailleActivity : AppCompatActivity() {
     private lateinit var storageReference: StorageReference
     var mon_nom: String = ""
     var photo_profil: String = ""
+    private var tlc_s: Int? = null
 
     lateinit var adpter: commentaire_adapters
     private var mLayoutManager: LinearLayoutManager? = null
@@ -51,6 +52,7 @@ class DetailleActivity : AppCompatActivity() {
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
         read_name()
+        load_data()
 
         val nom_prof = intent.getStringExtra("nom_prof")
         val syllabus = intent.getStringExtra("syllabus")
@@ -116,6 +118,11 @@ class DetailleActivity : AppCompatActivity() {
 
     }
 
+    fun load_data(){
+        val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+        val tlc = sharedPreferences.getInt("point",0)
+        tlc_s = tlc
+    }
     override fun onStart() {
         super.onStart()
         adpter.startListening()
@@ -145,7 +152,16 @@ class DetailleActivity : AppCompatActivity() {
 
         }
         btn_downl.setOnClickListener {
+            tlc_s = tlc_s?.plus(1)
+            val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+            val editor = sharedPreferences.edit()
+            editor.apply{
+                tlc_s?.let { putInt("point", it)
+                }
+            }.apply()
+
             telecharger()
+
             // Toast.makeText(this, "telechargement", Toast.LENGTH_SHORT).show()
         }
         btn_read.setOnClickListener {
