@@ -41,7 +41,11 @@ class ForumFragment : Fragment() {
             //Toast.makeText(activity, "connecter", Toast.LENGTH_SHORT).show()
         }else{
             viewf.findViewById<RelativeLayout>(R.id.r_all).visibility = View.GONE
-            viewf.findViewById<LottieAnimationView>(R.id.no_internet).visibility = View.VISIBLE
+            /*
+
+            viewf.findViewById<LottieAnimationView>(R.id.empty_list).visibility = View.VISIBLE
+
+             */
 
             Snackbar.make(
                 requireActivity().findViewById(android.R.id.content),
