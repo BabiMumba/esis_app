@@ -47,8 +47,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         }
 
 
-
-
     }
 
     private fun runtimePermissions() {

@@ -33,6 +33,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     FirebaseRecyclerAdapter<syllabus_model, syllabus_adapters.myviewholder>(options) {
 
     var progressBar: ProgressBar? = null
+    private var tlc_s: Int? = null
 
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
@@ -97,6 +98,13 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         holder.layout_dowload.setOnClickListener {
             val cle = getRef(position).key.toString()
             try {
+                tlc_s = tlc_s?.plus(1)
+                val sharedPreferences = holder.date.context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.apply{
+                    tlc_s?.let { putInt("point", it)
+                    }
+                }.apply()
                 telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
                 increament_dwnlad(holder.layout_dowload.context,syllabusModel.nom_promotion,cle)
 
