@@ -77,10 +77,11 @@ class ResultatActivity : AppCompatActivity() {
         }
     private fun checkConnection() {
         if (isOnline) {
-            Toast.makeText(this, "connecter", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(this, "connecter", Toast.LENGTH_SHORT).show()
         } else {
             relative_resultat.visibility = View.GONE
-            showDialog()
+            non_internet.visibility = View.VISIBLE
+           // showDialog()
         }
     }
 

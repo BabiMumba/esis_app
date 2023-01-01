@@ -2,6 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,6 +14,16 @@
         android:id="@+id/web_eventmtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="@dimen/_200sdp"
+        android:layout_height="@dimen/_200sdp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:id="@+id/non_internet"
+        ads:lottie_autoPlay="true"
+        ads:lottie_rawRes="@raw/ni"
+        ads:lottie_loop="true"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"

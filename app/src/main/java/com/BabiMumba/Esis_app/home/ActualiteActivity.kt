@@ -42,7 +42,8 @@ class ActualiteActivity : AppCompatActivity() {
 
         }else{
             web_actualit.visibility = View.GONE
-            showDialog()
+            non_internet.visibility = View.VISIBLE
+           // showDialog()
         }
 
         webView = findViewById(R.id.web_eventmtn)

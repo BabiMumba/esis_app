@@ -32,11 +32,12 @@
     <string name="my_name">Babi Mumba</string>
     <string name="fuction">Mobile Developer</string>
     <string name="me">I\’m passionate new technologies \n and<b> mobile developer especially Android</b>  \n I\’m a fist year student at salama computer science school \n <b> [ESI SALAMA] </b></string>
-    <string name="like_this_app">Si vous aimez cette application, n\'hésitez pas de la noter sur Play store,cela ne vous prendre pas plus d'une minute. merci de votre soutien</string>
+    <string name="like_this_app">Si vous aimez cette application, n\'hésitez pas de la noter sur Play store, cela ne vous prendre pas plus d\'une minute. merci de votre soutien</string>
     <string name="feed_back">En cas de problème ou si vous avez des suggestions à me donner afin d’améliorer mon application ou d’ajouter d’autres fonctionnalités ; Laissez-moi votre commantaire en précisant votre problème ou suggestion. \n Contactez-moi sur les médias ci-haut Merci</string>
 
     <string name="kitabu_de">une application qui vous permet de lire et de télécharger tous vos livres preferer en format PDF</string>
     <string name="lien_app">https://play.google.com/store/apps/details?id=com.bstonetech.teste_kitabu</string>
+
     <string name="probleme_txt">Rediger votre probleme ici</string>
     <string name="school_name">Ecole Supérieure d\'Informatique Salama</string>
     <string name="app_version">Esis App 1.0.2</string>
