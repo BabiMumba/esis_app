@@ -38,9 +38,8 @@ class ForumFragment : Fragment() {
         val viewf = inflater.inflate(R.layout.fragment_forum, container, false)
 
         if (isConnectedNetwork(requireActivity().applicationContext)){
-            Toast.makeText(activity, "connecter", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(activity, "connecter", Toast.LENGTH_SHORT).show()
         }else{
-            viewf.findViewById<FrameLayout>(R.id.frame_id).visibility = View.GONE
             viewf.findViewById<RelativeLayout>(R.id.r_all).visibility = View.GONE
             viewf.findViewById<LottieAnimationView>(R.id.no_internet).visibility = View.VISIBLE
 
