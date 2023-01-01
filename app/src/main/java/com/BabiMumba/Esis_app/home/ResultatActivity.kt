@@ -79,7 +79,7 @@ class ResultatActivity : AppCompatActivity() {
         if (isOnline) {
             //Toast.makeText(this, "connecter", Toast.LENGTH_SHORT).show()
         } else {
-            relative_resultat.visibility = View.GONE
+            web_eventmtn.visibility = View.GONE
             non_internet.visibility = View.VISIBLE
            // showDialog()
         }
@@ -99,4 +99,5 @@ class ResultatActivity : AppCompatActivity() {
         dialog.show()
         dialog.window!!.attributes = lp
     }
+
 }

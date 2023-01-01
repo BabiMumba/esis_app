@@ -41,7 +41,7 @@ class ActualiteActivity : AppCompatActivity() {
         if (isConnectedNetwork(this)){
             //connecter
         }else{
-            web_actualit.visibility = View.GONE
+            web_eventmtn.visibility = View.GONE
             non_internet.visibility = View.VISIBLE
            // showDialog()
         }
