@@ -135,6 +135,7 @@ class DetailleActivity : AppCompatActivity() {
     }
 
     fun setListener() {
+        
         dele_pst.setOnClickListener {
             val pop = PopupMenu(this@DetailleActivity, dele_pst)
             pop.menuInflater.inflate(R.menu.popup_menu, pop.menu)
@@ -159,8 +160,9 @@ class DetailleActivity : AppCompatActivity() {
                 tlc_s?.let { putInt("point", it)
                 }
             }.apply()
+            Toast.makeText(this, "ajouter", Toast.LENGTH_SHORT).show()
 
-            telecharger()
+           // telecharger()
 
             // Toast.makeText(this, "telechargement", Toast.LENGTH_SHORT).show()
         }

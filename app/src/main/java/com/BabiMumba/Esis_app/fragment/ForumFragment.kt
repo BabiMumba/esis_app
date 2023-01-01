@@ -42,7 +42,7 @@ class ForumFragment : Fragment() {
         }else{
             viewf.findViewById<RelativeLayout>(R.id.r_all).visibility = View.GONE
 
-            viewf.findViewById<LottieAnimationView>(R.id.empty_list_two).visibility = View.VISIBLE
+            viewf.findViewById<LottieAnimationView>(R.id.non_internet).visibility = View.VISIBLE
 
             Snackbar.make(
                 requireActivity().findViewById(android.R.id.content),
