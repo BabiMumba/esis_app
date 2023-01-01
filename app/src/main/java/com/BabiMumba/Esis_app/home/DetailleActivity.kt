@@ -246,7 +246,6 @@ class DetailleActivity : AppCompatActivity() {
                 Toast.makeText(this, "erreur: ${it.message}", Toast.LENGTH_SHORT).show()
             }
     }
-
     fun DeletePosteStorage() {
         val image_name_id = intent.getStringExtra("image_url")
         val storageRef = storageReference
@@ -262,7 +261,6 @@ class DetailleActivity : AppCompatActivity() {
             }
 
     }
-
     fun DeletePoste() {
         val cle = intent.getStringExtra("cle")
         var pm = intent.getStringExtra("promo")
@@ -282,8 +280,6 @@ class DetailleActivity : AppCompatActivity() {
                 }
             }
     }
-
-
     fun read_name() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
@@ -306,7 +302,6 @@ class DetailleActivity : AppCompatActivity() {
                 Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
             }
     }
-
     fun add_downloas() {
         var promo = intent.getStringExtra("promo")
         val cle = intent.getStringExtra("cle")
@@ -412,4 +407,5 @@ class DetailleActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(eventListener)
 
     }
+
 }

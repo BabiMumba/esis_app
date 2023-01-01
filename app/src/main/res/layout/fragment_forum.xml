@@ -11,14 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/empty_list"
-            android:layout_width="@dimen/_300sdp"
-            android:layout_height="@dimen/_300sdp"
-            android:layout_centerInParent="true"
-            app:lottie_rawRes="@raw/connexion"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"/>
 
         <RelativeLayout
             android:id="@+id/r_all"
@@ -56,6 +48,14 @@
                 tools:itemCount="3"
                 tools:listitem="@layout/row_feed" />
         </RelativeLayout>
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/empty_list"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_300sdp"
+            android:layout_centerInParent="true"
+            app:lottie_rawRes="@raw/connexion"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"/>
     </RelativeLayout>
 
 
