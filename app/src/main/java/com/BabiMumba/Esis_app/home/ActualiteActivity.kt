@@ -39,7 +39,7 @@ class ActualiteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_actualite)
 
         if (isConnectedNetwork(this)){
-
+            //connecter
         }else{
             web_actualit.visibility = View.GONE
             non_internet.visibility = View.VISIBLE
