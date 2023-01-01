@@ -15,10 +15,11 @@
         android:visibility="gone"
         android:id="@+id/non_internet"
         ads:lottie_autoPlay="true"
-        ads:lottie_rawRes="@raw/new_ni_ic"
+        ads:lottie_rawRes="@raw/nini"
         ads:lottie_loop="true"/>
     <TextView
         android:id="@+id/txvp"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/non_internet"

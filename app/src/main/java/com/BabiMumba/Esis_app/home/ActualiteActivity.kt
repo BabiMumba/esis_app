@@ -42,7 +42,7 @@ class ActualiteActivity : AppCompatActivity() {
             //connecter
         }else{
             web_eventmtn.visibility = View.GONE
-            txvp.visibility = View.GONE
+            txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
         }
 

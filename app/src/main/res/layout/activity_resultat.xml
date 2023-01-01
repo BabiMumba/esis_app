@@ -21,7 +21,7 @@
         android:visibility="gone"
         android:id="@+id/non_internet"
         ads:lottie_autoPlay="true"
-        ads:lottie_rawRes="@raw/new_ni_ic"
+        ads:lottie_rawRes="@raw/nini"
         ads:lottie_loop="true"/>
     <TextView
         android:id="@+id/txvp"
@@ -43,7 +43,6 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="20dp"
         android:src="@drawable/ic_baseline_file_download_24"
-        android:visibility="gone"
         />
 
 </RelativeLayout>
