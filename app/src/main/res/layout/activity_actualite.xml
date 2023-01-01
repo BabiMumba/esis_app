@@ -15,7 +15,7 @@
         android:visibility="gone"
         android:id="@+id/non_internet"
         ads:lottie_autoPlay="true"
-        ads:lottie_rawRes="@raw/ni"
+        ads:lottie_rawRes="@raw/new_ni_ic"
         ads:lottie_loop="true"/>
     <TextView
         android:id="@+id/txvp"
