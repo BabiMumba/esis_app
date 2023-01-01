@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
+import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_lecture_pdf.*
+import kotlinx.android.synthetic.main.row_feed.*
 import java.io.File
 import java.util.*
 import kotlin.collections.ArrayList
@@ -29,16 +31,23 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     lateinit var pdfAdapter: pdfAdapter2
     private lateinit var pdfList: MutableList<File>
     private lateinit var recyclerView: RecyclerView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
         title = "Lecture syllabus"
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val point = sharedPreferences.getInt("point",0)
+        if (point>= 1){
+            runtimePermissions()
+        }else{
+            my_recyclerview.visibility = View.GONE
+            empty_list.visibility = View.VISIBLE
+            empty_txtv.visibility = View.VISIBLE
+
+        }
 
 
-        runtimePermissions()
+
 
     }
 
