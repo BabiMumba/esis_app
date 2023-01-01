@@ -57,10 +57,7 @@
                 android:layout_height="wrap_content"
                 tools:itemCount="3"
                 tools:listitem="@layout/row_feed" />
-
         </RelativeLayout>
-
-
     </RelativeLayout>
 
 
