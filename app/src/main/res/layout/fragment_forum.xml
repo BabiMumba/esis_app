@@ -18,7 +18,7 @@
             android:layout_width="@dimen/_300sdp"
             android:layout_height="@dimen/_300sdp"
             android:layout_centerInParent="true"
-            app:lottie_rawRes="@raw/non_internet"
+            app:lottie_rawRes="@raw/connexion"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
 
