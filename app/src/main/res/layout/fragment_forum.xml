@@ -13,13 +13,15 @@
         android:layout_height="match_parent"
         >
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
-            android:layout_width="@dimen/_200sdp"
-            android:layout_height="@dimen/_200sdp"
+            android:id="@+id/no_internet"
+            android:visibility="gone"
+            android:layout_width="@dimen/_300sdp"
+            android:layout_height="@dimen/_300sdp"
             android:layout_centerInParent="true"
             app:lottie_rawRes="@raw/non_internet"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"/>
+
         <RelativeLayout
             android:id="@+id/r_all"
             android:layout_width="match_parent"

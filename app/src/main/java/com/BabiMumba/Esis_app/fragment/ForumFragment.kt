@@ -18,6 +18,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.PublishPost
 import com.BabiMumba.Esis_app.model.commnunique_model
 import com.BabiMumba.Esis_app.adapters.communique_adapters
+import com.airbnb.lottie.LottieAnimationView
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -40,6 +41,9 @@ class ForumFragment : Fragment() {
             Toast.makeText(activity, "connecter", Toast.LENGTH_SHORT).show()
         }else{
             viewf.findViewById<FrameLayout>(R.id.frame_id).visibility = View.GONE
+            viewf.findViewById<RelativeLayout>(R.id.r_all).visibility = View.GONE
+            viewf.findViewById<LottieAnimationView>(R.id.no_internet).visibility = View.VISIBLE
+
             Snackbar.make(
                 requireActivity().findViewById(android.R.id.content),
                 "Verifier votre connexion puis reesayer", Snackbar.LENGTH_SHORT).show();
