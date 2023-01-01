@@ -35,7 +35,9 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     var progressBar: ProgressBar? = null
     private var tlc_s: Int? = null
 
+
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
+        load_data(holder.image_user.context)
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
         holder.description.text = syllabusModel.description
@@ -168,6 +170,11 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         if (progressBar != null) {
             progressBar!!.visibility = View.GONE
         }
+    }
+    fun load_data(context: Context){
+        val sharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+        val tlc = sharedPreferences.getInt("point",0)
+        tlc_s = tlc
     }
     fun telecharger(context: Context, nom:String, lien:String) {
 
