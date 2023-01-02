@@ -19,6 +19,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fragment.ForumFragment
 import com.BabiMumba.Esis_app.fragment.HomeFragment
+import com.BabiMumba.Esis_app.fragment.ProfilFragment
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -129,8 +130,7 @@ class MainActivity : AppCompatActivity(),NavigationView.OnNavigationItemSelected
                     loadFragmant(HomeFragment())
                 }
                 R.id.menu -> {
-                    val drawer = findViewById<View>(R.id.drawer_layout) as DrawerLayout
-                    drawer.openDrawer(GravityCompat.START)
+                    loadFragmant(ProfilFragment())
                 }
 
             }
