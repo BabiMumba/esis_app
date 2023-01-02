@@ -15,7 +15,7 @@ class pdfAdapter2(
 ) : RecyclerView.Adapter<pdf_viewholder2>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): pdf_viewholder2 {
         return pdf_viewholder2(
-            LayoutInflater.from(context).inflate(R.layout.item_pdf, parent, false)
+            LayoutInflater.from(context).inflate(R.layout.item_pdf_3d, parent, false)
         )
     }
 
