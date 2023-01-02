@@ -35,7 +35,7 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
         title = "Lecture syllabus"
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val point = sharedPreferences.getInt("point",0)
         if (point >= 1){
             runtimePermissions()
