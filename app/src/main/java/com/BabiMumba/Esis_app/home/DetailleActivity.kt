@@ -173,10 +173,7 @@ class DetailleActivity : AppCompatActivity() {
                 }
             }.apply()
             Toast.makeText(this, "ajouter", Toast.LENGTH_SHORT).show()
-
-           // telecharger()
-
-            // Toast.makeText(this, "telechargement", Toast.LENGTH_SHORT).show()
+           telecharger()
         }
         btn_read.setOnClickListener {
             val lien = intent.getStringExtra("lien_book")

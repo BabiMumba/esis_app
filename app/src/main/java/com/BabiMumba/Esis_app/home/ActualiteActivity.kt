@@ -25,12 +25,20 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_actualite.*
 
 class ActualiteActivity : AppCompatActivity() {
+    private var tlc_s: Int? = null
     lateinit var webView: WebView
 
     private val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val action = intent?.action
             if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == action) {
+                tlc_s = tlc_s?.plus(1)
+                val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.apply{
+                    tlc_s?.let { putInt("point", it)
+                    }
+                }.apply()
                 val snackbar = Snackbar
                     .make(findViewById(R.id.actualite_id), "telechargement termine", Snackbar.LENGTH_LONG)
                     .setAction("ouvrir") { v12: View? ->
@@ -44,7 +52,7 @@ class ActualiteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualite)
-
+        load_data()
         if (isConnectedNetwork(this)){
             //connecter
         }else{
@@ -52,7 +60,6 @@ class ActualiteActivity : AppCompatActivity() {
             txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
         }
-
         webView = findViewById(R.id.web_eventmtn)
 
         val lien = intent.getStringExtra("url_link").toString()
@@ -121,6 +128,11 @@ class ActualiteActivity : AppCompatActivity() {
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
+    }
+    fun load_data(){
+        val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+        val tlc = sharedPreferences.getInt("point",0)
+        tlc_s = tlc
     }
     private fun showDialog() {
         val dialog = Dialog(this)
