@@ -80,15 +80,17 @@ class ActualiteActivity : AppCompatActivity() {
 
 
         web_eventmtn.loadUrl(lien)
+        //Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
         web_eventmtn.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
             val request = DownloadManager.Request(
                 Uri.parse(url)
             )
+
             val filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
             request.allowScanningByMediaScanner()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED) //Notify client once download is completed!
             request.setDestinationInExternalPublicDir(
-                Environment.DIRECTORY_DOWNLOADS,
+                Environment.DIRECTORY_DOWNLOADS+ "/syllabus esis/",
                 filename
             )
             val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager

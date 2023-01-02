@@ -31,6 +31,7 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     lateinit var pdfAdapter: pdfAdapter2
     private lateinit var pdfList: MutableList<File>
     private lateinit var recyclerView: RecyclerView
+    lateinit var linearLayoutManager: LinearLayoutManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
@@ -88,8 +89,11 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     }
     private fun displaypdf() {
         recyclerView = findViewById(R.id.my_recyclerview)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this,)
+        linearLayoutManager = LinearLayoutManager(this)
+        linearLayoutManager.reverseLayout = true
+        linearLayoutManager.onSaveInstanceState()
+        linearLayoutManager.stackFromEnd = true
+        recyclerView.layoutManager = linearLayoutManager
         pdfList = ArrayList()
         pdfList.addAll(
             findpdf( File(
