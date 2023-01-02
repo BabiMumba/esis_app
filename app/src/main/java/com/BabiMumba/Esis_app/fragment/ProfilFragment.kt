@@ -36,6 +36,7 @@ class ProfilFragment : Fragment() {
     ): View? {
         val v = inflater.inflate(R.layout.fragment_profil, container, false)
             readData(v)
+            checkstate(v)
             clickmethode(v)
         return v
     }
@@ -203,6 +204,13 @@ class ProfilFragment : Fragment() {
             ).show()
         }
 
+    }
+    private fun checkstate(view: View){
+        val sharedPreferences = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE)
+        view.findViewById<Switch>(R.id.s1).isChecked = sharedPreferences.getBoolean("value", false)
+        view.findViewById<Switch>(R.id.syllabus).isChecked = sharedPreferences.getBoolean("syllabus_state",false)
+        view.findViewById<Switch>(R.id.resultat_id).isChecked = sharedPreferences.getBoolean("resultat_state",false)
+        view.findViewById<Switch>(R.id.forum_notif).isChecked = sharedPreferences.getBoolean("forum_state",false)
     }
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

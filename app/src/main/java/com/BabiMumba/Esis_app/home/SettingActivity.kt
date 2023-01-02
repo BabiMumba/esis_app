@@ -169,12 +169,10 @@ class SettingActivity : AppCompatActivity() {
         }
 
     }
-
     override fun onResume() {
         readData()
         super.onResume()
     }
-
     private fun checkstate(){
         val sharedPreferences = getSharedPreferences("save", MODE_PRIVATE)
         s1.isChecked = sharedPreferences.getBoolean("value", false)
