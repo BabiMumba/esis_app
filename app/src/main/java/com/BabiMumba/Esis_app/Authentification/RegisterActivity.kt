@@ -183,6 +183,10 @@ class RegisterActivity : AppCompatActivity() {
             putInt("count",1)
 
         }.apply()
+        abonnement("syllabus")
+        abonnement("forum")
+        acti_sy("forum_state")
+        acti_sy("syllabus_state")
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
@@ -206,6 +210,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (it.isSuccessful){
                     getInfoUser()
                     send_profil()
+
                     loading(false)
                 }else{
                     Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
@@ -378,6 +383,11 @@ class RegisterActivity : AppCompatActivity() {
             ).show()
         }
 
+    }
+    fun acti_sy(name:String){
+        val editor = getSharedPreferences("save", MODE_PRIVATE).edit()
+        editor.putBoolean(name, true)
+        editor.apply()
     }
 
 
