@@ -21,6 +21,7 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_actualite.*
 
 class ActualiteActivity : AppCompatActivity() {
@@ -30,7 +31,12 @@ class ActualiteActivity : AppCompatActivity() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val action = intent?.action
             if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == action) {
-                Toast.makeText(this@ActualiteActivity, "Telechargement terminer", Toast.LENGTH_SHORT).show()
+                val snackbar = Snackbar
+                    .make(findViewById(R.id.actualite_id), "telechargement termine", Snackbar.LENGTH_LONG)
+                    .setAction("ouvrir") { v12: View? ->
+                        Toast.makeText(this@ActualiteActivity, "ouvrir clicker", Toast.LENGTH_SHORT).show()
+                    }
+                snackbar.show()
             }
         }
     }
