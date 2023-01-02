@@ -1,9 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
 import android.app.DownloadManager
-import android.content.ContentValues
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -24,6 +22,7 @@ import com.BabiMumba.Esis_app.model.commentaire_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
@@ -46,6 +45,20 @@ class DetailleActivity : AppCompatActivity() {
     lateinit var adpter: commentaire_adapters
     private var mLayoutManager: LinearLayoutManager? = null
 
+    private val broadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val action = intent?.action
+            if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == action) {
+                val snackbar = Snackbar
+                    .make(findViewById(R.id.coodid), "telechargement termine", Snackbar.LENGTH_LONG)
+                    .setAction("ouvrir") { v12: View? ->
+                        startActivity(Intent(this@DetailleActivity,LectureActivity_Pdf::class.java))
+                    }
+                snackbar.show()
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detaille)
@@ -53,7 +66,7 @@ class DetailleActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         read_name()
         load_data()
-
+        registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         val nom_prof = intent.getStringExtra("nom_prof")
         val syllabus = intent.getStringExtra("syllabus")
         val user = intent.getStringExtra("user")
@@ -87,7 +100,6 @@ class DetailleActivity : AppCompatActivity() {
         val id_last = firebaseUser?.uid.toString()
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val admin_state = sharedPreferences.getString("administrateur",null)
-
 
 
         if ((id_uses.toString() == id_last)|| (admin_state == "oui")) {
