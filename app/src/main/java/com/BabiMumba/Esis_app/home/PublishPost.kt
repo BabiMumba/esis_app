@@ -170,7 +170,7 @@ class PublishPost : AppCompatActivity() {
         val msg = message_commnq.text.toString()
         val name_image = "forum_post/$mail/$name.png"
         val id_pst = databaseReference.push().key!!.toString()
-        val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
+        val donnee = commnunique_model(mon_nom,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -196,7 +196,7 @@ class PublishPost : AppCompatActivity() {
         val date_de_pub = sdf.format(Date())
         val msg = message_commnq.text.toString()
         val id_pst = databaseReference.push().key!!.toString()
-        val donnee = commnunique_model(mon_nom,mail,id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
+        val donnee = commnunique_model(mon_nom,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){

@@ -19,6 +19,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
@@ -240,21 +241,33 @@ class RegisterActivity : AppCompatActivity() {
             showtoast("Entrer votre nom")
             false
         }
+        else if (binding.nom.text.toString().trim().length<3) {
+            binding.nom.error = "caratere minimun 3"
+            false
+        }
         else if (binding.postNom.text.toString().trim().isEmpty()) {
             showtoast("Entrer votre post nom")
+            false
+        }
+        else if (binding.postNom.text.toString().trim().length<3) {
+            binding.postNom.error = "nombre des caracteres minimum 3"
             false
         }
         else if (binding.prenom.text.toString().trim().isEmpty()) {
             showtoast("Entrer votre prenom")
             false
         }
+        else if (binding.prenom.text.toString().trim().length<3) {
+            binding.prenom.error = "minimun 3 caractere"
+            false
+        }
         else if (binding.number.text.toString().trim().isEmpty()) {
             showtoast("Entrer votre numero de telephone")
             false
         }
-        else if (binding.number.text.toString().length <10 ||binding.number.text.toString().length > 10 ) {
-            showtoast("Entrer un numero a 10 chiffre")
-            binding.number.error = "Ex: 0975937553"
+        else if (binding.number.text.toString().length <9 ||binding.number.text.toString().length > 9 ) {
+            showtoast("Entrer un numero a 9 chiffre")
+            binding.number.error = "Ex: 975937553"
             false
         }
         else if (binding.inputMail.text.toString().trim().isEmpty()) {
@@ -354,6 +367,16 @@ class RegisterActivity : AppCompatActivity() {
         }
         val customeDialogue = alertDialog.create()
         customeDialogue.show()
+
+    }
+    private fun abonnement(nom:String){
+        FirebaseMessaging.getInstance().subscribeToTopic(nom).addOnSuccessListener {
+            Toast.makeText(
+                applicationContext,
+                "notification $nom active",
+                Toast.LENGTH_LONG
+            ).show()
+        }
 
     }
 

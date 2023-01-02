@@ -22,6 +22,7 @@ class commnunique_model {
     constructor(){}
     constructor(
         nom: String,
+        ad_mail: String,
         id_reserv1: String,
         id_reserv2: String,
         id_reserv3: String,
