@@ -1,14 +1,487 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ProfilFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    android:background="@color/primary"
+    >
+    <RelativeLayout
+        android:padding="@dimen/_15sdp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/p1"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_propic1"
+                app:civ_border_color="@color/input_background"
+                app:civ_border_width="@dimen/_2sdp" />
+
+            <TextView
+                android:id="@+id/txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/p1"
+                android:hint="bm"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:hint="+243"
+                android:textColor="@color/primary_text"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/md"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:background="@drawable/round_feed"
+                android:paddingStart="@dimen/_5sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:text="Modifier"
+                android:textColor="@color/primary_text"
+                android:textStyle="normal" />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/r2"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_below="@id/r1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:id="@+id/i1"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/ic_notifications" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/i1"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Notification"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/c1"
+            android:backgroundTint="#1B023B"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_below="@id/r2"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rr1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Horaire"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <Switch
+                        android:id="@+id/s1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rr2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr1"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Syllabus"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <Switch
+                        android:id="@+id/syllabus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rr3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr2"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Resultat"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <Switch
+                        android:id="@+id/resultat_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/r7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr3"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Forum"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <Switch
+                        android:id="@+id/forum_notif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/r3"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_below="@id/c1"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/i2"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/ic_edit_profile" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/i2"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Compte"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/c2"
+            android:backgroundTint="#1B023B"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_below="@id/r3"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rr4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Mes publications"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_below="@id/rr4"
+                    android:id="@+id/mdf"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Modifier mes coordonnées"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/r4"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_below="@id/c2"
+            android:layout_height="wrap_content">
+            <ImageView
+
+                android:layout_alignParentStart="true"
+                android:id="@+id/i3"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:src="@drawable/ic_info_ic"
+                android:layout_marginStart="@dimen/_5sdp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/i3"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Apropos"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/c3"
+            android:backgroundTint="#1B023B"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/_10sdp"
+            android:layout_below="@id/r4"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/rr5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Apropos du developpeur"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rr6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr5"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Signaler un probleme"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rr7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr6"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Supprimer mon compte"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rr8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr7"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Politique de confidentialite"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rr9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr8"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Mode Administrateur"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+</ScrollView>
