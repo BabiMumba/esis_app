@@ -84,7 +84,7 @@ class ProfilFragment : Fragment() {
             val customAlertDialog = builder.create()
             customAlertDialog.show()
         }
-        view.findViewById<RelativeLayout>(R.id.md).setOnClickListener {
+        view.findViewById<TextView>(R.id.md).setOnClickListener {
             startActivity(Intent(requireActivity(), ProfilUser::class.java))
         }
         view.findViewById<RelativeLayout>(R.id.rr5).setOnClickListener {
