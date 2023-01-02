@@ -4,6 +4,9 @@ class commnunique_model {
 
     lateinit var nom:String
     lateinit var ad_mail:String
+    lateinit var id_reserv1:String
+    lateinit var id_reserv2:String
+    lateinit var id_reserv3:String
     lateinit var id_poste:String
     lateinit var token_users:String
     lateinit var users_id:String
@@ -19,7 +22,9 @@ class commnunique_model {
     constructor(){}
     constructor(
         nom: String,
-        ad_mail: String,
+        id_reserv1: String,
+        id_reserv2: String,
+        id_reserv3: String,
         id_post: String,
         token_users: String,
         users_id: String,
@@ -33,6 +38,9 @@ class commnunique_model {
     ) {
         this.nom = nom
         this.ad_mail = ad_mail
+        this.id_reserv1 = id_reserv1
+        this.id_reserv2 = id_reserv2
+        this.id_reserv3 = id_reserv3
         this.id_poste = id_post
         this.token_users = token_users
         this.users_id = users_id
