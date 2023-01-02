@@ -34,7 +34,7 @@ class ActualiteActivity : AppCompatActivity() {
                 val snackbar = Snackbar
                     .make(findViewById(R.id.actualite_id), "telechargement termine", Snackbar.LENGTH_LONG)
                     .setAction("ouvrir") { v12: View? ->
-                        Toast.makeText(this@ActualiteActivity, "ouvrir clicker", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this@ActualiteActivity,LectureActivity_Pdf::class.java))
                     }
                 snackbar.show()
             }
