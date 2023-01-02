@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.fragment
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -23,6 +24,7 @@ import com.BabiMumba.Esis_app.home.InfosActivity
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
+import com.google.firebase.messaging.FirebaseMessaging
 
 
 class ProfilFragment : Fragment() {
@@ -124,14 +126,14 @@ class ProfilFragment : Fragment() {
         syllabus.setOnClickListener {
             if (syllabus.isChecked) {
                 // When switch checked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("syllabus_state", true)
                 editor.apply()
                 syllabus.isChecked = true
                 abonnement("syllabus")
             } else {
                 // When switch unchecked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("syllabus_state", false)
                 editor.apply()
                 syllabus.isChecked = false
@@ -139,17 +141,18 @@ class ProfilFragment : Fragment() {
             }
 
         }
+        val resultat_id = view.findViewById<Switch>(R.id.resultat_id)
         resultat_id.setOnClickListener {
             if (resultat_id.isChecked) {
                 // When switch checked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("resultat_state", true)
                 editor.apply()
                 resultat_id.isChecked = true
                 abonnement("resultat")
             } else {
                 // When switch unchecked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("resultat_state", false)
                 editor.apply()
                 resultat_id.isChecked = false
@@ -157,17 +160,18 @@ class ProfilFragment : Fragment() {
             }
 
         }
+        val forum_notif = view.findViewById<Switch>(R.id.forum_notif)
         forum_notif.setOnClickListener {
             if (forum_notif.isChecked) {
                 // When switch checked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("forum_state", true)
                 editor.apply()
                 forum_notif.isChecked = true
                 abonnement("forum")
             } else {
                 // When switch unchecked
-                val editor = getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("forum_state", false)
                 editor.apply()
                 forum_notif.isChecked = false
@@ -176,6 +180,32 @@ class ProfilFragment : Fragment() {
 
         }
 
+    }
+    private fun abonnement(nom:String){
+        //  FirebaseMessaging.getInstance().subscribeToTopic("all");
+        FirebaseMessaging.getInstance().subscribeToTopic(nom).addOnSuccessListener {
+            Toast.makeText(
+                requireActivity(),
+                "notification $nom active",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+    }
+    private fun desabonnement(nom:String){
+        //  FirebaseMessaging.getInstance().subscribeToTopic("all");
+        FirebaseMessaging.getInstance().unsubscribeFromTopic(nom).addOnSuccessListener {
+            Toast.makeText(
+                requireActivity(),
+                "notification $nom desactiver",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
+    }
+    fun isConnectedNetwork(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
 
 }
