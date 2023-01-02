@@ -36,6 +36,7 @@ class ProfilFragment : Fragment() {
     ): View? {
         val v = inflater.inflate(R.layout.fragment_profil, container, false)
             readData(v)
+            clickmethode(v)
         return v
     }
     private fun readData(view: View){
