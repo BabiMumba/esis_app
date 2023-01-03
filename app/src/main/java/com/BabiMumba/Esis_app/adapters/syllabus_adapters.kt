@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.adapters
 
 
+import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
@@ -24,6 +25,12 @@ import java.net.MalformedURLException
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.DetailleActivity
 import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import java.net.URL
 import java.util.HashMap
 
@@ -107,7 +114,29 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
                     tlc_s?.let { putInt("point", it)
                     }
                 }.apply()
-                telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
+                Dexter.withContext(
+                    holder.image_user.context
+                )
+                    .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    .withListener(object : PermissionListener {
+                        override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                            telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
+                        }
+
+                        override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                            Toast.makeText(
+                                holder.admin_i.context,
+                                "vous devez accepter pour continuer",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        override fun onPermissionRationaleShouldBeShown(
+                            permissionRequest: PermissionRequest,
+                            permissionToken: PermissionToken
+                        ) {
+                            permissionToken.continuePermissionRequest()
+                        }
+                    }).check()
                 increament_dwnlad(holder.layout_dowload.context,syllabusModel.nom_promotion,cle)
 
             }catch (e:Exception){
