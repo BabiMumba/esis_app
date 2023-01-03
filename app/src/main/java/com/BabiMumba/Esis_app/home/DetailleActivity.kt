@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+import android.Manifest
 import android.app.DownloadManager
 import android.content.*
 import android.net.Uri
@@ -28,6 +29,12 @@ import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_detaille.*
 import kotlinx.android.synthetic.main.content_syllabus.*
 import java.net.MalformedURLException
@@ -173,7 +180,30 @@ class DetailleActivity : AppCompatActivity() {
                 }
             }.apply()
             Toast.makeText(this, "ajouter", Toast.LENGTH_SHORT).show()
-           telecharger()
+
+            Dexter.withContext(
+                applicationContext
+            )
+                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                        telecharger()
+                    }
+
+                    override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                        Toast.makeText(
+                            this@DetailleActivity,
+                            "vous devez accepter pour continuer",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissionRequest: PermissionRequest,
+                        permissionToken: PermissionToken
+                    ) {
+                        permissionToken.continuePermissionRequest()
+                    }
+                }).check()
         }
         btn_read.setOnClickListener {
             val lien = intent.getStringExtra("lien_book")
