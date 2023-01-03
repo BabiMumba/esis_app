@@ -33,8 +33,6 @@ class InfosActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
         read_name()
-        setListener()
-
         val mail2 = ad_mail.replaceAfter("@"," ")
         mLayoutManager = GridLayoutManager(this@InfosActivity,3)
 
@@ -80,11 +78,6 @@ class InfosActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
             }
-    }
-    fun setListener(){
-        add_comment.setOnClickListener {
-            startActivity(Intent(this,PublishPost::class.java))
-        }
     }
     override fun onStart() {
         super.onStart()

@@ -62,18 +62,5 @@
 
     <include layout="@layout/content_user_poste" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/add_comment"
-        android:layout_gravity="bottom|end"
-        android:backgroundTint="@color/primary"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:layout_marginBottom="@dimen/_5sdp"
-        android:tint="@color/profilePrimaryDark"
-        android:src="@drawable/ic_baseline_edit_24"
-        />
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
