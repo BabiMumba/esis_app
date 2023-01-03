@@ -23,6 +23,8 @@
             android:foreground="?attr/selectableItemBackground"
             app:menu="@menu/menu_bottom_nav"
             app:elevation="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
             app:labelVisibilityMode="labeled"
             app:itemIconTint="@color/bottom_navigation_color"
             app:itemTextColor="@color/bottom_navigation_color"
@@ -36,14 +38,5 @@
             android:layout_alignParentTop="true" />
 
     </RelativeLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/menu_navview" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
