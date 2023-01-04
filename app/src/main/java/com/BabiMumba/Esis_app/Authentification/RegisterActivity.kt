@@ -376,11 +376,7 @@ class RegisterActivity : AppCompatActivity() {
     }
     private fun abonnement(nom:String){
         FirebaseMessaging.getInstance().subscribeToTopic(nom).addOnSuccessListener {
-            Toast.makeText(
-                applicationContext,
-                "notification $nom active",
-                Toast.LENGTH_LONG
-            ).show()
+
         }
 
     }

@@ -428,8 +428,6 @@ class DetailleActivity : AppCompatActivity() {
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(this@DetailleActivity, "cette pub existe", Toast.LENGTH_SHORT)
-                        .show()
                     ajouter_data()
                     InputComment.setText("")
                 } else {

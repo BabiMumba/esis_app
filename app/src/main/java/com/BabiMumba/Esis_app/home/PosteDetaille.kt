@@ -302,9 +302,7 @@ class PosteDetaille : AppCompatActivity() {
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    Toast.makeText(this@PosteDetaille, "cette pub existe", Toast.LENGTH_SHORT).show()
                     ajouter_data(msg)
-
                 }else{
                     Toast.makeText(this@PosteDetaille, "commentaire non permis", Toast.LENGTH_SHORT).show()
                 }
