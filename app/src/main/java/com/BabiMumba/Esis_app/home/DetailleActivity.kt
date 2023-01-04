@@ -356,11 +356,7 @@ class DetailleActivity : AppCompatActivity() {
             .child(promo.toString()).child((cle.toString()))
             .updateChildren(increment)
             .addOnSuccessListener {
-                Toast.makeText(
-                    this@DetailleActivity,
-                    "plus 1",
-                    Toast.LENGTH_SHORT
-                ).show()
+
             }
             .addOnFailureListener { e ->
                 Toast.makeText(
@@ -403,11 +399,6 @@ class DetailleActivity : AppCompatActivity() {
             .child(promo).child((cle))
             .updateChildren(increment)
             .addOnSuccessListener {
-                Toast.makeText(
-                    this@DetailleActivity,
-                    "plus 1",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
             .addOnFailureListener { e ->
                 Toast.makeText(

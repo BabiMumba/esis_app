@@ -355,7 +355,6 @@ class PosteDetaille : AppCompatActivity() {
                 )
         }
 
-
     }
     fun sendnotifsimple(){
         val id_token = intent.getStringExtra("token")
