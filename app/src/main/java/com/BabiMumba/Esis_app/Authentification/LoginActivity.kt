@@ -58,8 +58,6 @@ class LoginActivity : AppCompatActivity() {
                         putString("lien profil",document.data?.getValue("profil").toString())
                         putString("administrateur",document.data?.getValue("administrateur").toString())
                         putString("premium",document.data?.getValue("premium").toString())
-
-
                     }.apply()
                     pd.dismiss()
 
