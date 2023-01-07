@@ -44,4 +44,12 @@
     <string name="may_name">Babi Mumba</string>
     <string name="copy_txt">realized by</string>
     <string name="studen_how_">Etudiant ayant supprimer leur compte</string>
+
+    <!-- Google Admob teste -->
+    <string name="app_id_teste">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="banner_id_teste">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="Intertitial_id_teste">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="rewarded_id_teste">ca-app-pub-3940256099942544/5354046379</string>
+    <string name="teste_nativ_id">ca-app-pub-3940256099942544/2247696110</string>
+
 </resources>
