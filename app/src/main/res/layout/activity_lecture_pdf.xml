@@ -2,16 +2,27 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="@color/primary"
     android:layout_height="match_parent"
     tools:context=".home.LectureActivity_Pdf">
 
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/bannerAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/banner_id_teste" />
+
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/empty_list"
         android:layout_width="@dimen/_300sdp"
         android:layout_height="@dimen/_300sdp"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
         android:layout_centerInParent="true"
         app:lottie_rawRes="@raw/rien"
         android:visibility="gone"
@@ -33,6 +44,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:itemCount="4"
+        android:layout_below="@id/bannerAd"
         tools:listitem="@layout/item_pdf_3d"
         android:id="@+id/my_recyclerview"
         />

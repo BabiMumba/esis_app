@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.Menu
 import android.view.View
 import android.widget.SearchView
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.pdf.Pdf_listener_file
 import com.BabiMumba.Esis_app.pdf.pdfAdapter2
+import com.google.android.gms.ads.*
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -32,10 +34,61 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
     private lateinit var pdfList: MutableList<File>
     private lateinit var recyclerView: RecyclerView
     lateinit var linearLayoutManager: LinearLayoutManager
+
+    private companion object{
+        private const val TAG = "BANNER_AD_TAG"
+    }
+    private var adview: AdView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lecture_pdf)
         title = "Lecture syllabus"
+
+
+        MobileAds.initialize(this){
+            Log.d(TAG,"inias complet")
+        }
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("f01a4b37-2568-4128-9894-6d6453fd67bb"))
+                .build()
+        )
+        adview = findViewById(R.id.bannerAd)
+        val adRequest = AdRequest.Builder().build()
+        adview?.loadAd(adRequest)
+        adview?.adListener = object : AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+                Log.d(TAG, "onAdClicked: ")
+            }
+
+            override fun onAdClosed() {
+                super.onAdClosed()
+                Log.d(TAG, "onAdClosed: ")
+            }
+
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                super.onAdFailedToLoad(p0)
+                Log.d(TAG, "onAdFailedToLoad: $p0")
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Log.d(TAG, "onAdImpression: ")
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Log.d(TAG, "onAdLoaded: ")
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+                Log.d(TAG, "onAdOpened: ")
+            }
+        }
+
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val point = sharedPreferences.getInt("point",0)
         if (point >= 1){
