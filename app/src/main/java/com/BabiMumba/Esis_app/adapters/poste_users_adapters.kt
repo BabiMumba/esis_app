@@ -37,7 +37,7 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
 
         init {
             text_sh = itemview.findViewById(R.id.text_sh)
-            poste_image = itemview.findViewById(R.id.image_poste)
+            poste_image = itemview.findViewById(R.id.poste_image)
         }
 
     }
