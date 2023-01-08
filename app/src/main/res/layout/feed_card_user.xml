@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/image_book"
+        android:id="@+id/poste_image"
         android:layout_width="@dimen/_90sdp"
         android:layout_height="@dimen/_130sdp"
         android:layout_alignParentStart="true"
@@ -14,22 +14,14 @@
         android:src="@drawable/gst" />
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/text_sh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image_book"
+        android:layout_below="@id/poste_image"
         android:gravity="start"
-        android:text="Pere Riche pere pauvre"
+        android:text="les enfant du temps"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_8sdp" />
 
-    <TextView
-        android:id="@+id/auteur_livre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/title"
-        android:gravity="start"
-        android:text="Robert kiyosaki"
-        android:textSize="@dimen/_8sdp" />
 
 </RelativeLayout>

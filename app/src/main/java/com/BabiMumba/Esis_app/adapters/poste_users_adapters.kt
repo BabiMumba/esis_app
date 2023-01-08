@@ -32,7 +32,7 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
 
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
 
-        var poste_image:RoundedImageView
+        var poste_image:ImageView
         var text_sh:TextView
 
         init {
