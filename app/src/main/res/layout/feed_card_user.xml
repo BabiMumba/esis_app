@@ -1,38 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
+<RelativeLayout
+    android:layout_marginStart="@dimen/_10sdp"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:foreground="@drawable/background_input_new"
-    android:layout_marginTop="@dimen/_5sdp"
+    android:layout_width="@dimen/_90sdp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="@dimen/_100sdp"
+    <ImageView
+        android:id="@+id/image_book"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_130sdp"
+        android:layout_alignParentStart="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/gst" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        >
-        <com.makeramen.roundedimageview.RoundedImageView
-            android:id="@+id/image_poste"
-            android:layout_width="@dimen/_100sdp"
-            android:layout_height="@dimen/_100sdp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/gst" />
+        android:layout_below="@id/image_book"
+        android:gravity="start"
+        android:text="Pere Riche pere pauvre"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_8sdp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:ellipsize="end"
-            android:id="@+id/text_sh"
-            android:maxLines="1"
-            android:text="@string/txt_lorem2"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_10sdp" />
+    <TextView
+        android:id="@+id/auteur_livre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title"
+        android:gravity="start"
+        android:text="Robert kiyosaki"
+        android:textSize="@dimen/_8sdp" />
 
-
-    </LinearLayout>
-
-
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

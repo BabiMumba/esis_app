@@ -45,7 +45,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         setContentView(R.layout.activity_lecture_pdf)
         supportActionBar?.hide()
 
-
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
         }
