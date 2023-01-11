@@ -122,4 +122,8 @@ class GoogleCountActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+
+    }
+
 }
