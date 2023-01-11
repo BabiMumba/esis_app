@@ -47,9 +47,9 @@ class RegisterActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
         clikbtn()
-        binding.nom.setText( intent.getStringExtra("nom").toString()
+        binding.nom.setText( intent.getStringExtra("postnom").toString()
         )
-        binding.prenom.setText(intent.getStringExtra("postnom").toString())
+        binding.prenom.setText(intent.getStringExtra("nom").toString())
         binding.inputMail.setText(intent.getStringExtra("mail").toString())
     }
     private fun clikbtn(){

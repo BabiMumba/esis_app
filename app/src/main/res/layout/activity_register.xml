@@ -152,24 +152,28 @@
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_13ssp"
             />
-
-
-        <EditText
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_45sdp"
-            android:id="@+id/input_mail"
-            android:hint="@string/txt_mail"
-            android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/background_input"
-            android:imeOptions="actionNext"
-            android:importantForAutofill="no"
-            android:textColorHint="@color/secondary_text"
-            android:inputType="textEmailAddress"
+            android:orientation="horizontal"
             android:paddingStart="@dimen/_16sdp"
+            android:layout_gravity="center"
             android:paddingEnd="@dimen/_16sdp"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_13ssp"
-            />
+            >
+
+            <TextView
+                android:id="@+id/admeil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/primary_text"
+                android:textStyle="bold" />
+
+
+
+        </RelativeLayout>
         <RelativeLayout
             android:id="@+id/promotion_text"
             android:layout_marginTop="@dimen/_10sdp"
@@ -204,38 +208,6 @@
 
         </RelativeLayout>
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:id="@+id/input_password"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/background_input"
-            android:imeOptions="actionNext"
-            android:textColorHint="@color/secondary_text"
-            android:hint="@string/pasword_text"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:paddingStart="@dimen/_16sdp"
-            android:paddingEnd="@dimen/_16sdp"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_13ssp"
-            />
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_45sdp"
-            android:id="@+id/inputconfirmpassword"
-            android:layout_marginTop="@dimen/_16sdp"
-            android:background="@drawable/background_input"
-            android:imeOptions="actionDone"
-            android:hint="@string/confirmer_le_mot_de_passe"
-            android:importantForAutofill="no"
-            android:inputType="textPassword"
-            android:textColorHint="@color/secondary_text"
-            android:paddingStart="@dimen/_16sdp"
-            android:paddingEnd="@dimen/_16sdp"
-            android:textColor="@color/primary_text"
-            android:textSize="@dimen/_13ssp"
-            />
 
         <FrameLayout
             android:layout_width="match_parent"
