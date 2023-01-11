@@ -44,7 +44,16 @@
             android:layout_height="@dimen/_30sdp"
             android:layout_centerVertical="true"
             android:layout_alignParentStart="true"
-            android:src="@drawable/icone"
+            android:src="@mipmap/launcher_icon"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Continuer avec mon matricule"
+            android:layout_centerVertical="true"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
             />
 
 
