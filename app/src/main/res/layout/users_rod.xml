@@ -24,15 +24,15 @@
         android:layout_marginEnd="@dimen/_5sdp"
         android:textColor="@color/primary"
         />
+
     <TextView
         android:id="@+id/name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="babi Mumba"
-        android:layout_toEndOf="@id/image_profil_rod"
         android:layout_marginStart="@dimen/_5sdp"
-        android:textColor="@color/primary_text"
-        />
+        android:layout_toEndOf="@id/image_profil_rod"
+        android:text="babi Mumba"
+        android:textColor="@color/primary_text" />
 
     <TextView
         android:id="@+id/mail_user"
