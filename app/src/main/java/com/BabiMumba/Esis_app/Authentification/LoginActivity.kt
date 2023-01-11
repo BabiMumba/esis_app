@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
     fun clicmethode(){
 
         binding.createNewCompte.setOnClickListener {
-            startActivity(Intent(this,RegisterActivity::class.java))
+            startActivity(Intent(this,GoogleCountActivity::class.java))
         }
         binding.btnSignin.setOnClickListener {
             if (valide()){

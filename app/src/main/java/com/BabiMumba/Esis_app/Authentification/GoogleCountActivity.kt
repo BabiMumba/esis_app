@@ -41,7 +41,7 @@ class GoogleCountActivity : AppCompatActivity() {
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement du compte")
         progressDialog.setCancelable(false)
-        progressDialog.setIcon(R.drawable.logokitabu2)
+        progressDialog.setIcon(R.drawable.icone)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -58,6 +58,7 @@ class GoogleCountActivity : AppCompatActivity() {
     }
 
     private fun sign_in() {
+        progressDialog.show()
         val signiIntent = googleSignInClient.signInIntent
         startActivityForResult(signiIntent, RC_SIGN_IN)
     }
@@ -86,18 +87,17 @@ class GoogleCountActivity : AppCompatActivity() {
     }
 
     private fun firebaseAuthWithGoogle(idToken: String) {
-
         progressDialog.show()
         val credential = GoogleAuthProvider.getCredential(idToken,null)
         mAut.signInWithCredential(credential)
             .addOnCompleteListener(this) {task ->
                 progressDialog.dismiss()
                 if (task.isSuccessful){
-
                     val intent = Intent(this, RegisterActivity::class.java)
                     startActivity(intent)
                     finish()
                 }else{
+                    Toast.makeText(this, "erreur:${task.exception}", Toast.LENGTH_SHORT).show()
                     progressDialog.dismiss()
                 }
             }
