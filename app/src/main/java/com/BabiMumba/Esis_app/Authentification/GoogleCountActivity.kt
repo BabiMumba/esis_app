@@ -25,6 +25,9 @@ class GoogleCountActivity : AppCompatActivity() {
     private lateinit var mAut: FirebaseAuth
 
     lateinit var progressDialog:ProgressDialog
+    var nameu = ""
+    var admail = ""
+    var pname = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,9 +66,6 @@ class GoogleCountActivity : AppCompatActivity() {
 
     private fun sign_in() {
         progressDialog.show()
-        /*
-
-         */
         val signiIntent = googleSignInClient.signInIntent
         startActivityForResult(signiIntent, 120)
     }
@@ -73,15 +73,15 @@ class GoogleCountActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 120){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-
-
             progressDialog.dismiss()
-
              if (task.isSuccessful){
                 try {
                     progressDialog.dismiss()
                     val account = task.getResult(ApiException::class.java)!!
                     val adm= account.email.toString()
+                    nameu= account.givenName.toString()
+                    admail = account.email.toString()
+                    pname = account.familyName.toString()
                     if (adm.contains("esisalama.org")){
                         firebaseAuthWithGoogle(account.idToken!!)
                     }else{
@@ -110,6 +110,7 @@ class GoogleCountActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 if (task.isSuccessful){
                     val intent = Intent(this, RegisterActivity::class.java)
+                        .putExtra("","")
                     startActivity(intent)
                     finish()
                 }else{
