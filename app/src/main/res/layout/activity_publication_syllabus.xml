@@ -134,8 +134,8 @@
             android:hint="@string/fac"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
-            android:paddingStart="@dimen/_5sdp"
             android:inputType="text|textMultiLine|textCapSentences"
+            android:paddingStart="@dimen/_5sdp"
             android:paddingTop="@dimen/_3sdp"
             android:paddingBottom="@dimen/_30sdp"
             android:textSize="@dimen/_10sdp"
@@ -170,6 +170,17 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_toEndOf="@id/cober_btn"
             android:text="(facultatif)"
+            android:textSize="@dimen/_8sdp"
+            android:textStyle="italic" />
+        <TextView
+            android:id="@+id/pourc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_toEndOf="@id/fcl"
+            android:text=""
             android:textSize="@dimen/_8sdp"
             android:textStyle="italic" />
 
