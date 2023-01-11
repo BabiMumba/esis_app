@@ -201,7 +201,7 @@ class PublicationSyllabus : AppCompatActivity() {
         val currentDate = sdf.format(Date())
         val pd = ProgressDialog(this)
         pd.setTitle("Importation du fichier....!!!")
-        pd.show()
+
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
         val nameProf = nom_du_prof.text.toString()
@@ -293,13 +293,12 @@ class PublicationSyllabus : AppCompatActivity() {
             }
             .addOnFailureListener{
                 Toast.makeText(this, "importation echouer", Toast.LENGTH_SHORT).show()
-                pd.dismiss()
             }
             .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
                 val percent =
                     (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
                 pd.setMessage("Importation: " + percent.toInt() + "%")
-                pd.setCancelable(false)
+                pourc.text = "${percent.toInt()}%"
             }
 
     }
