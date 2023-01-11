@@ -50,5 +50,6 @@
     <string name="rewarded_id_teste">ca-app-pub-3940256099942544/5354046379</string>
     <string name="teste_nativ_id">ca-app-pub-3940256099942544/2247696110</string>
     <string name="stp1">Premier etape</string>
+    <string name="add_or_select">Vous devez selectionnez ou ajouter votre matricule d\'esis</string>
 
 </resources>

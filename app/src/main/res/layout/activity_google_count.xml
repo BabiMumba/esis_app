@@ -18,24 +18,22 @@
         android:textStyle="bold"
         android:textSize="@dimen/_20sdp"
         />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt1"
         android:layout_marginTop="@dimen/_5sdp"
-        android:text="Vous devez continuer avec votre matricule d'esis"
-        android:textColor="@color/primary_text"
         android:fontFamily="sans-serif"
-        />
+        android:text="@string/add_or_select"
+        android:textColor="@color/primary_text" />
 
     <RelativeLayout
-        android:id="@+id/genre"
-        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/google_count"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
         android:background="@drawable/background_input"
         android:paddingStart="@dimen/_16sdp"
-        android:layout_gravity="center"
         android:layout_centerInParent="true"
         android:paddingEnd="@dimen/_16sdp"
         >
