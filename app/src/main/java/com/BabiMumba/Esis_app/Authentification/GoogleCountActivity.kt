@@ -53,9 +53,9 @@ class GoogleCountActivity : AppCompatActivity() {
         }
         check_btn.setOnClickListener {
             if (mAut.currentUser != null){
-                Toast.makeText(this, "pas un compte", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "vous etes ok", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this, "vous etes authentifier", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "pas ok", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -73,25 +73,23 @@ class GoogleCountActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 120){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            val account = task.getResult(ApiException::class.java)!!
-            val ml= account.email.toString()
-            Toast.makeText(this, "${account.email}", Toast.LENGTH_SHORT).show()
-            if (ml.contains("esisalama.org")){
-                Toast.makeText(this, "compte d'esis", Toast.LENGTH_SHORT).show()
-            }else{
 
-                Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
-            }
 
             progressDialog.dismiss()
 
-            /*
              if (task.isSuccessful){
                 try {
                     progressDialog.dismiss()
                     val account = task.getResult(ApiException::class.java)!!
-                    Log.d("id du compte","id count: "+account.id)
-                    Toast.makeText(this, "vous avez selectionnez un compte", Toast.LENGTH_SHORT).show()
+                    val adm= account.email.toString()
+                    Toast.makeText(this, "${account.email}", Toast.LENGTH_SHORT).show()
+                    if (adm.contains("esisalama.org")){
+                        Toast.makeText(this, "compte d'esis", Toast.LENGTH_SHORT).show()
+                    }else{
+                        googleSignInClient.signOut()
+                        Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
+                    }
+
                    // firebaseAuthWithGoogle(account.idToken!!)
                 }catch (e:Exception){
                     progressDialog.dismiss()
@@ -101,7 +99,6 @@ class GoogleCountActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this, "ereur: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
-             */
 
         }
 
