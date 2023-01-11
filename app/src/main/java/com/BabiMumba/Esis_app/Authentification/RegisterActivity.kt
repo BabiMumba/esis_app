@@ -63,7 +63,6 @@ class RegisterActivity : AppCompatActivity() {
                 firebaseSignUp()
             }
         }
-
         binding.layoutImage.setOnClickListener {
             Dexter.withContext(
                 applicationContext
@@ -89,7 +88,6 @@ class RegisterActivity : AppCompatActivity() {
                     }
                 }).check()
         }
-
         binding.genre.setOnClickListener {
             choigenre()
         }
@@ -140,7 +138,6 @@ class RegisterActivity : AppCompatActivity() {
         val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
-
         infor_user["nom"] = binding.nom.text.toString()
         infor_user["date arriver"] = date_dins.toString()
         infor_user["post-nom"] = binding.postNom.text.toString()
@@ -153,7 +150,6 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["administrateur"] = "non"
         infor_user["adminP"] = "non"
         infor_user["ouverture_application"] = 1
-
         database.collection("Utilisateurs")
             .document(inputMail)
             .set(infor_user)
@@ -206,21 +202,8 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun firebaseSignUp() {
-        loading(true)
-        val mail = inputMail
-        val motdpasse = inputMail
-        firebaseAuth.createUserWithEmailAndPassword(mail,motdpasse)
-            .addOnCompleteListener(this) {
-                if (it.isSuccessful){
-                    getInfoUser()
-                    send_profil()
-
-                    loading(false)
-                }else{
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                    loading(false)
-                }
-            }
+        getInfoUser()
+        send_profil()
 
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
