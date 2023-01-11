@@ -41,7 +41,7 @@
     <string name="probleme_txt">Rediger votre probleme ici</string>
     <string name="school_name">Ecole Supérieure d\'Informatique Salama</string>
     <string name="app_version">Esis App 1.0.2</string>
-    <string name="may_name">realized by\nBabi Mumba</string>
+    <string name="may_name">realized by\n <b>Babi Mumba</b> </string>
     <string name="studen_how_">Etudiant ayant supprimer leur compte</string>
 
     <!-- Google Admob teste -->
