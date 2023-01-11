@@ -82,6 +82,7 @@ class GoogleCountActivity : AppCompatActivity() {
                     nameu= account.givenName.toString()
                     admail = account.email.toString()
                     pname = account.familyName.toString()
+
                     if (adm.contains("esisalama.org")){
                         firebaseAuthWithGoogle(account.idToken!!)
                     }else{
@@ -110,7 +111,9 @@ class GoogleCountActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 if (task.isSuccessful){
                     val intent = Intent(this, RegisterActivity::class.java)
-                        .putExtra("","")
+                        .putExtra("nom",nameu)
+                        .putExtra("postnom",pname)
+                        .putExtra("mail",admail)
                     startActivity(intent)
                     finish()
                 }else{
