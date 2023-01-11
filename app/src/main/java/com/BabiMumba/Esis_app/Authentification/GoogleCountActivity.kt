@@ -66,14 +66,25 @@ class GoogleCountActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-     
-            if (task.isSuccessful){
+            val account = task.getResult(ApiException::class.java)!!
+            val ml= account.email.toString()
+            if (ml.contains("esisalama.org")){
+                Toast.makeText(this, "compte d'esis", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "selextionnez un compte d'esis", Toast.LENGTH_SHORT).show()
+            }
+
+            Toast.makeText(this, "${account.displayName}", Toast.LENGTH_LONG).show()
+            progressDialog.dismiss()
+
+            /*
+             if (task.isSuccessful){
                 try {
                     progressDialog.dismiss()
                     val account = task.getResult(ApiException::class.java)!!
-                    Log.d("se connecter","firebase authentification"+account.id)
+                    Log.d("id du compte","id count: "+account.id)
                     Toast.makeText(this, "vous avez selectionnez un compte", Toast.LENGTH_SHORT).show()
-                    firebaseAuthWithGoogle(account.idToken!!)
+                   // firebaseAuthWithGoogle(account.idToken!!)
                 }catch (e:Exception){
                     progressDialog.dismiss()
                     Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
@@ -82,6 +93,8 @@ class GoogleCountActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this, "ereur: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
+             */
+
         }
 
     }
