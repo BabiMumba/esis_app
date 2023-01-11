@@ -32,7 +32,7 @@
             android:background="@drawable/background_input_new"
             android:gravity="start"
             android:paddingBottom="@dimen/_30sdp"
-            android:textColorHint="@color/primary_text"
+            android:textColorHint="@color/secondary_text"
             android:hint="Dite-nous votre probleme pour ameliorer"
             android:inputType="textMultiLine"
             android:textColor="@color/primary_text" />

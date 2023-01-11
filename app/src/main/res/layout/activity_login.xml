@@ -49,6 +49,7 @@
             android:inputType="textEmailAddress"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_16sdp"
+            android:textColorHint="@color/secondary_text"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_13ssp"
             />
@@ -61,6 +62,7 @@
             android:background="@drawable/background_input"
             android:imeOptions="actionDone"
             android:hint="@string/pasword_text"
+            android:textColorHint="@color/secondary_text"
             android:importantForAutofill="no"
             android:inputType="textPassword"
             android:paddingStart="@dimen/_16sdp"

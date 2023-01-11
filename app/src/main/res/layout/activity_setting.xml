@@ -98,7 +98,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/c1"
-            android:backgroundTint="#1B023B"
+            android:backgroundTint="@color/bleu_nev"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -123,10 +123,10 @@
                 android:layout_marginEnd="@dimen/_2sdp"
                 android:layout_toStartOf="@id/layout_send"
                 android:background="@drawable/backgound_chat_input"
-                android:hint="Votre commentaire"
-                android:imeOptions="actionDone"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:hint="Votre commentaire"
+                android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:inputType="text|textMultiLine|textCapSentences"
                 android:paddingStart="@dimen/_16sdp"
@@ -142,6 +142,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Commentaire: "
+            android:textColor="@color/primary_text"
             />
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginTop="@dimen/_5sdp"

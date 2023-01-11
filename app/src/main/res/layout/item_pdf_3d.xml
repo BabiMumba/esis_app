@@ -15,6 +15,7 @@
 
         <androidx.cardview.widget.CardView
             app:cardElevation="@dimen/_15sdp"
+            android:backgroundTint="@color/white"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_70sdp"
             app:cardCornerRadius="@dimen/_10sdp"
@@ -26,13 +27,14 @@
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_height="match_parent"
                 >
+
                 <ImageView
                     android:layout_width="@dimen/_20sdp"
                     android:layout_height="@dimen/_20sdp"
                     android:layout_alignParentEnd="true"
-                    android:src="@drawable/ic_more"
                     android:layout_centerVertical="true"
-                    />
+                    android:src="@drawable/ic_more"
+                    app:tint="@color/bleu_nev" />
 
             </RelativeLayout>
 
@@ -66,7 +68,7 @@
         android:singleLine="true"
         android:text="nom du livre"
         android:layout_centerVertical="true"
-        android:textColor="@android:color/black"
+        android:textColor="@color/primary_text"
         android:textSize="@dimen/_12sdp" />
 
 

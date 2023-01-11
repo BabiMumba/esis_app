@@ -54,5 +54,6 @@
     <color name="transparent">#00000000</color>
     <color name="grey">#a9a9a9</color>
     <color name="black_v">#2D2D2D</color>
+    <color name="bleu_nev">#1B023B</color>
 
 </resources>
