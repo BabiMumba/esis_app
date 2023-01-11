@@ -40,6 +40,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storageReference: StorageReference
     var filepath: Uri? = null
+    var inputMail = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
@@ -51,6 +52,7 @@ class RegisterActivity : AppCompatActivity() {
         )
         binding.prenom.setText(intent.getStringExtra("nom").toString())
         binding.admeil.text = intent.getStringExtra("mail").toString()
+        inputMail =intent.getStringExtra("mail").toString()
     }
     private fun clikbtn(){
         binding.promotionText.setOnClickListener {
@@ -97,7 +99,7 @@ class RegisterActivity : AppCompatActivity() {
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
         database.collection("Utilisateurs")
-            .document(binding.inputMail.text.toString())
+            .document(inputMail)
             .set(infor_user, SetOptions.merge())
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -111,7 +113,7 @@ class RegisterActivity : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle("Creation du compte")
         pd.show()
-        val name = "profil${binding.inputMail.text}"
+        val name = "profil$inputMail"
         val reference = storageReference.child("photo_profil/$name.png")
         filepath?.let {
             reference.putFile(it)
@@ -143,18 +145,17 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["date arriver"] = date_dins.toString()
         infor_user["post-nom"] = binding.postNom.text.toString()
         infor_user["prenom"] = binding.prenom.text.toString()
-        infor_user["mail"] = binding.inputMail.text.toString()
+        infor_user["mail"] = inputMail
         infor_user["sexe"] = binding.genreChoice.text.toString()
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["promotion"] = binding.promotionChoice.text.toString()
-        infor_user["mot de passe"] = binding.inputPassword.text.toString()
         infor_user["premium"] = "non"
         infor_user["administrateur"] = "non"
         infor_user["adminP"] = "non"
         infor_user["ouverture_application"] = 1
 
         database.collection("Utilisateurs")
-            .document(binding.inputMail.text.toString())
+            .document(inputMail)
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -175,11 +176,10 @@ class RegisterActivity : AppCompatActivity() {
             putString("date arriver",date_dins.toString())
             putString("post-nom",binding.postNom.text.toString())
             putString("prenom",binding.prenom.text.toString())
-            putString("mail",binding.inputMail.text.toString())
+            putString("mail",inputMail)
             putString("sexe",binding.genreChoice.text.toString())
             putString("numero de telephone",binding.number.text.toString())
             putString("promotion",binding.promotionChoice.text.toString())
-            putString("mot de passe",binding.inputPassword.text.toString())
             putString("lien profil",imagelink)
             putString("premium","non")
             putString("administrateur","non")
@@ -207,8 +207,8 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun firebaseSignUp() {
         loading(true)
-        val mail = binding.inputMail.text.toString()
-        val motdpasse = binding.inputPassword.text.toString()
+        val mail = inputMail
+        val motdpasse = inputMail
         firebaseAuth.createUserWithEmailAndPassword(mail,motdpasse)
             .addOnCompleteListener(this) {
                 if (it.isSuccessful){
@@ -279,36 +279,12 @@ class RegisterActivity : AppCompatActivity() {
             binding.number.error = "Ex: 975937553"
             false
         }
-        else if (binding.inputMail.text.toString().trim().isEmpty()) {
-            showtoast("Entrer un mail")
-            false
-        }
         else if (binding.promotionChoice.text.toString() == "") {
             showtoast("chossissez votre promotion")
             false
         }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputMail.text.toString())
-                .matches()
-        ) {
-            showtoast("Enter valid mail")
-            false
-        } else if (binding.inputPassword.text.toString().trim().isEmpty()) {
-            showtoast("Entrer votre mot de passe")
-            false
-        }
-        else if (binding.inputPassword.text.toString().length < 6) {
-            showtoast("Entrer un mot de passe fort")
-            binding.inputPassword.error = "caractere recquise minimum 6"
-            false
-        }
-        else if (binding.inputconfirmpassword.text.toString().trim().isEmpty()) {
-            showtoast("confirmer votre mot de passe")
-            false
-        } else if (binding.inputPassword.text.toString() != binding.inputconfirmpassword.text.toString()
-        ) {
-            showtoast("mot de passe different")
-            false
-        } else {
+
+        else {
             true
         }
     }
