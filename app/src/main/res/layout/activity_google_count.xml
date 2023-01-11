@@ -28,6 +28,28 @@
         android:fontFamily="sans-serif"
         />
 
+    <RelativeLayout
+        android:id="@+id/genre"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_60sdp"
+        android:background="@drawable/background_input"
+        android:paddingStart="@dimen/_16sdp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:paddingEnd="@dimen/_16sdp"
+        >
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/icone"
+            />
+
+
+    </RelativeLayout>
+
 
 
 
