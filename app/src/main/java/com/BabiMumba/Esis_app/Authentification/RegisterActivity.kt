@@ -51,7 +51,6 @@ class RegisterActivity : AppCompatActivity() {
         )
         binding.prenom.setText(intent.getStringExtra("postnom").toString())
         binding.inputMail.setText(intent.getStringExtra("mail").toString())
-
     }
     private fun clikbtn(){
         binding.promotionText.setOnClickListener {

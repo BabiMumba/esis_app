@@ -35,10 +35,7 @@ class SplashScreen : AppCompatActivity() {
 
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
-                    val intent = Intent(this,GoogleCountActivity::class.java)
-                    startActivity(intent)
-                  //chek_users()
-
+                  chek_users()
                 },3000)
 
         },2000)
