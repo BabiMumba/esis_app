@@ -120,6 +120,7 @@
                 android:layout_marginStart="@dimen/_5ssp"
                 >
                 <TextView
+                    android:textColor="@color/primary_text"
                     android:id="@+id/synam"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,6 +148,7 @@
                 android:layout_marginStart="@dimen/_5ssp"
                 >
                 <TextView
+                    android:textColor="@color/primary_text"
                     android:id="@+id/synprof"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -173,6 +175,7 @@
                 android:layout_marginStart="@dimen/_5ssp"
                 >
                 <TextView
+                    android:textColor="@color/primary_text"
                     android:id="@+id/pm"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

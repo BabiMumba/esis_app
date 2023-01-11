@@ -36,16 +36,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_5sdp"
         android:src="@drawable/no_internet" />
+
     <Button
         android:id="@+id/quit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/kaeloo_img"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/black"
         android:text="Quitter"
+        android:background="@color/white"
         android:textAllCaps="false"
-        />
+        android:textColor="@color/black" />
 
 
 

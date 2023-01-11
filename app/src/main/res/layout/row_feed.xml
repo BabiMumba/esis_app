@@ -120,6 +120,7 @@
             app:srcCompat="@drawable/ic_like" />
 
         <TextView
+            android:textColor="@color/primary_text"
             android:id="@+id/like_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
