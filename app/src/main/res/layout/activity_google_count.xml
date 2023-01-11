@@ -9,6 +9,7 @@
     android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
     <TextView
+        android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
@@ -17,6 +18,16 @@
         android:textStyle="bold"
         android:textSize="@dimen/_20sdp"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt1"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:text="Vous devez continuer avec votre matricule d'esis"
+        android:textColor="@color/primary_text"
+        android:fontFamily="sans-serif"
+        />
+
 
 
 
