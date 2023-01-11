@@ -56,6 +56,16 @@
 
 
     </RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="verifier"
+        android:textAllCaps="false"
+        android:layout_below="@id/google_count"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:id="@+id/check_btn"
+        />
 
 
 

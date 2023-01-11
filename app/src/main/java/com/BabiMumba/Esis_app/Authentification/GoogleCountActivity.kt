@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -23,9 +24,6 @@ class GoogleCountActivity : AppCompatActivity() {
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var mAut: FirebaseAuth
 
-    companion object {
-        private const val RC_SIGN_IN = 120
-    }
     lateinit var progressDialog:ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,31 +48,41 @@ class GoogleCountActivity : AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         mAut = FirebaseAuth.getInstance()
-
         google_count.setOnClickListener {
             sign_in()
+        }
+        check_btn.setOnClickListener {
+            if (mAut.currentUser != null){
+                Toast.makeText(this, "pas un compte", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "vous etes authentifier", Toast.LENGTH_SHORT).show()
+            }
         }
 
     }
 
     private fun sign_in() {
         progressDialog.show()
+        /*
+
+         */
         val signiIntent = googleSignInClient.signInIntent
-        startActivityForResult(signiIntent, RC_SIGN_IN)
+        startActivityForResult(signiIntent, 120)
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN){
+        if (requestCode == 120){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             val account = task.getResult(ApiException::class.java)!!
             val ml= account.email.toString()
+            Toast.makeText(this, "${account.email}", Toast.LENGTH_SHORT).show()
             if (ml.contains("esisalama.org")){
                 Toast.makeText(this, "compte d'esis", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this, "selextionnez un compte d'esis", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
             }
 
-            Toast.makeText(this, "${account.displayName}", Toast.LENGTH_LONG).show()
             progressDialog.dismiss()
 
             /*
