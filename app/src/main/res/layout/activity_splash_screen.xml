@@ -50,32 +50,26 @@
         android:layout_marginBottom="@dimen/_15sdp"
         android:textColor="@color/primary_text"
        />
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/l1"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:gravity="center"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/_3sdp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/_9sdp"
-            android:textStyle="normal"
-            android:text="@string/copy_txt"/>
+        >
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_9sdp"
             android:textStyle="bold"
-            android:layout_marginStart="@dimen/_2sdp"
             android:textColor="@color/black"
             android:text="@string/may_name"/>
 
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 
 
