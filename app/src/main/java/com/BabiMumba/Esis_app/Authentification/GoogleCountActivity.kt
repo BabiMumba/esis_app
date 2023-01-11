@@ -66,13 +66,13 @@ class GoogleCountActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN){
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            val exception = task.exception
+     
             if (task.isSuccessful){
                 try {
                     progressDialog.dismiss()
                     val account = task.getResult(ApiException::class.java)!!
                     Log.d("se connecter","firebase authentification"+account.id)
-                    //Toast.makeText(this, "valider", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "vous avez selectionnez un compte", Toast.LENGTH_SHORT).show()
                     firebaseAuthWithGoogle(account.idToken!!)
                 }catch (e:Exception){
                     progressDialog.dismiss()
@@ -80,7 +80,7 @@ class GoogleCountActivity : AppCompatActivity() {
                 }
             }else{
                 progressDialog.dismiss()
-                Toast.makeText(this, "Verifier votre connexion et Ressayer  ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "ereur: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
         }
 

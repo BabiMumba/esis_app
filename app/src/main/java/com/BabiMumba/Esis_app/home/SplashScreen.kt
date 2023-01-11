@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.Toast
+import com.BabiMumba.Esis_app.Authentification.GoogleCountActivity
 import com.BabiMumba.Esis_app.Authentification.LoginActivity
 import com.BabiMumba.Esis_app.R
 import com.google.firebase.auth.FirebaseAuth
@@ -25,7 +26,6 @@ class SplashScreen : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
                 val name = sharedPreferences.getInt("count",0)
                 lnb = name+1
-
                 val editor = sharedPreferences.edit()
                 editor.apply() {
                     putInt("count", lnb!!)
@@ -35,7 +35,10 @@ class SplashScreen : AppCompatActivity() {
 
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
-                  chek_users()
+                    val intent = Intent(this,GoogleCountActivity::class.java)
+                    startActivity(intent)
+                  //chek_users()
+
                 },3000)
 
         },2000)
