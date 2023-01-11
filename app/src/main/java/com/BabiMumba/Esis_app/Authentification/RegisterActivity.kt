@@ -237,7 +237,6 @@ class RegisterActivity : AppCompatActivity() {
         Toast.makeText(applicationContext, message, Toast.LENGTH_SHORT).show()
     }
     private fun isValidSignUpDetails(): Boolean {
-
         return if (binding.genreChoice.text.toString() == "") {
             showtoast("Choississez votre genre")
             false
@@ -283,7 +282,6 @@ class RegisterActivity : AppCompatActivity() {
             showtoast("chossissez votre promotion")
             false
         }
-
         else {
             true
         }
@@ -303,8 +301,9 @@ class RegisterActivity : AppCompatActivity() {
         alertDialog.setIcon(R.drawable.developement_ic)
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
-            "Preparatoire",
             "L1",
+            "L2/A",
+            "L1/B",
             "G2 ",
             "GL",
             "G2 MSI",
