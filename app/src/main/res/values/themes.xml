@@ -12,7 +12,7 @@
             @style/MyCustomActivityAnimation</item>
     </style>
     <style name="MyDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
-        <item name="android:background">#FF9301</item>
+        <item name="android:background">@color/primary</item>
     </style>
     <style name="Theme.MyEsisalama_SYllabus" parent="Theme.AppCompat.DayNight.DarkActionBar">
 

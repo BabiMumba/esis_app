@@ -82,22 +82,20 @@ class GoogleCountActivity : AppCompatActivity() {
                     progressDialog.dismiss()
                     val account = task.getResult(ApiException::class.java)!!
                     val adm= account.email.toString()
-                    Toast.makeText(this, "${account.email}", Toast.LENGTH_SHORT).show()
                     if (adm.contains("esisalama.org")){
-                        Toast.makeText(this, "compte d'esis", Toast.LENGTH_SHORT).show()
+                        firebaseAuthWithGoogle(account.idToken!!)
                     }else{
                         googleSignInClient.signOut()
                         Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
                     }
 
-                   // firebaseAuthWithGoogle(account.idToken!!)
                 }catch (e:Exception){
                     progressDialog.dismiss()
                     Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
                 }
             }else{
                 progressDialog.dismiss()
-                Toast.makeText(this, "ereur: ${task.exception}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "erreur: ${task.exception}", Toast.LENGTH_SHORT).show()
             }
 
         }
