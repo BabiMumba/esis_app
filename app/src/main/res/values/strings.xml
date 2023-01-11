@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Esisalama</string>
     <string name="bvn">Bienvenue</string>
-    <string name="txt_mail">Votre mail</string>
+    <string name="txt_mail">Votre matricule</string>
     <string name="pasword_text">Votre mot de passe</string>
     <string name="se_connecter">se connecter</string>
     <string name="creer_un_compte">Creer un compte</string>
@@ -13,7 +13,6 @@
     <string name="confirmer_le_mot_de_passe">repeter le mot de passe</string>
     <string name="enregistre">Enregistre</string>
     <string name="my_count">j\'ai un compte</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="txt_lorem2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatumLorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum!</string>
     <string name="noti_channellid">channel_id</string>
@@ -50,5 +49,6 @@
     <string name="Intertitial_id_teste">ca-app-pub-3940256099942544/1033173712</string>
     <string name="rewarded_id_teste">ca-app-pub-3940256099942544/5354046379</string>
     <string name="teste_nativ_id">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="stp1">Premier etape</string>
 
 </resources>

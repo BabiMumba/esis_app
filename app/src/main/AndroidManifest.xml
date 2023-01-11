@@ -28,7 +28,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".GoogleCountActivity"
+            android:name=".Authentification.GoogleCountActivity"
             android:exported="false" />
         <activity
             android:name=".admin.LogoutActivity"
