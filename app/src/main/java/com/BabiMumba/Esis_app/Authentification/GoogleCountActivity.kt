@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.app.ProgressDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,6 +12,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.FirebaseApp
+import com.google.firebase.appcheck.FirebaseAppCheck
+import com.google.firebase.appcheck.playintegrity.PlayIntegrityAppCheckProviderFactory
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_google_count.*
@@ -23,6 +26,7 @@ class GoogleCountActivity : AppCompatActivity() {
     companion object {
         private const val RC_SIGN_IN = 120
     }
+    lateinit var progressDialog:ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,11 @@ class GoogleCountActivity : AppCompatActivity() {
         firebaseAppCheck.installAppCheckProviderFactory(
             PlayIntegrityAppCheckProviderFactory.getInstance()
         )
+        progressDialog = ProgressDialog(this,R.style.MyDialogTheme)
+        progressDialog.setTitle("Patienter...")
+        progressDialog.setMessage("chargement du compte")
+        progressDialog.setCancelable(false)
+        progressDialog.setIcon(R.drawable.logokitabu2)
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -84,14 +93,8 @@ class GoogleCountActivity : AppCompatActivity() {
             .addOnCompleteListener(this) {task ->
                 progressDialog.dismiss()
                 if (task.isSuccessful){
-                    val firebaseuser = mAut.currentUser
-                    val mail = firebaseuser!!.email
-                    val nom = firebaseuser?.displayName
-                    cretedoc(mail.toString())
-                    feedback(mail.toString())
-                    save_Data(nom.toString(),mail.toString())
-                    date_arriver()
-                    val intent = Intent(this, WelcomeActivity::class.java)
+
+                    val intent = Intent(this, RegisterActivity::class.java)
                     startActivity(intent)
                     finish()
                 }else{
