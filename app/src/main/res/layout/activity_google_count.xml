@@ -38,11 +38,10 @@
         android:id="@+id/google_count"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_60sdp"
-        android:background="@drawable/background_input"
-        android:paddingStart="@dimen/_16sdp"
         android:layout_alignParentBottom="true"
-        android:paddingEnd="@dimen/_16sdp"
-        >
+        android:background="@drawable/background_input"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp">
 
         <ImageView
             android:layout_width="@dimen/_30sdp"
@@ -50,15 +49,15 @@
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:src="@drawable/googleg_standard_color_18" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Continuer avec mon matricule"
             android:layout_centerVertical="true"
+            android:text="Continuer avec mon matricule"
             android:textColor="@color/primary_text"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
