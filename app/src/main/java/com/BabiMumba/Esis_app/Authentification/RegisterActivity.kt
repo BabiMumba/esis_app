@@ -286,7 +286,7 @@ class RegisterActivity : AppCompatActivity() {
         val listItems = arrayOf(
             "L1",
             "L2/A",
-            "L1/B",
+            "L2/B",
             "G2 ",
             "GL",
             "G2 MSI",
