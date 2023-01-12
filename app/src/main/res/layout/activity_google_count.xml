@@ -34,7 +34,7 @@
         android:layout_height="@dimen/_60sdp"
         android:background="@drawable/background_input"
         android:paddingStart="@dimen/_16sdp"
-        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
         android:paddingEnd="@dimen/_16sdp"
         >
         <ImageView
@@ -56,16 +56,7 @@
 
 
     </RelativeLayout>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="verifier"
-        android:textAllCaps="false"
-        android:layout_below="@id/google_count"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:id="@+id/check_btn"
-        />
+
 
 
 
