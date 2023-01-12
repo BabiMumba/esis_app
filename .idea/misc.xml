@@ -19,6 +19,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_comment_btn.xml" value="0.145" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_edit_profile.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_exit_to_app_black_24dp.xml" value="0.1" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_google_plus.xml" value="0.146" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_import_contacts_black_24dp.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_info_ic.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/drawable/ic_menu_send.xml" value="0.1" />
@@ -41,7 +42,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_detaille.xml" value="0.16666666666666666" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_document2.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_feed_back.xml" value="0.16666666666666666" />
-        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_google_count.xml" value="0.16666666666666666" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_google_count.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_infos.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_infos_syllabus.xml" value="0.16666666666666666" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_lecture.xml" value="0.1" />
