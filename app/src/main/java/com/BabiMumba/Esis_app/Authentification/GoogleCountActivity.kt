@@ -54,14 +54,6 @@ class GoogleCountActivity : AppCompatActivity() {
         google_count.setOnClickListener {
             sign_in()
         }
-        check_btn.setOnClickListener {
-            if (mAut.currentUser != null){
-                Toast.makeText(this, "vous etes ok", Toast.LENGTH_SHORT).show()
-            }else{
-                Toast.makeText(this, "pas ok", Toast.LENGTH_SHORT).show()
-            }
-        }
-
     }
 
     private fun sign_in() {
