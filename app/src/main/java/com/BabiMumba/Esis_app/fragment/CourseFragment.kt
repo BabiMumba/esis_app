@@ -21,7 +21,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
-import kotlinx.android.synthetic.main.activity_lecture_pdf.*
+import kotlinx.android.synthetic.main.fragment_course.*
 import java.io.File
 
 class CourseFragment : Fragment(), Pdf_listener_file {
@@ -85,10 +85,9 @@ class CourseFragment : Fragment(), Pdf_listener_file {
                 Environment.getExternalStorageDirectory()
                     .toString() + "/" + Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/"
             ))
-
         )
         pdfAdapter = pdfAdapter2(requireActivity(), pdfList, this)
-        my_recyclerview.adapter = pdfAdapter
+        my_recyclerview_page.adapter = pdfAdapter
     }
     override fun onSelected(file: File?) {
         if (file != null) {
