@@ -5,6 +5,10 @@
         android:icon="@drawable/ic_user"
         android:title="Profil" />
     <item
+        android:id="@+id/course"
+        android:icon="@drawable/book2"
+        android:title="Mes syllabus" />
+    <item
         android:id="@+id/home"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Accueil" />
