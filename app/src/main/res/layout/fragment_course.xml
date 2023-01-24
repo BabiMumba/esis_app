@@ -4,11 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.CourseFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/white"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
 
 </FrameLayout>

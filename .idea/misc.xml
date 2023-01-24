@@ -53,7 +53,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_poste_detaille.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_profil_user.xml" value="0.22" />
-        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_publication_syllabus.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_publication_syllabus.xml" value="0.11328125" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_publish_post.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_register.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/activity_resultat.xml" value="0.22" />
@@ -70,6 +70,7 @@
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/content_user_syllabus.xml" value="0.1" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/delete_info_users.xml" value="0.5" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/feed_card_user.xml" value="0.3333333333333333" />
+        <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_course.xml" value="0.14666666666666667" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_forum.xml" value="0.16666666666666666" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/Android_app/Esisalama/app/src/main/res/layout/fragment_l1.xml" value="0.16666666666666666" />

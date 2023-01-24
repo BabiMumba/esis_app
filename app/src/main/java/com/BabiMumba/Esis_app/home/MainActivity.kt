@@ -17,6 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.fragment.CourseFragment
 import com.BabiMumba.Esis_app.fragment.ForumFragment
 import com.BabiMumba.Esis_app.fragment.HomeFragment
 import com.BabiMumba.Esis_app.fragment.ProfilFragment
@@ -71,6 +72,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu -> {
                     loadFragmant(ProfilFragment())
+                }
+                R.id.course -> {
+                    loadFragmant(CourseFragment())
                 }
 
             }
