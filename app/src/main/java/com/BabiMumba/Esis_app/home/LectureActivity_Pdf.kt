@@ -87,7 +87,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
                 Log.d(TAG, "onAdOpened: ")
             }
         }
-
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val point = sharedPreferences.getInt("point",0)
         if (point >= 1){

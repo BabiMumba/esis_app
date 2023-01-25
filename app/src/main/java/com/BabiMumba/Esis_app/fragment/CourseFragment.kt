@@ -35,7 +35,12 @@ class CourseFragment : Fragment(), Pdf_listener_file {
     ): View? {
         // Inflate the layout for this fragment
         val v = inflater.inflate(R.layout.fragment_course, container, false)
-        runtimePermissions(v)
+        try {
+            runtimePermissions(v)
+        }catch (e:Exception){
+            println("$e")
+        }
+
         return v
     }
     private fun runtimePermissions(view: View) {
@@ -76,7 +81,7 @@ class CourseFragment : Fragment(), Pdf_listener_file {
         return arrayList
     }
     private fun displaypdf(view: View) {
-        recyclerView = view.findViewById(R.id.my_recyclerview)
+        recyclerView = view.findViewById(R.id.my_recyclerview_page)
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(requireActivity(),)
         pdfList = ArrayList()
