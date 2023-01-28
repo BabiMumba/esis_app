@@ -97,7 +97,7 @@ class CourseFragment : Fragment(), Pdf_listener_file {
 
         )
         pdfAdapter = pdfAdapter2(requireActivity(), pdfList, this)
-        my_recyclerview_page.adapter = pdfAdapter
+        recyclerView.adapter = pdfAdapter
     }
     override fun onSelected(file: File) {
         startActivity(

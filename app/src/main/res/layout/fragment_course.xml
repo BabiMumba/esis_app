@@ -5,58 +5,76 @@
     android:layout_height="match_parent"
     tools:context=".fragment.CourseFragment">
 
-    <RelativeLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:background="@color/primary"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:id="@+id/coodid"
+        android:background="@color/white">
 
-        <RelativeLayout
-            android:id="@+id/r1"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:padding="@dimen/_20sdp"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/txt"
-                android:layout_width="wrap_content"
-                android:fontFamily="serif"
-                android:layout_height="wrap_content"
-                android:text="Mes Syllabus\nTelecharger"
-                android:textColor="@color/primary_text"
-                android:textSize="@dimen/_20sdp"
-                android:textStyle="bold"
-                />
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
 
-            <ImageView
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_below="@id/txt"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/book_img" />
-
-
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:padding="@dimen/_10sdp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/r1"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bac_bot"
-            >
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/my_recyclerview_page"
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                tools:itemCount="4"
-                tools:listitem="@layout/item_pdf_3d" />
-        </RelativeLayout>
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/primary"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:toolbarId="@+id/toolbar"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                >
 
-    </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:background="@color/primary"
+                    android:layout_height="match_parent">
+
+                    <RelativeLayout
+                        android:id="@+id/r1"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:padding="@dimen/_20sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:id="@+id/txt"
+                            android:layout_width="wrap_content"
+                            android:fontFamily="serif"
+                            android:layout_height="wrap_content"
+                            android:text="Mes Syllabus\nTelecharger"
+                            android:textColor="@color/primary_text"
+                            android:textSize="@dimen/_20sdp"
+                            android:textStyle="bold"
+                            />
+
+                        <ImageView
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_below="@id/txt"
+                            android:layout_alignParentEnd="true"
+                            android:src="@drawable/book_img" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include layout="@layout/content_book" />
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </FrameLayout>
