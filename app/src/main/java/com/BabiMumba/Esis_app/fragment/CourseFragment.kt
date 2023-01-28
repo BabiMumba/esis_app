@@ -21,7 +21,6 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
-import kotlinx.android.synthetic.main.activity_lecture_pdf.*
 import kotlinx.android.synthetic.main.fragment_course.*
 import java.io.File
 
@@ -83,7 +82,7 @@ class CourseFragment : Fragment(), Pdf_listener_file {
         return arrayList
     }
     private fun displaypdf(view: View) {
-        recyclerView = view.findViewById(R.id.my_recyclerview)
+        recyclerView = view.findViewById(R.id.my_recyclerview_page)
         linearLayoutManager = LinearLayoutManager(requireActivity())
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
@@ -98,7 +97,7 @@ class CourseFragment : Fragment(), Pdf_listener_file {
 
         )
         pdfAdapter = pdfAdapter2(requireActivity(), pdfList, this)
-        my_recyclerview.adapter = pdfAdapter
+        my_recyclerview_page.adapter = pdfAdapter
     }
     override fun onSelected(file: File) {
         startActivity(
