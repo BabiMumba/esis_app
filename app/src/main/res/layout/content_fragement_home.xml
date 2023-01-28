@@ -119,8 +119,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:end_color="@color/gradientLightYellow"
-                            gl:start_color="@color/gradientViolet"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -156,8 +156,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:end_color="@color/gradientLightYellow2"
-                            gl:start_color="@color/gradientLightOrange2"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/green"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -191,13 +191,13 @@
                         android:layout_marginTop="@dimen/_10sdp">
 
                         <net.colindodd.gradientlayout.GradientRelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="192dp"
+                            android:layout_height="93dp"
                             android:minHeight="100dp"
-                            gl:start_color="@color/gradientLightYellow"
-                            gl:end_color="@color/gradientOrange"
+                            android:padding="@dimen/_5sdp"
+                            gl:end_color="@color/primary"
                             gl:orientation="LEFT_RIGHT"
-                            android:padding="@dimen/_5sdp">
+                            gl:start_color="@color/gradientLightYellow">
 
                             <ImageView
                                 android:layout_width="@dimen/_60sdp"
@@ -207,10 +207,10 @@
                                 android:src="@drawable/resulta_u" />
 
                             <TextView
-                                android:fontFamily="serif"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
                                 android:text="Resultat"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -241,8 +241,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:start_color="@color/gradientLightGreen"
-                            gl:end_color="@color/gradientLightBlue"
+                            gl:start_color="@color/primary"
+                            gl:end_color="@color/white"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -278,8 +278,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:start_color="@color/gradientLightYellow"
-                            gl:end_color="@color/gradientOrange"
+                            gl:start_color="@color/primary"
+                            gl:end_color="@color/green"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -314,8 +314,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:start_color="@color/gradientViolet"
-                            gl:end_color="@color/gradientLightOrange"
+                            gl:start_color="@color/primary"
+                            gl:end_color="@color/gradientLightYellow"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -327,11 +327,11 @@
                                 android:src="@drawable/news_u" />
 
                             <TextView
-                                android:fontFamily="serif"
                                 android:id="@+id/titre4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
                                 android:text="Actualite"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />

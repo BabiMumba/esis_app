@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                app:contentScrim="@color/primary"
+                app:contentScrim="@color/white"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar"
                 app:expandedTitleMarginEnd="64dp"
@@ -35,14 +35,14 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:background="@color/primary"
+                    android:background="@color/white"
                     android:layout_height="match_parent">
 
                     <RelativeLayout
+                        android:background="@drawable/backround_view_user_profil"
                         android:id="@+id/r1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_20sdp"
                         android:padding="@dimen/_20sdp">
 
                         <TextView
