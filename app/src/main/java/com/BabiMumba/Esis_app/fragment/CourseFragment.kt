@@ -21,6 +21,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import kotlinx.android.synthetic.main.activity_lecture_pdf.*
 import kotlinx.android.synthetic.main.fragment_course.*
 import java.io.File
 
@@ -29,6 +30,7 @@ class CourseFragment : Fragment(), Pdf_listener_file {
     lateinit var pdfAdapter: pdfAdapter2
     private lateinit var pdfList: MutableList<File>
     private lateinit var recyclerView: RecyclerView
+    lateinit var linearLayoutManager: LinearLayoutManager
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -81,26 +83,28 @@ class CourseFragment : Fragment(), Pdf_listener_file {
         return arrayList
     }
     private fun displaypdf(view: View) {
-        recyclerView = view.findViewById(R.id.my_recyclerview_page)
-        recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(requireActivity(),)
+        recyclerView = view.findViewById(R.id.my_recyclerview)
+        linearLayoutManager = LinearLayoutManager(requireActivity())
+        linearLayoutManager.reverseLayout = true
+        linearLayoutManager.onSaveInstanceState()
+        linearLayoutManager.stackFromEnd = true
+        recyclerView.layoutManager = linearLayoutManager
         pdfList = ArrayList()
         pdfList.addAll(
             findpdf( File(
                 Environment.getExternalStorageDirectory()
                     .toString() + "/" + Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/"
             ))
+
         )
         pdfAdapter = pdfAdapter2(requireActivity(), pdfList, this)
-        my_recyclerview_page.adapter = pdfAdapter
+        my_recyclerview.adapter = pdfAdapter
     }
-    override fun onSelected(file: File?) {
-        if (file != null) {
-            startActivity(
-                Intent(requireActivity(), DocumentActivity2::class.java)
-                    .putExtra("path", file.absolutePath)
-            )
-        }
+    override fun onSelected(file: File) {
+        startActivity(
+            Intent(requireActivity(), DocumentActivity2::class.java)
+                .putExtra("path", file.absolutePath)
+        )
     }
 
 }
