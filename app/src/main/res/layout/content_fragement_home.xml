@@ -157,7 +157,7 @@
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
                             gl:end_color="@color/primary"
-                            gl:start_color="@color/green"
+                            gl:start_color="@color/white"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -196,8 +196,8 @@
                             android:minHeight="100dp"
                             android:padding="@dimen/_5sdp"
                             gl:end_color="@color/primary"
-                            gl:orientation="LEFT_RIGHT"
-                            gl:start_color="@color/gradientLightYellow">
+                            gl:start_color="@color/white"
+                            gl:orientation="LEFT_RIGHT">
 
                             <ImageView
                                 android:layout_width="@dimen/_60sdp"
@@ -278,8 +278,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:start_color="@color/primary"
-                            gl:end_color="@color/green"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
@@ -314,8 +314,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
-                            gl:start_color="@color/primary"
-                            gl:end_color="@color/gradientLightYellow"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
                             gl:orientation="LEFT_RIGHT"
                             android:padding="@dimen/_5sdp">
 
