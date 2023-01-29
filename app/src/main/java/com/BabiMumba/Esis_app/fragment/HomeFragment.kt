@@ -58,9 +58,6 @@ class HomeFragment : Fragment() {
         viewF.findViewById<CardView>(R.id.resultat_cat).setOnClickListener {
             startActivity(Intent(activity, ResultatActivity::class.java))
         }
-        viewF.findViewById<CardView>(R.id.lecture_cat).setOnClickListener {
-            startActivity(Intent(activity, LectureActivity_Pdf::class.java))
-        }
         val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
         viewF.findViewById<TextView>(R.id.prenom).text = sharedPreferences.getString("prenom",null)
         viewF.findViewById<ImageView>(R.id.profile_image).setOnClickListener {

@@ -214,8 +214,7 @@ class PublicationSyllabus : AppCompatActivity() {
 
         val name_save_sta = "livres/$nn/$name.pdf"
         val name_cover = "couverture/$nn/$name.png"
-
-        val link_cover = "https://www.pngfind.com/pngs/m/350-3500642_pdf-icon-download-download-hd-png-download.png"
+        val link_cover = "https://firebasestorage.googleapis.com/v0/b/e-learning-e8097.appspot.com/o/pdf_file_esis.png?alt=media&token=4b010801-6e61-4420-8359-a4f0e8d12a21"
         val reference = storageReference.child(name_save_sta)
         val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
