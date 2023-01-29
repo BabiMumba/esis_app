@@ -251,8 +251,7 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/apprendre_u"
-                                />
+                                android:src="@drawable/apprendre_u" />
 
                             <TextView
                                 android:layout_width="wrap_content"

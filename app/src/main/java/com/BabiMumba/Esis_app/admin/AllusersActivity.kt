@@ -30,7 +30,6 @@ class AllusersActivity : AppCompatActivity() {
         //Rreference des utilisateur
 
         val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
-
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,

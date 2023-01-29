@@ -39,10 +39,10 @@
                     android:layout_height="match_parent">
 
                     <RelativeLayout
-                        android:background="@drawable/backround_view_user_profil"
                         android:id="@+id/r1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/backround_view_user_profil"
                         android:padding="@dimen/_20sdp">
 
                         <TextView
@@ -50,7 +50,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif"
-                            android:text="Mes Syllabus\nTelecharger"
+                            android:text="Mes syllabus\ntélécharger "
                             android:textColor="@color/primary_text"
                             android:textSize="@dimen/_20sdp"
                             android:textStyle="bold" />
@@ -61,6 +61,18 @@
                             android:layout_below="@id/txt"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/book_img" />
+                        <ImageView
+                            android:layout_width="@dimen/_100sdp"
+                            android:layout_height="@dimen/_100sdp"
+                            android:layout_below="@id/txt"
+                            android:layout_alignParentStart="true"
+                            android:src="@drawable/apprendre_u" />
+                        <ImageView
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:layout_below="@id/txt"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/developement_ic" />
 
                     </RelativeLayout>
 
