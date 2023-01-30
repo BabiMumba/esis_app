@@ -118,8 +118,8 @@ class PublicationSyllabus : AppCompatActivity() {
             alertDialog.setIcon(R.drawable.pdf_file)
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
-                "Preparatoire",
-                "L1",
+                "l1",
+                "L2",
                 "G2 ",
                 "GL",
                 "G2 MSI",
@@ -208,7 +208,7 @@ class PublicationSyllabus : AppCompatActivity() {
         var nn = promotion_text.text.toString()
 
 
-        if (nn!="Preparatoire" && nn!= "L1"){
+        if (nn!="l1" && nn!= "L2"){
             nn = "Tous"
         }
 
