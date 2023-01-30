@@ -121,7 +121,7 @@ class DetailleActivity : AppCompatActivity() {
         comment_recyclerview.layoutManager = mLayoutManager
 
 
-        if (promo != "Preparatoire" && promo != "L1") {
+        if (promo != "L1" && promo != "L2") {
             promo = "Tous"
         }
         val ref = FirebaseDatabase.getInstance().getReference("syllabus")
@@ -272,7 +272,7 @@ class DetailleActivity : AppCompatActivity() {
 
 
 
-        if (pm != "Preparatoire" && pm != "L1") {
+        if (pm != "L1" && pm != "L2") {
             pm = "Tous"
         }
         val ref = FirebaseDatabase.getInstance().getReference("syllabus")
@@ -305,7 +305,7 @@ class DetailleActivity : AppCompatActivity() {
     fun DeletePoste() {
         val cle = intent.getStringExtra("cle")
         var pm = intent.getStringExtra("promo")
-        if (pm != "Preparatoire" && pm != "L1") {
+        if (pm != "L1" && pm != "L2") {
             pm = "Tous"
         }
         val ref = FirebaseDatabase.getInstance().getReference("syllabus")
@@ -347,7 +347,7 @@ class DetailleActivity : AppCompatActivity() {
         var promo = intent.getStringExtra("promo")
         val cle = intent.getStringExtra("cle")
 
-        if (promo != "Preparatoire" && promo != "L1") {
+        if (promo != "L1" && promo != "L2") {
             promo = "Tous"
         }
         val increment: MutableMap<String, Any> = HashMap()
@@ -370,7 +370,7 @@ class DetailleActivity : AppCompatActivity() {
         var promo = intent.getStringExtra("promo")
         val cle = intent.getStringExtra("cle")
 
-        if (promo != "Preparatoire" && promo != "L1") {
+        if (promo != "L1" && promo != "L2") {
             promo = "Tous"
         }
         val increment: MutableMap<String, Any> = HashMap()
@@ -390,7 +390,7 @@ class DetailleActivity : AppCompatActivity() {
         var promo = intent.getStringExtra("promo").toString()
         val cle = intent.getStringExtra("cle").toString()
         val increment: MutableMap<String, Any> = HashMap()
-        if (promo != "Preparatoire" && promo != "L1") {
+        if (promo != "L1" && promo != "L2") {
             promo = "Tous"
         }
 
@@ -411,7 +411,7 @@ class DetailleActivity : AppCompatActivity() {
     fun check_post() {
         val cle = intent.getStringExtra("cle")
         var pm = intent.getStringExtra("promo")
-        if (pm != "Preparatoire" && pm != "L1") {
+        if (pm != "L1" && pm != "L2") {
             pm = "Tous"
         }
         val ref = FirebaseDatabase.getInstance().getReference("syllabus").child(pm.toString())
