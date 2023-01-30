@@ -115,7 +115,7 @@ class PublicationSyllabus : AppCompatActivity() {
         val checkedItem = intArrayOf(-1)
         promotion_choice.setOnClickListener {
             val alertDialog = AlertDialog.Builder(this)
-            alertDialog.setIcon(R.drawable.pdf_file_esis)
+            alertDialog.setIcon(R.drawable.pdf_file)
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
                 "Preparatoire",
