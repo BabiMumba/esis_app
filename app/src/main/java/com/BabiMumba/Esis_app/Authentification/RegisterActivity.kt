@@ -285,8 +285,7 @@ class RegisterActivity : AppCompatActivity() {
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
             "L1",
-            "L2/A",
-            "L2/B",
+            "L2",
             "G2 ",
             "GL",
             "G2 MSI",

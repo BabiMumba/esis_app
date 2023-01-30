@@ -232,7 +232,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
     fun increament_dwnlad(context: Context,pm:String,cle:String){
 
         var promo = pm
-        if (promo!="l1" && promo!= "L2"){
+        if (promo!="L1" && promo!= "L2"){
             promo = "Tous"
         }
         val increment: MutableMap<String, Any> = HashMap()

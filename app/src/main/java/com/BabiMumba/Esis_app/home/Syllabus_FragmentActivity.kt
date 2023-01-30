@@ -19,8 +19,8 @@ class Syllabus_FragmentActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tabs)
         viewPager  = findViewById(R.id.viewpager)
 
-        tabLayout.addTab(tabLayout.newTab().setText("l1"))
-        tabLayout.addTab(tabLayout.newTab().setText("l2"))
+        tabLayout.addTab(tabLayout.newTab().setText("L1"))
+        tabLayout.addTab(tabLayout.newTab().setText("L2"))
         tabLayout.addTab(tabLayout.newTab().setText("Tous"))
 
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL

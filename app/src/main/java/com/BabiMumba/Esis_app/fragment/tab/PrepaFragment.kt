@@ -52,7 +52,7 @@ class PrepaFragment : Fragment() {
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
             .setQuery(
-                FirebaseDatabase.getInstance().reference.child("syllabus").child("l1"),
+                FirebaseDatabase.getInstance().reference.child("syllabus").child("L1"),
                 syllabus_model::class.java
             )
             .build()
