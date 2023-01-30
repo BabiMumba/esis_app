@@ -21,6 +21,7 @@ import com.BabiMumba.Esis_app.admin.SaleControleActivity
 import com.BabiMumba.Esis_app.home.AboutDeveloppeur
 import com.BabiMumba.Esis_app.home.FeedBack
 import com.BabiMumba.Esis_app.home.InfosActivity
+import com.BabiMumba.Esis_app.home.ThankActivity
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
@@ -92,6 +93,10 @@ class ProfilFragment : Fragment() {
         }
         view.findViewById<RelativeLayout>(R.id.rr6).setOnClickListener {
             startActivity(Intent(requireActivity(), FeedBack::class.java).putExtra("mail",mm))
+
+        }
+        view.findViewById<RelativeLayout>(R.id.rr9).setOnClickListener {
+            startActivity(Intent(requireActivity(), ThankActivity::class.java))
 
         }
 
