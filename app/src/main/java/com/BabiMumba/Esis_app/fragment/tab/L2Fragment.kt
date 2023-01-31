@@ -19,9 +19,10 @@ import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.fragment_prepa.*
+import kotlinx.android.synthetic.main.fragment_l1.*
 
-class PrepaFragment : Fragment() {
+class L2Fragment : Fragment() {
+
 
     lateinit var myadaptes_syllabus: syllabus_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
@@ -30,9 +31,8 @@ class PrepaFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v = inflater.inflate(R.layout.fragment_prepa, container, false)
-        val recp = v.findViewById<RecyclerView>(R.id.recycler_prepa)
-
+        val v = inflater.inflate(R.layout.fragment_l1, container, false)
+        val recp = v.findViewById<RecyclerView>(R.id.recycler_l1)
         if (isConnectedNetwork(requireActivity())){
 
         }else{
@@ -52,7 +52,7 @@ class PrepaFragment : Fragment() {
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
             .setQuery(
-                FirebaseDatabase.getInstance().reference.child("syllabus").child("L1"),
+                FirebaseDatabase.getInstance().reference.child("syllabus").child("L2"),
                 syllabus_model::class.java
             )
             .build()
@@ -63,19 +63,19 @@ class PrepaFragment : Fragment() {
 
         return v
     }
-
     override fun onStart() {
-        recycler_prepa.recycledViewPool.clear()
+        recycler_l1.recycledViewPool.clear()
         myadaptes_syllabus.notifyDataSetChanged()
         super.onStart()
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        myadaptes_syllabus.stopListening()
-    }
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
+    override fun onDestroy() {
+        super.onDestroy()
+        myadaptes_syllabus.stopListening()
+    }
+
 }
