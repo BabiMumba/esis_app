@@ -199,7 +199,7 @@ class PublicationSyllabus : AppCompatActivity() {
         val mail_users = firebaseUser?.email.toString()
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val currentDate = sdf.format(Date())
-        val pd = ProgressDialog(this)
+      //  val pd = ProgressDialog(this)
         pd.setTitle("Importation du fichier....!!!")
 
         val name = nom_du_syllabus.text.toString()
@@ -241,7 +241,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                                 currentDate,
                                                 lien_image, 0, 0, 0)
                                             databaseReference.child(nn).child(id_poste).setValue(obj)
-                                            pd.dismiss()
+                                            //pd.dismiss()
                                             Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                             icone_failed.visibility = View.VISIBLE
                                             icone_succes.visibility = View.GONE
@@ -274,7 +274,7 @@ class PublicationSyllabus : AppCompatActivity() {
                             currentDate,
                             lien_image, 0, 0, 0)
                         databaseReference.child(nn).child(id_poste).setValue(obj)
-                        pd.dismiss()
+                     //   pd.dismiss()
                         Toast.makeText(applicationContext, "Syllabus partager", Toast.LENGTH_LONG).show()
                         icone_failed.visibility = View.VISIBLE
                         icone_succes.visibility = View.GONE
@@ -291,12 +291,13 @@ class PublicationSyllabus : AppCompatActivity() {
                 }
             }
             .addOnFailureListener{
-                Toast.makeText(this, "importation echouer", Toast.LENGTH_SHORT).show()
+                Log.d("erreur importation","${it.message}")
+                Toast.makeText(this, "importation echouer ${it.message}", Toast.LENGTH_SHORT).show()
             }
             .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
                 val percent =
                     (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
-                pd.setMessage("Importation: " + percent.toInt() + "%")
+                //pd.setMessage("Importation: " + percent.toInt() + "%")
                 pourc.text = "${percent.toInt()}%"
             }
 
@@ -313,7 +314,6 @@ class PublicationSyllabus : AppCompatActivity() {
                     val pren = it.data?.getValue("prenom").toString()
                     val postn = it.data?.getValue("post-nom").toString()
                     val imgetxt = it.data?.getValue("profil")
-
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()
                 }else{
