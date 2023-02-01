@@ -18,13 +18,13 @@ internal class  tabs_adapters (var context:Context, fm: FragmentManager?, var to
     override fun getItem(position: Int): Fragment {
         return when(position){
             0->{
-                L1Fragment()
+                TousFragment()
             }
             1->{
-                L2Fragment()
+                L1Fragment()
             }
             2->{
-                TousFragment()
+                L2Fragment()
             }
             else -> getItem(position)
         }
