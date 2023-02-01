@@ -52,7 +52,8 @@ class TousFragment : Fragment() {
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
-        val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous")
+        //Tous
+        val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("L1")
 
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()

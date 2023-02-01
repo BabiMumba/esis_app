@@ -200,8 +200,7 @@ class PublicationSyllabus : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val currentDate = sdf.format(Date())
       //  val pd = ProgressDialog(this)
-        pd.setTitle("Importation du fichier....!!!")
-
+        //pd.setTitle("Importation du fichier....!!!")
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
         val nameProf = nom_du_prof.text.toString()
