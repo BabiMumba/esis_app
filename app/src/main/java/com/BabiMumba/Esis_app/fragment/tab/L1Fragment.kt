@@ -49,10 +49,12 @@ class L1Fragment : Fragment() {
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
 
+        val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous")
+
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
             .setQuery(
-                FirebaseDatabase.getInstance().reference.child("syllabus").child("Tous"),
+                ref,
                 syllabus_model::class.java
             )
             .build()
