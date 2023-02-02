@@ -14,10 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.BabiMumba.Esis_app.R
-import com.BabiMumba.Esis_app.home.ActualiteActivity
-import com.BabiMumba.Esis_app.home.LectureActivity_Pdf
-import com.BabiMumba.Esis_app.home.ResultatActivity
-import com.BabiMumba.Esis_app.home.Syllabus_FragmentActivity
+import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -34,7 +31,7 @@ class HomeFragment : Fragment() {
         val viewF = inflater.inflate(R.layout.fragment_home, container, false)
 
         viewF.findViewById<CardView>(R.id.syllabus_card).setOnClickListener {
-            startActivity(Intent(activity, Syllabus_FragmentActivity::class.java))
+            startActivity(Intent(activity, SyllabusPromo::class.java))
         }
 
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
