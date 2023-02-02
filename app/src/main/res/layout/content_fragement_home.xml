@@ -200,6 +200,7 @@
                         </net.colindodd.gradientlayout.GradientRelativeLayout>
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
+                        android:visibility="gone"
                         android:id="@+id/syllabus_card"
                         android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"

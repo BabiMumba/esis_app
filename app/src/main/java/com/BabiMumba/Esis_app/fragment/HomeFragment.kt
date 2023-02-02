@@ -57,8 +57,20 @@ class HomeFragment : Fragment() {
         imageSlider.setImageList(imageList)
 
 
-        viewF.findViewById<CardView>(R.id.syllabus_card).setOnClickListener {
-            startActivity(Intent(activity, SyllabusPromo::class.java))
+        viewF.findViewById<CardView>(R.id.catL1).setOnClickListener {
+            val intent = Intent(activity, SyllabusPromo::class.java)
+            intent.putExtra("promotion","L1")
+            startActivity(intent)
+        }
+        viewF.findViewById<CardView>(R.id.catL2).setOnClickListener {
+            val intent = Intent(activity, SyllabusPromo::class.java)
+            intent.putExtra("promotion","L2")
+            startActivity(intent)
+        }
+        viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
+            val intent = Intent(activity, SyllabusPromo::class.java)
+            intent.putExtra("promotion","Tous")
+            startActivity(intent)
         }
 
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
