@@ -28,7 +28,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SyllabusPromo"
+            android:name=".home.SyllabusPromo"
             android:exported="false" />
         <activity
             android:name=".home.ThankActivity"
