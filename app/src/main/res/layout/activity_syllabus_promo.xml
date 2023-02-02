@@ -6,7 +6,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".home.SyllabusPromo"
-
         >
 
         <ProgressBar
@@ -17,7 +16,7 @@
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_prepa"
+            android:id="@+id/recycler_promo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
