@@ -123,6 +123,7 @@
                     android:layout_weight="1"
                     android:layout_marginEnd="@dimen/_2sdp"
                     android:orientation="vertical">
+
                     <androidx.cardview.widget.CardView
                         android:id="@+id/esis_web"
                         android:elevation="@dimen/_15sdp"
@@ -365,6 +366,136 @@
                 android:textSize="@dimen/_10sdp"
                 android:fontFamily="serif"
                 />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:orientation="vertical">
+                    <androidx.cardview.widget.CardView
+                        android:elevation="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        android:id="@+id/catL1"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
+                                android:layout_alignParentEnd="true"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:src="@drawable/horaire_u" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="l1"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:elevation="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        android:id="@+id/cat_tous"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
+                                android:layout_alignParentEnd="true"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:src="@drawable/horaire_u" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="Afficher tous"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:orientation="vertical">
+                    <androidx.cardview.widget.CardView
+                        android:elevation="@dimen/_15sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="15dp"
+                        android:id="@+id/catL2"
+                        app:cardPreventCornerOverlap="true"
+                        android:layout_marginTop="@dimen/_5sdp">
+
+                        <net.colindodd.gradientlayout.GradientRelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:minHeight="100dp"
+                            gl:end_color="@color/primary"
+                            gl:start_color="@color/white"
+                            gl:orientation="LEFT_RIGHT"
+                            android:padding="@dimen/_5sdp">
+
+                            <ImageView
+                                android:layout_width="@dimen/_60sdp"
+                                android:layout_height="@dimen/_60sdp"
+                                android:layout_alignParentEnd="true"
+                                android:maxHeight="@dimen/_80sdp"
+                                android:src="@drawable/horaire_u" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
+                                android:text="L2"
+                                android:textColor="@color/black"
+                                android:textStyle="bold" />
+
+                        </net.colindodd.gradientlayout.GradientRelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
