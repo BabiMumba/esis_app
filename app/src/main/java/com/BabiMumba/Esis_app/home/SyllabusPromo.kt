@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,8 +26,9 @@ class SyllabusPromo : AppCompatActivity() {
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
+        val pm = intent.getStringExtra("promotion").toString()
 
-        val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("L1")
+        val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child(pm)
 
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<syllabus_model>()

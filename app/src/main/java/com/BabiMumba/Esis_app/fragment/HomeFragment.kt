@@ -56,7 +56,6 @@ class HomeFragment : Fragment() {
         })
         imageSlider.setImageList(imageList)
 
-
         viewF.findViewById<CardView>(R.id.catL1).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
             intent.putExtra("promotion","L1")
