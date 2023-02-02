@@ -125,6 +125,7 @@
                     android:orientation="vertical">
                     <androidx.cardview.widget.CardView
                         android:id="@+id/esis_web"
+                        android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
@@ -162,6 +163,7 @@
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:id="@+id/resultat_cat"
+                        android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
@@ -198,6 +200,7 @@
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:id="@+id/syllabus_card"
+                        android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
@@ -245,7 +248,7 @@
                     android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
-
+                        android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
@@ -283,6 +286,7 @@
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
                         android:id="@+id/news_card"
+                        android:elevation="@dimen/_15sdp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
