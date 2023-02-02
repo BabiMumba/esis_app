@@ -18,10 +18,8 @@ import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.request.RequestOptions
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.makeramen.roundedimageview.RoundedImageView
 import java.net.MalformedURLException
 import java.net.URL
 
