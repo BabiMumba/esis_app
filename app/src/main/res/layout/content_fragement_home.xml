@@ -367,6 +367,7 @@
                 android:fontFamily="serif"
                 />
             <LinearLayout
+                android:padding="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
@@ -399,14 +400,14 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/horaire_u" />
+                                android:src="@drawable/livre_syllabus_u" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="serif"
-                                android:text="l1"
+                                android:text="L1"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
@@ -435,7 +436,7 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/horaire_u" />
+                                android:src="@drawable/livre_syllabus_u" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -478,7 +479,7 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/horaire_u" />
+                                android:src="@drawable/livre_syllabus_u" />
 
                             <TextView
                                 android:layout_width="wrap_content"
