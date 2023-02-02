@@ -17,6 +17,10 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
+import com.denzcoskun.imageslider.ImageSlider
+import com.denzcoskun.imageslider.constants.ScaleTypes
+import com.denzcoskun.imageslider.interfaces.ItemClickListener
+import com.denzcoskun.imageslider.models.SlideModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -29,6 +33,29 @@ class HomeFragment : Fragment() {
     ): View? {
         firebaseAuth = FirebaseAuth.getInstance()
         val viewF = inflater.inflate(R.layout.fragment_home, container, false)
+        val imageList = ArrayList<SlideModel>() // Create image list
+        /*
+        imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_genie_log.png", "reseau informatique"))
+        imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "DEsign est multimedia"))
+        imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "DEsign est multimedia"))
+         */
+        imageList.add(SlideModel(R.drawable.banner_principale, "teste 1"))
+        imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "teste 2"))
+        imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "teste 3"))
+
+        val imageSlider = viewF.findViewById<ImageSlider>(R.id.image_slider)
+        imageSlider.setItemClickListener(object : ItemClickListener {
+            override fun onItemSelected(position: Int) {
+                Toast.makeText(requireActivity(), "n $position", Toast.LENGTH_SHORT).show()
+            }
+        })
+        imageSlider.setItemClickListener(object : ItemClickListener {
+            override fun onItemSelected(position: Int) {
+                // You can listen here.
+            }
+        })
+        imageSlider.setImageList(imageList)
+
 
         viewF.findViewById<CardView>(R.id.syllabus_card).setOnClickListener {
             startActivity(Intent(activity, SyllabusPromo::class.java))

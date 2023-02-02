@@ -93,22 +93,21 @@
             </RelativeLayout>
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="@dimen/_5sdp"
+                android:layout_margin="@dimen/_5sdp"
                 android:elevation="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp"
                     >
+
                     <ImageView
-                        android:scaleType="fitXY"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:src="@drawable/banner_principale"
-                        />
+                        android:scaleType="fitXY"
+                        android:src="@drawable/banner_principale" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -326,11 +325,10 @@
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="@dimen/_5sdp"
                 android:elevation="@dimen/_10sdp"
+                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
-                    android:paddingStart="@dimen/_10sdp"
-                    android:paddingEnd="@dimen/_10sdp"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_100sdp"
