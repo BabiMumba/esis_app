@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel(R.drawable.banner_principale, "teste 1"))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/Sans%20titre-1.png?alt=media&token=6ffdd7f1-7bf3-4e3c-8e49-18906af24c65", "teste 2"))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/5317030.png?alt=media&token=5e274f2e-95a9-4ea4-bff2-ea3d4e7530cc", "teste 3"))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/diplome.png?alt=media&token=a2a5b3a8-40cb-4bbe-8b27-c5c2f63550ef", "teste 4"))
 
         val imageSlider = viewF.findViewById<ImageSlider>(R.id.image_slider)
         imageSlider.setItemClickListener(object : ItemClickListener {
