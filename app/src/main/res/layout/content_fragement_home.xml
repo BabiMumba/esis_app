@@ -17,7 +17,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-
             <RelativeLayout
                 android:padding="@dimen/_5sdp"
                 android:background="@drawable/backround_view_user_profil"
@@ -106,7 +105,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/banner_principale" />
+                        android:src="@drawable/ii1" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -336,7 +335,7 @@
                 <RelativeLayout
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_100sdp"
+                    android:layout_height="@dimen/_150sdp"
                     >
 
                     <com.denzcoskun.imageslider.ImageSlider
@@ -352,7 +351,6 @@
                         app:iss_error_image="@drawable/banner_principale"
                         app:iss_period="1500"
                         app:iss_selected_dot="@drawable/default_selected_dot"
-                        app:iss_text_align="CENTER"
                         app:iss_unselected_dot="@drawable/default_unselected_dot" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
