@@ -246,7 +246,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                             icone_succes.visibility = View.GONE
                                             publish_file.isEnabled = false
                                             sendnotif(promotion_text.text.toString())
-                                            save_syllabus_mprfl(uri.toString(),name,id_poste)
+                                            save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
                                             nom_du_syllabus.setText("")
                                             nom_du_prof.setText("")
                                             description.setText("")
@@ -279,7 +279,7 @@ class PublicationSyllabus : AppCompatActivity() {
                         icone_succes.visibility = View.GONE
                         publish_file.isEnabled = false
                         sendnotif(promotion_text.text.toString())
-                        save_syllabus_mprfl(uri.toString(),name,id_poste)
+                        save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
                         nom_du_syllabus.setText("")
                         nom_du_prof.setText("")
                         description.setText("")
@@ -342,10 +342,10 @@ class PublicationSyllabus : AppCompatActivity() {
         )
     }
 
-    fun save_syllabus_mprfl(lien:String, nom_livre:String, id_post:String){
+    fun save_syllabus_mprfl(lien:String, nom_livre:String, id_post:String,promo:String){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
-        val data = save_profil_syllabus(lien,nom_livre,id_post,"","","")
+        val data = save_profil_syllabus(lien,nom_livre,id_post,promo,"","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("syllabus_poste_save")
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
