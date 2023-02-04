@@ -23,7 +23,7 @@
             android:textColor="@color/primary_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tout"
+            android:text="Triez"
             />
         <ImageView
             android:padding="@dimen/_2sdp"
