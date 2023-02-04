@@ -5,6 +5,7 @@ class commentaire_model {
     lateinit var date:String
     lateinit var commentaire:String
     lateinit var profil:String
+
     lateinit var id_reserve1:String
     lateinit var id_reserve2:String
     lateinit var id_reserve3:String

@@ -166,18 +166,20 @@ class PosteDetaille : AppCompatActivity() {
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("cle")
 
-        val hashMap = HashMap<String, Any>()
+        /*
+           val hashMap = HashMap<String, Any>()
         hashMap["commentaire"] = msg
         hashMap["nom"] = mon_nom
         hashMap["date"] = strDate.toString()
         hashMap["profil"]= photo_profil
+         */
 
+        val donnee = commentaire_poste_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
         val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
         ref.child(cle.toString()).child("commente_poste").child(ref.push().key!!)
-            .setValue(hashMap)
+            .setValue(donnee)
             .addOnSuccessListener {
                 add_comment()
-
                 val nb = findViewById<TextView>(R.id.nb_comment)
                 val MyScore = Integer.parseInt(nb.text.toString());
 
@@ -203,7 +205,6 @@ class PosteDetaille : AppCompatActivity() {
                     val pren = it.data?.getValue("prenom").toString()
                     val postn = it.data?.getValue("post-nom").toString()
                     val imgetxt = it.data?.getValue("profil")
-
                     mon_nom = "$pren $postn"
                     photo_profil = imgetxt.toString()
 
