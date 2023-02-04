@@ -41,6 +41,9 @@ class SyllabusPromo : AppCompatActivity() {
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
+        add_post.setOnClickListener {
+            startActivity(Intent(this,PublicationSyllabus::class.java))
+        }
     }
     override fun onStart() {
         recycler_promo.recycledViewPool.clear()
