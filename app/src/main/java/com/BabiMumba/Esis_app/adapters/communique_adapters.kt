@@ -123,6 +123,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
             .with(holder.image.context)
             .load(model.profil)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(holder.image)
         holder.image.setOnClickListener{
