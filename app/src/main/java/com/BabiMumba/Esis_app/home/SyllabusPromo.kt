@@ -33,11 +33,9 @@ class SyllabusPromo : AppCompatActivity() {
         if (isConnectedNetwork(this)){
             //connecter
         }else{
-
             r1.visibility = View.GONE
             txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
-
         }
 
         val recp = findViewById<RecyclerView>(R.id.recycler_promo)

@@ -111,7 +111,7 @@ class ActualiteActivity : AppCompatActivity() {
             dm.enqueue(request)
             Toast.makeText(
                 applicationContext,
-                "Telechargement de l'horaire",  //To notify the Client that the file is being downloaded
+                "Telechargement...",  //To notify the Client that the file is being downloaded
                 Toast.LENGTH_LONG
             ).show()
         }
