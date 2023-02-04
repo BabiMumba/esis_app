@@ -45,7 +45,8 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/diplome.png?alt=media&token=a2a5b3a8-40cb-4bbe-8b27-c5c2f63550ef", "teste 4"))
 
         val imageSlider = viewF.findViewById<ImageSlider>(R.id.image_slider)
-        imageSlider.setItemClickListener(object : ItemClickListener {
+        /*
+         imageSlider.setItemClickListener(object : ItemClickListener {
             override fun onItemSelected(position: Int) {
                 Toast.makeText(requireActivity(), "n $position", Toast.LENGTH_SHORT).show()
             }
@@ -55,6 +56,8 @@ class HomeFragment : Fragment() {
                 // You can listen here.
             }
         })
+         */
+
         imageSlider.setImageList(imageList)
 
         viewF.findViewById<CardView>(R.id.catL1).setOnClickListener {
