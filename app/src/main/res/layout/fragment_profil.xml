@@ -253,7 +253,8 @@
             app:cardCornerRadius="@dimen/_10sdp"
             android:layout_below="@id/r3"
             >
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -282,7 +283,6 @@
 
                 </RelativeLayout>
                 <RelativeLayout
-                    android:layout_below="@id/rr4"
                     android:id="@+id/mdf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -306,8 +306,33 @@
 
 
                 </RelativeLayout>
+                <RelativeLayout
+                    android:id="@+id/rr7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/rr6"
+                    android:padding="@dimen/_10sdp">
 
-            </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Supprimer mon compte"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/ic_more"
+                        app:tint="@color/white" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
         <RelativeLayout
@@ -401,36 +426,10 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rr7"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/rr6"
-                    android:padding="@dimen/_10sdp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="Supprimer mon compte"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_more"
-                        app:tint="@color/white" />
-
-
-                </RelativeLayout>
-
-                <RelativeLayout
                     android:id="@+id/rr8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/rr7"
+                    android:layout_below="@id/rr6"
                     android:padding="@dimen/_10sdp">
 
                     <TextView
