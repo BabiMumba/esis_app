@@ -170,44 +170,6 @@
                         android:layout_marginTop="@dimen/_10sdp">
 
                         <net.colindodd.gradientlayout.GradientRelativeLayout
-                            android:layout_width="192dp"
-                            android:layout_height="93dp"
-                            android:minHeight="100dp"
-                            android:padding="@dimen/_5sdp"
-                            gl:end_color="@color/primary"
-                            gl:start_color="@color/white"
-                            gl:orientation="LEFT_RIGHT">
-
-                            <ImageView
-                                android:layout_width="@dimen/_60sdp"
-                                android:layout_height="@dimen/_60sdp"
-                                android:layout_alignParentEnd="true"
-                                android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/resulta_u" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="serif"
-                                android:text="Resultat"
-                                android:textColor="@color/black"
-                                android:textStyle="bold" />
-
-
-                        </net.colindodd.gradientlayout.GradientRelativeLayout>
-                    </androidx.cardview.widget.CardView>
-                    <androidx.cardview.widget.CardView
-                        android:visibility="gone"
-                        android:id="@+id/syllabus_card"
-                        android:elevation="@dimen/_15sdp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        app:cardCornerRadius="15dp"
-                        app:cardPreventCornerOverlap="true"
-                        android:layout_marginTop="10dp">
-
-                        <net.colindodd.gradientlayout.GradientRelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:minHeight="100dp"
@@ -221,21 +183,22 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/livre_syllabus_u" />
+                                android:src="@drawable/resulta_u" />
 
                             <TextView
-                                android:id="@+id/titre"
+                                android:fontFamily="serif"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
-                                android:fontFamily="serif"
-                                android:text="Telecharger\nSyllabus"
+                                android:text="Resultat"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
 
                         </net.colindodd.gradientlayout.GradientRelativeLayout>
                     </androidx.cardview.widget.CardView>
+
+
 
 
                 </LinearLayout>
