@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.admin.AllusersActivity
 import com.BabiMumba.Esis_app.admin.SaleControleActivity
 import com.BabiMumba.Esis_app.home.AboutDeveloppeur
 import com.BabiMumba.Esis_app.home.FeedBack
@@ -69,6 +70,9 @@ class ProfilFragment : Fragment() {
 
         view.findViewById<RelativeLayout>(R.id.rr9).setOnClickListener {
             startActivity(Intent(requireActivity(), SaleControleActivity::class.java))
+        }
+        view.findViewById<RelativeLayout>(R.id.user_get).setOnClickListener {
+            startActivity(Intent(requireActivity(), AllusersActivity::class.java))
         }
         view.findViewById<RelativeLayout>(R.id.rr7).setOnClickListener {
             val builder = AlertDialog.Builder(requireActivity())
