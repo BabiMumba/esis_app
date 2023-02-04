@@ -245,7 +245,7 @@ class PublishPost : AppCompatActivity() {
     fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
-        val data = poste_users_model(imageurl,id_post,token_id,userId,imposte,msg)
+        val data = poste_users_model(imageurl,id_post,token_id,userId,imposte,msg,"","","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("poste_save")
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
