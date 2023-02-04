@@ -7,6 +7,36 @@
         android:layout_height="match_parent"
         tools:context=".home.SyllabusPromo"
         >
+    <LinearLayout
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:id="@+id/l1"
+        android:gravity="end"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/sort_data"
+            android:padding="@dimen/_8sdp"
+            android:textColor="@color/primary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tout"
+            />
+        <ImageView
+            android:padding="@dimen/_2sdp"
+            android:layout_gravity="bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotationY="180"
+            android:src="@drawable/ic_baseline_sort_24"
+            />
+
+
+
+    </LinearLayout>
 
         <ProgressBar
             android:indeterminate="true"
@@ -16,11 +46,11 @@
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/l1"
             android:id="@+id/recycler_promo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            tools:itemCount="3"
+            android:layout_height="match_parent"
+            tools:itemCount="4"
             tools:listitem="@layout/item_syllabus" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
