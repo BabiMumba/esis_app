@@ -16,7 +16,10 @@ import com.BabiMumba.Esis_app.adapters.syllabus_adapters
 import com.BabiMumba.Esis_app.model.syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_actualite.*
 import kotlinx.android.synthetic.main.activity_syllabus_promo.*
+import kotlinx.android.synthetic.main.activity_syllabus_promo.non_internet
+import kotlinx.android.synthetic.main.activity_syllabus_promo.txvp
 
 class SyllabusPromo : AppCompatActivity() {
 
@@ -30,6 +33,10 @@ class SyllabusPromo : AppCompatActivity() {
         if (isConnectedNetwork(this)){
             //connecter
         }else{
+
+            r1.visibility = View.GONE
+            txvp.visibility = View.VISIBLE
+            non_internet.visibility = View.VISIBLE
 
         }
 
