@@ -345,8 +345,7 @@ class PublicationSyllabus : AppCompatActivity() {
     fun save_syllabus_mprfl(lien:String, nom_livre:String, id_post:String){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
-
-        val data = save_profil_syllabus(lien,nom_livre,id_post)
+        val data = save_profil_syllabus(lien,nom_livre,id_post,"","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("syllabus_poste_save")
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
