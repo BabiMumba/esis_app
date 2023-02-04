@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.home
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -30,6 +31,9 @@ class SyllabusPromo : AppCompatActivity() {
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
         val pm = intent.getStringExtra("promotion").toString()
+        if (pm != "Tous"){
+            l1.visibility = View.GONE
+        }
         val sort = findViewById<TextView>(R.id.sort_data)
 
         val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child(pm)
