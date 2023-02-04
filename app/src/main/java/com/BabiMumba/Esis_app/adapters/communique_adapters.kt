@@ -152,7 +152,7 @@ class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):F
                 .updateChildren(increment)
                 .addOnCompleteListener {
                     if (it.isSuccessful){
-                        Toast.makeText(holder.message.context, "add 1", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(holder.message.context, "add 1", Toast.LENGTH_SHORT).show()
                     }else{
                         Toast.makeText(holder.message.context, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }

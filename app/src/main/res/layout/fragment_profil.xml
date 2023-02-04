@@ -492,7 +492,7 @@
                 android:layout_height="@dimen/_25sdp"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:src="@drawable/ic_info_ic" />
+                android:src="@drawable/phone_ic" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
