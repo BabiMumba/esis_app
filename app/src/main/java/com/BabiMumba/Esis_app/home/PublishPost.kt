@@ -255,9 +255,6 @@ class PublishPost : AppCompatActivity() {
                 }
             }
 
-
-
-
     }
     fun sendnotif() {
         FcmNotificationsSender.pushNotification(
