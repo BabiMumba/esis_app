@@ -55,7 +55,7 @@
 
         />
     <TextView
-        android:id="@+id/pdf_name"
+        android:id="@+id/n_syllabus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_10sdp"
@@ -69,6 +69,23 @@
         android:scrollHorizontally="true"
         android:singleLine="true"
         android:text="nom du livre"
+        android:layout_centerVertical="true"
+        android:textColor="@color/primary_text"
+        android:textSize="@dimen/_12sdp" />
+    <TextView
+        android:layout_below="@id/n_syllabus"
+        android:id="@+id/promot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:layout_toEndOf="@id/image_pdf"
+        android:ellipsize="marquee"
+        android:fontFamily="sans-serif-condensed"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="promotion"
         android:layout_centerVertical="true"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_12sdp" />
