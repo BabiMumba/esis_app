@@ -98,7 +98,8 @@
             android:adjustViewBounds="true"
             android:background="@color/white"
             android:maxHeight="@dimen/_350sdp"
-            android:src="@drawable/banner_principale"
+            android:scaleType="fitXY"
+            android:src="@drawable/mere"
             android:transitionName="poste_trans" />
 
         <View
