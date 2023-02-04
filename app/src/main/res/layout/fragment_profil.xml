@@ -307,30 +307,6 @@
 
                 </RelativeLayout>
                 <RelativeLayout
-                    android:id="@+id/mdf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_10sdp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:text="Modifier mes coordonnées"
-                        android:textColor="@color/white"
-                        android:textStyle="bold" />
-
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_more"
-                        app:tint="@color/white" />
-
-
-                </RelativeLayout>
-                <RelativeLayout
                     android:id="@+id/rr7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -394,7 +370,8 @@
             app:cardCornerRadius="@dimen/_10sdp"
             android:layout_below="@id/r4"
             >
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -505,7 +482,6 @@
                     android:id="@+id/rr10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/rr9"
                     android:padding="@dimen/_10sdp">
 
                     <TextView
@@ -525,7 +501,7 @@
                         app:tint="@color/white" />
                 </RelativeLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
 
         </androidx.cardview.widget.CardView>
 
