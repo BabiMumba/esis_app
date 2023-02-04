@@ -27,11 +27,13 @@ class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus
 
         var download:ImageView
         var name:TextView
+        var pm:TextView
 
 
         init {
             download = itemview.findViewById(R.id.dowload_btn)
             name = itemview.findViewById(R.id.n_syllabus)
+            pm = itemview.findViewById(R.id.promot)
 
         }
 
@@ -44,6 +46,7 @@ class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus
 
     override fun onBindViewHolder(holder: viewholder, position: Int, model: save_profil_syllabus) {
         holder.name.text = model.nom_livre
+        holder.pm.text = model.promotion_
         holder.download.setOnClickListener {
             try {
                 telecharger(holder.download.context,model.nom_livre,model.lien_livre)
