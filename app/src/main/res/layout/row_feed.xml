@@ -98,7 +98,7 @@
             android:adjustViewBounds="true"
             android:background="@color/white"
             android:maxHeight="@dimen/_350sdp"
-            android:scaleType="fitXY"
+            android:scaleType="fitCenter"
             android:src="@drawable/mere"
             android:transitionName="poste_trans" />
 
