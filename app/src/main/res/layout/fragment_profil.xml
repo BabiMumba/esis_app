@@ -342,15 +342,15 @@
             android:layout_width="match_parent"
             android:layout_below="@id/c2"
             android:layout_height="wrap_content">
+
             <ImageView
 
-                android:layout_alignParentStart="true"
                 android:id="@+id/i3"
                 android:layout_width="@dimen/_25sdp"
                 android:layout_height="@dimen/_25sdp"
-                android:src="@drawable/ic_info_ic"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/_5sdp"
-                />
+                android:src="@drawable/ic_info_ic" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -504,6 +504,32 @@
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_15sdp"
+            android:id="@+id/app_abour"
+            android:layout_centerHorizontal="true"
+            android:layout_width="match_parent"
+            android:layout_below="@id/c3"
+            android:layout_height="wrap_content">
+
+            <ImageView
+
+                android:id="@+id/img"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:src="@drawable/ic_info_ic" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/img"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="Application"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
 
 
     </RelativeLayout>
