@@ -59,7 +59,7 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
             .load(model.image_poste)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             //.apply(RequestOptions.overrideOf(300,600))
-            .centerInside()
+            .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(holder.poste_image)
 

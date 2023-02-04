@@ -120,7 +120,7 @@ class PublishPost : AppCompatActivity() {
     fun pick_image() {
         ImagePicker.Companion.with(this)
             .crop() //Crop image(Optional), Check Customization for more option
-            .compress(8024) //Final image size will be less than 8 MB(Optional)
+            .compress(12000) //l'image final sera compresser jusqu'a 12 mega octet
             .maxResultSize(
                 700,
                 700
