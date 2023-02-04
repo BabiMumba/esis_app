@@ -1,6 +1,8 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -24,6 +26,12 @@ class SyllabusPromo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_syllabus_promo)
+
+        if (isConnectedNetwork(this)){
+            //connecter
+        }else{
+
+        }
 
         val recp = findViewById<RecyclerView>(R.id.recycler_promo)
         linearLayoutManager = LinearLayoutManager(this)
@@ -115,6 +123,10 @@ class SyllabusPromo : AppCompatActivity() {
         add_post.setOnClickListener {
             startActivity(Intent(this,PublicationSyllabus::class.java))
         }
+    }
+    fun isConnectedNetwork(context: Context): Boolean {
+        val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
     override fun onStart() {
         recycler_promo.recycledViewPool.clear()

@@ -90,10 +90,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/non_internet"
-        android:text="Pas de connexion Internet"
+        android:text="Verifiez votre connexion internet"
         android:textColor="@color/primary_text"
         android:layout_centerHorizontal="true"
-        android:fontFamily="sans-serif"
+        android:fontFamily="serif"
         />
 
 
