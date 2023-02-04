@@ -25,7 +25,7 @@ class LectureActivity : AppCompatActivity() {
         val pd = ProgressDialog(this)
         pd.setTitle(nom_livre)
         pd.setMessage("Ouverture du livre....!!!")
-        pd.setCancelable(false)
+        pd.setCancelable(true)
         pd.show()
         webView.settings.builtInZoomControls = true;
         webView.settings.setSupportZoom(true);

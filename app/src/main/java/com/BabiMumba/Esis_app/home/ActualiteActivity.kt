@@ -69,7 +69,7 @@ class ActualiteActivity : AppCompatActivity() {
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
-        progressBar.setCancelable(false)
+        progressBar.setCancelable(true)
         progressBar.show()
 
         web_eventmtn.settings.javaScriptEnabled = true
@@ -115,7 +115,6 @@ class ActualiteActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
         }
-
 
     }
     override fun onBackPressed() {

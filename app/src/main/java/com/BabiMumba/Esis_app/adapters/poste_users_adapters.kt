@@ -106,6 +106,6 @@ class poste_users_adapters (options:FirebaseRecyclerOptions<poste_users_model>):
         )
         val dm = context.getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
-        Toast.makeText(context, "Telechargement Encours", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "Telechargement...", Toast.LENGTH_SHORT).show()
     }
 }
