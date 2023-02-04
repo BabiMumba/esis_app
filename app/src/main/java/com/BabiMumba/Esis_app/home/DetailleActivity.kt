@@ -270,8 +270,6 @@ class DetailleActivity : AppCompatActivity() {
         hashMap["date"] = strDate.toString()
         hashMap["profil"] = photo_profil
 
-
-
         if (pm != "L1" && pm != "L2") {
             pm = "Tous"
         }
