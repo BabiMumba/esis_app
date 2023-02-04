@@ -20,6 +20,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.commentaire_adapters
 import com.BabiMumba.Esis_app.model.commentaire_model
+import com.BabiMumba.Esis_app.model.commentaire_poste_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -264,18 +265,24 @@ class DetailleActivity : AppCompatActivity() {
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("cle")
         var pm = intent.getStringExtra("promo")
+        val msg = InputComment.text.toString()
+        /*
         val hashMap = HashMap<String, Any>()
         hashMap["commentaire"] = InputComment.text.toString()
         hashMap["nom"] = mon_nom
         hashMap["date"] = strDate.toString()
         hashMap["profil"] = photo_profil
 
+         */
+
+        val donnee = commentaire_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
+
         if (pm != "L1" && pm != "L2") {
             pm = "Tous"
         }
         val ref = FirebaseDatabase.getInstance().getReference("syllabus")
         ref.child(pm.toString()).child(cle.toString()).child("comment_syl").child(ref.push().key!!)
-            .setValue(hashMap)
+            .setValue(donnee)
             .addOnSuccessListener {
                 InputComment.setText("")
                 add_comment()
