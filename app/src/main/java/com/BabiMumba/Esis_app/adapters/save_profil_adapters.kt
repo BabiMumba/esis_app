@@ -28,8 +28,6 @@ class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus
         var download:ImageView
         var name:TextView
         var pm:TextView
-
-
         init {
             download = itemview.findViewById(R.id.dowload_btn)
             name = itemview.findViewById(R.id.n_syllabus)
