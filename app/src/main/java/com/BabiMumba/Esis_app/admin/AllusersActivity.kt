@@ -8,6 +8,7 @@ import com.BabiMumba.Esis_app.admin.adpters.useradptr
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.gms.ads.rewardedinterstitial.RewardedInterstitialAd
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.Query
 import com.google.firebase.firestore.FirebaseFirestore
@@ -19,6 +20,11 @@ class AllusersActivity : AppCompatActivity() {
     private var layoutManager:LinearLayoutManager?= null
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var adaps: useradptr
+
+    private companion object{
+        private const val TAG = "REWARDED_INTER_TAG"
+    }
+    private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

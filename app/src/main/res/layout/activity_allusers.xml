@@ -15,5 +15,18 @@
         android:layout_alignParentTop="true"
         tools:itemCount="8"
         tools:listitem="@layout/users_rod" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/salu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:maxHeight="@dimen/_80sdp"
+        app:lottie_autoPlay="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        app:lottie_enableMergePathsForKitKatAndAbove="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/tresor" />
 
 </RelativeLayout>
