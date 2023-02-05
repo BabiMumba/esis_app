@@ -285,7 +285,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun choixpromo() {
         val checkedItem = intArrayOf(-1)
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setIcon(R.drawable.sexe)
+        alertDialog.setIcon(R.drawable.developement_ic)
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
             "L1",
@@ -320,10 +320,10 @@ class RegisterActivity : AppCompatActivity() {
     private fun choigenre(){
         val checkedItem = intArrayOf(-1)
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setIcon(R.drawable.developement_ic)
+        alertDialog.setIcon(R.drawable.sexe)
         alertDialog.setTitle("genre")
         val listgenre = arrayOf(
-            "Homme","Femme"
+            "Masculin","Feminin"
         )
         alertDialog.setSingleChoiceItems(listgenre,checkedItem[0]){
             alertDialog, which ->
