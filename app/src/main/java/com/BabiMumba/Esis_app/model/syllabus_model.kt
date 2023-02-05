@@ -17,6 +17,11 @@ class syllabus_model{
     var like =0
     var download= 0
     var comment =0
+    lateinit var id_reserve1:String
+    lateinit var id_reserve2:String
+    lateinit var id_reserve3:String
+    lateinit var id_reserve4:String
+
 
     constructor(){}
     constructor(
@@ -35,7 +40,11 @@ class syllabus_model{
         lien_profil:String,
         like: Int,
         download: Int,
-        comment: Int
+        comment: Int,
+        id_reserve1: String,
+        id_reserve2: String,
+        id_reserve3: String,
+        id_reserve4: String,
     ) {
         this.nom_syllabu = nom_syllabu
         this.pochette = pochette
