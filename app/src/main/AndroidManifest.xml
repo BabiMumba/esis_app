@@ -104,15 +104,16 @@
             android:name=".Authentification.RegisterActivity"
             android:exported="false" />
         <activity
+            android:screenOrientation="portrait"
             android:name=".home.MainActivity"
             android:exported="false" />
         <activity
             android:name=".home.SplashScreen"
             android:exported="true"
-            android:screenOrientation="fullSensor">
+            android:screenOrientation="fullSensor"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
