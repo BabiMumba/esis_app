@@ -62,6 +62,10 @@ class syllabus_model{
         this.comment = comment
         this.nom_user = nom_user
         this.date_heure = date_heure
+        this.id_reserve1 = id_reserve1
+        this.id_reserve2 = id_reserve2
+        this.id_reserve3 = id_reserve3
+        this.id_reserve4 = id_reserve4
     }
 
 }
