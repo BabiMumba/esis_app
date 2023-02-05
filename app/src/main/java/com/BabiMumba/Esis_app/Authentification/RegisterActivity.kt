@@ -285,7 +285,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun choixpromo() {
         val checkedItem = intArrayOf(-1)
         val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setIcon(R.drawable.developement_ic)
+        alertDialog.setIcon(R.drawable.sexe)
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
             "L1",
