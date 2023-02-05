@@ -154,7 +154,6 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["id_reserve2"] = ""
         infor_user["id_reserve3"] = ""
         infor_user["id_reserve4"] = ""
-
         database.collection("Utilisateurs")
             .document(inputMail)
             .set(infor_user)
