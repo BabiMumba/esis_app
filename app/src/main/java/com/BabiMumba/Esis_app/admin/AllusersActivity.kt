@@ -129,6 +129,7 @@ class AllusersActivity : AppCompatActivity() {
                 }
             mRewardedInterstitialAd!!.show(this){
               //  ajouter()
+                tresor.visibility = View.GONE
                 Toast.makeText(this, "recompence accorder", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,"onUserEarnedrewarded: ")
             }
