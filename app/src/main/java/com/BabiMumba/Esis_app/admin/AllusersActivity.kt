@@ -62,7 +62,7 @@ class AllusersActivity : AppCompatActivity() {
 
         RewardedInterstitialAd.load(
             this,
-            resources.getString(com.google.android.gms.ads.R.string.rewarded_ad_reel),
+            resources.getString(R.string.rewarded_ad_reel),
             //AdRequest adRequest = new AdRequest.Builder().addTestDevice("94DF0193F80DB5F14BFF0EA958D02BC9").build();
             AdRequest.Builder().build(),
 
@@ -76,7 +76,7 @@ class AllusersActivity : AppCompatActivity() {
                 override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
                     super.onAdLoaded(rewardedInterstitialAd)
                     Log.d(TAG,"OnLoaded")
-                    Toast.makeText(this@RewardiActivity, "video pret", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@AllusersActivity, "video pret", Toast.LENGTH_SHORT).show()
                     mRewardedInterstitialAd = rewardedInterstitialAd
                 }
             }
