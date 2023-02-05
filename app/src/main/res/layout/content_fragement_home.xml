@@ -313,7 +313,7 @@
                         app:iss_auto_cycle="true"
                         app:iss_delay="0"
                         app:iss_error_image="@drawable/banner_principale"
-                        app:iss_period="1500"
+                        app:iss_period="3000"
                         app:iss_selected_dot="@drawable/default_selected_dot"
                         app:iss_unselected_dot="@drawable/default_unselected_dot" />
                 </RelativeLayout>

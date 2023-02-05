@@ -41,7 +41,7 @@ class HomeFragment : Fragment() {
          */
         //new image upluade for firebase database
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/idee.png?alt=media&token=7cdc2d1d-45c5-464a-8413-c0523835ed45", ""))
-        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/affich_1.png?alt=media&token=2e477ae3-c4fc-4377-87d7-a8935ce3e6b4", "Esis"))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/affich_1.png?alt=media&token=2e477ae3-c4fc-4377-87d7-a8935ce3e6b4", ""))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/gerer%20syllabus.png?alt=media&token=525fd196-63c3-4379-bb82-d9fd4eb8ca4a", "Gestion des syllabus"))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/resultat_affiche.png?alt=media&token=f5f6c8df-d22a-4e7e-bd8a-0617a6a74cf2", "Sauvegarder vos resultat en pdf"))
 
