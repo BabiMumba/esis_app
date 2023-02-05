@@ -86,9 +86,9 @@
                         android:id="@+id/nb_vue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="10"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
@@ -118,7 +118,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="3"
+                        android:text=""
                         android:textColor="@color/black"
                         android:textSize="13sp" />
 
