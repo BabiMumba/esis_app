@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.admin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.BabiMumba.Esis_app.R
@@ -42,6 +43,10 @@ class AllusersActivity : AppCompatActivity() {
                 .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","1bda7af6-ef75-48d9-a0d7-2ea9121c42e6"))
                 .build()
         )
+        loadrewardedInters()
+        tresor.setOnClickListener {
+            showRewardedInters()
+        }
         firebaseAuth = FirebaseAuth.getInstance()
        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager
@@ -59,7 +64,6 @@ class AllusersActivity : AppCompatActivity() {
         }
 
     private fun loadrewardedInters() {
-
         RewardedInterstitialAd.load(
             this,
             resources.getString(R.string.rewarded_ad_reel),
@@ -76,6 +80,7 @@ class AllusersActivity : AppCompatActivity() {
                 override fun onAdLoaded(rewardedInterstitialAd: RewardedInterstitialAd) {
                     super.onAdLoaded(rewardedInterstitialAd)
                     Log.d(TAG,"OnLoaded")
+                    tresor.visibility = View.VISIBLE
                     Toast.makeText(this@AllusersActivity, "video pret", Toast.LENGTH_SHORT).show()
                     mRewardedInterstitialAd = rewardedInterstitialAd
                 }
