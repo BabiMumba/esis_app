@@ -32,6 +32,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <RelativeLayout
                     android:id="@+id/detaille_syllabus"
                     android:layout_width="match_parent"
@@ -168,6 +169,7 @@
                     android:layout_height="wrap_content"
                     ads:adSize="SMART_BANNER"
                     ads:adUnitId="@string/banner_id_teste" />
+
             </RelativeLayout>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
