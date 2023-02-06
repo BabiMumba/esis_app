@@ -3,6 +3,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
@@ -20,41 +21,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="@color/primary"
+            app:contentScrim="@color/white"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
             >
-
             <RelativeLayout
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:id="@+id/vv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:background="@drawable/backround_view_user_profil">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imgView_proPic"
-                    android:layout_width="@dimen/_80sdp"
-                    android:layout_height="@dimen/_80sdp"
-                    android:layout_centerInParent="true"
+                android:layout_height="match_parent">
+                <RelativeLayout
                     android:layout_marginBottom="@dimen/_10sdp"
-                    app:civ_border_color="@color/primary_dark"
-                    app:civ_border_width="2dp" />
-
-                <TextView
-                    android:id="@+id/myname"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/vv"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/imgView_proPic"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:textColor="@color/primary_text"
-                    android:textStyle="bold" />
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/backround_view_user_profil">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgView_proPic"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="@dimen/_80sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        app:civ_border_color="@color/primary_dark"
+                        app:civ_border_width="2dp" />
+
+                    <TextView
+                        android:id="@+id/myname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/imgView_proPic"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:textColor="@color/primary_text"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+                <com.google.android.gms.ads.AdView
+                    android:layout_below="@id/vv"
+                    android:id="@+id/bannerAd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    ads:adSize="SMART_BANNER"
+                    ads:adUnitId="@string/banner_id_teste" />
+
 
             </RelativeLayout>
+
+
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 

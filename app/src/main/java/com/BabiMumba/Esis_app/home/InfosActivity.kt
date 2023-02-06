@@ -14,6 +14,7 @@ import com.BabiMumba.Esis_app.adapters.poste_users_adapters
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.google.android.gms.ads.AdView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,9 +28,16 @@ class InfosActivity : AppCompatActivity() {
     private var mLayoutManager: LinearLayoutManager? = null
     private lateinit var firebaseAuth: FirebaseAuth
 
+    private companion object{
+        private const val TAG = "BANNER_AD_TAG"
+    }
+    private var adview: AdView? = null
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos)
+
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
         read_name()
