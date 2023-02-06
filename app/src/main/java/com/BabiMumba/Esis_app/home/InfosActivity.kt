@@ -33,7 +33,6 @@ class InfosActivity : AppCompatActivity() {
     }
     private var adview: AdView? = null
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos)
@@ -81,7 +80,6 @@ class InfosActivity : AppCompatActivity() {
                 Log.d(TAG, "onAdOpened: ")
             }
         }
-
 
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
