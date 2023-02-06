@@ -245,6 +245,7 @@
                 android:background="@color/gris"
                 android:layout_below="@id/l5"
                 />
+
             <RelativeLayout
                 android:id="@+id/l6"
                 android:layout_width="match_parent"
@@ -261,7 +262,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:text="Mail:"
+                    android:text="Matricule:"
                     android:textColor="@color/primary_text"
                     android:textStyle="bold" />
 

@@ -20,8 +20,8 @@
         android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="@dimen/_100sdp"
-        android:layout_height="@dimen/_100sdp"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_60sdp"
         android:maxHeight="@dimen/_80sdp"
         app:lottie_autoPlay="true"
         android:layout_marginEnd="@dimen/_5sdp"
@@ -29,6 +29,6 @@
         android:layout_alignParentEnd="true"
         app:lottie_enableMergePathsForKitKatAndAbove="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/tresor" />
+        app:lottie_rawRes="@raw/box" />
 
 </RelativeLayout>

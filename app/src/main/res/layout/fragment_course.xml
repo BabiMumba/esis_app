@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -63,6 +64,7 @@
                             android:layout_below="@id/txt"
                             android:layout_alignParentEnd="true"
                             android:src="@drawable/book_img" />
+
                         <ImageView
                             android:id="@+id/cd"
                             android:layout_width="@dimen/_40sdp"
@@ -72,14 +74,15 @@
                             android:src="@drawable/programming" />
 
                         <ImageView
-                            android:layout_marginStart="@dimen/_10sdp"
                             android:id="@+id/code"
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="@dimen/_50sdp"
                             android:layout_below="@id/bk"
                             android:layout_alignParentEnd="true"
+                            android:layout_marginStart="@dimen/_10sdp"
                             android:src="@drawable/code_esis"
                             app:tint="@color/white" />
+
                         <ImageView
                             android:layout_width="@dimen/_100sdp"
                             android:layout_height="@dimen/_100sdp"
@@ -99,11 +102,18 @@
                             android:layout_width="@dimen/_50sdp"
                             android:layout_height="@dimen/_50sdp"
                             android:layout_below="@id/pc"
-                            android:layout_toStartOf="@id/code"
                             android:layout_marginEnd="@dimen/_10sdp"
+                            android:layout_toStartOf="@id/code"
                             android:src="@drawable/illustration" />
 
                     </RelativeLayout>
+                    <com.google.android.gms.ads.AdView
+                        android:id="@+id/bannerAd"
+                        android:layout_below="@id/r1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        ads:adSize="SMART_BANNER"
+                        ads:adUnitId="@string/banner_id_teste" />
 
                 </RelativeLayout>
 
