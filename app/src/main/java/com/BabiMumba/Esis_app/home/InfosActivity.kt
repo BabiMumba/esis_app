@@ -14,7 +14,7 @@ import com.BabiMumba.Esis_app.adapters.poste_users_adapters
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.android.gms.ads.AdView
+import com.google.android.gms.ads.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,6 +37,51 @@ class InfosActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos)
+
+
+        MobileAds.initialize(this){
+            Log.d(TAG,"initialisation complet")
+        }
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("f01a4b37-2568-4128-9894-6d6453fd67bb"))
+                .build()
+        )
+        adview = findViewById(R.id.bannerAd)
+        val adRequest = AdRequest.Builder().build()
+        adview?.loadAd(adRequest)
+        adview?.adListener = object : AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+                Log.d(TAG, "onAdClicked: ")
+            }
+
+            override fun onAdClosed() {
+                super.onAdClosed()
+                Log.d(TAG, "onAdClosed: ")
+            }
+
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                super.onAdFailedToLoad(p0)
+                Log.d(TAG, "onAdFailedToLoad: $p0")
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Log.d(TAG, "onAdImpression: ")
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Log.d(TAG, "onAdLoaded: ")
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+                Log.d(TAG, "onAdOpened: ")
+            }
+        }
+
 
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
