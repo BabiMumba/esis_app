@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.DocumentActivity2
-import com.BabiMumba.Esis_app.home.LectureActivity_Pdf
 import com.BabiMumba.Esis_app.pdf.Pdf_listener_file
 import com.BabiMumba.Esis_app.pdf.pdfAdapter2
 import com.google.android.gms.ads.*
@@ -158,5 +157,19 @@ class CourseFragment : Fragment(), Pdf_listener_file {
                 .putExtra("path", file.absolutePath)
         )
     }
+
+    override fun onPause() {
+        adview?.pause()
+        super.onPause()
+        Log.d(TAG, "onPause: ")
+
+    }
+    override fun onResume() {
+        adview?.resume()
+        super.onResume()
+        Log.d(TAG, "onResume: ")
+    }
+
+
 
 }
