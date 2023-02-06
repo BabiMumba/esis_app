@@ -13,12 +13,12 @@
         android:id="@+id/bannerAd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         ads:adSize="SMART_BANNER"
         ads:adUnitId="@string/banner_id_teste" />
 
     <com.github.barteksc.pdfviewer.PDFView
-        android:layout_below="@id/bannerAd"
+        android:layout_above="@id/bannerAd"
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
