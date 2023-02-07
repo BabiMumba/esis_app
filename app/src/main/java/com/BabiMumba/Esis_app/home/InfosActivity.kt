@@ -38,6 +38,7 @@ class InfosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_infos)
 
 
+        /// initialisation d'admob
         MobileAds.initialize(this){
             Log.d(TAG,"initialisation complet")
         }

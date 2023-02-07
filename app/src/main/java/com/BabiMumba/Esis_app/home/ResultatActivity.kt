@@ -29,9 +29,8 @@ class ResultatActivity : AppCompatActivity() {
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
-        progressBar.setCancelable(false)
+        progressBar.setCancelable(true)
         progressBar.show()
-
         fab.setOnClickListener {
             createWebPrintJob(webView)
         }
