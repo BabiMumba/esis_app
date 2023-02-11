@@ -81,9 +81,12 @@ class GoogleCountActivity : AppCompatActivity() {
                     admail = account.email.toString()
                     pname = account.familyName.toString()
 
+                    val firstChar: Char = adm.get(0)
+                    val secondChar: Char = adm.get(1)
+                    val nume = "$firstChar$secondChar"
 
-                    if (isNumber(adm)||adm.contains("@esisalama.org")){
-
+                    if (isNumber(nume)||adm.contains("@esisalama.org")){
+                        Toast.makeText(this, "vous etes un etudiant", Toast.LENGTH_SHORT).show()
                         //firebaseAuthWithGoogle(account.idToken!!)
                     }else{
                         googleSignInClient.signOut()
