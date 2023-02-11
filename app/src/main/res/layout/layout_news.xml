@@ -11,12 +11,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
+            android:id="@+id/img_news"
             android:layout_alignParentStart="false"
             android:layout_width="@dimen/_100sdp"
             android:layout_height="@dimen/_100sdp"
             android:src="@drawable/stone_profil"
             android:scaleType="fitXY"
             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:id="@+id/titre_news"
+            android:layout_toEndOf="@id/img_news"
+            android:text="bonjour la faculter vous remercie de votre soutien de la part de la comptabilite"
+            android:ellipsize="end"
+            android:maxLines="2"
+            />
+
 
     </RelativeLayout>
 
