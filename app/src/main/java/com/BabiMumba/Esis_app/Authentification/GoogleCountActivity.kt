@@ -44,6 +44,8 @@ class GoogleCountActivity : AppCompatActivity() {
         progressDialog.setCancelable(false)
         progressDialog.setIcon(R.drawable.icone)
 
+
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
             .requestEmail()
@@ -61,6 +63,10 @@ class GoogleCountActivity : AppCompatActivity() {
         val signiIntent = googleSignInClient.signInIntent
         startActivityForResult(signiIntent, 120)
     }
+    fun isNumber(s: String?): Boolean {
+        return !s.isNullOrEmpty() && s.matches(Regex("\\d+"))
+
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 120){
@@ -75,8 +81,10 @@ class GoogleCountActivity : AppCompatActivity() {
                     admail = account.email.toString()
                     pname = account.familyName.toString()
 
-                    if (adm.contains("esisalama.org")){
-                        firebaseAuthWithGoogle(account.idToken!!)
+
+                    if (isNumber(adm)||adm.contains("esisalama.org")){
+
+                        //firebaseAuthWithGoogle(account.idToken!!)
                     }else{
                         googleSignInClient.signOut()
                         Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
