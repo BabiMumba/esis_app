@@ -8,7 +8,8 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:id="@+id/coodid"
-    android:background="@color/white">
+    android:background="@color/white"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar"
