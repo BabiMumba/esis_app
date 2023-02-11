@@ -15,6 +15,11 @@
         android:icon="@drawable/ic_baseline_groups_24"
         android:title="Forum" />
     <item
+        android:id="@+id/commq"
+        android:icon="@drawable/ic_baseline_message_24"
+        android:title="Communique" />
+
+    <item
         android:id="@+id/menu"
         android:icon="@drawable/ic_user"
         android:title="Profil" />

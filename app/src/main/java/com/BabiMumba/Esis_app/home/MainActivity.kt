@@ -17,10 +17,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
-import com.BabiMumba.Esis_app.fragment.CourseFragment
-import com.BabiMumba.Esis_app.fragment.ForumFragment
-import com.BabiMumba.Esis_app.fragment.HomeFragment
-import com.BabiMumba.Esis_app.fragment.ProfilFragment
+import com.BabiMumba.Esis_app.fragment.*
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
@@ -72,6 +69,9 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu -> {
                     loadFragmant(ProfilFragment())
+                }
+                R.id.commq -> {
+                    loadFragmant(CommuniqueFragment())
                 }
                 R.id.course -> {
                     loadFragmant(CourseFragment())
