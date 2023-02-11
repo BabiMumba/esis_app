@@ -3,11 +3,20 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="@dimen/_15sdp"
+
     app:cardCornerRadius="@dimen/_5sdp"
     >
     <RelativeLayout
+        android:padding="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentStart="false"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/stone_profil"
+            android:scaleType="fitXY"
+            />
 
     </RelativeLayout>
 
