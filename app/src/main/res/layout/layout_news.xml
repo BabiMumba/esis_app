@@ -1,0 +1,57 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="40dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/newsThumbnailImageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/stone_profil"/>
+
+    <TextView
+        android:id="@+id/newsTitleTextView"
+        android:layout_width="wrap_content"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/newsThumbnailImageView"
+        android:textSize="15sp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="Back to beige: decoding this \nseason’s most unlikely, of the "/>
+
+    <TextView
+        android:id="@+id/newsDetailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/primary_text"
+        android:layout_toRightOf="@id/newsThumbnailImageView"
+        android:layout_below="@id/newsTitleTextView"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:text="As far as trends go, you’d be forgiven \nfor assuming that beige equals boring. "/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12/12/2023"
+        android:layout_alignParentBottom="true"
+        android:textColor="#8E909A"
+        android:textSize="11sp"
+        android:layout_marginStart="5dp"
+        android:layout_toEndOf="@id/newsThumbnailImageView"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="Voir plus>"
+        android:textColor="#019AE8"
+        android:textSize="11sp"
+        android:textStyle="bold" />
+</RelativeLayout>
