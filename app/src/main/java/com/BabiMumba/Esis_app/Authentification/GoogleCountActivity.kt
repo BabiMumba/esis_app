@@ -85,9 +85,12 @@ class GoogleCountActivity : AppCompatActivity() {
                     val secondChar: Char = adm.get(1)
                     val nume = "$firstChar$secondChar"
 
-                    if (isNumber(nume)||adm.contains("@esisalama.org")){
-
-                        Toast.makeText(this, "vous etes un etudiant", Toast.LENGTH_SHORT).show()
+                    if (adm.contains("@esisalama.org")){
+                        if (isNumber(nume)){
+                            Toast.makeText(this, "vous etes un etudiant", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this, "vous etes un prof", Toast.LENGTH_SHORT).show()
+                        }
                         Toast.makeText(this, "$nume", Toast.LENGTH_SHORT).show()
                         googleSignInClient.signOut()
 
