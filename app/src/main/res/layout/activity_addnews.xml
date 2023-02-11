@@ -25,6 +25,17 @@
         android:hint="votre message ici"
         android:background="@drawable/background_input_new"
         />
+    <Button
+        android:id="@+id/send_commq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_news"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="Envoyer"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        />
+
 
 
 
