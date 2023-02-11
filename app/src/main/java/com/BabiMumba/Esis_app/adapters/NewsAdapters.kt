@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.adapters
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -29,6 +30,8 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapters.viewholder {
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_news,parent,false)
+        return viewholder(v)
 
     }
 
