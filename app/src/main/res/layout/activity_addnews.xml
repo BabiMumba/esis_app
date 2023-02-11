@@ -8,7 +8,7 @@
     android:padding="@dimen/_20sdp"
     tools:context=".home.AddnewsActivity">
     <EditText
-        android:hint="titre"
+        android:hint="Titre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title_news"
@@ -35,8 +35,4 @@
         android:textAllCaps="false"
         android:layout_centerHorizontal="true"
         />
-
-
-
-
 </RelativeLayout>
