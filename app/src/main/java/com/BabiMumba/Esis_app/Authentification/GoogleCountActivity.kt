@@ -82,7 +82,7 @@ class GoogleCountActivity : AppCompatActivity() {
                     pname = account.familyName.toString()
 
 
-                    if (isNumber(adm)||adm.contains("esisalama.org")){
+                    if (isNumber(adm)||adm.contains("@esisalama.org")){
 
                         //firebaseAuthWithGoogle(account.idToken!!)
                     }else{
