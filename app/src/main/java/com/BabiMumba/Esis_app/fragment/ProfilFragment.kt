@@ -19,10 +19,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.AllusersActivity
 import com.BabiMumba.Esis_app.admin.SaleControleActivity
-import com.BabiMumba.Esis_app.home.AboutDeveloppeur
-import com.BabiMumba.Esis_app.home.FeedBack
-import com.BabiMumba.Esis_app.home.InfosActivity
-import com.BabiMumba.Esis_app.home.ThankActivity
+import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
@@ -100,7 +97,7 @@ class ProfilFragment : Fragment() {
 
         }
         view.findViewById<RelativeLayout>(R.id.rr10).setOnClickListener {
-            startActivity(Intent(requireActivity(), ThankActivity::class.java))
+            startActivity(Intent(requireActivity(), AddnewsActivity::class.java))
 
         }
 
