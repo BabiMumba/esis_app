@@ -8,19 +8,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.PublishPost
 import com.BabiMumba.Esis_app.model.commnunique_model
-import com.BabiMumba.Esis_app.adapters.communique_adapters
+import com.BabiMumba.Esis_app.adapters.post_adapters
 import com.airbnb.lottie.LottieAnimationView
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.fragment_forum.*
@@ -28,7 +25,7 @@ import kotlinx.android.synthetic.main.fragment_forum.*
 
 class ForumFragment : Fragment() {
 
-    lateinit var communiqueAdapters: communique_adapters
+    lateinit var communiqueAdapters: post_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreateView(
@@ -72,7 +69,7 @@ class ForumFragment : Fragment() {
                 commnunique_model::class.java
             )
             .build()
-        communiqueAdapters = communique_adapters(options)
+        communiqueAdapters = post_adapters(options)
         recyclerv.adapter = communiqueAdapters
         communiqueAdapters.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         communiqueAdapters.startListening()

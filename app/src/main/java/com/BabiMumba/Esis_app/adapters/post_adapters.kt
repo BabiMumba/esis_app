@@ -28,7 +28,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.HashMap
 
-class communique_adapters (options:FirebaseRecyclerOptions<commnunique_model>):FirebaseRecyclerAdapter<commnunique_model, communique_adapters.viewholder>(options){
+class post_adapters (options:FirebaseRecyclerOptions<commnunique_model>):FirebaseRecyclerAdapter<commnunique_model, post_adapters.viewholder>(options){
 
     var progressBar: ProgressBar? = null
     var likereference: DatabaseReference? = null
