@@ -6,8 +6,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.model.news_model
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import de.hdodenhof.circleimageview.CircleImageView
@@ -36,6 +39,23 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
     }
 
     override fun onBindViewHolder(holder: NewsAdapters.viewholder, position: Int, model: news_model) {
+        holder.titre.text = model.titre
+        holder.message.text = model.message
+        holder.date.text = model.date
+
+        val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+        Glide
+            .with(holder.itemView.context)
+            .load(model.image)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
+            //.apply(RequestOptions.overrideOf(300,600))
+            .centerInside()
+            .placeholder(circularProgressDrawable)
+            .into(holder.image)
+
 
     }
 
