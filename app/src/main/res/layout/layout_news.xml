@@ -1,9 +1,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_120sdp"
+    android:layout_height="@dimen/_110sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="@dimen/_15sdp"
-
+    android:layout_margin="@dimen/_5sdp"
     app:cardCornerRadius="@dimen/_5sdp"
     >
     <RelativeLayout
@@ -14,7 +14,7 @@
             android:layout_marginStart="@dimen/_3sdp"
             android:id="@+id/img_news"
             android:layout_alignParentStart="false"
-            android:layout_width="@dimen/_100sdp"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
             android:src="@drawable/stone_profil"
             android:scaleType="fitXY"
@@ -31,19 +31,19 @@
             android:ellipsize="end"
             android:maxLines="2"
             />
+
         <TextView
-            android:layout_marginStart="@dimen/_3sdp"
             android:id="@+id/message_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="de puis la dernier fois nous somme plus comme avant apres quelque 10"
             android:layout_below="@id/titre_news"
-            android:layout_toEndOf="@id/img_news"
+            android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:textColor="@color/primary_text"
-            android:maxLines="3"
+            android:layout_toEndOf="@id/img_news"
             android:ellipsize="end"
-            />
+            android:maxLines="4"
+            android:text="@string/txt_lorem2"
+            android:textColor="@color/primary_text" />
         <RelativeLayout
             android:layout_toEndOf="@id/img_news"
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lire la suite"
+                android:text="Lire la suite ->"
                 android:textColor="@color/primary"
                 android:textStyle="italic"
                 android:textSize="@dimen/_7sdp"
