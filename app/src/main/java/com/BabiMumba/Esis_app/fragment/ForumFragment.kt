@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.PublishPost
-import com.BabiMumba.Esis_app.model.commnunique_model
+import com.BabiMumba.Esis_app.model.post_model
 import com.BabiMumba.Esis_app.adapters.post_adapters
 import com.airbnb.lottie.LottieAnimationView
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -63,10 +63,10 @@ class ForumFragment : Fragment() {
         linearLayoutManager.stackFromEnd = true
 
         recyclerv.layoutManager = linearLayoutManager
-        val options = FirebaseRecyclerOptions.Builder<commnunique_model>()
+        val options = FirebaseRecyclerOptions.Builder<post_model>()
             .setQuery(
                 FirebaseDatabase.getInstance().reference.child("forum_discussion"),
-                commnunique_model::class.java
+                post_model::class.java
             )
             .build()
         communiqueAdapters = post_adapters(options)

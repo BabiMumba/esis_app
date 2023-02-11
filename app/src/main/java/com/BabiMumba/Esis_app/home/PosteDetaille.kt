@@ -15,7 +15,6 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.widget.AppCompatButton
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -23,7 +22,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.commentaire_poste_adapters
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.commentaire_poste_model
-import com.BabiMumba.Esis_app.model.commnunique_model
+import com.BabiMumba.Esis_app.model.post_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -377,7 +376,7 @@ class PosteDetaille : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("forum_discussion").child(cle.toString())
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val donne: commnunique_model? = dataSnapshot.getValue(commnunique_model::class.java)
+                val donne: post_model? = dataSnapshot.getValue(post_model::class.java)
                 nb_comment.text = donne?.commentaire.toString()
                 nb_vue.text = donne?.vue.toString()
 

@@ -15,7 +15,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.home.InfosActivity
 import com.BabiMumba.Esis_app.home.PosteDetaille
-import com.BabiMumba.Esis_app.model.commnunique_model
+import com.BabiMumba.Esis_app.model.post_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -28,7 +28,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
 import java.util.HashMap
 
-class post_adapters (options:FirebaseRecyclerOptions<commnunique_model>):FirebaseRecyclerAdapter<commnunique_model, post_adapters.viewholder>(options){
+class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecyclerAdapter<post_model, post_adapters.viewholder>(options){
 
     var progressBar: ProgressBar? = null
     var likereference: DatabaseReference? = null
@@ -93,7 +93,7 @@ class post_adapters (options:FirebaseRecyclerOptions<commnunique_model>):Firebas
         return viewholder(v)
     }
 
-    override fun onBindViewHolder(holder: viewholder, position: Int, model: commnunique_model) {
+    override fun onBindViewHolder(holder: viewholder, position: Int, model: post_model) {
 
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)

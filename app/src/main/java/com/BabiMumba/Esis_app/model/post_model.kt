@@ -1,6 +1,6 @@
 package com.BabiMumba.Esis_app.model
 
-class commnunique_model {
+class post_model {
 
     lateinit var nom:String
     lateinit var ad_mail:String
