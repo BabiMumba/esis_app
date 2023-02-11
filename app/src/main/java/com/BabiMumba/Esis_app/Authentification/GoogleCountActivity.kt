@@ -87,11 +87,10 @@ class GoogleCountActivity : AppCompatActivity() {
 
                     if (adm.contains("@esisalama.org")){
                         if (isNumber(nume)){
-                            Toast.makeText(this, "vous etes un etudiant", Toast.LENGTH_SHORT).show()
+                            firebaseAuthWithGoogle(account.idToken!!)
                         }else{
-                            Toast.makeText(this, "vous etes un prof", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "vous etes un professeur", Toast.LENGTH_SHORT).show()
                         }
-                        Toast.makeText(this, "$nume", Toast.LENGTH_SHORT).show()
                         googleSignInClient.signOut()
 
                         //firebaseAuthWithGoogle(account.idToken!!)

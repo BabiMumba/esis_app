@@ -37,9 +37,9 @@ class SplashScreen : AppCompatActivity() {
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
                   chek_users()
-                },3000)
+                },2000)
 
-        },2000)
+        },1000)
 
     }
     fun chek_users(){
