@@ -86,11 +86,15 @@ class GoogleCountActivity : AppCompatActivity() {
                     val nume = "$firstChar$secondChar"
 
                     if (isNumber(nume)||adm.contains("@esisalama.org")){
+
                         Toast.makeText(this, "vous etes un etudiant", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "$nume", Toast.LENGTH_SHORT).show()
+                        googleSignInClient.signOut()
+
                         //firebaseAuthWithGoogle(account.idToken!!)
                     }else{
                         googleSignInClient.signOut()
-                        Toast.makeText(this, "selectionnez un compte d'esis", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "vous n'etes pas un etudiant", Toast.LENGTH_SHORT).show()
                     }
 
                 }catch (e:Exception){
