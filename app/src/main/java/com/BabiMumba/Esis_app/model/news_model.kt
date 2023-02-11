@@ -1,27 +1,21 @@
 package com.BabiMumba.Esis_app.model
 
 class news_model {
-    lateinit var nom:String
-    lateinit var administrateur:String
-    lateinit var mail:String
-    lateinit var profil:String
-    lateinit var promotion:String
-    lateinit var sexe:String
-
+    lateinit var titre:String
+    lateinit var message:String
+    lateinit var date:String
+    lateinit var image:String
     constructor(){}
     constructor(
         nom: String,
         administrateur: String,
         mail: String,
         profil:String,
-        promotion:String,
-        sexe:String,
     ) {
-        this.nom = nom
-        this.administrateur = administrateur
-        this.mail = mail
-        this.profil = profil
-        this.promotion = promotion
-        this.sexe = sexe
+        this.titre = nom
+        this.message = administrateur
+        this.date = mail
+        this.image = profil
+
     }
 }
