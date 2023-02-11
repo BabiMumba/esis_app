@@ -10,15 +10,15 @@
         android:padding="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <ImageView
-            android:layout_marginStart="@dimen/_3sdp"
             android:id="@+id/img_news"
-            android:layout_alignParentStart="false"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
-            android:src="@drawable/stone_profil"
+            android:layout_alignParentStart="false"
+            android:layout_marginStart="@dimen/_3sdp"
             android:scaleType="fitXY"
-            />
+            android:src="@drawable/stone_profil" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,16 +49,17 @@
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_height="wrap_content">
+
             <TextView
+                android:id="@+id/date_news"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12/12/2022"
-                android:textColor="@color/primary_text"
-                android:textStyle="italic"
-                android:textSize="@dimen/_7sdp"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/_4sdp"
-                />
+                android:text="12/12/2022"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/_7sdp"
+                android:textStyle="italic" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -7,15 +7,15 @@ class news_model {
     lateinit var image:String
     constructor(){}
     constructor(
-        nom: String,
-        administrateur: String,
-        mail: String,
-        profil:String,
+        titre: String,
+        message: String,
+        date: String,
+        image:String,
     ) {
-        this.titre = nom
-        this.message = administrateur
-        this.date = mail
-        this.image = profil
+        this.titre = titre
+        this.message = message
+        this.date = date
+        this.image = image
 
     }
 }
