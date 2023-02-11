@@ -47,12 +47,36 @@
         android:textColor="@color/primary_text" />
 
     <RelativeLayout
-        android:id="@+id/google_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/background_input">
-        <
+        >
+
+        <TextView
+            android:padding="@dimen/_9sdp"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold"
+            android:id="@+id/google_count"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:text="Etudiant"
+            android:textAllCaps="false"
+            android:background="@drawable/background_input"
+            />
+        <TextView
+            android:id="@+id/google_count_prof"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="wrap_content"
+            android:text="professeur"
+            android:padding="@dimen/_9sdp"
+            android:layout_below="@id/google_count"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/primary_text"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/background_input"
+            />
 
 
 
