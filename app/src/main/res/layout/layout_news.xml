@@ -30,6 +30,18 @@
             android:ellipsize="end"
             android:maxLines="2"
             />
+        <TextView
+            android:id="@+id/message_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="de puis la dernier fois nous somme plus comme avant apres quelque 10"
+            android:layout_below="@id/titre_news"
+            android:layout_toEndOf="@id/img_news"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/primary_text"
+            android:maxLines="3"
+            android:ellipsize="end"
+            />
 
 
     </RelativeLayout>
