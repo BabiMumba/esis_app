@@ -78,12 +78,12 @@
             android:textStyle="bold" />
 
         <TextView
-            android:textColor="@color/primary_text"
             android:id="@+id/date_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/title_news"
-            android:text="date de pub" />
+            android:text="date de pub"
+            android:textColor="@color/primary_text" />
 
     </RelativeLayout>
 

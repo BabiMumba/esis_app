@@ -37,7 +37,7 @@
                 >
 
                 <ImageView
-                    android:id="@+id/poste_image_id"
+                    android:id="@+id/news_image_id"
                     android:adjustViewBounds="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

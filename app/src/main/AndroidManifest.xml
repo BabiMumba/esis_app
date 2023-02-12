@@ -28,7 +28,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".DetailleNews"
+            android:name=".home.DetailleNews"
             android:exported="false" />
         <activity
             android:name=".home.AddnewsActivity"
