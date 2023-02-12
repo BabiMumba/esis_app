@@ -7,11 +7,45 @@
     android:layout_height="match_parent"
     android:padding="@dimen/_20sdp"
     tools:context=".home.AddnewsActivity">
+
+    <RelativeLayout
+        android:layout_alignParentTop="true"
+        android:id="@+id/promotion_choice"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:background="@drawable/background_input_new"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_16sdp"
+        android:paddingEnd="@dimen/_16sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/promotion"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/promotion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/primary_text"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
     <EditText
         android:hint="Titre"
+        android:layout_below="@+id/promotion_choice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/title_news"
+        android:layout_marginTop="@dimen/_10sdp"
         android:padding="@dimen/_10sdp"
         android:background="@drawable/background_input_new"
         />
