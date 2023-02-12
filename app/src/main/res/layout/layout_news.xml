@@ -11,14 +11,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_news"
+        <RelativeLayout
+            android:id="@+id/rela_news"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="false"
             android:layout_marginStart="@dimen/_3sdp"
-            android:scaleType="fitXY"
-            android:src="@drawable/stone_profil" />
+            >
+            <ImageView
+                android:id="@+id/img_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/stone_profil" />
+        </RelativeLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -26,7 +35,7 @@
             android:textColor="@color/primary_text"
             android:textStyle="bold"
             android:id="@+id/titre_news"
-            android:layout_toEndOf="@id/img_news"
+            android:layout_toEndOf="@id/rela_news"
             android:text="bonjour la faculter vous remercie de votre soutien de la part de la comptabilite"
             android:ellipsize="end"
             android:maxLines="2"
@@ -39,13 +48,13 @@
             android:layout_below="@id/titre_news"
             android:layout_marginStart="@dimen/_3sdp"
             android:layout_marginTop="@dimen/_3sdp"
-            android:layout_toEndOf="@id/img_news"
+            android:layout_toEndOf="@id/rela_news"
             android:ellipsize="end"
             android:maxLines="4"
             android:text="@string/txt_lorem2"
             android:textColor="@color/primary_text" />
         <RelativeLayout
-            android:layout_toEndOf="@id/img_news"
+            android:layout_toEndOf="@id/rela_news"
             android:layout_width="match_parent"
             android:layout_alignParentBottom="true"
             android:layout_height="wrap_content">
