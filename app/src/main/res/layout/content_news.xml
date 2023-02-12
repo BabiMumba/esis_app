@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:showIn="@layout/activity_detaille_news">
+    tools:showIn="@layout/activity_detaille_news"
+    >
 
     <RelativeLayout
         android:padding="@dimen/_10sdp"
@@ -28,15 +29,13 @@
             android:textSize="@dimen/_11sdp"
             android:textStyle="bold" />
 
-
         <ImageView
-            android:id="@+id/delete_btn"
+            android:id="@+id/menu_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
-            android:layout_marginEnd="@dimen/_5sdp"
             android:padding="@dimen/_5sdp"
             android:src="@drawable/ic_baseline_more_vert_24"
             android:text="supprimer"
@@ -74,7 +73,7 @@
             android:layout_below="@id/promot_news"
             android:text="Titre de la publication"
             android:textColor="@color/primary_text"
-            android:textSize="@dimen/_12sdp"
+            android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />
 
         <TextView
@@ -83,6 +82,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/title_news"
             android:text="date de pub"
+            android:textSize="@dimen/_8sdp"
+            android:textStyle="italic"
             android:textColor="@color/primary_text" />
 
     </RelativeLayout>
