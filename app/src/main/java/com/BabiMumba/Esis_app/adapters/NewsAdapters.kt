@@ -50,7 +50,7 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
             .load(model.image)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             //.apply(RequestOptions.overrideOf(300,600))
-            //.centerInside()
+            .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(holder.image)
 

@@ -24,7 +24,6 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentBottom="true"
-                android:scaleType="fitXY"
                 android:src="@drawable/stone_profil" />
         </RelativeLayout>
 
