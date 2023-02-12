@@ -1,6 +1,5 @@
 package com.BabiMumba.Esis_app.fragment
 
-import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -18,11 +17,8 @@ import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
-import com.denzcoskun.imageslider.constants.ScaleTypes
-import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 

@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -20,12 +21,15 @@ class AddnewsActivity : AppCompatActivity() {
 
     }
     private fun send_commi(){
+        val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val prenoms = sharedPreferences.getString("prenom",null)
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["titre"] = title_news.text.toString()
+        infor_user["message"] = message_news.text.toString()
         infor_user["message"] = message_news.text.toString()
         infor_user["date"] = date_dins
         infor_user["image"] = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
