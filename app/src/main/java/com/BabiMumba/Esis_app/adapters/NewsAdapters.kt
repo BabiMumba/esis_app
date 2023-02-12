@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.DetailleNews
 import com.BabiMumba.Esis_app.model.news_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -42,6 +44,11 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
         holder.message.text = model.message
         holder.date.text = model.date
         holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailleNews::class.java)
+            intent.putExtra("date" ,model.date)
+            intent.putExtra("image" ,model.image)
+            intent.putExtra("titre" ,model.titre)
+            intent.putExtra("message" ,model.message)
 
         }
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
