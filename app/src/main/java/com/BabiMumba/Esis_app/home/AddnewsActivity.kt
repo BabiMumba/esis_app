@@ -21,7 +21,7 @@ class AddnewsActivity : AppCompatActivity() {
     }
     private fun send_commi(){
         //loading(true)
-        val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
@@ -30,7 +30,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["date"] = date_dins
         infor_user["image"] = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
         database.collection("commnique")
-            .document(date_dins)
+            .document("le$date_dins")
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
