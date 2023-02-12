@@ -51,6 +51,7 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
             intent.putExtra("message" ,model.message)
             intent.putExtra("auteur" ,model.autor)
             intent.putExtra("id_news" ,model.id_doc)
+            intent.putExtra("promot" ,model.promot)
             holder.itemView.context.startActivity(intent)
 
         }

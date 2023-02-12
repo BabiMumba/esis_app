@@ -7,6 +7,7 @@ class news_model {
     lateinit var image:String
     lateinit var id_doc:String
     lateinit var autor:String
+    lateinit var promot:String
     constructor(){}
     constructor(
         titre: String,
@@ -15,6 +16,7 @@ class news_model {
         image:String,
         id_doc:String,
         autor:String,
+        promot:String,
     ) {
         this.titre = titre
         this.message = message
@@ -22,6 +24,7 @@ class news_model {
         this.image = image
         this.id_doc = id_doc
         this.autor = autor
+        this.promot = promot
 
     }
 }

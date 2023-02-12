@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/descri"
             android:layout_marginTop="@dimen/_15sdp"
-            android:text="par babi mumba"
+            android:text="par moi"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_10sdp"
             android:textStyle="italic" />

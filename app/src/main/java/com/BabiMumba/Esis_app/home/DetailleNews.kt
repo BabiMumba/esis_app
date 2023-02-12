@@ -18,13 +18,15 @@ class DetailleNews : AppCompatActivity() {
         val date = intent.getStringExtra("date")
         val image = intent.getStringExtra("image")
         val auteur = intent.getStringExtra("auteur")
+        val promot = intent.getStringExtra("promot")
         val id_news = intent.getStringExtra("id_news")
 
 
-        promot_news.text = "toute les promotions"
+        promot_news.text = promot
         title_news.text = titre
         descri.text = message
         date_news.text = date
+        autor_news.text = "par $auteur"
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
