@@ -4,9 +4,12 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_addnews.*
+import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
+import kotlinx.android.synthetic.main.activity_addnews.promotion_text
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -16,7 +19,53 @@ class AddnewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)
         send_commq.setOnClickListener {
-            send_commi()
+            if (promotion_text.text.toString() == ""){
+                Toast.makeText(this, "promotion aubligatoire", Toast.LENGTH_SHORT).show()
+            }else if (title_news.text.toString().trim().isEmpty()){
+                title_news.error = "titre de votre communique"
+            }else if (message_news.text.toString().trim().isEmpty()){
+                message_news.error= "Votre message est obligatoire"
+            }else{
+                send_commi()
+            }
+
+        }
+        val checkedItem = intArrayOf(-1)
+        promotion_choice.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setIcon(R.drawable.pdf_file)
+            alertDialog.setTitle("Promotion")
+            val listItems = arrayOf(
+                "Toute les promotions",
+                "L1",
+                "L2",
+                "G2 ",
+                "GL",
+                "G2 MSI",
+                "G2 DSG",
+                "G2 AS",
+                "G2 TLC",
+                "G3 GL",
+                "G3 MSI",
+                "G3 DSG",
+                "G3 AS",
+                "G3 TLC",
+                " M1 AS-TLC",
+                "M1 DESIGN",
+                "M1 MIAGE"
+            )
+
+            alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
+                checkedItem[0] = which
+                val s = listItems[which]
+                promotion_text.text = s
+                dialog.dismiss()
+            }
+            alertDialog.setNegativeButton("Annuler") { dialog, which ->
+                dialog.dismiss()
+            }
+            val customAlertDialog = alertDialog.create()
+            customAlertDialog.show()
         }
 
     }
