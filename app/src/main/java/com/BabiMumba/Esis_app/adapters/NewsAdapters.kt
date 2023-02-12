@@ -41,6 +41,9 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
         holder.titre.text = model.titre
         holder.message.text = model.message
         holder.date.text = model.date
+        holder.itemView.setOnClickListener {
+
+        }
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f

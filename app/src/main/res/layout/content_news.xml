@@ -55,16 +55,17 @@
             android:text="promotion"
             android:textAllCaps="false"
             android:textColor="@color/white" />
+
         <TextView
             android:id="@+id/autor_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="par babi mumba"
             android:layout_below="@id/descri"
             android:layout_marginTop="@dimen/_15sdp"
+            android:text="par babi mumba"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/_10sdp"
-            android:textStyle="italic"
-            />
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/title_news"
@@ -75,13 +76,14 @@
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_12sdp"
             android:textStyle="bold" />
+
         <TextView
+            android:textColor="@color/primary_text"
+            android:id="@+id/date_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="date de pub"
-            android:id="@+id/date_news"
             android:layout_below="@id/title_news"
-            />
+            android:text="date de pub" />
 
     </RelativeLayout>
 
