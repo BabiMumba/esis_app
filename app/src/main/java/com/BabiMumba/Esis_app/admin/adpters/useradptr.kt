@@ -21,7 +21,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
-class useradptr (options: FirestoreRecyclerOptions<modeluser>):FirestoreRecyclerAdapter<modeluser,useradptr.viewholder>(options) {
+class useradptr (options: FirestoreRecyclerOptions<modeluser>):
+    FirestoreRecyclerAdapter<modeluser,useradptr.viewholder>(options) {
 
     inner  class  viewholder(item: View):RecyclerView.ViewHolder(item){
 
