@@ -49,15 +49,21 @@
         android:padding="@dimen/_10sdp"
         android:background="@drawable/background_input_new"
         />
+
     <EditText
-        android:layout_below="@id/title_news"
+        android:id="@+id/message_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/message_news"
-        android:layout_marginTop="@dimen/_15sdp"
-        android:padding="@dimen/_10sdp"
-        android:hint="votre message ici"
+        android:layout_below="@id/title_news"
+        android:layout_marginTop="@dimen/_10sdp"
         android:background="@drawable/background_input_new"
+        android:hint="Votre communique ici"
+        android:imeOptions="actionDone"
+        android:inputType="text|textMultiLine|textCapSentences"
+        android:paddingStart="@dimen/_6sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_50sdp"
+        tools:ignore="RtlSymmetry"
         />
 
     <Button
@@ -68,5 +74,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_15sdp"
         android:text="Publier"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+
+        />
 </RelativeLayout>

@@ -20,7 +20,7 @@ class AddnewsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_addnews)
         send_commq.setOnClickListener {
             if (promotion_text.text.toString() == ""){
-                Toast.makeText(this, "promotion aubligatoire", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "promotion obligatoire", Toast.LENGTH_SHORT).show()
             }else if (title_news.text.toString().trim().isEmpty()){
                 title_news.error = "titre de votre communique"
             }else if (message_news.text.toString().trim().isEmpty()){
@@ -28,7 +28,6 @@ class AddnewsActivity : AppCompatActivity() {
             }else{
                 send_commi()
             }
-
         }
         val checkedItem = intArrayOf(-1)
         promotion_choice.setOnClickListener {
@@ -85,6 +84,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["autor"] = "$prenoms $post_nom"
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
+        infor_user["promot"] = promotion_text.text.toString()
         infor_user["image"] = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
         database.collection("communique")
             .document(id_doc)
