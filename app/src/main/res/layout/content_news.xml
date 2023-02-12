@@ -33,7 +33,6 @@
             android:id="@+id/delete_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/descri"
             android:layout_alignParentEnd="true"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
@@ -56,8 +55,16 @@
             android:text="promotion"
             android:textAllCaps="false"
             android:textColor="@color/primary_text" />
-
-
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="par babi mumba"
+            android:layout_below="@id/descri"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:textStyle="italic"
+            />
 
     </RelativeLayout>
 
