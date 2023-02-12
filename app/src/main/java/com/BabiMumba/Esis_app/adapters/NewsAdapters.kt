@@ -49,6 +49,8 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
             intent.putExtra("image" ,model.image)
             intent.putExtra("titre" ,model.titre)
             intent.putExtra("message" ,model.message)
+            intent.putExtra("auteur" ,model.autor)
+            intent.putExtra("id_news" ,model.id_doc)
             holder.itemView.context.startActivity(intent)
 
         }

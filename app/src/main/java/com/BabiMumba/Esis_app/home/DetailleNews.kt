@@ -17,6 +17,8 @@ class DetailleNews : AppCompatActivity() {
         val message = intent.getStringExtra("message")
         val date = intent.getStringExtra("date")
         val image = intent.getStringExtra("image")
+        val auteur = intent.getStringExtra("auteur")
+        val id_news = intent.getStringExtra("id_news")
 
 
         promot_news.text = "toute les promotions"
