@@ -28,17 +28,17 @@
         </RelativeLayout>
 
         <TextView
+            android:layout_marginStart="@dimen/_4sdp"
+            android:id="@+id/titre_news"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/_10sdp"
-            android:textColor="@color/primary_text"
-            android:textStyle="bold"
-            android:id="@+id/titre_news"
             android:layout_toEndOf="@id/rela_news"
-            android:text="bonjour la faculter vous remercie de votre soutien de la part de la comptabilite"
             android:ellipsize="end"
             android:maxLines="2"
-            />
+            android:text="bonjour la faculter vous remercie de votre soutien de la part de la comptabilite"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/message_news"
