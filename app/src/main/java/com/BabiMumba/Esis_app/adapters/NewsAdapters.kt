@@ -49,6 +49,7 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
             intent.putExtra("image" ,model.image)
             intent.putExtra("titre" ,model.titre)
             intent.putExtra("message" ,model.message)
+            holder.itemView.context.startActivity(intent)
 
         }
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
