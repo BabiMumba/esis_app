@@ -16,7 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_communique.*
 
 class CommuniqueFragment : Fragment() {
-    private var layoutManager: LinearLayoutManager?= null
+    lateinit var layoutManager: LinearLayoutManager
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var newsAda: NewsAdapters
     override fun onCreateView(
@@ -25,9 +25,13 @@ class CommuniqueFragment : Fragment() {
     ): View? {
         firebaseAuth = FirebaseAuth.getInstance()
         layoutManager = LinearLayoutManager(requireActivity())
+        layoutManager.reverseLayout = true
+        layoutManager.stackFromEnd = true
         val view = inflater.inflate(R.layout.fragment_communique, container, false)
         val recy = view.findViewById<RecyclerView>(R.id.news_recyler)
         recy.layoutManager = layoutManager
+
+
         val ref = FirebaseFirestore.getInstance().collection("commnique")
         val option = FirestoreRecyclerOptions.Builder<news_model>()
             .setQuery(
@@ -46,7 +50,6 @@ class CommuniqueFragment : Fragment() {
         newsAda.notifyDataSetChanged()
         super.onStart()
     }
-
     override fun onStop() {
         newsAda.stopListening()
         super.onStop()
