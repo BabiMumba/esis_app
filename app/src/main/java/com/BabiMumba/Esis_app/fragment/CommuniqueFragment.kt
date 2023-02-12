@@ -39,4 +39,17 @@ class CommuniqueFragment : Fragment() {
         return view
     }
 
+    override fun onStart() {
+        newsAda.startListening()
+        news_recyler.recycledViewPool.clear()
+        newsAda.notifyDataSetChanged()
+        super.onStart()
+    }
+
+    override fun onStop() {
+        newsAda.stopListening()
+        super.onStop()
+    }
+
+
 }
