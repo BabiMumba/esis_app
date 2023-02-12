@@ -26,7 +26,8 @@ class CommuniqueFragment : Fragment() {
         firebaseAuth = FirebaseAuth.getInstance()
         layoutManager = LinearLayoutManager(requireActivity())
         val view = inflater.inflate(R.layout.fragment_communique, container, false)
-        view.findViewById<RecyclerView>(R.id.news_recyler).layoutManager = layoutManager
+        val recy = view.findViewById<RecyclerView>(R.id.news_recyler)
+        recy.layoutManager = layoutManager
         val ref = FirebaseFirestore.getInstance().collection("commnique")
         val option = FirestoreRecyclerOptions.Builder<news_model>()
             .setQuery(
@@ -35,7 +36,7 @@ class CommuniqueFragment : Fragment() {
             )
             .build()
         newsAda = NewsAdapters(option)
-        news_recyler.adapter = newsAda
+        recy.adapter = newsAda
         return view
     }
 

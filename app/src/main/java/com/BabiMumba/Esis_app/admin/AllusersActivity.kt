@@ -146,7 +146,6 @@ class AllusersActivity : AppCompatActivity() {
         adaps.notifyDataSetChanged()
         super.onStart()
     }
-
     override fun onStop() {
         adaps.stopListening()
         super.onStop()
