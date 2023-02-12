@@ -32,7 +32,7 @@ class CommuniqueFragment : Fragment() {
         recy.layoutManager = layoutManager
 
 
-        val ref = FirebaseFirestore.getInstance().collection("commnique")
+        val ref = FirebaseFirestore.getInstance().collection("communique")
         val option = FirestoreRecyclerOptions.Builder<news_model>()
             .setQuery(
                 ref,

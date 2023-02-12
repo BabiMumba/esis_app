@@ -23,18 +23,22 @@ class AddnewsActivity : AppCompatActivity() {
     private fun send_commi(){
         val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
+        val post_nom = sharedPreferences.getString("post-nom",null)
+
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
+        val id_doc = "le$date_dins"
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["titre"] = title_news.text.toString()
         infor_user["message"] = message_news.text.toString()
-        infor_user["message"] = message_news.text.toString()
+        infor_user["autor"] = "$prenoms $post_nom"
+        infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
         infor_user["image"] = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
-        database.collection("commnique")
-            .document("le$date_dins")
+        database.collection("communique")
+            .document(id_doc)
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
