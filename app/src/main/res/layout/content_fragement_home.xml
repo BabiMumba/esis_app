@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:gl="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:background="@color/white">
 
@@ -19,6 +20,8 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:id="@+id/rel1"
                 android:padding="@dimen/_5sdp"
                 android:background="@drawable/backround_view_user_profil"
                 android:layout_width="match_parent"
@@ -91,6 +94,15 @@
                     android:adjustViewBounds="true"
                     android:src="@drawable/hero" />
             </RelativeLayout>
+            <com.google.android.gms.ads.AdView
+                android:id="@+id/bannerAd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel11"
+                ads:adSize="BANNER"
+                ads:adUnitId="@string/banner_id_teste" />
+
+
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="@dimen/_5sdp"
                 android:layout_margin="@dimen/_10sdp"
