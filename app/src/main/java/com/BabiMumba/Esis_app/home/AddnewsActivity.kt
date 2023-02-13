@@ -15,6 +15,7 @@ import java.util.*
 import kotlin.collections.HashMap
 
 class AddnewsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)

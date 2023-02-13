@@ -11,12 +11,16 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detaille_news.*
 import kotlinx.android.synthetic.main.content_comment.*
 import kotlinx.android.synthetic.main.content_news.*
 import kotlinx.android.synthetic.main.content_news.descri
 
 class DetailleNews : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detaille_news)
@@ -78,7 +82,6 @@ class DetailleNews : AppCompatActivity() {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"oui"){
                 d: DialogInterface, _:Int ->
             DeletePoste()
-            Toast.makeText(this, "clique sur oui", Toast.LENGTH_SHORT).show()
             d.dismiss()
         }
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"annuler"){
@@ -87,5 +90,19 @@ class DetailleNews : AppCompatActivity() {
         }
 
         alertDialog.show()
+    }
+    fun DeletePoste(){
+        val id_news = intent.getStringExtra("id_news").toString()
+        val database = FirebaseFirestore.getInstance()
+        database.collection("communique").document(id_news)
+            .delete()
+            .addOnCompleteListener { 
+                if (it.isSuccessful){
+                    Toast.makeText(this, "supprimer avec succer", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
     }
 }
