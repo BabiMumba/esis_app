@@ -20,7 +20,7 @@ class AddnewsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)
 
-        val ttl = intent.getStringExtra("title")
+        val ttl = intent.getStringExtra("titre")
         val message = intent.getStringExtra("message")
         val mod = intent.getStringExtra("mod")
 

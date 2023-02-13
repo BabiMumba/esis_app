@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="@dimen/_20sdp"
     tools:context=".home.AddnewsActivity">
 
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/promotion_choice"
         android:layout_marginTop="@dimen/_10sdp"
+        android:textColorHint="@color/primary_text"
         android:background="@drawable/background_input_new"
         android:hint="Titre"
         android:padding="@dimen/_10sdp" />
@@ -61,6 +63,7 @@
         android:imeOptions="actionDone"
         android:inputType="text|textMultiLine|textCapSentences"
         android:paddingStart="@dimen/_6sdp"
+        android:textColorHint="@color/primary_text"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_50sdp"
         tools:ignore="RtlSymmetry" />
