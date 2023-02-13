@@ -252,6 +252,7 @@ class PublishPost : AppCompatActivity() {
                 if (it.isSuccessful){
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+
                 }
             }
 

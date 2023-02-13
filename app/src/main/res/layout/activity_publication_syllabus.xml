@@ -154,10 +154,10 @@
             android:layout_below="@id/description"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
-            android:textColor="@color/primary_text"
             android:background="@drawable/file_background"
             android:text="@string/publier"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/primary_text" />
 
         <TextView
             android:textColor="@color/primary_text"

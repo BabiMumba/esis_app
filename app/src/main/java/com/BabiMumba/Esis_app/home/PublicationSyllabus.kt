@@ -250,7 +250,6 @@ class PublicationSyllabus : AppCompatActivity() {
                                             nom_du_syllabus.setText("")
                                             nom_du_prof.setText("")
                                             description.setText("")
-                                            onBackPressed()
                                         }
                                     }else{
                                         Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
@@ -283,7 +282,6 @@ class PublicationSyllabus : AppCompatActivity() {
                         nom_du_syllabus.setText("")
                         nom_du_prof.setText("")
                         description.setText("")
-                        onBackPressed()
                     }
 
 
