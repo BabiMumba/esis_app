@@ -98,7 +98,7 @@
                 android:id="@+id/bannerAd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rel11"
+                android:layout_below="@id/rel1"
                 ads:adSize="BANNER"
                 ads:adUnitId="@string/banner_id_teste" />
 
@@ -200,10 +200,10 @@
                                 android:src="@drawable/resulta_u" />
 
                             <TextView
-                                android:fontFamily="serif"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="serif"
                                 android:text="Resultat"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
@@ -418,7 +418,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="serif"
-                                android:text="Afficher tous"
+                                android:textSize="@dimen/_10ssp"
+                                android:text="Toute\nles promotions"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 

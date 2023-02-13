@@ -51,7 +51,7 @@
     <string name="teste_nativ_id">ca-app-pub-3940256099942544/2247696110</string>
     <string name="stp1">Première étape</string>
     <string name="add_or_select">Vous devez sélectionner ou ajouter votre compte d\'Esis</string>
-    <string name="send_share">Telecharger et partager des syllabus</string>
+    <string name="send_share">Télécharger des syllabus</string>
     <string name="rewarded_ad_reel">ca-app-pub-3940256099942544/5354046379</string>
 
 </resources>
