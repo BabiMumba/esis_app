@@ -18,9 +18,15 @@ import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
 import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
+import com.google.android.gms.ads.*
 import com.google.firebase.auth.FirebaseAuth
 
 class HomeFragment : Fragment() {
+
+    private companion object{
+        private const val TAG = "BANNER_AD_TAG"
+    }
+    private var adview: AdView? = null
 
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
@@ -29,6 +35,53 @@ class HomeFragment : Fragment() {
     ): View? {
         firebaseAuth = FirebaseAuth.getInstance()
         val viewF = inflater.inflate(R.layout.fragment_home, container, false)
+
+        MobileAds.initialize(requireActivity()){
+            Log.d(TAG,"inias complet")
+        }
+        MobileAds.setRequestConfiguration(
+            RequestConfiguration.Builder()
+                .setTestDeviceIds(listOf("f01a4b37-2568-4128-9894-6d6453fd67bb"))
+                .build()
+        )
+        adview = viewF.findViewById(R.id.bannerAd)
+        val adRequest = AdRequest.Builder().build()
+
+        adview?.loadAd(adRequest)
+        adview?.adListener = object : AdListener() {
+            override fun onAdClicked() {
+                super.onAdClicked()
+                Log.d(TAG, "onAdClicked: ")
+            }
+
+            override fun onAdClosed() {
+                super.onAdClosed()
+                Log.d(TAG, "onAdClosed: ")
+            }
+
+            override fun onAdFailedToLoad(p0: LoadAdError) {
+                super.onAdFailedToLoad(p0)
+                Log.d(TAG, "onAdFailedToLoad: $p0")
+            }
+
+            override fun onAdImpression() {
+                super.onAdImpression()
+                Log.d(TAG, "onAdImpression: ")
+            }
+
+            override fun onAdLoaded() {
+                super.onAdLoaded()
+                Log.d(TAG, "onAdLoaded: ")
+            }
+
+            override fun onAdOpened() {
+                super.onAdOpened()
+                Log.d(TAG, "onAdOpened: ")
+            }
+        }
+
+
+
         val imageList = ArrayList<SlideModel>() // Create image list
         /*
         imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_genie_log.png", "reseau informatique"))
