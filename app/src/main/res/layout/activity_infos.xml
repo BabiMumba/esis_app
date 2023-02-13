@@ -63,7 +63,7 @@
                     android:id="@+id/bannerAd"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    ads:adSize="SMART_BANNER"
+                    ads:adSize="BANNER"
                     ads:adUnitId="@string/banner_id_teste" />
 
 
