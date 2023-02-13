@@ -1,9 +1,12 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.DialogInterface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.PopupMenu
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.bumptech.glide.Glide
@@ -17,6 +20,7 @@ class DetailleNews : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detaille_news)
+
         val titre = intent.getStringExtra("titre")
         val message = intent.getStringExtra("message")
         val date = intent.getStringExtra("date")
@@ -24,7 +28,6 @@ class DetailleNews : AppCompatActivity() {
         val auteur = intent.getStringExtra("auteur")
         val promot = intent.getStringExtra("promot")
         val id_news = intent.getStringExtra("id_news")
-
 
         promot_news.text = promot
         title_news.text = titre
@@ -44,10 +47,14 @@ class DetailleNews : AppCompatActivity() {
             .placeholder(circularProgressDrawable)
             .into(news_image_id)
 
+        menu_btn.setOnClickListener {
+            popup_menu()
+        }
+
 
     }
 
-    fun setListener(){
+    fun popup_menu(){
         delete_btn.setOnClickListener {
             val pop = PopupMenu(this@DetailleNews, delete_btn)
             pop.menuInflater.inflate(R.menu.news_popup, pop.menu)
@@ -62,5 +69,23 @@ class DetailleNews : AppCompatActivity() {
             })
             pop.show()
         }
+    }
+
+    fun Deletedialogue() {
+        val alertDialog = AlertDialog.Builder(this).create()
+        alertDialog.setTitle("Suppression de votre communique")
+        alertDialog.setMessage("voulez-vouz vraiment supprimer")
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"oui"){
+                d: DialogInterface, _:Int ->
+            DeletePoste()
+            Toast.makeText(this, "clique sur oui", Toast.LENGTH_SHORT).show()
+            d.dismiss()
+        }
+        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"annuler"){
+                d: DialogInterface, _:Int ->
+            d.dismiss()
+        }
+
+        alertDialog.show()
     }
 }

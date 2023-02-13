@@ -234,7 +234,6 @@ class PosteDetaille : AppCompatActivity() {
         val alertDialog = AlertDialog.Builder(this).create()
         alertDialog.setTitle("Suppression de la publication")
         alertDialog.setMessage("voulez-vouz vraiment supprimer cette publication")
-
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"oui"){
                 d: DialogInterface, _:Int ->
             DeletePoste()
