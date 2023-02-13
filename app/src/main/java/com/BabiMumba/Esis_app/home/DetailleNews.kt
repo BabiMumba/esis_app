@@ -50,7 +50,7 @@ class DetailleNews : AppCompatActivity() {
     fun setListener(){
         delete_btn.setOnClickListener {
             val pop = PopupMenu(this@DetailleNews, delete_btn)
-            pop.menuInflater.inflate(R.menu.popup_menu, pop.menu)
+            pop.menuInflater.inflate(R.menu.news_popup, pop.menu)
             pop.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
                 PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem): Boolean {
@@ -61,8 +61,6 @@ class DetailleNews : AppCompatActivity() {
                 }
             })
             pop.show()
-
-
         }
     }
 }
