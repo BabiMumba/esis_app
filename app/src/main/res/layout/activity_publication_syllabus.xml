@@ -87,6 +87,7 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_logique"
+            android:textColorHint="@color/gris"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="text"
@@ -107,6 +108,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ns"
             android:layout_marginTop="@dimen/_10sdp"
+            android:textColorHint="@color/gris"
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_jean_luc_kawel"
             android:imeOptions="actionNext"
@@ -138,6 +140,7 @@
             android:paddingStart="@dimen/_5sdp"
             android:paddingTop="@dimen/_3sdp"
             android:paddingBottom="@dimen/_30sdp"
+            android:textColorHint="@color/gris"
             android:textSize="@dimen/_10sdp"
             tools:ignore="RtlSymmetry" />
 
@@ -148,11 +151,13 @@
             android:layout_below="@id/description"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
             android:background="@drawable/file_background"
             android:text="@string/publier"
             android:textAllCaps="false" />
 
         <TextView
+            android:textColor="@color/primary_text"
             android:id="@+id/cober_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,6 +175,7 @@
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_toEndOf="@id/cober_btn"
             android:text="(facultatif)"
+            android:textColor="@color/primary_text"
             android:textSize="@dimen/_8sdp"
             android:textStyle="italic" />
         <TextView
