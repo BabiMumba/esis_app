@@ -2,12 +2,16 @@ package com.BabiMumba.Esis_app.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
+import android.widget.PopupMenu
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.activity_detaille_news.*
+import kotlinx.android.synthetic.main.content_comment.*
 import kotlinx.android.synthetic.main.content_news.*
+import kotlinx.android.synthetic.main.content_news.descri
 
 class DetailleNews : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,5 +45,24 @@ class DetailleNews : AppCompatActivity() {
             .into(news_image_id)
 
 
+    }
+
+    fun setListener(){
+        delete_btn.setOnClickListener {
+            val pop = PopupMenu(this@DetailleNews, delete_btn)
+            pop.menuInflater.inflate(R.menu.popup_menu, pop.menu)
+            pop.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
+                PopupMenu.OnMenuItemClickListener {
+                override fun onMenuItemClick(item: MenuItem): Boolean {
+                    if (item.itemId == R.id.delete_id) {
+                        Deletedialogue()
+                    }
+                    return true
+                }
+            })
+            pop.show()
+
+
+        }
     }
 }
