@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -14,9 +15,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_detaille_news.*
-import kotlinx.android.synthetic.main.content_comment.*
 import kotlinx.android.synthetic.main.content_news.*
+import kotlinx.android.synthetic.main.content_news.date_news
 import kotlinx.android.synthetic.main.content_news.descri
+import kotlinx.android.synthetic.main.layout_news.*
 
 class DetailleNews : AppCompatActivity() {
 
@@ -54,14 +56,22 @@ class DetailleNews : AppCompatActivity() {
     }
 
     fun popup_menu(){
+        val id_news = intent.getStringExtra("id_news").toString()
         menu_btn.setOnClickListener {
-            val pop = PopupMenu(this@DetailleNews, delete_btn)
+            val pop = PopupMenu(this@DetailleNews, menu_btn)
             pop.menuInflater.inflate(R.menu.news_popup, pop.menu)
             pop.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
                 PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem): Boolean {
                     if (item.itemId == R.id.delete_id) {
                         Deletedialogue()
+                    }else if (item.itemId == R.id.update){
+                       startActivity(Intent(this@DetailleNews,AddnewsActivity::class.java)
+                           .putExtra("titre",title_news.text.toString())
+                           .putExtra("message",descri.text.toString())
+                           .putExtra("id_news",id_news)
+
+                       )
                     }
                     return true
                 }
@@ -94,6 +104,7 @@ class DetailleNews : AppCompatActivity() {
             .addOnCompleteListener { 
                 if (it.isSuccessful){
                     Toast.makeText(this, "supprimer avec succer", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
                 }else{
                     Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
                 }
