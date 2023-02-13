@@ -50,16 +50,11 @@ class DetailleNews : AppCompatActivity() {
             .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(news_image_id)
-
-        menu_btn.setOnClickListener {
-            popup_menu()
-        }
-
-
+        popup_menu()
     }
 
     fun popup_menu(){
-        delete_btn.setOnClickListener {
+        menu_btn.setOnClickListener {
             val pop = PopupMenu(this@DetailleNews, delete_btn)
             pop.menuInflater.inflate(R.menu.news_popup, pop.menu)
             pop.setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener,
