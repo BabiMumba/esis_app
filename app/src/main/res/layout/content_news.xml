@@ -74,6 +74,7 @@
             android:text="Titre de la publication"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
             android:textStyle="bold" />
 
         <TextView
