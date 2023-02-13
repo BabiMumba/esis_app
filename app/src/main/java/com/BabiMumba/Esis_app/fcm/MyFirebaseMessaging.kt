@@ -30,7 +30,7 @@ class MyFirebaseMessaging : FirebaseMessagingService() {
         pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_MUTABLE)
         } else {
-            PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_ONE_SHOT)
+            PendingIntent.getActivity(this, 1, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT)
         }
 
         //creer une notification

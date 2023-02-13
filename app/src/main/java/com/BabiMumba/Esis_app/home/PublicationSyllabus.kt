@@ -199,13 +199,13 @@ class PublicationSyllabus : AppCompatActivity() {
         val mail_users = firebaseUser?.email.toString()
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val currentDate = sdf.format(Date())
-      //  val pd = ProgressDialog(this)
-        //pd.setTitle("Importation du fichier....!!!")
+       val pd = ProgressDialog(this)
+        pd.setTitle("Importation du fichier....!!!")
+        pd.show()
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
         val nameProf = nom_du_prof.text.toString()
         var nn = promotion_text.text.toString()
-
 
         if (nn!="L1" && nn!= "L2"){
             nn = "Tous"
@@ -240,7 +240,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                                 currentDate,
                                                 lien_image, 0, 0, 0,"","","","")
                                             databaseReference.child(nn).child(id_poste).setValue(obj)
-                                            //pd.dismiss()
+                                            pd.dismiss()
                                             Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                             icone_failed.visibility = View.VISIBLE
                                             icone_succes.visibility = View.GONE
@@ -272,7 +272,7 @@ class PublicationSyllabus : AppCompatActivity() {
                             currentDate,
                             lien_image, 0, 0, 0,"","","","")
                         databaseReference.child(nn).child(id_poste).setValue(obj)
-                     //   pd.dismiss()
+                       pd.dismiss()
                         Toast.makeText(applicationContext, "Syllabus partager", Toast.LENGTH_LONG).show()
                         icone_failed.visibility = View.VISIBLE
                         icone_succes.visibility = View.GONE
@@ -294,7 +294,7 @@ class PublicationSyllabus : AppCompatActivity() {
             .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
                 val percent =
                     (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
-                //pd.setMessage("Importation: " + percent.toInt() + "%")
+                pd.setMessage("Importation: " + percent.toInt() + "%")
                 pourc.text = "${percent.toInt()}%"
             }
 
