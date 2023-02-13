@@ -141,7 +141,10 @@ class CourseFragment : Fragment(), Pdf_listener_file {
         linearLayoutManager.stackFromEnd = true
         recyclerView.layoutManager = linearLayoutManager
         pdfList = ArrayList()
-        pdfList.addAll( findpdf( File(Environment.getExternalStorageDirectory().Environment.DIRECTORY_DOWNLOADS+"/")));
+        pdfList.addAll( findpdf(
+            File(Environment.getExternalStorageDirectory().toString()+"/"+Environment.DIRECTORY_DOWNLOADS)
+        ))
+
         /*
         findpdf( File(
                 Environment.getExternalStorageDirectory()
