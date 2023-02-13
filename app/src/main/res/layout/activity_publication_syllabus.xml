@@ -84,14 +84,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sy_na"
+            android:textColor="@color/primary_text"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_logique"
-            android:textColorHint="@color/gris"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:padding="@dimen/_10sdp" />
+            android:padding="@dimen/_10sdp"
+            android:textColorHint="@color/gris" />
 
         <TextView
             android:id="@+id/ns"
@@ -106,15 +107,16 @@
             android:id="@+id/nom_du_prof"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/primary_text"
             android:layout_below="@id/ns"
             android:layout_marginTop="@dimen/_10sdp"
-            android:textColorHint="@color/gris"
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_jean_luc_kawel"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:padding="@dimen/_10sdp" />
+            android:padding="@dimen/_10sdp"
+            android:textColorHint="@color/gris" />
 
 
         <TextView
@@ -132,6 +134,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/ds"
             android:layout_marginTop="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
             android:background="@drawable/background_input_new"
             android:hint="@string/fac"
             android:imeOptions="actionDone"

@@ -60,6 +60,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sy_na"
             android:textColorHint="@color/gris"
+            android:textColor="@color/primary_text"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
             android:hint="A quoi pensez-vous"
