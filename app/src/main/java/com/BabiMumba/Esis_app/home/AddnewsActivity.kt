@@ -26,6 +26,8 @@ class AddnewsActivity : AppCompatActivity() {
         val id_news = intent.getStringExtra("id_news")
 
         if (mod == "oui"){
+            title_news.setText(ttl.toString())
+            message_news.setText(message.toString())
 
         }else{
 
@@ -113,4 +115,30 @@ class AddnewsActivity : AppCompatActivity() {
                 }
             }
     }
+    private fun update_data(){
+        val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
+        val date_dins = sdf.format(Date())
+        val id_news = intent.getStringExtra("id_news").toString()
+        val database = FirebaseFirestore.getInstance()
+        val infor_user:MutableMap<String, Any> = HashMap()
+        infor_user["titre"] = title_news.text.toString()
+        infor_user["message"] = message_news.text.toString()
+        infor_user["date"] = date_dins
+        infor_user["promot"] = promotion_text.text.toString()
+        database.collection("communique").document(id_news)
+            .update(infor_user)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this, "modifier avec succee", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+
+
+
+    }
+
+
 }

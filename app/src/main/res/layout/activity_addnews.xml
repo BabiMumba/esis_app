@@ -39,16 +39,16 @@
 
 
     </RelativeLayout>
+
     <EditText
-        android:hint="Titre"
-        android:layout_below="@+id/promotion_choice"
+        android:id="@+id/title_news"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/title_news"
+        android:layout_below="@+id/promotion_choice"
         android:layout_marginTop="@dimen/_10sdp"
-        android:padding="@dimen/_10sdp"
         android:background="@drawable/background_input_new"
-        />
+        android:hint="Titre"
+        android:padding="@dimen/_10sdp" />
 
     <EditText
         android:id="@+id/message_news"
@@ -63,8 +63,7 @@
         android:paddingStart="@dimen/_6sdp"
         android:paddingTop="@dimen/_5sdp"
         android:paddingBottom="@dimen/_50sdp"
-        tools:ignore="RtlSymmetry"
-        />
+        tools:ignore="RtlSymmetry" />
     <Button
         android:id="@+id/send_commq"
         android:layout_width="wrap_content"
