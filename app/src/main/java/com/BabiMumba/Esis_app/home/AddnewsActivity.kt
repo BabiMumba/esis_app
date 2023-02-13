@@ -19,6 +19,12 @@ class AddnewsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)
+
+        val ttl = intent.getStringExtra("title")
+        val message = intent.getStringExtra("message")
+        val mod = intent.getStringExtra("mod")
+        val id_news = intent.getStringExtra("id_news")g
+
         send_commq.setOnClickListener {
             if (promotion_text.text.toString() == ""){
                 Toast.makeText(this, "promotion obligatoire", Toast.LENGTH_SHORT).show()

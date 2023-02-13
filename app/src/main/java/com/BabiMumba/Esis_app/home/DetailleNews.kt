@@ -70,6 +70,7 @@ class DetailleNews : AppCompatActivity() {
                            .putExtra("titre",title_news.text.toString())
                            .putExtra("message",descri.text.toString())
                            .putExtra("id_news",id_news)
+                           .putExtra("mod","oui")
 
                        )
                     }

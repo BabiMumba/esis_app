@@ -65,7 +65,6 @@
         android:paddingBottom="@dimen/_50sdp"
         tools:ignore="RtlSymmetry"
         />
-
     <Button
         android:id="@+id/send_commq"
         android:layout_width="wrap_content"
