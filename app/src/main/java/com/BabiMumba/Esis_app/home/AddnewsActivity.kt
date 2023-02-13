@@ -23,12 +23,11 @@ class AddnewsActivity : AppCompatActivity() {
         val ttl = intent.getStringExtra("title")
         val message = intent.getStringExtra("message")
         val mod = intent.getStringExtra("mod")
-        val id_news = intent.getStringExtra("id_news")
 
         if (mod == "oui"){
             title_news.setText(ttl.toString())
             message_news.setText(message.toString())
-
+            send_commq.setText("modifier")
         }else{
 
         }
@@ -41,7 +40,12 @@ class AddnewsActivity : AppCompatActivity() {
             }else if (message_news.text.toString().trim().isEmpty()){
                 message_news.error= "Votre message est obligatoire"
             }else{
-                send_commi()
+                if (mod == "oui"){
+                    update_data()
+                }else{
+                    send_data()
+                }
+
             }
         }
         val checkedItem = intArrayOf(-1)
@@ -81,13 +85,11 @@ class AddnewsActivity : AppCompatActivity() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
-
     }
-    private fun send_commi(){
+    private fun send_data(){
         val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
         val post_nom = sharedPreferences.getString("post-nom",null)
-
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
