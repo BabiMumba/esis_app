@@ -162,7 +162,7 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
         pdfList.addAll(
             findpdf( File(
                 Environment.getExternalStorageDirectory()
-                    .toString() + "/" + Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/"
+                    .toString() + "/" + Environment.DIRECTORY_DOWNLOADS
             ))
 
         )
