@@ -23,7 +23,13 @@ class AddnewsActivity : AppCompatActivity() {
         val ttl = intent.getStringExtra("title")
         val message = intent.getStringExtra("message")
         val mod = intent.getStringExtra("mod")
-        val id_news = intent.getStringExtra("id_news")g
+        val id_news = intent.getStringExtra("id_news")
+
+        if (mod == "oui"){
+
+        }else{
+
+        }
 
         send_commq.setOnClickListener {
             if (promotion_text.text.toString() == ""){
