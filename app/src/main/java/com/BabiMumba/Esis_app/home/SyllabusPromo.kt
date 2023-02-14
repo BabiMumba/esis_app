@@ -123,11 +123,6 @@ class SyllabusPromo : AppCompatActivity() {
             val customAlertDialog = alertDialog.create()
             customAlertDialog.show()
         }
-
-
-        add_post.setOnClickListener {
-            startActivity(Intent(this,PublicationSyllabus::class.java))
-        }
     }
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

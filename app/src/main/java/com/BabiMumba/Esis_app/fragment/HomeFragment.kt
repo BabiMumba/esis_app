@@ -81,8 +81,6 @@ class HomeFragment : Fragment() {
             }
         }
 
-
-
         val imageList = ArrayList<SlideModel>() // Create image list
         /*
         imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_genie_log.png", "reseau informatique"))
@@ -90,6 +88,7 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "DEsign est multimedia"))
          */
         //new image upluade for firebase database
+
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n1-1.jpg?alt=media&token=17862754-5cad-4b88-91e6-f6022de3e9cf", ""))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n2-1.jpg?alt=media&token=dea51bc4-4dd8-4483-9ee5-7b44f277e8af", ""))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/FILLE2.jpg?alt=media&token=3d6415b4-1fa5-4795-ab0f-2769f76bd036", ""))
