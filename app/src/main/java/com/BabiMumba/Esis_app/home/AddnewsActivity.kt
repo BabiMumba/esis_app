@@ -109,6 +109,7 @@ class AddnewsActivity : AppCompatActivity() {
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+                    sendnotif(title_news.text.toString())
                     Toast.makeText(this, "envoyer avec succe", Toast.LENGTH_SHORT).show()
                    // loading(false)
                 }else{
@@ -145,9 +146,9 @@ class AddnewsActivity : AppCompatActivity() {
     fun sendnotif(title: String) {
         FcmNotificationsSender.pushNotification(
             this,
-            "/topics/forum",
+            "/topics/communique",
             "ESIS COMMUNIQUE",
-            "Nouveaux communique pour $title",
+            "$title",
         )
     }
 
