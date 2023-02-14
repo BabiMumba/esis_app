@@ -5,7 +5,7 @@
     <string name="pasword_text">Votre mot de passe</string>
     <string name="se_connecter">se connecter</string>
     <string name="creer_un_compte">Creer un compte</string>
-    <string name="creer_un_compte_txt">Deuxième etape</string>
+    <string name="creer_un_compte_txt">Deuxième étape \n création du compte Étudiant</string>
     <string name="name">nom</string>
     <string name="postn">post-nom</string>
     <string name="prenom">prenom</string>
