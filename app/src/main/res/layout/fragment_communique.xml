@@ -12,6 +12,7 @@
        android:layout_height="match_parent"
        >
        <androidx.cardview.widget.CardView
+           android:id="@+id/card1"
            app:cardCornerRadius="@dimen/_15sdp"
            android:layout_margin="@dimen/_10sdp"
            android:backgroundTint="@color/white"
@@ -32,16 +33,17 @@
        </androidx.cardview.widget.CardView>
 
        <RelativeLayout
+           android:layout_below="@id/card1"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            >
-
            <androidx.recyclerview.widget.RecyclerView
                android:id="@+id/news_recyler"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                tools:itemCount="5"
                tools:listitem="@layout/layout_news" />
+
        </RelativeLayout>
    </RelativeLayout>
 
