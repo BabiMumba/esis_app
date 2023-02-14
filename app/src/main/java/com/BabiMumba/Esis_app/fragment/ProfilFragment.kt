@@ -187,6 +187,26 @@ class ProfilFragment : Fragment() {
             }
 
         }
+        val commique_nof = view.findViewById<Switch>(R.id.commiq_notif)
+        commique_nof.setOnClickListener {
+            if (commique_nof.isChecked) {
+                // When switch checked
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                editor.putBoolean("cmmq_state", true)
+                editor.apply()
+                commique_nof.isChecked = true
+                abonnement("cmmq")
+            } else {
+                // When switch unchecked
+                val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
+                editor.putBoolean("cmmq_state", false)
+                editor.apply()
+                commique_nof.isChecked = false
+                desabonnement("cmmq")
+            }
+
+        }
+
 
     }
     private fun abonnement(nom:String){
@@ -217,7 +237,9 @@ class ProfilFragment : Fragment() {
         view.findViewById<Switch>(R.id.syllabus).isChecked = sharedPreferences.getBoolean("syllabus_state",false)
         view.findViewById<Switch>(R.id.resultat_id).isChecked = sharedPreferences.getBoolean("resultat_state",false)
         view.findViewById<Switch>(R.id.forum_notif).isChecked = sharedPreferences.getBoolean("forum_state",false)
+        view.findViewById<Switch>(R.id.commiq_notif).isChecked = sharedPreferences.getBoolean("cmmq_state",false)
     }
+
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting

@@ -218,8 +218,6 @@
                         android:text="Communique"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
-
-
                     <Switch
                         android:id="@+id/commiq_notif"
                         android:layout_width="wrap_content"
