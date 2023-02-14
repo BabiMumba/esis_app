@@ -46,12 +46,14 @@
                 android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
                     android:id="@+id/i2"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_edit_profile" />
+                    app:tint="@color/white"
+                    android:src="@drawable/ic_user" />
 
                 <TextView
                     android:textSize="@dimen/_8sdp"
@@ -115,12 +117,14 @@
                 android:padding="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <ImageView
-                    android:layout_centerHorizontal="true"
                     android:id="@+id/i4"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
-                    android:src="@drawable/ic_power" />
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/ic_power"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"
