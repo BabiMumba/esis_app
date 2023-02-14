@@ -104,7 +104,8 @@
             app:cardCornerRadius="@dimen/_10sdp"
             android:layout_below="@id/r2"
             >
-            <RelativeLayout
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -132,12 +133,10 @@
 
 
                 </RelativeLayout>
-
                 <RelativeLayout
                     android:id="@+id/rr2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/rr1"
                     android:padding="@dimen/_10sdp">
 
                     <TextView
@@ -158,12 +157,10 @@
 
 
                 </RelativeLayout>
-
                 <RelativeLayout
                     android:id="@+id/rr3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/rr2"
                     android:padding="@dimen/_10sdp">
 
                     <TextView
@@ -188,7 +185,6 @@
                     android:id="@+id/r7"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/rr3"
                     android:padding="@dimen/_10sdp">
 
                     <TextView
@@ -209,7 +205,8 @@
 
 
                 </RelativeLayout>
-            </RelativeLayout>
+
+            </LinearLayout>
 
 
 
@@ -485,7 +482,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Remerciement"
+                        android:text="Poser une question ?"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
 
@@ -571,7 +568,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:text="Mettre ajour l'application"
+                        android:text="Mettre à jour l'application"
                         android:textColor="@color/white"
                         android:textStyle="bold" />
                     <ImageView

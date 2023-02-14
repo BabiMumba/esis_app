@@ -97,7 +97,7 @@ class ProfilFragment : Fragment() {
 
         }
         view.findViewById<RelativeLayout>(R.id.rr10).setOnClickListener {
-            startActivity(Intent(requireActivity(), AddnewsActivity::class.java))
+            startActivity(Intent(requireActivity(), PublishPost::class.java))
 
         }
 
