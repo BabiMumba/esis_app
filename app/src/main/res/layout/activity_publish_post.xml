@@ -50,25 +50,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/iimg"
-            android:textColor="@color/gris"
             android:layout_marginTop="@dimen/_10sdp"
-            android:text="Message: " />
+            android:text="Votre question: "
+            android:textColor="@color/gris" />
 
         <EditText
             android:id="@+id/message_commnq"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sy_na"
-            android:textColorHint="@color/gris"
-            android:textColor="@color/primary_text"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
-            android:hint="A quoi pensez-vous"
+            android:hint="A quoi pensez-vous ?"
             android:imeOptions="actionDone"
             android:inputType="text|textMultiLine|textCapSentences"
             android:paddingStart="@dimen/_6sdp"
             android:paddingTop="@dimen/_5sdp"
             android:paddingBottom="@dimen/_50sdp"
+            android:textColor="@color/primary_text"
+            android:textColorHint="@color/gris"
             tools:ignore="RtlSymmetry" />
         <ProgressBar
             android:id="@+id/progress_bar"

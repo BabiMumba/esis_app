@@ -195,14 +195,14 @@ class ProfilFragment : Fragment() {
                 editor.putBoolean("cmmq_state", true)
                 editor.apply()
                 commique_nof.isChecked = true
-                abonnement("cmmq")
+                abonnement("communique")
             } else {
                 // When switch unchecked
                 val editor = requireActivity().getSharedPreferences("save", AppCompatActivity.MODE_PRIVATE).edit()
                 editor.putBoolean("cmmq_state", false)
                 editor.apply()
                 commique_nof.isChecked = false
-                desabonnement("cmmq")
+                desabonnement("communique")
             }
 
         }

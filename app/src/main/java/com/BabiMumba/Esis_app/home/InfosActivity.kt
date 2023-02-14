@@ -122,7 +122,7 @@ class InfosActivity : AppCompatActivity() {
                     circularProgressDrawable.centerRadius = 30f
                     circularProgressDrawable.start()
                     Glide
-                        .with(this)
+                        .with(applicationContext)
                         .load(imgetxt)
                         // .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(circularProgressDrawable)
