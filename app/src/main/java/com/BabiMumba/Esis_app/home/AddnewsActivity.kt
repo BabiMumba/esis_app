@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_addnews.*
 import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
@@ -140,6 +141,14 @@ class AddnewsActivity : AppCompatActivity() {
 
 
 
+    }
+    fun sendnotif(title: String) {
+        FcmNotificationsSender.pushNotification(
+            this,
+            "/topics/forum",
+            "ESIS COMMUNIQUE",
+            "Nouveaux communique pour $title",
+        )
     }
 
 

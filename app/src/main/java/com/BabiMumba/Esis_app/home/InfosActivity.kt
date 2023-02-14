@@ -140,8 +140,6 @@ class InfosActivity : AppCompatActivity() {
         adpter.startListening()
         recycler_users.recycledViewPool.clear()
         adpter.notifyDataSetChanged()
-
-
     }
     override fun onStop() {
         super.onStop()
