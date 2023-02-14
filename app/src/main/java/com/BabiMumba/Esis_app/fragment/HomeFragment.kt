@@ -89,10 +89,9 @@ class HomeFragment : Fragment() {
         imageList.add(SlideModel("https://www.esisalama.com/assets/img/carousel/banner_design.png", "DEsign est multimedia"))
          */
         //new image upluade for firebase database
-        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/idee.png?alt=media&token=7cdc2d1d-45c5-464a-8413-c0523835ed45", ""))
-        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/affich_1.png?alt=media&token=2e477ae3-c4fc-4377-87d7-a8935ce3e6b4", ""))
-        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/gerer%20syllabus.png?alt=media&token=525fd196-63c3-4379-bb82-d9fd4eb8ca4a", "Classer vos syllabus facilement"))
-        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/resultat_affiche.png?alt=media&token=f5f6c8df-d22a-4e7e-bd8a-0617a6a74cf2", "Sauvegarder vos resultat en pdf"))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n1-1.jpg?alt=media&token=17862754-5cad-4b88-91e6-f6022de3e9cf", ""))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n2-1.jpg?alt=media&token=dea51bc4-4dd8-4483-9ee5-7b44f277e8af", ""))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/FILLE2.jpg?alt=media&token=3d6415b4-1fa5-4795-ab0f-2769f76bd036", ""))
 
         val imageSlider = viewF.findViewById<ImageSlider>(R.id.image_slider)
         /*
