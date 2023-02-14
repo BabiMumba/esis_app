@@ -11,9 +11,13 @@
         >
 
     <RelativeLayout
+        android:layout_alignParentTop="true"
         android:id="@+id/r1"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/bannerAd"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         >
         <LinearLayout
             android:id="@+id/l1"
@@ -81,6 +85,13 @@
         android:layout_centerHorizontal="true"
         android:fontFamily="serif"
         />
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/bannerAd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_id_teste" />
 
 
     </RelativeLayout>

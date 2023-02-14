@@ -101,19 +101,6 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
 
 
     }
-
-
-    override fun onPause() {
-        adview?.pause()
-        super.onPause()
-        Log.d(TAG, "onPause: ")
-
-    }
-    override fun onResume() {
-        adview?.resume()
-        super.onResume()
-        Log.d(TAG, "onResume: ")
-    }
     private fun runtimePermissions() {
         Dexter.withContext(this@LectureActivity_Pdf)
             .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)

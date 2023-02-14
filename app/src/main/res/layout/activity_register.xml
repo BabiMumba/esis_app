@@ -29,6 +29,7 @@
             android:textStyle="bold"
             android:textSize="@dimen/_15ssp"
             />
+
         <FrameLayout
             android:layout_gravity="center"
             android:id="@+id/layoutImage"
