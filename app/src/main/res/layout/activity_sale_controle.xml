@@ -184,7 +184,7 @@
             android:backgroundTint="#1B023B"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/_10sdp"
             >
@@ -206,7 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/s3"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Admin"
+                    android:text="Administrateur"
                     android:textColor="@color/white"
                     android:textStyle="bold" />
             </RelativeLayout>
