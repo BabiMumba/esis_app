@@ -107,7 +107,7 @@ class SyllabusPromo : AppCompatActivity() {
                             Toast.makeText(this@SyllabusPromo, "il ya $t syllabus de $s", Toast.LENGTH_SHORT).show()
 
                         }else{
-                            Toast.makeText(this@SyllabusPromo, "donee no trouver", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@SyllabusPromo, "pas de syllabus de $s pour le moment", Toast.LENGTH_SHORT).show()
                         }
                     }
                     override fun onCancelled(error: DatabaseError) {
