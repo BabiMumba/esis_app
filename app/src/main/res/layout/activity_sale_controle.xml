@@ -68,7 +68,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/c3"
+            android:id="@+id/add_commique"
             android:layout_alignParentEnd="true"
             android:layout_marginEnd="@dimen/_10sdp"
             android:backgroundTint="#1B023B"

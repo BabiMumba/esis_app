@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.AddnewsActivity
 import kotlinx.android.synthetic.main.activity_sale_controle.*
 
 class SaleControleActivity : AppCompatActivity() {
@@ -20,6 +21,11 @@ class SaleControleActivity : AppCompatActivity() {
         }
         logout_users.setOnClickListener {
             startActivity(Intent(this,LogoutActivity::class.java))
+        }
+        add_commique.setOnClickListener {
+            startActivity(Intent(this,AddnewsActivity::class.java)
+                .putExtra("mod","non")
+            )
         }
     }
 }
