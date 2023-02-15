@@ -337,6 +337,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/send_share"
                 android:layout_margin="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_text"
                 android:textSize="@dimen/_10sdp"
