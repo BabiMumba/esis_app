@@ -45,7 +45,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/backround_view_user_profil"
-                        android:padding="@dimen/_20sdp">
+                        android:padding="@dimen/_10sdp">
 
                         <TextView
                             android:id="@+id/txt"
@@ -71,8 +71,6 @@
                             android:layout_below="@id/txt"
                             android:layout_alignParentStart="true"
                             android:src="@drawable/apprendre_u" />
-
-
 
                     </RelativeLayout>
 
