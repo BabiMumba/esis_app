@@ -31,6 +31,7 @@ class UpdateProfilActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storageReference: StorageReference
     var filepath: Uri? = null
+    lateinit var collection_name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_update_profil)
@@ -81,7 +82,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs")
+        val docRef = db.collection(collection_name)
             .document(mail)
         docRef.get()
             .addOnSuccessListener { document ->
@@ -156,7 +157,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         infor_user["post-nom"] = ui_post_name.text.toString()
         infor_user["prenom"] = prenom_ui.text.toString()
         infor_user["ouverture_application"] = count_app
-        database.collection("Utilisateurs")
+        database.collection(collection_name)
             .document(mail)
             .update(infor_user)
             .addOnCompleteListener {
@@ -228,7 +229,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
-        database.collection("Utilisateurs")
+        database.collection(collection_name)
             .document(mail)
             .update(infor_user)
             .addOnCompleteListener {
