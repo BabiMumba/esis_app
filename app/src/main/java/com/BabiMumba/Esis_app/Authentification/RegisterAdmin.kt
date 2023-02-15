@@ -304,7 +304,6 @@ class RegisterAdmin : AppCompatActivity() {
         editor.putBoolean(name, true)
         editor.apply()
     }
-
     override fun onBackPressed() {
         Toast.makeText(this, "impossible de revenir en arriere", Toast.LENGTH_SHORT).show()
     }
