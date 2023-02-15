@@ -77,7 +77,6 @@ class UpdateProfilActivity : AppCompatActivity() {
                 }).check()
         }
     }
-
     private fun readData(){
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
@@ -94,14 +93,12 @@ class UpdateProfilActivity : AppCompatActivity() {
                     val mailTo = document.data?.getValue("mail").toString()
                     val promotion = document.data?.getValue("promotion").toString()
                     val admin = document.data?.getValue("administrateur").toString()
-                    val premium = document.data?.getValue("premium").toString()
                     promot.text = promotion
                     u_mail.text = mailTo
                     u_nume.text = num
                     ui_post_name.setText(postname)
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
-                  
                     if (admin=="oui"){
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
@@ -136,18 +133,6 @@ class UpdateProfilActivity : AppCompatActivity() {
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(101)
     }
-    private fun pick_image() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_PICK
-        startActivityForResult(
-            Intent.createChooser(
-                intent,
-                "Selectionner un fichier"
-            ), 101
-        )
-    }
-
     private fun SavePrefData() {
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -162,7 +147,6 @@ class UpdateProfilActivity : AppCompatActivity() {
     private fun update_data(){
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val count_app = sharedPreferences.getInt("count",0)
-
         loading(true)
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
