@@ -204,7 +204,6 @@ class RegisterActivity : AppCompatActivity() {
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(101)
     }
-
     private fun firebaseSignUp() {
         getInfoUser()
         send_profil()
