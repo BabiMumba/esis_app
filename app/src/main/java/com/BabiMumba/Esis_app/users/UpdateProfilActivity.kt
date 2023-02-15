@@ -38,8 +38,18 @@ class UpdateProfilActivity : AppCompatActivity() {
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
 
+        //initialisatin de la collection
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+        if (adm == "oui"){
+            collection_name = "Professeur"
+        }else{
+            collection_name = "Utilisateurs"
+        }
+
         readData()
         setListener()
+
 
     }
     fun setListener(){
@@ -106,7 +116,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                         editor.apply() {
                             putString("administrateur", "oui")
                         }.apply()
-                        //Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
                     }else{
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
