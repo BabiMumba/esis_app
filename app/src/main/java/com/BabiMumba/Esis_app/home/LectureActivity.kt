@@ -53,7 +53,7 @@ class LectureActivity : AppCompatActivity() {
         }
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$url")
         syncroniser.setOnClickListener {
-            Toast.makeText(this, "Rafrechire", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Rafraichir", Toast.LENGTH_SHORT).show()
             webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$url")
         }
     }
