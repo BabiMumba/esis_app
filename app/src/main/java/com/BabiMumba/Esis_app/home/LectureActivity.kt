@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -29,6 +30,11 @@ class LectureActivity : AppCompatActivity() {
         pd.show()
         webView.settings.builtInZoomControls = true;
         webView.settings.setSupportZoom(true);
+        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
+        webView.settings.allowFileAccess = true
+        webView.settings.setAppCacheEnabled(true)
+        webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)

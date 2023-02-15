@@ -219,7 +219,7 @@
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             android:id="@+id/add_horaire"
-            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:backgroundTint="#1B023B"
             android:layout_marginTop="@dimen/_15sdp"
             android:layout_width="wrap_content"
