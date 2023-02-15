@@ -249,7 +249,8 @@
                     android:text="Promotionnel"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    />
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>

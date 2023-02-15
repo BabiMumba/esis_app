@@ -28,6 +28,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdministateurPage"
+            android:exported="false" />
+        <activity
+            android:name=".PromotionnellPage"
+            android:exported="false" />
+        <activity
             android:name=".RegisterAdmin"
             android:exported="false" />
         <activity
