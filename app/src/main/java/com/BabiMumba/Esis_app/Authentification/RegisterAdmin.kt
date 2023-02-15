@@ -56,9 +56,6 @@ class RegisterAdmin : AppCompatActivity() {
 
     }
     private fun clikbtn(){
-        binding.promotionText.setOnClickListener {
-            choixpromo()
-        }
         binding.btnSignup.setOnClickListener {
             if (isValidSignUpDetails()){
                 firebaseSignUp()
@@ -146,7 +143,6 @@ class RegisterAdmin : AppCompatActivity() {
         infor_user["mail"] = inputMail
         infor_user["sexe"] = binding.genreChoice.text.toString()
         infor_user["Numero de telephone"] = binding.number.text.toString()
-        infor_user["promotion"] = binding.promotionChoice.text.toString()
         infor_user["administrateur"] = "oui"
         infor_user["adminP"] = "oui"
         infor_user["ouverture_application"] = 1
@@ -179,7 +175,6 @@ class RegisterAdmin : AppCompatActivity() {
             putString("mail",inputMail)
             putString("sexe",binding.genreChoice.text.toString())
             putString("numero de telephone",binding.number.text.toString())
-            putString("promotion",binding.promotionChoice.text.toString())
             putString("lien profil",imagelink)
             putString("administrateur","oui")
             putString("AdminP","oui")
@@ -279,41 +274,6 @@ class RegisterAdmin : AppCompatActivity() {
             binding.btnSignup.visibility = View.VISIBLE
             binding.progressBar.visibility = View.INVISIBLE
         }
-    }
-    private fun choixpromo() {
-        val checkedItem = intArrayOf(-1)
-        val alertDialog = AlertDialog.Builder(this)
-        alertDialog.setIcon(R.drawable.developement_ic)
-        alertDialog.setTitle("Promotion")
-        val listItems = arrayOf(
-            "L1",
-            "L2",
-            "G2 ",
-            "GL",
-            "G2 MSI",
-            "G2 DSG",
-            "G2 AS",
-            "G2 TLC",
-            "G3 GL",
-            "G3 MSI",
-            "G3 DSG",
-            "G3 AS",
-            "G3 TLC",
-            " M1 AS-TLC",
-            "M1 DESIGN",
-            "M1 MIAGE"
-        )
-        alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
-            checkedItem[0] = which
-            val s = listItems[which]
-            binding.promotionChoice.text = s
-            dialog.dismiss()
-        }
-        alertDialog.setNegativeButton("Annuler") { dialog, which ->
-            dialog.dismiss()
-        }
-        val customAlertDialog = alertDialog.create()
-        customAlertDialog.show()
     }
     private fun choigenre(){
         val checkedItem = intArrayOf(-1)
