@@ -181,9 +181,8 @@ class RegisterAdmin : AppCompatActivity() {
             putString("numero de telephone",binding.number.text.toString())
             putString("promotion",binding.promotionChoice.text.toString())
             putString("lien profil",imagelink)
-            putString("premium","non")
-            putString("administrateur","non")
-            putString("AdminP","non")
+            putString("administrateur","oui")
+            putString("AdminP","oui")
             putInt("count",1)
 
         }.apply()
