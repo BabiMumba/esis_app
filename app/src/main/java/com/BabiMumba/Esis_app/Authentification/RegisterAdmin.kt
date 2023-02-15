@@ -258,10 +258,6 @@ class RegisterAdmin : AppCompatActivity() {
             binding.number.error = "Ex: 975937553"
             false
         }
-        else if (binding.promotionChoice.text.toString() == "") {
-            showtoast("chossissez votre promotion")
-            false
-        }
         else {
             true
         }
