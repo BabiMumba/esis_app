@@ -124,7 +124,7 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_power"
+                    android:src="@drawable/ic_outline_person_add_disabled_24"
                     app:tint="@color/white" />
 
                 <TextView
@@ -238,7 +238,7 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_centerHorizontal="true"
-                    android:src="@drawable/ic_baseline_person_pin_24"
+                    android:src="@drawable/ic_admin"
                     app:tint="@color/white" />
 
                 <TextView
