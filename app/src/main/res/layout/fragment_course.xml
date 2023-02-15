@@ -52,9 +52,10 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="serif"
-                            android:text="Mes syllabus\n "
+                            android:text="Mes syllabus"
+                            android:layout_centerHorizontal="true"
                             android:textColor="@color/primary_text"
-                            android:textSize="@dimen/_20sdp"
+                            android:textSize="@dimen/_15sdp"
                             android:textStyle="bold" />
 
                         <ImageView
@@ -62,6 +63,7 @@
                             android:layout_width="@dimen/_90sdp"
                             android:layout_height="@dimen/_80sdp"
                             android:layout_below="@id/txt"
+                            android:layout_alignParentBottom="true"
                             android:layout_centerHorizontal="true"
                             android:src="@drawable/book_img" />
 
