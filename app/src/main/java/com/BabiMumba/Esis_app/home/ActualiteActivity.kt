@@ -17,6 +17,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.webkit.URLUtil
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -48,7 +49,6 @@ class ActualiteActivity : AppCompatActivity() {
             }
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualite)
@@ -72,10 +72,15 @@ class ActualiteActivity : AppCompatActivity() {
         progressBar.setCancelable(true)
         progressBar.show()
 
-        web_eventmtn.settings.javaScriptEnabled = true
+        webView.settings.javaScriptEnabled = true
 
-        web_eventmtn!!.settings.builtInZoomControls = true
-        web_eventmtn.webViewClient = object : WebViewClient(){
+        webView.settings.builtInZoomControls = true
+        webView.settings.setSupportZoom(true);
+        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
+        webView.settings.allowFileAccess = true
+        webView.settings.setAppCacheEnabled(true)
+        webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+        webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
                 progressBar.show()
@@ -93,9 +98,9 @@ class ActualiteActivity : AppCompatActivity() {
         }
 
 
-        web_eventmtn.loadUrl(lien)
+        webView.loadUrl(lien)
         //Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
-        web_eventmtn.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
+        webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
             val request = DownloadManager.Request(
                 Uri.parse(url)
             )
