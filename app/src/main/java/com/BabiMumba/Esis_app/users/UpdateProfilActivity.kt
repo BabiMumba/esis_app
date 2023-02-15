@@ -111,14 +111,14 @@ class UpdateProfilActivity : AppCompatActivity() {
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
-                            putString("administrateur", "oui")
+                            putString("adminP", "oui")
                         }.apply()
                         Toast.makeText(this, "vous etes un administrateur", Toast.LENGTH_SHORT).show()
                     }else{
                         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
                         val editor = sharedPreferences.edit()
                         editor.apply() {
-                            putString("administrateur", "non")
+                            putString("adminP", "non")
                         }.apply()
                     }
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
