@@ -25,11 +25,11 @@ class LectureActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         val pd = ProgressDialog(this)
         pd.setTitle(nom_livre)
-        pd.setMessage("Ouverture du livre....!!!")
+        pd.setMessage("Ouverture du livre....!!")
         pd.setCancelable(true)
         pd.show()
-        webView.settings.builtInZoomControls = true;
-        webView.settings.setSupportZoom(true);
+        webView.settings.builtInZoomControls = true
+        webView.settings.setSupportZoom(true)
         webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.setAppCacheEnabled(true)

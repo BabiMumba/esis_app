@@ -80,8 +80,10 @@ class ActualiteActivity : AppCompatActivity() {
         webView.settings.setAppCachePath(this.cacheDir.absolutePath)
         webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
+        webView.settings.domStorageEnabled = true
         webView.settings.setAppCacheEnabled(true)
-        webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+        //webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+        webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
