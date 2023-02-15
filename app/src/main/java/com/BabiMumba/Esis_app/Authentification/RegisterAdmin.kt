@@ -97,7 +97,7 @@ class RegisterAdmin : AppCompatActivity() {
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
-        database.collection("Utilisateurs")
+        database.collection("Professeur")
             .document(inputMail)
             .set(infor_user, SetOptions.merge())
             .addOnCompleteListener {
@@ -147,15 +147,14 @@ class RegisterAdmin : AppCompatActivity() {
         infor_user["sexe"] = binding.genreChoice.text.toString()
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["promotion"] = binding.promotionChoice.text.toString()
-        infor_user["premium"] = "non"
-        infor_user["administrateur"] = "non"
-        infor_user["adminP"] = "non"
+        infor_user["administrateur"] = "oui"
+        infor_user["adminP"] = "oui"
         infor_user["ouverture_application"] = 1
         infor_user["id_reserve1"] = ""
         infor_user["id_reserve2"] = ""
         infor_user["id_reserve3"] = ""
         infor_user["id_reserve4"] = ""
-        database.collection("Utilisateurs")
+        database.collection("Professeur")
             .document(inputMail)
             .set(infor_user)
             .addOnCompleteListener {
