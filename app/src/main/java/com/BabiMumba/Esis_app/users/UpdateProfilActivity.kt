@@ -57,7 +57,6 @@ class UpdateProfilActivity : AppCompatActivity() {
                 send_profil()
                 update_data()
             }
-
         }
         edit_img.setOnClickListener {
             Dexter.withContext(
