@@ -28,13 +28,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AdministateurPage"
+            android:name=".admin.AdministateurPage"
             android:exported="false" />
         <activity
-            android:name=".PromotionnellPage"
+            android:name=".admin.PromotionnellPage"
             android:exported="false" />
         <activity
-            android:name=".RegisterAdmin"
+            android:name=".Authentification.RegisterAdmin"
             android:exported="false" />
         <activity
             android:name=".home.DetailleNews"

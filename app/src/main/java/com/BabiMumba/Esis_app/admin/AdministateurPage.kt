@@ -8,5 +8,6 @@ class AdministateurPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_administateur_page)
+
     }
 }
