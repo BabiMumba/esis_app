@@ -234,7 +234,7 @@ class RegisterAdmin : AppCompatActivity() {
             false
         }
         else if (binding.postNom.text.toString().trim().isEmpty()) {
-            showtoast("Entrer votre post nom")
+            showtoast("Entrer votre post-nom")
             false
         }
         else if (binding.postNom.text.toString().trim().length<3) {
@@ -304,4 +304,5 @@ class RegisterAdmin : AppCompatActivity() {
         editor.putBoolean(name, true)
         editor.apply()
     }
+
 }

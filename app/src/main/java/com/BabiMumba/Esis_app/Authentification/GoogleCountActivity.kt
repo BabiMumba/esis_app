@@ -89,7 +89,9 @@ class GoogleCountActivity : AppCompatActivity() {
                         if (isNumber(nume)){
                             firebaseAuthWithGoogle(account.idToken!!)
                         }else{
-                            Toast.makeText(this, "vous etes un professeur", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Matricule Administrateur", Toast.LENGTH_SHORT).show()
+                            firebaseAuthWithGoogle(account.idToken!!)
+
                         }
                         googleSignInClient.signOut()
 
