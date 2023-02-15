@@ -76,7 +76,8 @@ class ActualiteActivity : AppCompatActivity() {
         progressBar.show()
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
-        webView.settings.setSupportZoom(true);
+        webView.settings.setSupportZoom(true)
+        webView.settings.setAppCachePath(this.cacheDir.absolutePath)
         webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.setAppCacheEnabled(true)
@@ -107,7 +108,7 @@ class ActualiteActivity : AppCompatActivity() {
             )
             val filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
             request.allowScanningByMediaScanner()
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED) //Notify client once download is completed!
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED) //notifie la personne si le telechargment termine
             request.setDestinationInExternalPublicDir(
                 Environment.DIRECTORY_DOWNLOADS+ "/syllabus esis/",
                 filename
