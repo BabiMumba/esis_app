@@ -133,11 +133,15 @@ class ActualiteActivity : AppCompatActivity() {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
-    private fun isNetworkAvailable(): Boolean {
+
+    /*
+      private fun isNetworkAvailable(): Boolean {
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
         return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
+     */
+
     fun load_data(){
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val tlc = sharedPreferences.getInt("point",0)
