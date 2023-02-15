@@ -59,29 +59,11 @@
 
                         <ImageView
                             android:id="@+id/bk"
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="@dimen/_50sdp"
+                            android:layout_width="@dimen/_90sdp"
+                            android:layout_height="@dimen/_80sdp"
                             android:layout_below="@id/txt"
-                            android:layout_alignParentEnd="true"
+                            android:layout_centerHorizontal="true"
                             android:src="@drawable/book_img" />
-
-                        <ImageView
-                            android:id="@+id/cd"
-                            android:layout_width="@dimen/_40sdp"
-                            android:layout_height="@dimen/_40sdp"
-                            android:layout_below="@id/txt"
-                            android:layout_toStartOf="@id/bk"
-                            android:src="@drawable/programming" />
-
-                        <ImageView
-                            android:id="@+id/code"
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="@dimen/_50sdp"
-                            android:layout_below="@id/bk"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="@dimen/_10sdp"
-                            android:src="@drawable/code_esis"
-                            app:tint="@color/white" />
 
                         <ImageView
                             android:layout_width="@dimen/_100sdp"
@@ -90,21 +72,7 @@
                             android:layout_alignParentStart="true"
                             android:src="@drawable/apprendre_u" />
 
-                        <ImageView
-                            android:id="@+id/pc"
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="@dimen/_50sdp"
-                            android:layout_below="@id/txt"
-                            android:layout_centerHorizontal="true"
-                            android:src="@drawable/developement_ic" />
 
-                        <ImageView
-                            android:layout_width="@dimen/_50sdp"
-                            android:layout_height="@dimen/_50sdp"
-                            android:layout_below="@id/pc"
-                            android:layout_marginEnd="@dimen/_10sdp"
-                            android:layout_toStartOf="@id/code"
-                            android:src="@drawable/illustration" />
 
                     </RelativeLayout>
 
