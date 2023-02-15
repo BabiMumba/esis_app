@@ -46,11 +46,8 @@ class UpdateProfilActivity : AppCompatActivity() {
         }else{
             collection_name = "Utilisateurs"
         }
-
         readData()
         setListener()
-
-
     }
     fun setListener(){
         save_btn.setOnClickListener {
@@ -103,7 +100,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
                     val promotion = document.data?.getValue("promotion").toString()
-                    val admin = document.data?.getValue("administrateur").toString()
+                    val admin = document.data?.getValue("adminP").toString()
                     promot.text = promotion
                     u_mail.text = mailTo
                     u_nume.text = num
