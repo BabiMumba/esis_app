@@ -53,5 +53,6 @@
     <string name="add_or_select">Vous devez sélectionner ou ajouter votre compte d\'Esis</string>
     <string name="send_share">Télécharger des syllabus</string>
     <string name="rewarded_ad_reel">ca-app-pub-3940256099942544/5354046379</string>
+    <string name="admin_count">Creation du compte \n Administrateur</string>
 
 </resources>
