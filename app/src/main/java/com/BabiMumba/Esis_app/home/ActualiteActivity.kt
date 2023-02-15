@@ -10,7 +10,6 @@ import android.content.IntentFilter
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
@@ -21,9 +20,10 @@ import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.activity_actualite.*
+
 
 class ActualiteActivity : AppCompatActivity() {
     private var tlc_s: Int? = null
@@ -53,27 +53,28 @@ class ActualiteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualite)
         load_data()
+        webView = findViewById(R.id.web_eventmtn)
         if (isConnectedNetwork(this)){
             //connecter
         }else{
-            web_eventmtn.visibility = View.GONE
+            /*
+              web_eventmtn.visibility = View.GONE
             txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
+             */
+            webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+
+
         }
-        webView = findViewById(R.id.web_eventmtn)
 
         val lien = intent.getStringExtra("url_link").toString()
         registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-
-
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
         progressBar.setCancelable(true)
         progressBar.show()
-
         webView.settings.javaScriptEnabled = true
-
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true);
         webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
@@ -104,7 +105,6 @@ class ActualiteActivity : AppCompatActivity() {
             val request = DownloadManager.Request(
                 Uri.parse(url)
             )
-
             val filename = URLUtil.guessFileName(url, contentDisposition, mimetype);
             request.allowScanningByMediaScanner()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED) //Notify client once download is completed!
@@ -132,6 +132,11 @@ class ActualiteActivity : AppCompatActivity() {
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
+    }
+    private fun isNetworkAvailable(): Boolean {
+        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
     fun load_data(){
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
