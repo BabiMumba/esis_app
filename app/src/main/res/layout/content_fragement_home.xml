@@ -307,13 +307,13 @@
             <androidx.cardview.widget.CardView
                 app:cardCornerRadius="@dimen/_5sdp"
                 android:elevation="@dimen/_10sdp"
-                android:layout_margin="@dimen/_5sdp"
+                android:layout_margin="@dimen/_10sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"
+                    android:layout_height="@dimen/_145sdp"
                     >
 
                     <com.denzcoskun.imageslider.ImageSlider
@@ -336,7 +336,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/send_share"
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:textStyle="bold"
                 android:textColor="@color/primary_text"
