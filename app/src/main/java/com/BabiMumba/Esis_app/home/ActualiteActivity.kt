@@ -54,6 +54,7 @@ class ActualiteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_actualite)
         load_data()
         webView = findViewById(R.id.web_eventmtn)
+
         if (isConnectedNetwork(this)){
             //connecter
         }else{
@@ -63,6 +64,7 @@ class ActualiteActivity : AppCompatActivity() {
             non_internet.visibility = View.VISIBLE
              */
             webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+
 
         }
 
@@ -76,8 +78,11 @@ class ActualiteActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
+        webView.settings.setAppCachePath(this.cacheDir.absolutePath)
+        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.domStorageEnabled = true
+        webView.settings.setAppCacheEnabled(true)
         //webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webView.webViewClient = object : WebViewClient(){
@@ -96,7 +101,6 @@ class ActualiteActivity : AppCompatActivity() {
                 return true
             }
         }
-
 
         webView.loadUrl(lien)
         //Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
