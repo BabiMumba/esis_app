@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -83,6 +84,44 @@ class UpdateProfilActivity : AppCompatActivity() {
                     }
                 }).check()
         }
+        l4.setOnClickListener {
+            choixpromo()
+        }
+    }
+    private fun choixpromo() {
+        val checkedItem = intArrayOf(-1)
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setIcon(R.drawable.developement_ic)
+        alertDialog.setTitle("Promotion")
+        val listItems = arrayOf(
+            "L1",
+            "L2_A",
+            "L2_B",
+            "L3_AS",
+            "L3_TLC",
+            "L3_GL",
+            "L3_MSI",
+            "L3_DESIGN",
+            "L4_AS",
+            "L4_TLC",
+            "L4_MSI",
+            "L4_GL",
+            "L4_DESIGN",
+            "VC_L1",
+            "VC_L2",
+            "VC_L3",
+        )
+        alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
+            checkedItem[0] = which
+            val s = listItems[which]
+            promot.text = s
+            dialog.dismiss()
+        }
+        alertDialog.setNegativeButton("Annuler") { dialog, which ->
+            dialog.dismiss()
+        }
+        val customAlertDialog = alertDialog.create()
+        customAlertDialog.show()
     }
     private fun readData(){
         val fireuser= firebaseAuth.currentUser
@@ -147,7 +186,7 @@ class UpdateProfilActivity : AppCompatActivity() {
             putString("nom", ui_name.text.toString())
             putString("post-nom", ui_post_name.text.toString())
             putString("prenom", prenom_ui.text.toString())
-
+            putString("promotion", promot.text.toString())
         }.apply()
         showtoast("mise ajour reussi")
     }
@@ -162,6 +201,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         infor_user["nom"] = ui_name.text.toString()
         infor_user["post-nom"] = ui_post_name.text.toString()
         infor_user["prenom"] = prenom_ui.text.toString()
+        infor_user["promotion"] = promot.text.toString()
         infor_user["ouverture_application"] = count_app
         database.collection(collection_name)
             .document(mail)
