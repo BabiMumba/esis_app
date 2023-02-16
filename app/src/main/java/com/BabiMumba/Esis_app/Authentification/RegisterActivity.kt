@@ -288,21 +288,15 @@ class RegisterActivity : AppCompatActivity() {
         alertDialog.setTitle("Promotion")
         val listItems = arrayOf(
             "L1",
-            "L2",
-            "G2 ",
-            "GL",
-            "G2 MSI",
-            "G2 DSG",
-            "G2 AS",
-            "G2 TLC",
-            "G3 GL",
-            "G3 MSI",
-            "G3 DSG",
-            "G3 AS",
-            "G3 TLC",
-            " M1 AS-TLC",
-            "M1 DESIGN",
-            "M1 MIAGE"
+            "L2_A",
+            "L2_B",
+            "L3_AS",
+            "L3_TLC",
+            "L3_GL",
+            "L3_MSI",
+            "L3_MSI",
+            "L3_MSI",
+
         )
         alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
             checkedItem[0] = which
