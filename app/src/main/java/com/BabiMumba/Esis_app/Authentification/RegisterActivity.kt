@@ -185,7 +185,6 @@ class RegisterActivity : AppCompatActivity() {
             putString("administrateur","non")
             putString("AdminP","non")
             putInt("count",1)
-
         }.apply()
         abonnement("syllabus")
         abonnement("forum")
