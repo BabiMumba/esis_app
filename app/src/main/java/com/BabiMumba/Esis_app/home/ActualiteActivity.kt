@@ -64,7 +64,6 @@ class ActualiteActivity : AppCompatActivity() {
              */
             webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
 
-
         }
 
         val lien = intent.getStringExtra("url_link").toString()
@@ -77,11 +76,8 @@ class ActualiteActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
-        webView.settings.setAppCachePath(this.cacheDir.absolutePath)
-        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.domStorageEnabled = true
-        webView.settings.setAppCacheEnabled(true)
         //webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webView.webViewClient = object : WebViewClient(){
