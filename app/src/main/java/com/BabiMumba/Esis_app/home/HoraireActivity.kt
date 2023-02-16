@@ -17,8 +17,7 @@ class HoraireActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_horaire)
         webView = findViewById(R.id.web_horaire)
-
-        val lien = intent.getStringExtra("promot_link").toString()
+        val promot_link = intent.getStringExtra("promot_link").toString()
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
@@ -49,7 +48,7 @@ class HoraireActivity : AppCompatActivity() {
                 return true
             }
         }
-        webView.loadUrl(lien)
+        webView.loadUrl("https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf")
 
     }
 
