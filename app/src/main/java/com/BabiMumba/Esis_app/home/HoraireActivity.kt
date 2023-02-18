@@ -66,7 +66,6 @@ class HoraireActivity : AppCompatActivity() {
         }
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
-
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
         backDrop = findViewById(R.id.back_drop)
@@ -93,7 +92,6 @@ class HoraireActivity : AppCompatActivity() {
             toggleFabMode(fabAdd)
         }
         dowload.setOnClickListener {
-                telecharger(lien,"Horaire $promot_link")
             _createFolder(File(theDir + "Horaire"))
         }
 
@@ -270,14 +268,21 @@ class HoraireActivity : AppCompatActivity() {
     //creer un dossier
 
     fun _createFolder(file: File) {
+        val promot_link = intent.getStringExtra("promot_link").toString()
+        val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
+
         if (!file.exists()) {
             val succ = file.mkdir()
             if (succ) {
-                Toast.makeText(applicationContext, "dossier creer avec succe", Toast.LENGTH_SHORT).show()
-            } else Toast.makeText(applicationContext, "dossier non creer", Toast.LENGTH_SHORT)
-                .show()
+                telecharger(lien,"Horaire $promot_link")
+                //Toast.makeText(applicationContext, "dossier creer avec succe", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(applicationContext, "dossier non creer", Toast.LENGTH_SHORT)
+                    .show()
+            }
         } else if (file.exists()) {
-            Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
+            telecharger(lien,"Horaire $promot_link")
+            //Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
 
