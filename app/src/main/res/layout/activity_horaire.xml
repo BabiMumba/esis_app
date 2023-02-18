@@ -81,7 +81,7 @@
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
                 app:rippleColor="@android:color/black"
-                app:srcCompat="@drawable/ic_baseline_mic_24" />
+                app:srcCompat="@drawable/ic_baseline_refresh_24" />
 
             <View
                 android:layout_width="7dp"
@@ -110,7 +110,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Call Friends"
+                    android:text="toutes les promotions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </androidx.cardview.widget.CardView>
@@ -124,11 +124,11 @@
                 android:layout_marginRight="18dp"
                 android:layout_marginBottom="10dp"
                 android:clickable="true"
-                android:tint="@color/md_grey_800"
+                android:tint="@color/primary_text"
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
-                app:rippleColor="@android:color/black"
-                app:srcCompat="@drawable/ic_baseline_call_24" />
+                app:rippleColor="@color/black"
+                app:srcCompat="@drawable/ic_baseline_cloud_download_24" />
 
             <View
                 android:layout_width="7dp"
