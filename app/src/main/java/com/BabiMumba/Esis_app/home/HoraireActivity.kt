@@ -5,6 +5,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
@@ -62,10 +63,14 @@ class HoraireActivity : AppCompatActivity() {
         }
         dowload.setOnClickListener {
 
+            Toast.makeText(this, "telecharger", Toast.LENGTH_SHORT).show()
         }
 
         fabMic.setOnClickListener {
-
+            val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+            val intent = Intent(this, ActualiteActivity::class.java)
+            intent.putExtra("url_link",actulaity_link)
+            startActivity(intent)
         }
 
 
@@ -157,10 +162,12 @@ class HoraireActivity : AppCompatActivity() {
         if (rotate) {
             showIn(lytMic)
             showIn(lytCall)
+            showIn(lyt_down)
             backDrop.visibility = View.VISIBLE
         } else {
             showOut(lytMic)
             showOut(lytCall)
+            showOut(lyt_down)
             backDrop.visibility = View.GONE
         }
     }
