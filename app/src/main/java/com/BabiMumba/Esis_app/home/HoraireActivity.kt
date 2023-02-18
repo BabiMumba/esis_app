@@ -19,6 +19,7 @@ class HoraireActivity : AppCompatActivity() {
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
+
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
@@ -27,12 +28,8 @@ class HoraireActivity : AppCompatActivity() {
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
-        webView.settings.setAppCachePath(this.cacheDir.absolutePath)
-        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.domStorageEnabled = true
-        webView.settings.setAppCacheEnabled(true)
-        webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -49,10 +46,8 @@ class HoraireActivity : AppCompatActivity() {
                 return true
             }
         }
-
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
         println("le lien:$lien")
-
     }
 
     override fun onBackPressed() {
