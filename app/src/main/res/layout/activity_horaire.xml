@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -32,6 +33,35 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:id="@+id/web_horaire"
             />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/network_visibility"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_centerInParent="true"
+            android:id="@+id/non_internet"
+            ads:lottie_autoPlay="true"
+            ads:lottie_rawRes="@raw/nini"
+            ads:lottie_loop="true"/>
+
+        <TextView
+            android:id="@+id/txvp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/non_internet"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="sans-serif"
+            android:text="Pas de connexion Internet"
+            android:textColor="@color/primary_text" />
 
     </RelativeLayout>
 
