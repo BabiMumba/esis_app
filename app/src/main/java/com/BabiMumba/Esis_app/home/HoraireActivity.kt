@@ -40,6 +40,7 @@ class HoraireActivity : AppCompatActivity() {
         if (isConnectedNetwork(this)){
 
         }else{
+            network_visibility.visibility = View.VISIBLE
             visibility_page.visibility = View.GONE
             lyt_btn.visibility = View.GONE
         }
