@@ -37,6 +37,12 @@ class HoraireActivity : AppCompatActivity() {
         setContentView(R.layout.activity_horaire)
 
 
+        if (isConnectedNetwork(this)){
+
+        }else{
+            visibility_page.visibility = View.GONE
+            lyt_btn.visibility = View.GONE
+        }
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
 
