@@ -18,6 +18,7 @@ class HoraireActivity : AppCompatActivity() {
         setContentView(R.layout.activity_horaire)
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
+
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
         val progressBar = ProgressDialog(this)
