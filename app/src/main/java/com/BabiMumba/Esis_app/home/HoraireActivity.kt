@@ -282,7 +282,7 @@ class HoraireActivity : AppCompatActivity() {
             if (file2.exists()){
                 Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
                 val builder = AlertDialog.Builder(this)
-                builder.setMessage("Voulez-vous ecraser l'ancien fichier sauvegarder")
+                builder.setMessage("Voulez-vous ecraser l'ancien fichier sauvegarder de $promot_link")
                     .setTitle("Sauvegarder l'horaire")
                     .setNegativeButton("Non", null)
                     .setPositiveButton("oui") { _: DialogInterface?, i: Int ->
