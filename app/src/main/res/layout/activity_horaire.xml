@@ -8,26 +8,33 @@
     android:background="@color/white"
     tools:context=".home.HoraireActivity">
 
-    <ProgressBar
-        app:layout_constraintTop_toTopOf="parent"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_10sdp"
-        android:id="@+id/progressHori"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_marginTop="-2dp"
-        android:progress="20"
-        />
+        android:layout_height="match_parent">
+        <ProgressBar
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_10sdp"
+            android:id="@+id/progressHori"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_marginTop="-2dp"
+            android:progress="20"
+            />
 
-    <WebView
-        app:layout_constraintTop_toBottomOf="@id/progressHori"
-        android:layout_below="@id/progressHori"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:id="@+id/web_horaire"
-        />
+        <WebView
+            app:layout_constraintTop_toBottomOf="@id/progressHori"
+            android:layout_below="@id/progressHori"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/web_horaire"
+            />
+
+    </RelativeLayout>
+
+
     <View
         android:id="@+id/back_drop"
         android:layout_width="match_parent"
@@ -66,6 +73,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textColor="@color/primary_text"
                     android:text="Toutes les promotions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -113,6 +121,7 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Telecharger"
+                    android:textColor="@color/primary_text"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </androidx.cardview.widget.CardView>
@@ -159,6 +168,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textColor="@color/primary_text"
                     android:text="Actualiser la page"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
