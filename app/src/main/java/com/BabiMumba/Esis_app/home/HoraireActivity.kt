@@ -284,6 +284,13 @@ class HoraireActivity : AppCompatActivity() {
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("Voulez-vous ecraser l'ancien fichier sauvegarder de $promot_link")
                     .setTitle("Sauvegarder l'horaire")
+                    .setNeutralButton("Ouvrir"){
+                        _: DialogInterface?, i:Int ->
+                        startActivity(
+                            Intent(this, DocumentActivity2::class.java)
+                                .putExtra("path", file2.absolutePath)
+                        )
+                    }
                     .setNegativeButton("Non", null)
                     .setPositiveButton("oui") { _: DialogInterface?, i: Int ->
                         //supprimer le fichier
