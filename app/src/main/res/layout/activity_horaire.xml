@@ -25,12 +25,12 @@
         android:id="@+id/web_horaire"
         />
 
-    <View
-        android:id="@+id/back_drop"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:fitsSystemWindows="true" />
+     <View
+    android:id="@+id/back_drop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:fitsSystemWindows="true" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -64,7 +64,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Rafraichire"
+                    android:text="Record Voice"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </androidx.cardview.widget.CardView>
@@ -111,7 +111,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="Toutes les promotions"
+                    android:text="Call Friends"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </androidx.cardview.widget.CardView>
@@ -125,10 +125,10 @@
                 android:layout_marginRight="18dp"
                 android:layout_marginBottom="10dp"
                 android:clickable="true"
-                android:tint="@color/primary_text"
+                android:tint="@color/black"
                 app:backgroundTint="@android:color/white"
                 app:fabSize="mini"
-                app:rippleColor="@color/black"
+                app:rippleColor="@android:color/black"
                 app:srcCompat="@drawable/ic_baseline_cloud_download_24" />
 
             <View
@@ -152,5 +152,4 @@
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
     </LinearLayout>
-
 </RelativeLayout>
