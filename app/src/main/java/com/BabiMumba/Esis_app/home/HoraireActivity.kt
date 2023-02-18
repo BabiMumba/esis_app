@@ -6,16 +6,26 @@ import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.BabiMumba.Esis_app.R
+import kotlinx.android.synthetic.main.activity_horaire.*
 
 class HoraireActivity : AppCompatActivity() {
     lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(R.layout.activity_horaire)
+
+
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
 
@@ -25,12 +35,14 @@ class HoraireActivity : AppCompatActivity() {
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
         progressBar.setCancelable(true)
-        progressBar.show()
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
         webView.settings.allowFileAccess = true
+        webView.settings.useWideViewPort = true
+        webView.settings.loadWithOverviewMode = true
         webView.settings.domStorageEnabled = true
+        webView.settings.loadsImagesAutomatically = true
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -47,6 +59,24 @@ class HoraireActivity : AppCompatActivity() {
                 return true
             }
         }
+        webView.webChromeClient = object :WebChromeClient(){
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                progressHori.visibility = View.VISIBLE
+                progressHori.progress = newProgress
+                progressBar.show()
+
+                if (newProgress == 100){
+                    progressHori.visibility = View.GONE
+                    if (view != null) {
+                        title = view.title
+                    }
+                }
+                super.onProgressChanged(view, newProgress)
+            }
+
+
+        }
+
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
         println("le lien:$lien")
     }
