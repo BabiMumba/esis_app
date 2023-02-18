@@ -20,12 +20,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.karumi.dexter.Dexter
-import com.karumi.dexter.PermissionToken
-import com.karumi.dexter.listener.PermissionDeniedResponse
-import com.karumi.dexter.listener.PermissionGrantedResponse
-import com.karumi.dexter.listener.PermissionRequest
-import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_horaire.*
 import java.io.File
 import java.io.IOException
@@ -281,7 +275,14 @@ class HoraireActivity : AppCompatActivity() {
                     .show()
             }
         } else if (file.exists()) {
-            telecharger(lien,"Horaire $promot_link")
+            val noms = "Horaire $promot_link"
+            val file2:File = File(theDir+"/Horaire/"+noms)
+            if (file2.exists()){
+                Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
+            }else{
+                telecharger(lien,noms)
+            }
+
             //Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
