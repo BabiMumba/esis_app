@@ -29,6 +29,8 @@ import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_horaire.*
 import java.io.File
 import java.io.IOException
+import java.net.MalformedURLException
+import java.net.URL
 import java.util.*
 
 class HoraireActivity : AppCompatActivity() {
@@ -156,45 +158,32 @@ class HoraireActivity : AppCompatActivity() {
 
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
 
-        webView!!.setDownloadListener { s: String?, s1: String?, s2: String?, s3: String?, l: Long ->
-            Dexter.withActivity(this@HoraireActivity)
-                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .withListener(object : PermissionListener {
-                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
-                        val request = DownloadManager.Request(Uri.parse(s))
-                        request.setMimeType(s3)
-                        val cookies = CookieManager.getInstance().getCookie(s)
-                        request.addRequestHeader("cookie", cookies)
-                        request.addRequestHeader("User-Agent", s1)
-                        request.setDescription("Downloading File.....")
-                        request.setTitle(URLUtil.guessFileName(s, s2, s3))
-                        request.allowScanningByMediaScanner()
-                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-                        request.setDestinationInExternalPublicDir(
-                            Environment.DIRECTORY_DOWNLOADS + "/Horaire/", URLUtil.guessFileName(
-                                s, s2, s3
-                            )
-                        )
-                        val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-                        downloadManager.enqueue(request)
-                        Toast.makeText(this@HoraireActivity, "Downloading File..", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-
-                    override fun onPermissionDenied(response: PermissionDeniedResponse) {}
-                    override fun onPermissionRationaleShouldBeShown(
-                        permission: PermissionRequest,
-                        token: PermissionToken
-                    ) {
-                        token.continuePermissionRequest()
-                    }
-                }).check()
-        }
-
-
-
     }
 
+    private fun telecharger(lien:String,nom:String) {
+
+        var url1: URL? = null
+        try {
+            url1 = URL(lien)
+        } catch (e: MalformedURLException) {
+            e.printStackTrace()
+        }
+        val request = DownloadManager.Request(Uri.parse(url1.toString()))
+        request.setTitle(nom)
+        request.setMimeType("application/pdf")
+        request.allowScanningByMediaScanner()
+        request.setDescription("Telechargement...")
+        request.setVisibleInDownloadsUi(true)
+        request.setAllowedOverMetered(true)
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        request.setDestinationInExternalPublicDir(
+            Environment.DIRECTORY_DOWNLOADS+"/syllabus esis/", "$nom.pdf"
+        )
+        val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+        dm.enqueue(request)
+        Toast.makeText(this, "lancement du telechargement", Toast.LENGTH_SHORT).show()
+    }
     override fun onBackPressed() {
         if (webView.canGoBack()) {
             webView.goBack();
