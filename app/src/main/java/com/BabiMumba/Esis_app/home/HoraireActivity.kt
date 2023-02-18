@@ -19,6 +19,7 @@ import android.widget.Toast
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
+import java.io.File
 
 class HoraireActivity : AppCompatActivity() {
 
@@ -107,7 +108,6 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.loadWithOverviewMode = true
             webView.settings.domStorageEnabled = true
             webView.settings.loadsImagesAutomatically = true
-
         }
 
         webView.webViewClient = object : WebViewClient(){
@@ -228,6 +228,18 @@ class HoraireActivity : AppCompatActivity() {
                 }
             }).alpha(0f)
             .start()
+    }
+
+    fun _createFolder(file: File) {
+        if (!file.exists()) {
+            val succ = file.mkdir()
+            if (succ) {
+                Toast.makeText(applicationContext, "Folder Created", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(applicationContext, "Error creating folder", Toast.LENGTH_SHORT)
+                .show()
+        } else if (file.exists()) {
+            Toast.makeText(applicationContext, "Folder already exists!", Toast.LENGTH_SHORT).show()
+        }
     }
 
 }
