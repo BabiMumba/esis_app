@@ -24,6 +24,7 @@
         android:layout_height="match_parent"
         android:id="@+id/web_horaire"
         />
+
     <View
         android:id="@+id/back_drop"
         android:layout_width="match_parent"
@@ -110,7 +111,7 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:text="toutes les promotions"
+                    android:text="Toutes les promotions"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </androidx.cardview.widget.CardView>

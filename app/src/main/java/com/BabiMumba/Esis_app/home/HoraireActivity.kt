@@ -1,5 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
+import android.animation.Animator
+import android.animation.AnimatorListenerAdapter
 import android.app.ProgressDialog
 import android.content.Context
 import android.graphics.Bitmap
@@ -12,18 +14,51 @@ import android.webkit.WebChromeClient
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
 
 class HoraireActivity : AppCompatActivity() {
+
+    private lateinit var backDrop: View
+    private lateinit var lytMic: View
+    private lateinit var lytCall: View
+    private var rotate = false
+
     lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         setContentView(R.layout.activity_horaire)
+
+        backDrop = findViewById(R.id.back_drop)
+        lytMic = findViewById(R.id.lyt_mic)
+        lytCall = findViewById(R.id.lyt_call)
+
+        val fabMic: FloatingActionButton = findViewById(R.id.fab_mic)
+        val fabCall: FloatingActionButton = findViewById(R.id.fab_call)
+        val fabAdd: FloatingActionButton = findViewById(R.id.fab_add)
+
+        initShowOut(lytMic)
+        initShowOut(lytCall)
+
+        backDrop.visibility = View.GONE
+
+        backDrop.setOnClickListener {
+            toggleFabMode(fabAdd)
+        }
+
+        fabMic.setOnClickListener {
+            Toast.makeText(this, "Voice clicked", Toast.LENGTH_SHORT).show()
+        }
+
+        fabCall.setOnClickListener {
+            Toast.makeText(this, "Call clicked", Toast.LENGTH_SHORT).show()
+        }
+
 
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
@@ -99,5 +134,69 @@ class HoraireActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         webView.saveState(outState)
+    }
+
+    //bouton floating
+
+    private fun toggleFabMode(v: View) {
+        rotate = rotateFab(v, !rotate)
+        if (rotate) {
+            showIn(lytMic)
+            showIn(lytCall)
+            backDrop.visibility = View.VISIBLE
+        } else {
+            showOut(lytMic)
+            showOut(lytCall)
+            backDrop.visibility = View.GONE
+        }
+    }
+
+    private fun initShowOut(v: View) {
+        v.visibility = View.GONE
+        v.translationY = v.height.toFloat()
+        v.alpha = 0f
+    }
+
+    private fun rotateFab(v: View, rotate: Boolean): Boolean {
+        v.animate().setDuration(200)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    super.onAnimationEnd(animation)
+                }
+            })
+            .rotation(if (rotate) 135f else 0f)
+        return rotate
+    }
+
+    private fun showIn(v: View) {
+        v.visibility = View.VISIBLE
+        v.alpha = 0f
+        v.translationY = v.height.toFloat()
+        v.animate()
+            .setDuration(200)
+            .translationY(0f)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    super.onAnimationEnd(animation)
+                }
+            })
+            .alpha(1f)
+            .start()
+    }
+
+    private fun showOut(v: View) {
+        v.visibility = View.VISIBLE
+        v.alpha = 1f
+        v.translationY = 0f
+        v.animate()
+            .setDuration(200)
+            .translationY(v.height.toFloat())
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    v.visibility = View.GONE
+                    super.onAnimationEnd(animation)
+                }
+            }).alpha(0f)
+            .start()
     }
 }
