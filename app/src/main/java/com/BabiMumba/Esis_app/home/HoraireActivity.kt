@@ -35,14 +35,20 @@ class HoraireActivity : AppCompatActivity() {
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
         progressBar.setCancelable(true)
-        webView.settings.javaScriptEnabled = true
-        webView.settings.builtInZoomControls = true
-        webView.settings.setSupportZoom(true)
-        webView.settings.allowFileAccess = true
-        webView.settings.useWideViewPort = true
-        webView.settings.loadWithOverviewMode = true
-        webView.settings.domStorageEnabled = true
-        webView.settings.loadsImagesAutomatically = true
+        if (savedInstanceState != null){
+            webView.restoreState(savedInstanceState)
+        }else{
+            webView.settings.javaScriptEnabled = true
+            webView.settings.builtInZoomControls = true
+            webView.settings.setSupportZoom(true)
+            webView.settings.allowFileAccess = true
+            webView.settings.useWideViewPort = true
+            webView.settings.loadWithOverviewMode = true
+            webView.settings.domStorageEnabled = true
+            webView.settings.loadsImagesAutomatically = true
+        }
+
+
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -91,5 +97,10 @@ class HoraireActivity : AppCompatActivity() {
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        webView.saveState(outState)
     }
 }
