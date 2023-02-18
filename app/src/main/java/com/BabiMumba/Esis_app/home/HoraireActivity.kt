@@ -4,9 +4,11 @@ package com.BabiMumba.Esis_app.home
 import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.AlertDialog
 import android.app.DownloadManager
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
@@ -276,13 +278,23 @@ class HoraireActivity : AppCompatActivity() {
             }
         } else if (file.exists()) {
             val noms = "Horaire $promot_link"
-            val file2:File = File(theDir+"/Horaire/"+noms)
+            val file2:File = File("$theDir/Horaire/$noms.pdf")
             if (file2.exists()){
                 Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
-            }else{
-                telecharger(lien,noms)
-            }
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("Voulez-vous ecraser l'ancien fichier sauvegarder")
+                    .setTitle("Sauvegarder l'horaire")
+                    .setNegativeButton("Non", null)
+                    .setPositiveButton("oui") { _: DialogInterface?, i: Int ->
+                        //supprimer le fichier
+                        g
 
+                    }
+                    .show()
+            }else{
+                Toast.makeText(this, "c fichier n'existe pas ", Toast.LENGTH_SHORT).show()
+               telecharger(lien,noms)
+            }
             //Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
