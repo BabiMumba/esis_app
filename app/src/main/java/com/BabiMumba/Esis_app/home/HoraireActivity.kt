@@ -37,6 +37,10 @@ class HoraireActivity : AppCompatActivity() {
         setContentView(R.layout.activity_horaire)
 
 
+        webView = findViewById(R.id.web_horaire)
+        val promot_link = intent.getStringExtra("promot_link").toString()
+
+        val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
         backDrop = findViewById(R.id.back_drop)
         lytMic = findViewById(R.id.lyt_mic)
@@ -67,18 +71,10 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         fabMic.setOnClickListener {
-            val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
-            val intent = Intent(this, ActualiteActivity::class.java)
-            intent.putExtra("url_link",actulaity_link)
-            startActivity(intent)
+           // val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+            webView.loadUrl("https://www.esisalama.com/index.php?module=horaire")
+
         }
-
-
-
-        webView = findViewById(R.id.web_horaire)
-        val promot_link = intent.getStringExtra("promot_link").toString()
-
-        val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
         fabCall.setOnClickListener {
             webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
