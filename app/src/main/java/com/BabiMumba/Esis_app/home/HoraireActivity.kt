@@ -287,7 +287,10 @@ class HoraireActivity : AppCompatActivity() {
                     .setNegativeButton("Non", null)
                     .setPositiveButton("oui") { _: DialogInterface?, i: Int ->
                         //supprimer le fichier
-                        g
+                        val succe = file2.delete()
+                        if (succe){
+                            Toast.makeText(this, "ancien fichier sauverderg", Toast.LENGTH_SHORT).show()
+                        }
 
                     }
                     .show()
