@@ -104,6 +104,7 @@ class ActualiteActivity : AppCompatActivity() {
 
         webView.loadUrl(lien)
         //Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
+
         webView.setDownloadListener { url, userAgent, contentDisposition, mimetype, contentLength ->
             val request = DownloadManager.Request(
                 Uri.parse(url)

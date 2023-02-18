@@ -1,24 +1,31 @@
 package com.BabiMumba.Esis_app.home
 
 
+import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.app.DownloadManager
 import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
 import android.view.WindowManager
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_horaire.*
 import java.io.File
 import java.io.IOException
@@ -148,6 +155,43 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
+
+        webView!!.setDownloadListener { s: String?, s1: String?, s2: String?, s3: String?, l: Long ->
+            Dexter.withActivity(this@HoraireActivity)
+                .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(response: PermissionGrantedResponse) {
+                        val request = DownloadManager.Request(Uri.parse(s))
+                        request.setMimeType(s3)
+                        val cookies = CookieManager.getInstance().getCookie(s)
+                        request.addRequestHeader("cookie", cookies)
+                        request.addRequestHeader("User-Agent", s1)
+                        request.setDescription("Downloading File.....")
+                        request.setTitle(URLUtil.guessFileName(s, s2, s3))
+                        request.allowScanningByMediaScanner()
+                        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                        request.setDestinationInExternalPublicDir(
+                            Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(
+                                s, s2, s3
+                            )
+                        )
+                        val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+                        downloadManager.enqueue(request)
+                        Toast.makeText(this@HoraireActivity, "Downloading File..", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+
+                    override fun onPermissionDenied(response: PermissionDeniedResponse) {}
+                    override fun onPermissionRationaleShouldBeShown(
+                        permission: PermissionRequest,
+                        token: PermissionToken
+                    ) {
+                        token.continuePermissionRequest()
+                    }
+                }).check()
+        }
+
+
 
     }
 
@@ -289,7 +333,7 @@ class HoraireActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "fichier suprimer", Toast.LENGTH_SHORT).show()
                 } else Toast.makeText(
                     applicationContext,
-                    "File could not deleted",
+                    "fichier non suprimer",
                     Toast.LENGTH_SHORT
                 ).show()
             } else if (file.isDirectory or file.exists()) {
