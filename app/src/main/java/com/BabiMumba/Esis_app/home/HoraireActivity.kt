@@ -8,7 +8,6 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.ConnectivityManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.View
@@ -17,11 +16,13 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
 import java.io.File
 import java.io.IOException
+import java.util.*
 
 class HoraireActivity : AppCompatActivity() {
 
@@ -85,7 +86,6 @@ class HoraireActivity : AppCompatActivity() {
         dowload.setOnClickListener {
 
             _createFolder(File(theDir + "Horaire"))
-            Toast.makeText(this, "telecharger", Toast.LENGTH_SHORT).show()
         }
 
         fabMic.setOnClickListener {
@@ -234,6 +234,8 @@ class HoraireActivity : AppCompatActivity() {
             .start()
     }
 
+    //creer un dossier
+
     fun _createFolder(file: File) {
         if (!file.exists()) {
             val succ = file.mkdir()
@@ -245,6 +247,9 @@ class HoraireActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
+
+    //creer un fichier
+
     fun _createFile(file: File) {
         if (!file.exists()) {
             try {
@@ -260,5 +265,20 @@ class HoraireActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "c fichier existe deja!", Toast.LENGTH_SHORT).show()
         }
     }
+
+    //suprimer un fichier
+
+    fun deleteFolder(dir: File) {
+        if (dir.isDirectory) for (subDir in Objects.requireNonNull(dir.listFiles())) deleteFolder(
+            subDir
+        )
+        val succ = dir.delete()
+        if (succ) {
+            Toast.makeText(applicationContext, "Folder deleted", Toast.LENGTH_SHORT).show()
+        } else Toast.makeText(applicationContext, "Folder could not deleted", Toast.LENGTH_SHORT)
+            .show()
+    }
+
+
 
 }
