@@ -9,11 +9,5 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_baseline_refresh_24"
         />
-    <item
-        android:title="menu"
-        android:id="@+id/nav_previous"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_baseline_more_vert_24"
-        />
 
 </menu>

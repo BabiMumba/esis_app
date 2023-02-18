@@ -5,9 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".home.HoraireActivity">
+    <ProgressBar
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_10sdp"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="-2dp"
+        android:progress="20"
+        />
 
     <WebView
+        android:layout_below="@id/progressBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/web_horaire"
