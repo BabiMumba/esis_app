@@ -21,6 +21,9 @@ import kotlinx.android.synthetic.main.activity_horaire.*
 
 class HoraireActivity : AppCompatActivity() {
 
+    private lateinit var backDrop: View
+    private lateinit var lytMic: View
+    private lateinit var lytCall: View
     private var rotate = false
 
 
@@ -31,28 +34,35 @@ class HoraireActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
 
-        val fabAdd: FloatingActionButton = findViewById(R.id.fabAdd)
-        val fabCall: FloatingActionButton = findViewById(R.id.fabCall)
-        val fabMic: FloatingActionButton = findViewById(R.id.fabMic)
-        initShowOut(fabMic)
-        initShowOut(fabCall)
 
-        fabAdd.setOnClickListener {
-            rotate = rotateFab(it, !rotate)
-            if (rotate) {
-                showIn(fabMic)
-                showIn(fabCall)
-            } else {
-                showOut(fabMic)
-                showOut(fabCall)
-            }
+
+        backDrop = findViewById(R.id.back_drop)
+        lytMic = findViewById(R.id.lyt_mic)
+        lytCall = findViewById(R.id.lyt_call)
+
+        val fabMic: FloatingActionButton = findViewById(R.id.fab_mic)
+        val fabCall: FloatingActionButton = findViewById(R.id.fab_call)
+        val fabAdd: FloatingActionButton = findViewById(R.id.fab_add)
+
+        initShowOut(lytMic)
+        initShowOut(lytCall)
+
+        backDrop.visibility = View.GONE
+
+        fabAdd.setOnClickListener { v: View ->
+            toggleFabMode(v)
+        }
+
+        backDrop.setOnClickListener {
+            toggleFabMode(fabAdd)
+        }
+
+        fabMic.setOnClickListener {
+            Toast.makeText(this, "Voice clicked", Toast.LENGTH_SHORT).show()
         }
 
         fabCall.setOnClickListener {
             Toast.makeText(this, "Call clicked", Toast.LENGTH_SHORT).show()
-        }
-        fabMic.setOnClickListener {
-            Toast.makeText(this, "Mic clicked", Toast.LENGTH_SHORT).show()
         }
 
         webView = findViewById(R.id.web_horaire)
@@ -134,6 +144,19 @@ class HoraireActivity : AppCompatActivity() {
 
     //bouton floating
 
+    private fun toggleFabMode(v: View) {
+        rotate = rotateFab(v, !rotate)
+        if (rotate) {
+            showIn(lytMic)
+            showIn(lytCall)
+            backDrop.visibility = View.VISIBLE
+        } else {
+            showOut(lytMic)
+            showOut(lytCall)
+            backDrop.visibility = View.GONE
+        }
+    }
+
     private fun initShowOut(v: View) {
         v.visibility = View.GONE
         v.translationY = v.height.toFloat()
@@ -182,4 +205,5 @@ class HoraireActivity : AppCompatActivity() {
             }).alpha(0f)
             .start()
     }
+
 }

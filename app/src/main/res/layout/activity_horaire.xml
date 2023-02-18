@@ -22,60 +22,139 @@
         app:layout_constraintTop_toBottomOf="@id/progressHori"
         android:layout_below="@id/progressHori"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:id="@+id/web_horaire"
         />
+    <View
+        android:id="@+id/back_drop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:fitsSystemWindows="true" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="end|right"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        >
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabMic"
+        <LinearLayout
+            android:id="@+id/lyt_mic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:fabSize="mini"
-            app:rippleColor="@android:color/white"
-            app:srcCompat="@drawable/ic_baseline_cloud_download_24" />
+            android:orientation="horizontal">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabCall"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="2dp"
+                app:contentPadding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Record Voice"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_mic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:tint="@color/primary_text"
+                app:backgroundTint="@android:color/white"
+                app:fabSize="mini"
+                app:rippleColor="@android:color/black"
+                app:srcCompat="@drawable/book2" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lyt_call"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:fabSize="mini"
-            app:rippleColor="@android:color/white"
-            app:srcCompat="@drawable/ic_baseline_refresh_24" />
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|end|right"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="3dp"
+                app:cardElevation="2dp"
+                app:contentPadding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Call Friends"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="18dp"
+                android:layout_marginBottom="10dp"
+                android:clickable="true"
+                android:tint="@color/primary_text"
+                app:backgroundTint="@android:color/white"
+                app:fabSize="mini"
+                app:rippleColor="@android:color/black"
+                app:srcCompat="@drawable/ic_baseline_refresh_24" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="0dp" />
+
+        </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
+            android:id="@+id/fab_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="18dp"
-            android:layout_marginBottom="18dp"
+            android:layout_marginRight="18dp"
+            android:layout_marginBottom="10dp"
             android:clickable="true"
-            android:focusable="true"
             android:tint="@android:color/white"
+            app:backgroundTint="@color/primary_text"
             app:fabSize="normal"
-            app:rippleColor="@android:color/white"
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
