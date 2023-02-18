@@ -171,7 +171,7 @@ class HoraireActivity : AppCompatActivity() {
                         request.allowScanningByMediaScanner()
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
                         request.setDestinationInExternalPublicDir(
-                            Environment.DIRECTORY_DOWNLOADS, URLUtil.guessFileName(
+                            Environment.DIRECTORY_DOWNLOADS + "/Horaire/", URLUtil.guessFileName(
                                 s, s2, s3
                             )
                         )
