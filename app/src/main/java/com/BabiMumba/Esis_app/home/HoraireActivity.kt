@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.ProgressDialog
@@ -11,7 +12,6 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.webkit.WebChromeClient
-import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
@@ -21,6 +21,7 @@ import kotlinx.android.synthetic.main.activity_horaire.*
 
 class HoraireActivity : AppCompatActivity() {
 
+    private var rotate = false
 
 
     lateinit var webView: WebView
@@ -29,6 +30,30 @@ class HoraireActivity : AppCompatActivity() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
+
+        val fabAdd: FloatingActionButton = findViewById(R.id.fabAdd)
+        val fabCall: FloatingActionButton = findViewById(R.id.fabCall)
+        val fabMic: FloatingActionButton = findViewById(R.id.fabMic)
+        initShowOut(fabMic)
+        initShowOut(fabCall)
+
+        fabAdd.setOnClickListener {
+            rotate = rotateFab(it, !rotate)
+            if (rotate) {
+                showIn(fabMic)
+                showIn(fabCall)
+            } else {
+                showOut(fabMic)
+                showOut(fabCall)
+            }
+        }
+
+        fabCall.setOnClickListener {
+            Toast.makeText(this, "Call clicked", Toast.LENGTH_SHORT).show()
+        }
+        fabMic.setOnClickListener {
+            Toast.makeText(this, "Mic clicked", Toast.LENGTH_SHORT).show()
+        }
 
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
@@ -50,6 +75,7 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.loadWithOverviewMode = true
             webView.settings.domStorageEnabled = true
             webView.settings.loadsImagesAutomatically = true
+
         }
 
         webView.webViewClient = object : WebViewClient(){
@@ -107,4 +133,53 @@ class HoraireActivity : AppCompatActivity() {
     }
 
     //bouton floating
+
+    private fun initShowOut(v: View) {
+        v.visibility = View.GONE
+        v.translationY = v.height.toFloat()
+        v.alpha = 0f
+    }
+
+    private fun rotateFab(v: View, rotate: Boolean): Boolean {
+        v.animate().setDuration(200)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    super.onAnimationEnd(animation)
+                }
+            })
+            .rotation(if (rotate) 135f else 0f)
+        return rotate
+    }
+
+    private fun showIn(v: View) {
+        v.visibility = View.VISIBLE
+        v.alpha = 0f
+        v.translationY = v.height.toFloat()
+        v.animate()
+            .setDuration(200)
+            .translationY(0f)
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    super.onAnimationEnd(animation)
+                }
+            })
+            .alpha(1f)
+            .start()
+    }
+
+    private fun showOut(v: View) {
+        v.visibility = View.VISIBLE
+        v.alpha = 1f
+        v.translationY = 0f
+        v.animate()
+            .setDuration(200)
+            .translationY(v.height.toFloat())
+            .setListener(object : AnimatorListenerAdapter() {
+                override fun onAnimationEnd(animation: Animator) {
+                    v.visibility = View.GONE
+                    super.onAnimationEnd(animation)
+                }
+            }).alpha(0f)
+            .start()
+    }
 }
