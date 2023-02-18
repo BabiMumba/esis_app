@@ -24,6 +24,7 @@ class HoraireActivity : AppCompatActivity() {
     private lateinit var backDrop: View
     private lateinit var lytMic: View
     private lateinit var lytCall: View
+    private lateinit var lyt_down: View
     private var rotate = false
 
 
@@ -39,13 +40,16 @@ class HoraireActivity : AppCompatActivity() {
         backDrop = findViewById(R.id.back_drop)
         lytMic = findViewById(R.id.lyt_mic)
         lytCall = findViewById(R.id.lyt_call)
+        lyt_down = findViewById(R.id.lyt_downl)
 
         val fabMic: FloatingActionButton = findViewById(R.id.fab_mic)
         val fabCall: FloatingActionButton = findViewById(R.id.fab_call)
         val fabAdd: FloatingActionButton = findViewById(R.id.fab_add)
+        val dowload: FloatingActionButton = findViewById(R.id.dowload_btn)
 
         initShowOut(lytMic)
         initShowOut(lytCall)
+        initShowOut(lyt_down)
 
         backDrop.visibility = View.GONE
 
@@ -56,20 +60,24 @@ class HoraireActivity : AppCompatActivity() {
         backDrop.setOnClickListener {
             toggleFabMode(fabAdd)
         }
+        dowload.setOnClickListener {
+
+        }
 
         fabMic.setOnClickListener {
-            Toast.makeText(this, "Voice clicked", Toast.LENGTH_SHORT).show()
+
         }
 
-        fabCall.setOnClickListener {
-            Toast.makeText(this, "Call clicked", Toast.LENGTH_SHORT).show()
-        }
+
 
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
 
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
+        fabCall.setOnClickListener {
+            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
+        }
         val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
@@ -122,7 +130,7 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
-        println("le lien:$lien")
+
     }
 
     override fun onBackPressed() {
