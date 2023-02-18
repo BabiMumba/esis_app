@@ -290,6 +290,8 @@ class HoraireActivity : AppCompatActivity() {
                         val succe = file2.delete()
                         if (succe){
                             Toast.makeText(this, "ancien fichier sauverderg", Toast.LENGTH_SHORT).show()
+                        }else{
+                            Toast.makeText(this, "erreur de suppression du fichier", Toast.LENGTH_SHORT).show()
                         }
 
                     }
