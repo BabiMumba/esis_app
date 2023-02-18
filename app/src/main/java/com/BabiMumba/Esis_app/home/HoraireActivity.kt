@@ -234,11 +234,11 @@ class HoraireActivity : AppCompatActivity() {
         if (!file.exists()) {
             val succ = file.mkdir()
             if (succ) {
-                Toast.makeText(applicationContext, "Folder Created", Toast.LENGTH_SHORT).show()
-            } else Toast.makeText(applicationContext, "Error creating folder", Toast.LENGTH_SHORT)
+                Toast.makeText(applicationContext, "dossier creer avec succe", Toast.LENGTH_SHORT).show()
+            } else Toast.makeText(applicationContext, "dossier non creer", Toast.LENGTH_SHORT)
                 .show()
         } else if (file.exists()) {
-            Toast.makeText(applicationContext, "Folder already exists!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
 
