@@ -10,6 +10,7 @@ import android.graphics.Bitmap
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.View
 import android.view.WindowManager
 import android.webkit.WebChromeClient
@@ -20,6 +21,7 @@ import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
 import java.io.File
+import java.io.IOException
 
 class HoraireActivity : AppCompatActivity() {
 
@@ -28,6 +30,7 @@ class HoraireActivity : AppCompatActivity() {
     private lateinit var lytCall: View
     private lateinit var lyt_down: View
     private var rotate = false
+    var theDir = Environment.getExternalStorageDirectory().toString() + "/Download/"
 
 
     lateinit var webView: WebView
@@ -81,6 +84,7 @@ class HoraireActivity : AppCompatActivity() {
         }
         dowload.setOnClickListener {
 
+            _createFolder(File(theDir + "Horaire"))
             Toast.makeText(this, "telecharger", Toast.LENGTH_SHORT).show()
         }
 
@@ -239,6 +243,21 @@ class HoraireActivity : AppCompatActivity() {
                 .show()
         } else if (file.exists()) {
             Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
+        }
+    }
+    fun _createFile(file: File) {
+        if (!file.exists()) {
+            try {
+                val succ = file.createNewFile()
+                if (succ) {
+                    Toast.makeText(applicationContext, "fichier creer", Toast.LENGTH_SHORT).show()
+                } else Toast.makeText(applicationContext, "erreur de creation", Toast.LENGTH_SHORT)
+                    .show()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        } else if (file.exists()) {
+            Toast.makeText(applicationContext, "c fichier existe deja!", Toast.LENGTH_SHORT).show()
         }
     }
 
