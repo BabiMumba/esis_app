@@ -25,7 +25,6 @@ class HoraireActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_horaire)
 
-
         webView = findViewById(R.id.web_horaire)
         val promot_link = intent.getStringExtra("promot_link").toString()
 
@@ -48,7 +47,6 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.loadsImagesAutomatically = true
         }
 
-
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
@@ -70,7 +68,6 @@ class HoraireActivity : AppCompatActivity() {
                 progressHori.visibility = View.VISIBLE
                 progressHori.progress = newProgress
                 progressBar.show()
-
                 if (newProgress == 100){
                     progressHori.visibility = View.GONE
                     if (view != null) {
