@@ -266,7 +266,7 @@ class HoraireActivity : AppCompatActivity() {
         }
     }
 
-    //suprimer un fichier
+    //suprimer un dossier
 
     fun deleteFolder(dir: File) {
         if (dir.isDirectory) for (subDir in Objects.requireNonNull(dir.listFiles())) deleteFolder(
@@ -274,11 +274,30 @@ class HoraireActivity : AppCompatActivity() {
         )
         val succ = dir.delete()
         if (succ) {
-            Toast.makeText(applicationContext, "Folder deleted", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "dossier suprimer ", Toast.LENGTH_SHORT).show()
         } else Toast.makeText(applicationContext, "Folder could not deleted", Toast.LENGTH_SHORT)
             .show()
     }
 
+    //suprimer un fichier
+
+    fun deleteFile(file: File) {
+        if (file.exists()) {
+            if (file.isFile) {
+                val succ = file.delete()
+                if (succ) {
+                    Toast.makeText(applicationContext, "fichier suprimer", Toast.LENGTH_SHORT).show()
+                } else Toast.makeText(
+                    applicationContext,
+                    "File could not deleted",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (file.isDirectory or file.exists()) {
+                deleteFolder(file)
+            }
+        } else Toast.makeText(applicationContext, "c'est n'esxiste pas", Toast.LENGTH_SHORT)
+            .show()
+    }
 
 
 }
