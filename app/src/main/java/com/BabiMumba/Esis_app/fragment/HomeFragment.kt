@@ -20,6 +20,7 @@ import com.denzcoskun.imageslider.ImageSlider
 import com.denzcoskun.imageslider.models.SlideModel
 import com.google.android.gms.ads.*
 import com.google.firebase.auth.FirebaseAuth
+import org.w3c.dom.Text
 
 class HomeFragment : Fragment() {
 
@@ -125,11 +126,12 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val pm = sharedPreferences.getString("promotion",null)
+        viewF.findViewById<TextView>(R.id.titre2).text = "Horaire\n$pm"
 
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
           //  val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             val intent = Intent(activity, HoraireActivity::class.java)
-
             intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
             startActivity(intent)
         }
