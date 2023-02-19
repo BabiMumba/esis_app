@@ -90,7 +90,7 @@ class GoogleCountActivity : AppCompatActivity() {
                             firebaseAuthWithGoogle(account.idToken!!)
                         }else{
                             Toast.makeText(this, "Matricule Administrateur", Toast.LENGTH_SHORT).show()
-                            firebaseAuthWithGoogle(account.idToken!!)
+                            Matricule_admin(account.idToken!!)
 
                         }
                         googleSignInClient.signOut()
@@ -122,6 +122,26 @@ class GoogleCountActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 if (task.isSuccessful){
                     val intent = Intent(this, RegisterActivity::class.java)
+                        .putExtra("nom",nameu)
+                        .putExtra("postnom",pname)
+                        .putExtra("mail",admail)
+                    startActivity(intent)
+                    finish()
+                }else{
+                    Toast.makeText(this, "erreur:${task.exception}", Toast.LENGTH_SHORT).show()
+                    progressDialog.dismiss()
+                }
+            }
+
+    }
+    private fun Matricule_admin(idToken: String) {
+        progressDialog.show()
+        val credential = GoogleAuthProvider.getCredential(idToken,null)
+        mAut.signInWithCredential(credential)
+            .addOnCompleteListener(this) {task ->
+                progressDialog.dismiss()
+                if (task.isSuccessful){
+                    val intent = Intent(this, RegisterAdmin::class.java)
                         .putExtra("nom",nameu)
                         .putExtra("postnom",pname)
                         .putExtra("mail",admail)
