@@ -56,6 +56,9 @@ class RegisterAdmin : AppCompatActivity() {
 
     }
     private fun clikbtn(){
+        binding.promotionText.setOnClickListener {
+            choixpromo()
+        }
         binding.btnSignup.setOnClickListener {
             if (isValidSignUpDetails()){
                 firebaseSignUp()
@@ -144,6 +147,7 @@ class RegisterAdmin : AppCompatActivity() {
         infor_user["sexe"] = binding.genreChoice.text.toString()
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["administrateur"] = "oui"
+        infor_user["promotion"] = binding.promotionChoice.text.toString()
         infor_user["adminP"] = "oui"
         infor_user["ouverture_application"] = 1
         infor_user["id_reserve1"] = ""
@@ -223,6 +227,10 @@ class RegisterAdmin : AppCompatActivity() {
             false
         } else if (filepath == null) {
             showtoast("chosissez une image")
+            false
+        }
+        else if (binding.genreChoice.text.toString()==""){
+            showtoast("promotion")
             false
         }
 
@@ -307,6 +315,41 @@ class RegisterAdmin : AppCompatActivity() {
     }
     override fun onBackPressed() {
         Toast.makeText(this, "impossible de revenir en arriere", Toast.LENGTH_SHORT).show()
+    }
+    private fun choixpromo() {
+        val checkedItem = intArrayOf(-1)
+        val alertDialog = AlertDialog.Builder(this)
+        alertDialog.setIcon(R.drawable.developement_ic)
+        alertDialog.setTitle("Promotion")
+        val listItems = arrayOf(
+            "L1",
+            "L2_A",
+            "L2_B",
+            "L3_AS",
+            "L3_TLC",
+            "L3_GL",
+            "L3_MSI",
+            "L3_DESIGN",
+            "L4_AS",
+            "L4_TLC",
+            "L4_MSI",
+            "L4_GL",
+            "L4_DESIGN",
+            "VC_L1",
+            "VC_L2",
+            "VC_L3",
+        )
+        alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
+            checkedItem[0] = which
+            val s = listItems[which]
+            binding.promotionChoice.text = s
+            dialog.dismiss()
+        }
+        alertDialog.setNegativeButton("Annuler") { dialog, which ->
+            dialog.dismiss()
+        }
+        val customAlertDialog = alertDialog.create()
+        customAlertDialog.show()
     }
 
 }
