@@ -229,7 +229,7 @@ class RegisterAdmin : AppCompatActivity() {
             showtoast("chosissez une image")
             false
         }
-        else if (binding.genreChoice.text.toString()==""){
+        else if (binding.promotionChoice.text.toString()==""){
             showtoast("promotion")
             false
         }
