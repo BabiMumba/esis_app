@@ -129,6 +129,7 @@ class HomeFragment : Fragment() {
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
           //  val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             val intent = Intent(activity, HoraireActivity::class.java)
+
             intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
             startActivity(intent)
         }

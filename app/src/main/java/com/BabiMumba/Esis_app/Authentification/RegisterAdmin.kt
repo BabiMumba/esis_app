@@ -173,6 +173,7 @@ class RegisterAdmin : AppCompatActivity() {
             putString("post-nom",binding.postNom.text.toString())
             putString("prenom",binding.prenom.text.toString())
             putString("mail",inputMail)
+            putString("promotion",binding.promotionChoice.text.toString())
             putString("sexe",binding.genreChoice.text.toString())
             putString("numero de telephone",binding.number.text.toString())
             putString("lien profil",imagelink)
