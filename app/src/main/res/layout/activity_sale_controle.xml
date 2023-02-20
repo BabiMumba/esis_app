@@ -219,7 +219,7 @@
 
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
-            android:id="@+id/add_horaire"
+            android:id="@+id/prof_count"
             android:layout_marginEnd="@dimen/_10sdp"
             android:backgroundTint="#1B023B"
             android:layout_marginTop="@dimen/_15sdp"
@@ -246,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/s4"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Promotionnel"
+                    android:text="Professeur Admin"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"

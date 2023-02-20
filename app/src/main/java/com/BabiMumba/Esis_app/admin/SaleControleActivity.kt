@@ -32,5 +32,9 @@ class SaleControleActivity : AppCompatActivity() {
             startActivity(Intent(this,PublicationSyllabus::class.java)
             )
         }
+        add_admin.setOnClickListener {
+            startActivity(Intent(this,AdministateurPage::class.java)
+            )
+        }
     }
 }
