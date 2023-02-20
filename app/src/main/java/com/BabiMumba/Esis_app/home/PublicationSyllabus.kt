@@ -119,8 +119,7 @@ class PublicationSyllabus : AppCompatActivity() {
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
                 "L1",
-                "L2_A",
-                "L2_B",
+                "L2",
                 "L3_AS",
                 "L3_TLC",
                 "L3_GL",
