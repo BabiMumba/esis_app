@@ -15,6 +15,7 @@
         android:layout_alignParentTop="true"
         tools:itemCount="8"
         tools:listitem="@layout/users_rod" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/tresor"
         android:visibility="gone"
