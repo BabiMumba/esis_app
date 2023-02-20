@@ -9,7 +9,7 @@ import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_allusers.*
+import kotlinx.android.synthetic.main.activity_adminpage.*
 
 class PromotionnellPage : AppCompatActivity() {
 
@@ -24,7 +24,7 @@ class PromotionnellPage : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         layoutManager = LinearLayoutManager(this@PromotionnellPage)
-        users_recyclerview.layoutManager = layoutManager
+        admin_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
         val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
@@ -34,12 +34,12 @@ class PromotionnellPage : AppCompatActivity() {
             )
             .build()
         adaps = useradptr(options)
-        users_recyclerview.adapter = adaps
+        admin_recyclerview.adapter = adaps
     }
 
     override fun onStart() {
         adaps.startListening()
-        users_recyclerview.recycledViewPool.clear()
+        admin_recyclerview.recycledViewPool.clear()
         adaps.notifyDataSetChanged()
         super.onStart()
     }
