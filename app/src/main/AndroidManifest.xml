@@ -28,7 +28,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".Adminpage"
+            android:name=".admin.Adminpage"
             android:exported="false" />
         <activity
             android:name=".home.HoraireActivity"

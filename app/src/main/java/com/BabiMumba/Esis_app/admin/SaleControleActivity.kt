@@ -36,5 +36,9 @@ class SaleControleActivity : AppCompatActivity() {
             startActivity(Intent(this,AdministateurPage::class.java)
             )
         }
+        prof_count.setOnClickListener {
+            startActivity(Intent(this,PromotionnellPage::class.java)
+            )
+        }
     }
 }
