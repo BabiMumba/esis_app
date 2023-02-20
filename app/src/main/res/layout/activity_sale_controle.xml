@@ -207,13 +207,13 @@
                     app:tint="@color/white" />
 
                 <TextView
-                    android:textSize="@dimen/_8sdp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/s3"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Administrateur"
+                    android:text="Admin.Assistant"
                     android:textColor="@color/white"
+                    android:textSize="@dimen/_8sdp"
                     android:textStyle="bold" />
             </RelativeLayout>
 
@@ -246,7 +246,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/s4"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="Professeur Admin"
+                    android:text="Administrateur"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold"
