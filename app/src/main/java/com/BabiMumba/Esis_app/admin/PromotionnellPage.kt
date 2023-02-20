@@ -9,7 +9,7 @@ import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_adminpage.*
+import kotlinx.android.synthetic.main.activity_promotionnell_page.*
 
 class PromotionnellPage : AppCompatActivity() {
 
