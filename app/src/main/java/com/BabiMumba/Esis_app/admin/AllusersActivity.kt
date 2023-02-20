@@ -65,7 +65,13 @@ class AllusersActivity : AppCompatActivity() {
         //nom a rechercher
         val nom_search = recherche.text.toString()
         im_search.setOnClickListener {
-            ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
+            if (nom_search.isNotEmpty()){
+                ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
+            }else{
+                Toast.makeText(this, "entre un nom", Toast.LENGTH_SHORT).show()
+            }
+            
+            
         }
 
         }
