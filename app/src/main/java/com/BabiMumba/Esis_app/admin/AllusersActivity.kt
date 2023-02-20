@@ -47,11 +47,11 @@ class AllusersActivity : AppCompatActivity() {
         tresor.setOnClickListener {
             showRewardedInters()
         }
+
         firebaseAuth = FirebaseAuth.getInstance()
        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
-
         val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
