@@ -24,7 +24,7 @@ class PromotionnellPage : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
         layoutManager = LinearLayoutManager(this@PromotionnellPage)
-        admin_recyclerview.layoutManager = layoutManager
+        promo_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
         val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
@@ -34,12 +34,12 @@ class PromotionnellPage : AppCompatActivity() {
             )
             .build()
         adaps = useradptr(options)
-        admin_recyclerview.adapter = adaps
+        promo_recyclerview.adapter = adaps
     }
 
     override fun onStart() {
         adaps.startListening()
-        admin_recyclerview.recycledViewPool.clear()
+        promo_recyclerview.recycledViewPool.clear()
         adaps.notifyDataSetChanged()
         super.onStart()
     }
