@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.Query
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_allusers.*
+import kotlinx.android.synthetic.main.activity_register.*
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter as FirestoreRecyclerAdapter1
 
 class AllusersActivity : AppCompatActivity() {
@@ -61,7 +62,14 @@ class AllusersActivity : AppCompatActivity() {
             .build()
         adaps = useradptr(options)
         users_recyclerview.adapter = adaps
+        //nom a rechercher
+        val nom_search = recherche.text.toString()
+        im_search.setOnClickListener {
+            ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
         }
+
+        }
+
 
     private fun loadrewardedInters() {
         RewardedInterstitialAd.load(

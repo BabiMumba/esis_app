@@ -13,32 +13,32 @@
         android:layout_width="match_parent"
         android:padding="@dimen/_10sdp"
         android:layout_height="wrap_content">
+
         <ImageView
+            android:id="@+id/im_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_search_24"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:padding="@dimen/_5sdp"
-            android:id="@+id/im_search"
-            />
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_baseline_search_24" />
+
         <EditText
-            android:layout_alignParentStart="true"
-            android:layout_toStartOf="@id/im_search"
+            android:id="@+id/recherche"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/_35sdp"
-            android:id="@+id/recherche"
-            android:textColorHint="@color/secondary_text"
-            android:hint="Recherche"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/im_search"
             android:background="@drawable/background_input"
+            android:hint="Recherche"
             android:imeOptions="actionNext"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
             android:paddingStart="@dimen/_16sdp"
             android:paddingEnd="@dimen/_16sdp"
             android:textColor="@color/primary_text"
-            android:textSize="@dimen/_13ssp"
-            />
+            android:textColorHint="@color/secondary_text"
+            android:textSize="@dimen/_13ssp" />
 
     </RelativeLayout>
 
