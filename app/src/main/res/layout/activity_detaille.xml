@@ -163,11 +163,13 @@
                         android:layout_below="@id/pdf_id_icone"
                         android:background="@color/black" />
                 </RelativeLayout>
+
                 <com.google.android.gms.ads.AdView
-                    android:layout_below="@id/detaille_syllabus"
                     android:id="@+id/bannerAd"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/detaille_syllabus"
                     ads:adSize="BANNER"
                     ads:adUnitId="@string/banner_id_teste" />
 

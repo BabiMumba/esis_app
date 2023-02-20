@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         ads:adSize="BANNER"
+        android:visibility="gone"
         ads:adUnitId="@string/banner_id_teste" />
 
     <com.github.barteksc.pdfviewer.PDFView
