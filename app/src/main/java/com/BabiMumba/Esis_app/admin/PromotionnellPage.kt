@@ -26,7 +26,7 @@ class PromotionnellPage : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this@PromotionnellPage)
         promo_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
-        val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
+        val ref = FirebaseFirestore.getInstance().collection("Professeur")
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,
