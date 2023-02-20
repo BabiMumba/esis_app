@@ -65,8 +65,17 @@ class AllusersActivity : AppCompatActivity() {
         //nom a rechercher
         val nom_search = recherche.text.toString()
         im_search.setOnClickListener {
-            if (nom_search.isNotEmpty()){
+            if (recherche.text.toString().isNotEmpty()){
                 ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
+                val options = FirestoreRecyclerOptions.Builder<modeluser>()
+                    .setQuery(
+                        ref,
+                        modeluser::class.java
+                    )
+                    .build()
+                adaps = useradptr(options)
+                users_recyclerview.adapter = adaps
+
             }else{
                 Toast.makeText(this, "entre un nom", Toast.LENGTH_SHORT).show()
             }
