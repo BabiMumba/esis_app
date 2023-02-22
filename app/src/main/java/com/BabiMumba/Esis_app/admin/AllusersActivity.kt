@@ -62,10 +62,11 @@ class AllusersActivity : AppCompatActivity() {
             .build()
         adaps = useradptr(options)
         users_recyclerview.adapter = adaps
-        //nom a rechercher
+        //nom a rechercher sur la barre de recherche
         val nom_search = recherche.text.toString()
         im_search.setOnClickListener {
             if (recherche.text.toString().isNotEmpty()){
+                users_recyclerview.layoutManager = layoutManager
                 ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
                 val options = FirestoreRecyclerOptions.Builder<modeluser>()
                     .setQuery(
