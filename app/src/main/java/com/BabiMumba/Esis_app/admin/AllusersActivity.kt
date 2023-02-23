@@ -67,7 +67,7 @@ class AllusersActivity : AppCompatActivity() {
         im_search.setOnClickListener {
             if (recherche.text.toString().isNotEmpty()){
                 users_recyclerview.layoutManager = layoutManager
-                ref.orderBy("prenom").startAt(nom_search).endAt(nom_search +"\uf8ff")
+                ref.orderBy("Utilisateurs").startAt(nom_search).endAt(nom_search +"\uf8ff")
                 val options = FirestoreRecyclerOptions.Builder<modeluser>()
                     .setQuery(
                         ref,
