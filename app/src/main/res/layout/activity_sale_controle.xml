@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/i2"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="étudiants"
+                    android:text="Touts les étudiants"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold" />
@@ -133,7 +133,7 @@
                     android:layout_below="@id/i4"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:text="compte effacer"
+                    android:text="Compte efface"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_8sdp"
                     android:textStyle="bold" />
