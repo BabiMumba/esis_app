@@ -126,6 +126,10 @@
             android:name=".Authentification.RegisterActivity"
             android:exported="false" />
         <activity
+            android:name=".Authentification.SigninActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".home.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
