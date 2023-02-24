@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.BabiMumba.Esis_app.Authentification.GoogleCountActivity
 import com.BabiMumba.Esis_app.Authentification.LoginActivity
 import com.BabiMumba.Esis_app.Authentification.RegisterActivity
+import com.BabiMumba.Esis_app.Authentification.SigninActivity
 import com.BabiMumba.Esis_app.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_splash_screen.*
@@ -48,7 +49,7 @@ class SplashScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }else{
-            startActivity(Intent(this,GoogleCountActivity::class.java))
+            startActivity(Intent(this,SigninActivity::class.java))
         }
     }
 }
