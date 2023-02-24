@@ -46,6 +46,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.5'
     implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
     implementation 'com.google.android.gms:play-services-ads:21.5.0'
+    implementation 'com.google.android.ads:mediation-test-suite:3.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
@@ -87,6 +88,11 @@ dependencies {
     implementation 'com.airbnb.android:lottie:3.5.0'//lottie animation
     implementation 'com.google.firebase:firebase-appcheck-playintegrity:16.1.1'
 
+    implementation "org.jetbrains.anko:anko:0.10.8"
+    implementation "org.jetbrains.anko:anko-design:0.10.8"
+    implementation "org.jetbrains.anko:anko-coroutines:0.10.8"
+
+   // ext.anko_version = '0.10.8'
     kotlin {
         experimental {
             coroutines "enable"
