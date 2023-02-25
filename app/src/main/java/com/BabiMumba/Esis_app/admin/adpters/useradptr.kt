@@ -78,7 +78,12 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
                 val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
                 add_admin?.setOnClickListener {
-                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                    if (model.administrateur == "oui"){
+                        Toast.makeText(holder.image.context, "il est deja administateur", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(holder.image.context, "il n'est pas admin", Toast.LENGTH_SHORT).show()
+                    }
+
                     dialog.dismiss()
                 }
                 show_profil!!.setOnClickListener {
