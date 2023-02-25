@@ -79,20 +79,21 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
                 add_admin?.setOnClickListener {
                     Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
                 }
                 show_profil!!.setOnClickListener {
-                    val dialog = Dialog(holder.image.context)
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-                    dialog.setContentView(R.layout.inforamtion_user_dialgue)
-                    dialog.setCancelable(true)
+                    val dialog_profi = Dialog(holder.image.context)
+                    dialog_profi.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                    dialog_profi.setContentView(R.layout.inforamtion_user_dialgue)
+                    dialog_profi.setCancelable(true)
                     val lp = WindowManager.LayoutParams()
-                    lp.copyFrom(dialog.window!!.attributes)
+                    lp.copyFrom(dialog_profi.window!!.attributes)
                     lp.width = WindowManager.LayoutParams.MATCH_PARENT
                     lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-                    val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
-                    val promotion = dialog.findViewById<TextView>(R.id.pm)
-                    val genre = dialog.findViewById<TextView>(R.id.sx)
-                    val nom = dialog.findViewById<TextView>(R.id.nm)
+                    val profil_us = dialog_profi.findViewById<ImageView>(R.id.pro_i)
+                    val promotion = dialog_profi.findViewById<TextView>(R.id.pm)
+                    val genre = dialog_profi.findViewById<TextView>(R.id.sx)
+                    val nom = dialog_profi.findViewById<TextView>(R.id.nm)
                     nom.text = model.mail
                     promotion.text = model.promotion
                     genre.text = model.sexe
@@ -104,9 +105,9 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                         .centerInside()
                         .placeholder(circularProgressDrawable)
                         .into(profil_us)
-
-                    dialog.show()
-                    dialog.window!!.attributes = lp
+                    dialog_profi.show()
+                    dialog_profi.window!!.attributes = lp
+                    dialog.dismiss()
                 }
                 dialog.show()
             }else{

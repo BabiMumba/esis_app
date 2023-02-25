@@ -15,11 +15,11 @@
         android:layout_marginStart="@dimen/_5sdp"
         />
     <TextView
-        android:visibility="gone"
+
         android:id="@+id/admin_v"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Admin"
+        android:text="Admin Ass."
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_5sdp"
         android:textColor="@color/primary"
