@@ -53,8 +53,8 @@
                     android:layout_width="@dimen/_25sdp"
                     android:layout_height="@dimen/_25sdp"
                     android:layout_centerHorizontal="true"
-                    app:tint="@color/white"
-                    android:src="@drawable/ic_user" />
+                    android:src="@drawable/ic_user"
+                    app:tint="@color/white" />
 
                 <TextView
                     android:layout_width="wrap_content"

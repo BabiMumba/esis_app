@@ -21,17 +21,17 @@
         android:paddingBottom="8dp">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="32dp"
-            app:srcCompat="@drawable/ic_github_image"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="32dp"
+            app:srcCompat="@drawable/ic_user"
             app:tint="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Github"
+            android:text="Voir sa profil"
             android:textColor="#737373"
             android:textSize="16sp" />
 
@@ -49,76 +49,21 @@
         android:paddingBottom="8dp">
 
         <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="32dp"
-            app:srcCompat="@drawable/ic_source_code"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="32dp"
+            app:srcCompat="@drawable/ic_baseline_person_pin_24"
             app:tint="#000000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Source Code"
+            android:text="ajouter en tant qu'administrateur assistant"
             android:textColor="#737373"
             android:textSize="16sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingTop="8dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="8dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="32dp"
-            app:srcCompat="@drawable/ic_paint"
-            app:tint="#000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Color Codes"
-            android:textColor="#737373"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:foreground="?attr/selectableItemBackground"
-        android:orientation="horizontal"
-        android:paddingLeft="10dp"
-        android:paddingTop="8dp"
-        android:paddingRight="10dp"
-        android:paddingBottom="8dp">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginRight="32dp"
-            app:srcCompat="@drawable/ic_box"
-            app:tint="#000000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="UI Screens"
-            android:textColor="#737373"
-            android:textSize="16sp" />
-
-    </LinearLayout>
 
 </LinearLayout>
