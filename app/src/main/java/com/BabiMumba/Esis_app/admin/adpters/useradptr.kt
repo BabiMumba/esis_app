@@ -73,6 +73,18 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
 
         holder.itemView.setOnClickListener {
             if (admin == "oui"){
+                val dialog = BottomSheetDialog(holder.image.context)
+                dialog.setContentView(R.layout.bottom_sheet)
+                val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
+                val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
+                add_admin?.setOnClickListener {
+                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                }
+                show_profil!!.setOnClickListener {
+                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                }
+                dialog.show()
+            }else{
                 val dialog = Dialog(holder.image.context)
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
                 dialog.setContentView(R.layout.inforamtion_user_dialgue)
@@ -102,27 +114,11 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
 
                 dialog.show()
                 dialog.window!!.attributes = lp
-            }else{
-                val dialog = BottomSheetDialog(holder.image.context)
-                dialog.setContentView(R.layout.bottom_sheet)
-                val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
-                val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
-                add_admin?.setOnClickListener {
-                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
-                }
-                show_profil!!.setOnClickListener {
-                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
-                }
-                dialog.show()
 
 
             }
 
         }
-
-        //bottom sheet for administrator
-
-
 
     }
 
