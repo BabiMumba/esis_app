@@ -71,38 +71,51 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
             .placeholder(circularProgressDrawable)
             .into(holder.image)
 
+        //boite de dialogue
+
         holder.itemView.setOnClickListener {
-            val dialog = Dialog(holder.image.context)
-            dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-            dialog.setContentView(R.layout.inforamtion_user_dialgue)
-            dialog.setCancelable(true)
-            val lp = WindowManager.LayoutParams()
-            lp.copyFrom(dialog.window!!.attributes)
-            lp.width = WindowManager.LayoutParams.MATCH_PARENT
-            lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+            if (admin == "oui"){
+                val dialog = Dialog(holder.image.context)
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                dialog.setContentView(R.layout.inforamtion_user_dialgue)
+                dialog.setCancelable(true)
+                val lp = WindowManager.LayoutParams()
+                lp.copyFrom(dialog.window!!.attributes)
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT
 
-            val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
-            val promotion = dialog.findViewById<TextView>(R.id.pm)
-            val genre = dialog.findViewById<TextView>(R.id.sx)
-            val nom = dialog.findViewById<TextView>(R.id.nm)
-            val edite_admin = dialog.findViewById<EditText>(R.id.admin_edit)
+                val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
+                val promotion = dialog.findViewById<TextView>(R.id.pm)
+                val genre = dialog.findViewById<TextView>(R.id.sx)
+                val nom = dialog.findViewById<TextView>(R.id.nm)
+                val edite_admin = dialog.findViewById<EditText>(R.id.admin_edit)
 
-            edite_admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
-            nom.text = model.mail
-            promotion.text = model.promotion
-            genre.text = model.sexe
-            Glide
-                .with(holder.itemView.context)
-                .load(model.profil)
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                //.apply(RequestOptions.overrideOf(300,600))
-                .centerInside()
-                .placeholder(circularProgressDrawable)
-                .into(profil_us)
+                edite_admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
+                nom.text = model.mail
+                promotion.text = model.promotion
+                genre.text = model.sexe
+                Glide
+                    .with(holder.itemView.context)
+                    .load(model.profil)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    //.apply(RequestOptions.overrideOf(300,600))
+                    .centerInside()
+                    .placeholder(circularProgressDrawable)
+                    .into(profil_us)
 
-            dialog.show()
-            dialog.window!!.attributes = lp
+                dialog.show()
+                dialog.window!!.attributes = lp
+            }else{
+
+
+            }
+
         }
+
+        //bottom sheet for administrator
+
+
+
     }
 
 }
