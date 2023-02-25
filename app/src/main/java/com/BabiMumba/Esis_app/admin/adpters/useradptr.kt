@@ -81,7 +81,6 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 lp.copyFrom(dialog.window!!.attributes)
                 lp.width = WindowManager.LayoutParams.MATCH_PARENT
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-
                 val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
                 val promotion = dialog.findViewById<TextView>(R.id.pm)
                 val genre = dialog.findViewById<TextView>(R.id.sx)
@@ -104,9 +103,16 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 dialog.show()
                 dialog.window!!.attributes = lp
             }else{
-
                 val dialog = BottomSheetDialog(holder.image.context)
                 dialog.setContentView(R.layout.bottom_sheet)
+                val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
+                val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
+                add_admin?.setOnClickListener {
+                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                }
+                show_profil!!.setOnClickListener {
+                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                }
                 dialog.show()
 
 
