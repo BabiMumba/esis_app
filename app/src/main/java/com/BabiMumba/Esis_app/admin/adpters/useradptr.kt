@@ -3,9 +3,11 @@ package com.BabiMumba.Esis_app.admin.adpters
 
 import android.app.Dialog
 import android.content.Context
+import android.content.DialogInterface
 import android.graphics.Color
 import android.view.*
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
@@ -100,19 +102,37 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                                 }
                             }
                     }else{
-                        val database = FirebaseFirestore.getInstance()
-                        val infor_user:MutableMap<String, Any> = HashMap()
-                        infor_user["administrateur"] = "oui"
-                        database.collection("Utilisateurs")
-                            .document(model.mail)
-                            .set(infor_user, SetOptions.merge())
-                            .addOnCompleteListener {
-                                if (it.isSuccessful){
-                                    Toast.makeText(holder.image.context, "modification reussi", Toast.LENGTH_SHORT).show()
-                                }else{
-                                    Toast.makeText(holder.image.context, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                        val nom = model.nom
+                        val alertDialog = AlertDialog.Builder(holder.image.context).create()
+                        alertDialog.setTitle("Administrateur assistant")
+                        alertDialog.setMessage("""
+                            en ajoutant $nom en tant qu'administrateur assistant il aura la possibilite de \n
+                            
+                        """.trimIndent())
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"ajouter"){
+                                d: DialogInterface, _:Int ->
+                            val database = FirebaseFirestore.getInstance()
+                            val infor_user:MutableMap<String, Any> = HashMap()
+                            infor_user["administrateur"] = "oui"
+                            database.collection("Utilisateurs")
+                                .document(model.mail)
+                                .set(infor_user, SetOptions.merge())
+                                .addOnCompleteListener {
+                                    if (it.isSuccessful){
+                                        Toast.makeText(holder.image.context, "modification reussi", Toast.LENGTH_SHORT).show()
+                                    }else{
+                                        Toast.makeText(holder.image.context, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                                    }
                                 }
-                            }
+                            d.dismiss()
+                        }
+                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE,"annuler"){
+                                d: DialogInterface, _:Int ->
+                            d.dismiss()
+                        }
+
+                        alertDialog.show()
+
                     }
 
                     dialog.dismiss()
