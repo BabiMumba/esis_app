@@ -81,7 +81,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                     Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
                 }
                 show_profil!!.setOnClickListener {
-                    Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(holder.image.context, "profil", Toast.LENGTH_SHORT).show()
                 }
                 dialog.show()
             }else{
