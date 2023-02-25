@@ -18,6 +18,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
 class useradptr (options: FirestoreRecyclerOptions<modeluser>):
@@ -78,16 +79,33 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 dialog.setContentView(R.layout.bottom_sheet)
                 val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
                 val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
+                val text_ad = dialog.findViewById<TextView>(R.id.text_add)
+                if (model.administrateur == "oui"){
+                    text_ad!!.text = "Retirer en tant qu'administrateur ass."
+                }
                 add_admin?.setOnClickListener {
                     if (model.administrateur == "oui"){
-                        Toast.makeText(holder.image.context, "il est deja administateur", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(holder.image.context, "il est deja administateur", Toast.LENGTH_SHORT).show()
+                        val database = FirebaseFirestore.getInstance()
+                        val infor_user:MutableMap<String, Any> = HashMap()
+                        infor_user["administrateur"] = "non"
+                        database.collection("Utilisateurs")
+                            .document(model.mail)
+                            .set(infor_user, SetOptions.merge())
+                            .addOnCompleteListener {
+                                if (it.isSuccessful){
+                                    Toast.makeText(holder.image.context, "modification reussi", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    Toast.makeText(holder.image.context, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                                }
+                            }
                     }else{
                         val database = FirebaseFirestore.getInstance()
                         val infor_user:MutableMap<String, Any> = HashMap()
                         infor_user["administrateur"] = "oui"
                         database.collection("Utilisateurs")
                             .document(model.mail)
-                            .set(infor_user)
+                            .set(infor_user, SetOptions.merge())
                             .addOnCompleteListener {
                                 if (it.isSuccessful){
                                     Toast.makeText(holder.image.context, "modification reussi", Toast.LENGTH_SHORT).show()
