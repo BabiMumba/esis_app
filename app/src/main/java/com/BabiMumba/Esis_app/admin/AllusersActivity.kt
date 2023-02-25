@@ -44,7 +44,7 @@ class AllusersActivity : AppCompatActivity() {
                 .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","1bda7af6-ef75-48d9-a0d7-2ea9121c42e6"))
                 .build()
         )
-        loadrewardedInters()
+       // loadrewardedInters()
         tresor.setOnClickListener {
             showRewardedInters()
         }

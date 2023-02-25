@@ -17,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.firebase.firestore.FirebaseFirestore
 import de.hdodenhof.circleimageview.CircleImageView
 
 class useradptr (options: FirestoreRecyclerOptions<modeluser>):
@@ -81,7 +82,19 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                     if (model.administrateur == "oui"){
                         Toast.makeText(holder.image.context, "il est deja administateur", Toast.LENGTH_SHORT).show()
                     }else{
-                        Toast.makeText(holder.image.context, "il n'est pas admin", Toast.LENGTH_SHORT).show()
+                        val database = FirebaseFirestore.getInstance()
+                        val infor_user:MutableMap<String, Any> = HashMap()
+                        infor_user["administrateur"] = "oui"
+                        database.collection("Utilisateurs")
+                            .document(model.mail)
+                            .set(infor_user)
+                            .addOnCompleteListener {
+                                if (it.isSuccessful){
+                                    Toast.makeText(holder.image.context, "modification reussi", Toast.LENGTH_SHORT).show()
+                                }else{
+                                    Toast.makeText(holder.image.context, it.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                                }
+                            }
                     }
 
                     dialog.dismiss()
