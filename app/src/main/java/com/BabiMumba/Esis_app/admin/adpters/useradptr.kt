@@ -5,10 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.view.*
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RelativeLayout
-import android.widget.TextView
+import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
@@ -19,6 +16,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import de.hdodenhof.circleimageview.CircleImageView
 
 class useradptr (options: FirestoreRecyclerOptions<modeluser>):
@@ -106,6 +104,10 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 dialog.show()
                 dialog.window!!.attributes = lp
             }else{
+
+                val dialog = BottomSheetDialog(holder.image.context)
+                dialog.setContentView(R.layout.bottom_sheet)
+                dialog.show()
 
 
             }
