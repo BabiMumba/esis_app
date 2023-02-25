@@ -47,14 +47,14 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
         val sharedPreferences = holder.image.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val mail_cach = sharedPreferences.getString("mail",null)
-        val admin = sharedPreferences.getString("administrateur",null)
+        val admin = sharedPreferences.getString("adminP",null)
 
         holder.name.text = model.nom
         holder.mail.text = model.mail
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         //holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
-        holder.admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
+        holder.admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
 
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
@@ -81,7 +81,32 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                     Toast.makeText(holder.image.context, "ajouter", Toast.LENGTH_SHORT).show()
                 }
                 show_profil!!.setOnClickListener {
-                    Toast.makeText(holder.image.context, "profil", Toast.LENGTH_SHORT).show()
+                    val dialog = Dialog(holder.image.context)
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+                    dialog.setContentView(R.layout.inforamtion_user_dialgue)
+                    dialog.setCancelable(true)
+                    val lp = WindowManager.LayoutParams()
+                    lp.copyFrom(dialog.window!!.attributes)
+                    lp.width = WindowManager.LayoutParams.MATCH_PARENT
+                    lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+                    val profil_us = dialog.findViewById<ImageView>(R.id.pro_i)
+                    val promotion = dialog.findViewById<TextView>(R.id.pm)
+                    val genre = dialog.findViewById<TextView>(R.id.sx)
+                    val nom = dialog.findViewById<TextView>(R.id.nm)
+                    nom.text = model.mail
+                    promotion.text = model.promotion
+                    genre.text = model.sexe
+                    Glide
+                        .with(holder.itemView.context)
+                        .load(model.profil)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        //.apply(RequestOptions.overrideOf(300,600))
+                        .centerInside()
+                        .placeholder(circularProgressDrawable)
+                        .into(profil_us)
+
+                    dialog.show()
+                    dialog.window!!.attributes = lp
                 }
                 dialog.show()
             }else{
@@ -97,9 +122,6 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 val promotion = dialog.findViewById<TextView>(R.id.pm)
                 val genre = dialog.findViewById<TextView>(R.id.sx)
                 val nom = dialog.findViewById<TextView>(R.id.nm)
-                val edite_admin = dialog.findViewById<EditText>(R.id.admin_edit)
-
-                edite_admin.visibility = if (model.mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
                 nom.text = model.mail
                 promotion.text = model.promotion
                 genre.text = model.sexe
@@ -114,7 +136,6 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
 
                 dialog.show()
                 dialog.window!!.attributes = lp
-
 
             }
 

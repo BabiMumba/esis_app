@@ -85,18 +85,7 @@
             />
 
     </LinearLayout>
-    <EditText
-        android:visibility="gone"
-        android:id="@+id/admin_edit"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:background="@drawable/background_input_new"
-        android:layout_below="@id/l2"
-        android:hint="admin"
-        />
+
 
 
 </RelativeLayout>
