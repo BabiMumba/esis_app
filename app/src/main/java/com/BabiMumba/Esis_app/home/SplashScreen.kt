@@ -49,7 +49,7 @@ class SplashScreen : AppCompatActivity() {
             startActivity(intent)
             finish()
         }else{
-            startActivity(Intent(this,SigninActivity::class.java))
+            startActivity(Intent(this,GoogleCountActivity::class.java))
         }
     }
 }
