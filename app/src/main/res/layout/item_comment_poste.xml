@@ -15,16 +15,16 @@
         android:src="@drawable/ic_propic1"
         app:civ_border_color="@color/primary"
         app:civ_border_width="1dp" />
+
     <RelativeLayout
         android:id="@+id/containaer"
-        android:background="@drawable/item_comment_bkground"
         android:layout_width="wrap_content"
-        android:padding="@dimen/_5sdp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
         android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/_10sdp"
         android:layout_toEndOf="@id/user_image_profil"
-        >
+        android:background="@drawable/item_comment_bkground"
+        android:padding="@dimen/_5sdp">
 
         <TextView
             android:id="@+id/name_user"
@@ -49,21 +49,23 @@
             android:textSize="@dimen/_10ssp"
             app:layout_constraintWidth_max="wrap" />
 
+        <TextView
+            android:id="@+id/date_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textcomment"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:paddingTop="@dimen/_5sdp"
+            android:layout_alignParentEnd="true"
+            android:text="le 10/10/2020"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_7sdp"
+            android:textStyle="normal|italic" />
+
 
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/date_comment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/containaer"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_toEndOf="@id/user_image_profil"
-        android:paddingTop="@dimen/_5sdp"
-        android:text="le 10/10/2020"
-        android:textColor="@color/primary_text"
-        android:textSize="@dimen/_7sdp"
-        android:textStyle="normal|italic" />
+
 
 
 </RelativeLayout>
