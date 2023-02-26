@@ -23,7 +23,7 @@
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/_10sdp"
         android:layout_toEndOf="@id/user_image_profil"
-        android:background="@drawable/item_comment_bkground"
+        android:background="@drawable/messge_bk"
         android:padding="@dimen/_5sdp">
 
         <TextView
@@ -54,13 +54,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textcomment"
+            android:layout_toStartOf="@id/read"
             android:layout_marginStart="@dimen/_10sdp"
             android:paddingTop="@dimen/_5sdp"
-            android:layout_alignParentEnd="true"
             android:text="le 10/10/2020"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_7sdp"
             android:textStyle="normal|italic" />
+        <ImageView
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_below="@id/textcomment"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_read"
+            android:id="@+id/read"
+            />
 
 
     </RelativeLayout>
