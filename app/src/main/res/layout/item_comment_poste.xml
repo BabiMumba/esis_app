@@ -63,11 +63,11 @@
             android:textStyle="normal|italic" />
         <ImageView
             android:layout_width="@dimen/_10sdp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/_15sdp"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_below="@id/textcomment"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_read"
+            android:src="@drawable/double_check"
             android:id="@+id/read"
             />
 
