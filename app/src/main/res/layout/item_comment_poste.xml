@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_5sdp"
             android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:text="Jacques legrimm"
             android:textColor="@color/black"
             android:textSize="@dimen/_10ssp"
@@ -43,6 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/name_user"
             android:layout_marginStart="@dimen/_4sdp"
+            android:textStyle="normal"
             android:paddingBottom="@dimen/_2sdp"
             android:text="bonjour juste savoir ce tp c'est a deposer quel day"
             android:textColor="@color/black"
@@ -54,22 +56,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/textcomment"
-            android:layout_toStartOf="@id/read"
             android:layout_marginStart="@dimen/_10sdp"
+            android:layout_toStartOf="@id/read"
             android:paddingTop="@dimen/_5sdp"
             android:text="le 10/10/2020"
             android:textColor="@color/primary_text"
             android:textSize="@dimen/_7sdp"
             android:textStyle="normal|italic" />
+
         <ImageView
+            android:id="@+id/read"
             android:layout_width="@dimen/_10sdp"
             android:layout_height="@dimen/_15sdp"
-            android:layout_marginStart="@dimen/_5sdp"
             android:layout_below="@id/textcomment"
             android:layout_alignParentEnd="true"
-            android:src="@drawable/double_check"
-            android:id="@+id/read"
-            />
+            android:layout_marginStart="@dimen/_5sdp"
+            android:src="@drawable/double_check" />
 
 
     </RelativeLayout>

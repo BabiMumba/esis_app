@@ -37,15 +37,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textcomment"
-        android:layout_marginStart="@dimen/_5sdp"
-        android:text="12/12/2023"
         android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_5sdp"
+        android:text="12/12/2023"
         android:textColor="@color/secondary_text"
         android:textSize="@dimen/_8ssp" />
 
     <TextView
         android:id="@+id/textcomment"
         android:layout_width="wrap_content"
+        android:textStyle="bold"
         android:layout_height="wrap_content"
         android:layout_below="@id/user_image_profil"
         android:layout_marginStart="@dimen/_4sdp"
