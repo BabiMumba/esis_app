@@ -470,6 +470,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/rr9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -603,6 +604,7 @@
 
                 </RelativeLayout>
                 <RelativeLayout
+                    android:visibility="gone"
                     android:id="@+id/scode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

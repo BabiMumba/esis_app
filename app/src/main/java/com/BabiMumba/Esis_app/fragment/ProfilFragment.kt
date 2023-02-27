@@ -80,6 +80,8 @@ class ProfilFragment : Fragment() {
         val adm = sharedPreferences.getString("administrateur",null)
         if (adm == "oui"){
             collection_name = "Professeur"
+            view.findViewById<RelativeLayout>(R.id.rr9).visibility = View.VISIBLE
+
         }else{
             collection_name = "Utilisateurs"
         }
