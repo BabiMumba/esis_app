@@ -145,19 +145,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                     ui_post_name.setText(postname)
                     prenom_ui.setText(prenoms)
                     ui_name.setText(name)
-                    if (admin=="oui"){
-                        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
-                        val editor = sharedPreferences.edit()
-                        editor.apply() {
-                            putString("adminP", "oui")
-                        }.apply()
-                    }else{
-                        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
-                        val editor = sharedPreferences.edit()
-                        editor.apply() {
-                            putString("adminP", "non")
-                        }.apply()
-                    }
+
                     Log.d(ContentValues.TAG, "DocumentSnapshot data: ${document.data}")
                 }else{
                     Log.d(ContentValues.TAG, "document inconnue")
