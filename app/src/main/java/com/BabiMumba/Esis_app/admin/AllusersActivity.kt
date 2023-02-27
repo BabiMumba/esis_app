@@ -3,6 +3,8 @@ package com.BabiMumba.Esis_app.admin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -64,25 +66,6 @@ class AllusersActivity : AppCompatActivity() {
         users_recyclerview.adapter = adaps
         //nom a rechercher sur la barre de recherche
         val nom_search = "promotion"
-        im_search.setOnClickListener {
-            if (recherche.text.toString().isNotEmpty()){
-                users_recyclerview.layoutManager = layoutManager
-                ref.orderBy(nom_search)
-                val options = FirestoreRecyclerOptions.Builder<modeluser>()
-                    .setQuery(
-                        ref,
-                        modeluser::class.java
-                    )
-                    .build()
-                adaps = useradptr(options)
-                users_recyclerview.adapter = adaps
-
-            }else{
-                Toast.makeText(this, "entre un nom", Toast.LENGTH_SHORT).show()
-            }
-            
-            
-        }
 
         }
 
@@ -173,6 +156,12 @@ class AllusersActivity : AppCompatActivity() {
     override fun onStop() {
         adaps.stopListening()
         super.onStop()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.search_bar, menu)
+        return true
     }
 
     }
