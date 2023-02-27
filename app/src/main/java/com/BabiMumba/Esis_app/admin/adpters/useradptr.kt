@@ -4,7 +4,6 @@ package com.BabiMumba.Esis_app.admin.adpters
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
-import android.graphics.Color
 import android.view.*
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
@@ -14,8 +13,6 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -58,7 +55,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         //holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
-        holder.admin.visibility = if (model.administrateur == "oui") View.VISIBLE else View.GONE
+        holder.admin.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
 
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
@@ -82,15 +79,15 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                 val show_profil = dialog.findViewById<LinearLayout>(R.id.profile_user)
                 val add_admin = dialog.findViewById<LinearLayout>(R.id.admin_add)
                 val text_ad = dialog.findViewById<TextView>(R.id.text_add)
-                if (model.administrateur == "oui"){
+                if (model.admin_assistant == "oui"){
                     text_ad!!.text = "Retirer en tant qu'administrateur ass."
                 }
                 add_admin?.setOnClickListener {
-                    if (model.administrateur == "oui"){
+                    if (model.admin_assistant == "oui"){
                         //Toast.makeText(holder.image.context, "il est deja administateur", Toast.LENGTH_SHORT).show()
                         val database = FirebaseFirestore.getInstance()
                         val infor_user:MutableMap<String, Any> = HashMap()
-                        infor_user["administrateur"] = "non"
+                        infor_user["admin_assistant"] = "non"
                         database.collection("Utilisateurs")
                             .document(model.mail)
                             .set(infor_user, SetOptions.merge())
@@ -115,7 +112,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                                 d: DialogInterface, _:Int ->
                             val database = FirebaseFirestore.getInstance()
                             val infor_user:MutableMap<String, Any> = HashMap()
-                            infor_user["administrateur"] = "oui"
+                            infor_user["admin_assistant"] = "oui"
                             database.collection("Utilisateurs")
                                 .document(model.mail)
                                 .set(infor_user, SetOptions.merge())

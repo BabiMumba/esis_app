@@ -138,7 +138,7 @@ class UpdateProfilActivity : AppCompatActivity() {
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
                     val promotion = document.data?.getValue("promotion").toString()
-                    val admin = document.data?.getValue("adminP").toString()
+                  ///  val admin = document.data?.getValue("adminP").toString()
                     promot.text = promotion
                     u_mail.text = mailTo
                     u_nume.text = num
