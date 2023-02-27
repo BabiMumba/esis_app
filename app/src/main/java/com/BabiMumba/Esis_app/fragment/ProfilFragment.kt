@@ -23,17 +23,22 @@ import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.DeleteCount
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 
 
 class ProfilFragment : Fragment() {
 
     var mm = ""
+    lateinit var collection_name:String
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val v = inflater.inflate(R.layout.fragment_profil, container, false)
+        firebaseAuth = FirebaseAuth.getInstance()
             readData(v)
             checkstate(v)
             clickmethode(v)
@@ -70,6 +75,40 @@ class ProfilFragment : Fragment() {
         }
         view.findViewById<RelativeLayout>(R.id.user_get).setOnClickListener {
             startActivity(Intent(requireActivity(), AllusersActivity::class.java))
+        }
+        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+        if (adm == "oui"){
+            collection_name = "Professeur"
+        }else{
+            collection_name = "Utilisateurs"
+        }
+        view.findViewById<RelativeLayout>(R.id.actualise_count).setOnClickListener {
+            val fireuser= firebaseAuth.currentUser
+            val mail = fireuser?.email.toString()
+            val db = FirebaseFirestore.getInstance()
+            val docRef = db.collection(collection_name)
+                .document(mail)
+
+            docRef.get()
+                .addOnSuccessListener {
+                    if (it!= null){
+                        val admin = it.data?.getValue("adminP").toString()
+                        if (admin=="oui"){
+                            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.apply() {
+                                putString("adminP", "oui")
+                            }.apply()
+                        }else{
+                            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                            val editor = sharedPreferences.edit()
+                            editor.apply() {
+                                putString("adminP", "non")
+                            }.apply()
+                        }
+                    }
+                }
         }
         view.findViewById<RelativeLayout>(R.id.rr7).setOnClickListener {
             val builder = AlertDialog.Builder(requireActivity())
