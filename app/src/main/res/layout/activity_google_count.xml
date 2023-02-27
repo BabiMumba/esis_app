@@ -9,8 +9,18 @@
     android:layout_height="match_parent"
     android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ecole superieur d'informatique salama"
+        android:layout_above="@id/re_lgn"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"
+        />
 
     <RelativeLayout
+        android:id="@+id/re_lgn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -26,7 +36,8 @@
             android:padding="@dimen/_12sdp"
             android:text="Se connecter avec mon matricule"
             android:textAllCaps="false"
-            android:textColor="@color/primary_text"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/white"
             android:textStyle="bold" />
 
 
