@@ -148,7 +148,7 @@ class RegisterAdmin : AppCompatActivity() {
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["administrateur"] = "oui"
         infor_user["promotion"] = binding.promotionChoice.text.toString()
-        infor_user["adminP"] = "oui"
+        infor_user["admin_assistant"] = "oui"
         infor_user["ouverture_application"] = 1
         infor_user["id_reserve1"] = ""
         infor_user["id_reserve2"] = ""

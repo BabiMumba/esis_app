@@ -147,7 +147,7 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["Numero de telephone"] = binding.number.text.toString()
         infor_user["promotion"] = binding.promotionChoice.text.toString()
         infor_user["administrateur"] = "non"
-        infor_user["adminP"] = "non"
+        infor_user["admin_assistant"] = "non"
         infor_user["ouverture_application"] = 1
         infor_user["id_reserve1"] = ""
         infor_user["id_reserve2"] = ""
@@ -181,7 +181,7 @@ class RegisterActivity : AppCompatActivity() {
             putString("promotion",binding.promotionChoice.text.toString())
             putString("lien profil",imagelink)
             putString("administrateur","non")
-            putString("AdminP","non")
+            putString("admin_assistant","non")
             putInt("count",1)
         }.apply()
         abonnement("syllabus")

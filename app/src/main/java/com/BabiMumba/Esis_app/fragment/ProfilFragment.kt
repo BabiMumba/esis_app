@@ -78,7 +78,7 @@ class ProfilFragment : Fragment() {
         }
         val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
-        val adm2 = sharedPreferences.getString("adminP",null)
+        val adm2 = sharedPreferences.getString("admin_assistant",null)
         if (adm == "oui"){
             collection_name = "Professeur"
 
@@ -102,14 +102,14 @@ class ProfilFragment : Fragment() {
                             val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.apply() {
-                                putString("adminP", "oui")
+                                putString("admin_assistant", "oui")
                             }.apply()
                             Toast.makeText(requireActivity(), "vous êtes désormais un administrateur", Toast.LENGTH_SHORT).show()
                         }else{
                             val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.apply() {
-                                putString("adminP", "non")
+                                putString("admin_assistant", "non")
                             }.apply()
                         }
                     }
