@@ -100,6 +100,7 @@ class ProfilFragment : Fragment() {
                             editor.apply() {
                                 putString("adminP", "oui")
                             }.apply()
+                            Toast.makeText(requireActivity(), "vous etes un administrateur", Toast.LENGTH_SHORT).show()
                         }else{
                             val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
