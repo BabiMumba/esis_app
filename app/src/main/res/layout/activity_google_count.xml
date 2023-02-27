@@ -10,29 +10,6 @@
     android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
 
-    <TextView
-        android:id="@+id/txt1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:gravity="center"
-        android:text="@string/stp1"
-        android:textColor="@color/primary_text"
-        android:textSize="@dimen/_20sdp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/txt1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_5sdp"
-        android:fontFamily="sans-serif"
-        android:gravity="center"
-        android:text="@string/add_or_select"
-        android:textColor="@color/primary_text" />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,9 +21,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/background_lgin"
+            android:drawableEnd="@drawable/ic_more"
             android:gravity="center"
             android:padding="@dimen/_12sdp"
-            android:drawableEnd="@drawable/ic_more"
             android:text="Se connecter avec mon matricule"
             android:textAllCaps="false"
             android:textColor="@color/primary_text"
