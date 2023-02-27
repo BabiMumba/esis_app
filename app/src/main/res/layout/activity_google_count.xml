@@ -10,10 +10,21 @@
     android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
     <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Passer votre meuilleur cursus scolaire "
+        android:layout_above="@id/re_lgn"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:textStyle="bold"
+        android:textColor="@color/primary_text"
+        />
+    <TextView
+        android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ecole superieur d'informatique salama"
-        android:layout_above="@id/re_lgn"
+        android:layout_above="@id/txt1"
         android:layout_marginBottom="@dimen/_10sdp"
         android:textStyle="bold"
         android:textColor="@color/primary_text"
