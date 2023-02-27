@@ -78,12 +78,15 @@ class ProfilFragment : Fragment() {
         }
         val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
+        val adm2 = sharedPreferences.getString("adminP",null)
         if (adm == "oui"){
             collection_name = "Professeur"
-            view.findViewById<RelativeLayout>(R.id.rr9).visibility = View.VISIBLE
 
         }else{
             collection_name = "Utilisateurs"
+        }
+        if (adm2 == "oui"){
+            view.findViewById<RelativeLayout>(R.id.rr9).visibility = View.VISIBLE
         }
         view.findViewById<RelativeLayout>(R.id.actualise_count).setOnClickListener {
             val fireuser= firebaseAuth.currentUser
