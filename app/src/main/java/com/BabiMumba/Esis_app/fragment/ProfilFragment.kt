@@ -89,7 +89,6 @@ class ProfilFragment : Fragment() {
             val db = FirebaseFirestore.getInstance()
             val docRef = db.collection(collection_name)
                 .document(mail)
-
             docRef.get()
                 .addOnSuccessListener {
                     if (it!= null){
@@ -100,7 +99,7 @@ class ProfilFragment : Fragment() {
                             editor.apply() {
                                 putString("adminP", "oui")
                             }.apply()
-                            Toast.makeText(requireActivity(), "vous etes un administrateur", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireActivity(), "vous êtes désormais un administrateur", Toast.LENGTH_SHORT).show()
                         }else{
                             val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
