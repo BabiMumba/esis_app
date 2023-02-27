@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.BabiMumba.Esis_app.R
@@ -162,13 +163,15 @@ class AllusersActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.search_bar, menu)
+        val item = menu.findItem(R.id.search_etudian)
+
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle item selection
         return when (item.itemId) {
             R.id.search_etudian -> {
-                newGame()
+
                 true
             }
             else -> super.onOptionsItemSelected(item)

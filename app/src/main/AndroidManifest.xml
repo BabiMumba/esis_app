@@ -62,6 +62,7 @@
             android:name=".admin.LogoutActivity"
             android:exported="false" />
         <activity
+            android:theme="@style/Recherche"
             android:name=".admin.AllusersActivity"
             android:exported="false" />
         <activity
