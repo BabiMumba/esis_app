@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/my_relative"
-    android:background="@color/primary"
+    android:background="@drawable/bak_2"
     android:layout_height="match_parent"
     android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
@@ -13,21 +13,14 @@
     <TextView
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
+        android:gravity="center"
         android:text="@string/stp1"
         android:textColor="@color/primary_text"
         android:textSize="@dimen/_20sdp"
         android:textStyle="bold" />
-
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/h1" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -50,11 +43,12 @@
             android:id="@+id/google_count"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/background_input"
+            android:background="@drawable/background_lgin"
+            android:gravity="center"
             android:padding="@dimen/_12sdp"
+            android:drawableEnd="@drawable/ic_more"
             android:text="Se connecter avec mon matricule"
             android:textAllCaps="false"
-            android:gravity="center"
             android:textColor="@color/primary_text"
             android:textStyle="bold" />
 
