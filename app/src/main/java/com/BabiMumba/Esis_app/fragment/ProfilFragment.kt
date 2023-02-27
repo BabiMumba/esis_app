@@ -97,7 +97,7 @@ class ProfilFragment : Fragment() {
             docRef.get()
                 .addOnSuccessListener {
                     if (it!= null){
-                        val admin = it.data?.getValue("adminP").toString()
+                        val admin = it.data?.getValue("admin_assistant").toString()
                         if (admin=="oui"){
                             val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
