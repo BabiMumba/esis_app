@@ -109,6 +109,10 @@ class ProfilFragment : Fragment() {
                             }.apply()
                         }
                     }
+                    Toast.makeText(requireActivity(), "compte actualiser", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(requireActivity(), "${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
         view.findViewById<RelativeLayout>(R.id.rr7).setOnClickListener {
