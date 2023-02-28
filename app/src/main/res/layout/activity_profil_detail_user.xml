@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/item_text_4"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="@dimen/_13sdp"
                 android:orientation="horizontal"
                 android:weightSum="2">
 
@@ -85,8 +85,8 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_marginStart="10dp"
+                android:layout_height="@dimen/_65sdp"
+                android:layout_marginStart="@dimen/_6sdp"
                 android:layout_toEndOf="@+id/button_head_card_parent">
 
                 <androidx.cardview.widget.CardView
@@ -279,11 +279,11 @@
                 android:textStyle="bold" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/button_head_card_parent"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
                 android:layout_alignParentStart="true"
                 app:cardBackgroundColor="@android:color/transparent"
-                app:cardCornerRadius="40dp"
+                app:cardCornerRadius="@dimen/_35sdp"
                 app:cardElevation="0dp">
 
                 <RelativeLayout
@@ -296,9 +296,9 @@
                         android:id="@+id/button_body_card_parent"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="4dp"
+                        android:layout_margin="@dimen/_3sdp"
                         app:cardBackgroundColor="#ffffff"
-                        app:cardCornerRadius="39dp"
+                        app:cardCornerRadius="@dimen/_35sdp"
                         app:cardElevation="0dp">
 
                         <de.hdodenhof.circleimageview.CircleImageView
