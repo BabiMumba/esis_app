@@ -15,11 +15,11 @@
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:minHeight="32dp"
+        android:layout_margin="@dimen/_2sdp"
+        android:minHeight="@dimen/_25sdp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="1dp"
+        app:cardCornerRadius="@dimen/_3sdp"
+        app:cardElevation="@dimen/_1sdp"
         app:cardUseCompatPadding="false">
 
         <LinearLayout
