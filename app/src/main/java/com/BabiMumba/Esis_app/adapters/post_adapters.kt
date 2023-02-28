@@ -6,14 +6,15 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import com.BabiMumba.Esis_app.R
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.home.InfosActivity
 import com.BabiMumba.Esis_app.home.PosteDetaille
@@ -23,12 +24,12 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
+import com.google.common.reflect.Reflection.getPackageName
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
-import java.util.HashMap
 
 class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecyclerAdapter<post_model, post_adapters.viewholder>(options){
 
@@ -185,16 +186,8 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                             likereference!!.child(postkey).child(userid).removeValue()
                             false
                         } else {
-                            val mediaPlayer = MediaPlayer()
-                            val afd: AssetFileDescriptor
-                            try {
-                                afd = holder.image.context.assets.openFd("like_raw.mp3")
-                                mediaPlayer.setDataSource(afd.fileDescriptor)
-                                mediaPlayer.prepare()
-                                mediaPlayer.start()
-                            }catch (e:Exception){
-                                Toast.makeText(holder.image.context, "$e", Toast.LENGTH_SHORT).show()
-                            }
+                            val mediaPlayer = MediaPlayer.create(holder.image.context, R.raw.like_raw)
+                            mediaPlayer.start()
                             likereference!!.child(postkey).child(userid).setValue(true)
 
                             if (model.token_users != token_id){
