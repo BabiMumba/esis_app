@@ -28,10 +28,10 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ChatActivity"
+            android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".Profil_DetailUser"
+            android:name=".users.Profil_DetailUser"
             android:exported="false" />
         <activity
             android:name=".admin.Adminpage"

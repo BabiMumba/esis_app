@@ -79,7 +79,7 @@
                                         android:background="@drawable/message_btn">
 
                                         <RelativeLayout
-                                            android:id="@+id/item_button_1_click_parent"
+                                            android:id="@+id/message_btn"
                                             android:layout_width="match_parent"
                                             android:layout_height="35dp"
                                             android:background="?attr/selectableItemBackground"

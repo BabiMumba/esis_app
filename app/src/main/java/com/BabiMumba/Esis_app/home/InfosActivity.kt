@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.poste_users_adapters
+import com.BabiMumba.Esis_app.chat.ChatActivity
 import com.BabiMumba.Esis_app.model.poste_users_model
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -103,6 +104,9 @@ class InfosActivity : AppCompatActivity() {
         adpter = poste_users_adapters(options)
         recycler_users.adapter = adpter
         mLayoutManager!!.reverseLayout = true
+        message_btn.setOnClickListener {
+            startActivity(Intent(this,ChatActivity::class.java))
+        }
     }
     fun read_name(){
         val ad_mail = intent.getStringExtra("mail").toString()
