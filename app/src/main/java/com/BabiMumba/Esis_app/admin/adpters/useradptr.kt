@@ -140,7 +140,8 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                     dialog.dismiss()
                 }
                 show_profil!!.setOnClickListener {
-                    val dialog_profi = Dialog(holder.image.context)
+                    /*
+                      val dialog_profi = Dialog(holder.image.context)
                     dialog_profi.requestWindowFeature(Window.FEATURE_NO_TITLE)
                     dialog_profi.setContentView(R.layout.inforamtion_user_dialgue)
                     dialog_profi.setCancelable(true)
@@ -166,6 +167,11 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                     dialog_profi.show()
                     dialog_profi.window!!.attributes = lp
                     dialog.dismiss()
+                     */
+                    val intent = Intent(holder.itemView.context, InfosActivity::class.java)
+                    intent.putExtra("mail",model.mail)
+                    holder.itemView.context.startActivity(intent)
+
                 }
                 dialog.show()
             }else{
