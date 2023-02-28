@@ -253,6 +253,7 @@
                                 android:textColor="#36618A"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
+
                             <TextView
                                 android:id="@+id/item_text_1"
                                 android:layout_width="wrap_content"

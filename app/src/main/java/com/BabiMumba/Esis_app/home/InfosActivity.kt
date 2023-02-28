@@ -116,7 +116,7 @@ class InfosActivity : AppCompatActivity() {
                     val imgetxt = it.data?.getValue("profil")
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()
-                    myname.text = mon_nom
+                    item_text_1.text = mon_nom
                     val circularProgressDrawable = CircularProgressDrawable(this)
                     circularProgressDrawable.strokeWidth = 5f
                     circularProgressDrawable.centerRadius = 30f
