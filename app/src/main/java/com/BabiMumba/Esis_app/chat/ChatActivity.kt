@@ -3,6 +3,8 @@ package com.BabiMumba.Esis_app.chat
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
@@ -20,16 +22,24 @@ class ChatActivity : AppCompatActivity() {
         }
         item_mic_click_parent.setOnClickListener {
             val mediaPlayer = MediaPlayer()
-            var afd: AssetFileDescriptor
+            val afd: AssetFileDescriptor
             try {
                 afd = assets.openFd("song.mp3")
                 mediaPlayer.setDataSource(afd.fileDescriptor)
                 mediaPlayer.prepare()
-                mediaPlayer.start()
             }catch (e:Exception){
                 Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
             }
-            Toast.makeText(this, "lancement", Toast.LENGTH_SHORT).show()
+            Handler().postDelayed({
+                mediaPlayer.start()
+                mssg3.visibility = View.VISIBLE
+                Handler().postDelayed({
+                    mediaPlayer.start()
+                    mssg3.visibility = View.VISIBLE
+
+                },3000)
+            },3000)
+
 
         }
        

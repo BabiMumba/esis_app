@@ -23,6 +23,7 @@ class SplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_splash_screen)
         firebaseAuth = FirebaseAuth.getInstance()
         supportActionBar?.hide()
+
         Handler().postDelayed(
             {
                 val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
@@ -32,9 +33,7 @@ class SplashScreen : AppCompatActivity() {
                 editor.apply() {
                     putInt("count", lnb!!)
                    // Toast.makeText(this@SplashScreen, "sa fait $lnb", Toast.LENGTH_SHORT).show()
-                }
-                    .apply()
-
+                }.apply()
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
                   chek_users()
