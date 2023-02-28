@@ -114,6 +114,10 @@ class InfosActivity : AppCompatActivity() {
                     val pren = it.data?.getValue("prenom").toString()
                     val postn = it.data?.getValue("post-nom").toString()
                     val imgetxt = it.data?.getValue("profil")
+                    val mail = it.data?.getValue("mail")
+                    val promotion = it.data?.getValue("promotion")
+                    item_text_4.text = mail.toString()
+                    item_text_2.text = "promotion: $promotion"
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()
                     item_text_1.text = mon_nom
