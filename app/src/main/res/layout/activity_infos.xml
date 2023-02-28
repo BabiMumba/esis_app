@@ -31,7 +31,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RelativeLayout
-                    android:layout_marginBottom="@dimen/_10sdp"
                     android:id="@+id/vv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -62,24 +61,24 @@
                                 android:weightSum="2">
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/item_button_1_card_parent"
+                                    android:id="@+id/message_btn"
                                     android:layout_width="0dp"
                                     android:layout_height="35dp"
                                     android:layout_marginEnd="5dp"
                                     android:layout_weight="1"
                                     android:minWidth="35dp"
+                                    android:clickable="true"
                                     app:cardBackgroundColor="@android:color/transparent"
                                     app:cardCornerRadius="3dp"
-                                    app:cardElevation="0dp">
+                                    app:cardElevation="0dp"
+                                    android:focusable="true">
 
                                     <FrameLayout
-                                        android:id="@+id/item_button_1_style"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:background="@drawable/message_btn">
+                                        android:background="@drawable/follow_btn">
 
                                         <RelativeLayout
-                                            android:id="@+id/message_btn"
                                             android:layout_width="match_parent"
                                             android:layout_height="35dp"
                                             android:background="?attr/selectableItemBackground"
@@ -100,7 +99,7 @@
                                                 android:paddingStart="15dp"
                                                 android:paddingEnd="15dp"
                                                 android:text="Message"
-                                                android:textColor="@color/primary_text"
+                                                android:textColor="@color/white"
                                                 android:textSize="15sp"
                                                 android:textStyle="bold" />
 

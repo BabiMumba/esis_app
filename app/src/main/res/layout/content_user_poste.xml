@@ -8,13 +8,20 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_infos">
 
+
     <RelativeLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
-
-
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/primary_text"
+            />
         <androidx.recyclerview.widget.RecyclerView
+            android:layout_below="@id/view"
             android:id="@+id/recycler_users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -24,7 +31,5 @@
             app:spanCount="3"
             tools:listitem="@layout/feed_card_user" />
        </RelativeLayout>
-
-
 
 </androidx.core.widget.NestedScrollView>
