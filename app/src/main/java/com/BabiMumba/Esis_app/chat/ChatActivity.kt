@@ -32,13 +32,18 @@ class ChatActivity : AppCompatActivity() {
             }
             Handler().postDelayed({
                 mediaPlayer.start()
-                mssg3.visibility = View.VISIBLE
+                mssg1.visibility = View.VISIBLE
                 Handler().postDelayed({
                     mediaPlayer.start()
-                    mssg3.visibility = View.VISIBLE
+                    mssg2.visibility = View.VISIBLE
+                    Handler().postDelayed({
+                        mediaPlayer.start()
+                        mssg3.visibility = View.VISIBLE
 
-                },3000)
-            },3000)
+                    },2000)
+
+                },2000)
+            },2000)
 
 
         }
