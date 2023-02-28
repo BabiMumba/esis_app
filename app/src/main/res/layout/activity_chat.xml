@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#075E54"
+        android:background="@color/primary"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -73,6 +73,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            android:background="@color/primary"
             app:contentInsetStartWithNavigation="0dp"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             android:layout_width="match_parent"
@@ -101,7 +102,7 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_alignParentTop="true"
-            android:background="@color/primary_text"
+            android:background="@color/white"
             android:rotation="180" />
 
     </RelativeLayout>
@@ -230,7 +231,7 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/item_mic_card_parent"
-            app:cardBackgroundColor="#01AF9B"
+            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="23dp"
             app:cardElevation="0dp"
             android:layout_width="46dp"
