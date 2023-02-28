@@ -121,7 +121,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text="Hey bonjour jean luc"
+                            android:text="@string/salutation_user"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@android:color/black"
                             android:textStyle="normal" />

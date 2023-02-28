@@ -55,5 +55,6 @@
     <string name="rewarded_ad_reel">ca-app-pub-3940256099942544/5354046379</string>
     <string name="admin_count">Creation du compte \n Administrateur</string>
     <string name="message_commi">on faite cette partie elle est toujours en cours de developpement\n mais j\'aimerais savoir si tu aime l\'utilisation de cette application.\n je suis constamment à la recherche de moyens d\'améliorer cette partie, et j\aimerai savoir si tu as des suggestions sur cette fonctionnalités que vous aimeriez voir ajoutées à notre application. je suis ouverts à toute idée et je serai ravis de discuter de tes suggestions avec moi. N\'hésitez pas à m\'envoyer un message pour partager tes idées. j\espéres entendre de tes nouvelles bientôt. Merci,</string>
+    <string name="salutation_user">Hey bonjour jean luc\nc\'est <b>Babi mumba</b></string>
 
 </resources>
