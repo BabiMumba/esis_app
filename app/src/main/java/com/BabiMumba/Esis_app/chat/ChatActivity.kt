@@ -43,7 +43,7 @@ class ChatActivity : AppCompatActivity() {
                     },3000)
 
                 },4000)
-            },3000)
+            },1000)
 
 
         }
