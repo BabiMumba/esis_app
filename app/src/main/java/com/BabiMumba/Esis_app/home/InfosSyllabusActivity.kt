@@ -15,7 +15,7 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_infos.*
+import kotlinx.android.synthetic.main.activity_infos_syllabus.*
 import kotlinx.android.synthetic.main.content_user_syllabus.*
 
 class InfosSyllabusActivity : AppCompatActivity() {
@@ -77,7 +77,7 @@ class InfosSyllabusActivity : AppCompatActivity() {
                         .load(imgetxt)
                         // .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .placeholder(circularProgressDrawable)
-                        .into(imgView_proPic)
+                        .into(profil_me)
                 }else{
                     Log.d(ContentValues.TAG,"no such document")
                 }
