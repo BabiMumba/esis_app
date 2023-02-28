@@ -104,7 +104,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                         alertDialog.setTitle("Administrateur assistant")
                         alertDialog.setMessage("""
                             en ajoutant $nom en tant qu'administrateur assistant il aura la possibilite de \n
-                            a)publier et supprimer des syllabus
+                            a)publier des syllabus
                             b)publier un communique
                             
                         """.trimIndent())
