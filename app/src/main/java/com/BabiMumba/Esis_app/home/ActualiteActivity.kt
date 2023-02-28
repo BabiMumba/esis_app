@@ -54,6 +54,7 @@ class ActualiteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualite)
         load_data()
+
         webView = findViewById(R.id.web_eventmtn)
 
         if (isConnectedNetwork(this)){
@@ -62,8 +63,6 @@ class ActualiteActivity : AppCompatActivity() {
               web_eventmtn.visibility = View.GONE
             text_noi.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
-
-
 
         }
 
@@ -152,6 +151,10 @@ class ActualiteActivity : AppCompatActivity() {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
     }
+    fun save_toImage(){
+
+    }
+
 
     /*
       private fun isNetworkAvailable(): Boolean {
