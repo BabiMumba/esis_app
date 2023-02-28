@@ -50,21 +50,21 @@
                             android:layout_height="match_parent"
                             android:padding="@dimen/_13sdp"
                             >
+
                             <TextView
-                                android:paddingTop="@dimen/_5sdp"
-                                android:paddingBottom="@dimen/_5sdp"
-                                android:paddingStart="@dimen/_10sdp"
-                                android:layout_marginTop="@dimen/_5sdp"
-                                android:paddingEnd="@dimen/_10sdp"
                                 android:id="@+id/message_btn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@id/item_text_4"
-                                android:text="message"
-                                android:textAllCaps="false"
+                                android:layout_marginTop="@dimen/_5sdp"
                                 android:background="@drawable/follow_btn"
-                                android:textColor="@color/primary_text"
-                                />
+                                android:paddingStart="@dimen/_10sdp"
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:text="Envoyer un message"
+                                android:textAllCaps="false"
+                                android:textColor="@color/primary_text" />
 
 
 
@@ -235,7 +235,7 @@
                                     android:id="@+id/button_click_parent"
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:background="@drawable/gradient">
+                                    >
 
                                     <androidx.cardview.widget.CardView
                                         android:id="@+id/button_body_card_parent"

@@ -4,26 +4,25 @@
     android:id="@+id/lyt_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="35dp"
-    android:gravity="end"
+    android:layout_marginEnd="35dp"
+    android:gravity="start"
     android:orientation="horizontal"
     android:paddingLeft="10dp"
-    android:paddingTop="1dp"
+    android:paddingTop="2dp"
     android:paddingRight="10dp"
-    android:paddingBottom="1dp">
+    android:paddingBottom="2dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="3dp"
         android:minHeight="32dp"
-        app:cardBackgroundColor="#E1FFC7"
+        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="5dp"
         app:cardElevation="1dp"
         app:cardUseCompatPadding="false">
 
         <LinearLayout
-            android:id="@+id/containaer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:minWidth="180dp"
@@ -63,16 +62,14 @@
                     android:layout_width="5dp"
                     android:layout_height="0dp" />
 
-                <ImageView
-                    android:layout_width="15dp"
-                    android:layout_height="15dp"
-                    app:srcCompat="@drawable/ic_read"
-                    app:tint="#42BDEE" />
-
             </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="0dp" />
 
 </LinearLayout>
