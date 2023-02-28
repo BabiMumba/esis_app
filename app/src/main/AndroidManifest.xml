@@ -28,6 +28,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".Profil_DetailUser"
+            android:exported="false" />
+        <activity
             android:name=".admin.Adminpage"
             android:exported="false" />
         <activity
@@ -62,9 +65,9 @@
             android:name=".admin.LogoutActivity"
             android:exported="false" />
         <activity
-            android:theme="@style/Recherche"
             android:name=".admin.AllusersActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Recherche" />
         <activity
             android:name=".admin.SaleControleActivity"
             android:exported="false" />
@@ -129,7 +132,6 @@
         <activity
             android:name=".Authentification.SigninActivity"
             android:exported="false" />
-
         <activity
             android:name=".home.MainActivity"
             android:exported="false"
@@ -137,8 +139,7 @@
         <activity
             android:name=".home.SplashScreen"
             android:exported="true"
-            android:screenOrientation="portrait"
-            >
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
