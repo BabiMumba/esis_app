@@ -299,31 +299,21 @@
                 android:layout_alignParentStart="true"
                 android:ellipsize="end"
                 android:lines="1"
-                android:text="Adroid Developer"
+                android:text="Promot: L1_A"
                 android:textColor="#5B5A5F"
                 android:textSize="15sp" />
 
-            <TextView
-                android:id="@+id/item_text_3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/item_text_2"
-                android:layout_alignParentStart="true"
-                android:ellipsize="end"
-                android:maxLines="4"
-                android:text="YOUR BIO"
-                android:textColor="#131313"
-                android:textSize="15sp" />
+
 
             <TextView
                 android:id="@+id/item_text_4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/item_text_3"
+                android:layout_below="@+id/item_text_2"
                 android:layout_alignParentStart="true"
                 android:ellipsize="end"
                 android:lines="1"
-                android:text="smahalkar@gmail.com"
+                android:text="babimumba243@gmail.com"
                 android:textColor="#36618A"
                 android:textSize="15sp"
                 android:textStyle="bold" />
@@ -337,7 +327,7 @@
                 android:layout_marginTop="5dp"
                 android:ellipsize="end"
                 android:lines="1"
-                android:text="Shubham Mahalkar"
+                android:text="babi mumba"
                 android:textColor="#131313"
                 android:textSize="15sp"
                 android:textStyle="bold" />
