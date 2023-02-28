@@ -251,7 +251,7 @@
                 android:lines="1"
                 android:text="Promot: L1_A"
                 android:textColor="#5B5A5F"
-                android:textSize="15sp" />
+                android:textSize="@dimen/_10sdp" />
             <TextView
                 android:id="@+id/item_text_4"
                 android:layout_width="wrap_content"
@@ -262,7 +262,7 @@
                 android:lines="1"
                 android:text="babimumba243@gmail.com"
                 android:textColor="#36618A"
-                android:textSize="15sp"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
             <TextView
                 android:id="@+id/item_text_1"
@@ -275,14 +275,14 @@
                 android:lines="1"
                 android:text="babi mumba"
                 android:textColor="#131313"
-                android:textSize="15sp"
+                android:textSize="@dimen/_10sdp"
                 android:textStyle="bold" />
             <androidx.cardview.widget.CardView
                 android:id="@+id/button_head_card_parent"
                 android:layout_width="@dimen/_70sdp"
                 android:layout_height="@dimen/_70sdp"
                 android:layout_alignParentStart="true"
-                app:cardBackgroundColor="@android:color/transparent"
+                app:cardBackgroundColor="@anadroid:color/transparent"
                 app:cardCornerRadius="@dimen/_35sdp"
                 app:cardElevation="0dp">
 
