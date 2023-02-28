@@ -266,6 +266,7 @@
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
                     android:id="@+id/mssg4"
+                    android:visibility="gone"
                     android:layout_below="@+id/mssg3"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:layout_width="wrap_content"

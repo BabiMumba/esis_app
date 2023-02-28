@@ -41,6 +41,7 @@ class ChatActivity : AppCompatActivity() {
                     Handler().postDelayed({
                         mediaPlayer.start()
                         mssg3.visibility = View.VISIBLE
+                        mssg4.visibility = View.VISIBLE
 
                     },3000)
 

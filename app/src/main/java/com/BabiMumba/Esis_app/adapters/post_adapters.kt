@@ -4,6 +4,8 @@ package com.BabiMumba.Esis_app.adapters
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
+import android.content.res.AssetFileDescriptor
+import android.media.MediaPlayer
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -65,6 +67,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             admin_i = itemview.findViewById(R.id.admin_ir)
         }
 
+
         fun getlikebuttonstatus(postkey: String?, userid: String?) {
             likereference = FirebaseDatabase.getInstance().getReference("likes_poste")
             likereference!!.addValueEventListener(object : ValueEventListener {
@@ -74,6 +77,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                         like_text.text = "$likecount"
                         nb_like.text = "$likecount"
                         like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
+
 
                     } else {
                         val likecount = snapshot.child(postkey).childrenCount.toInt()
@@ -181,6 +185,15 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                             likereference!!.child(postkey).child(userid).removeValue()
                             false
                         } else {
+                            val mediaPlayer = MediaPlayer()
+                            val afd: AssetFileDescriptor
+                            try {
+                                afd = holder.image.context.assets.openFd("like_raw.mp3")
+                                mediaPlayer.setDataSource(afd.fileDescriptor)
+                                mediaPlayer.prepare()
+                            }catch (e:Exception){
+                                Toast.makeText(holder.image.context, "$e", Toast.LENGTH_SHORT).show()
+                            }
                             likereference!!.child(postkey).child(userid).setValue(true)
 
                             if (model.token_users != token_id){
