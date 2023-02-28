@@ -40,10 +40,10 @@ class ChatActivity : AppCompatActivity() {
                         mediaPlayer.start()
                         mssg3.visibility = View.VISIBLE
 
-                    },2000)
+                    },3000)
 
-                },2000)
-            },2000)
+                },4000)
+            },3000)
 
 
         }
