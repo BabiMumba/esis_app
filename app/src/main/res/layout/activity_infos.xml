@@ -61,7 +61,6 @@
                                 android:weightSum="2">
 
                                 <androidx.cardview.widget.CardView
-                                    android:id="@+id/message_btn"
                                     android:layout_width="0dp"
                                     android:layout_height="35dp"
                                     android:layout_marginEnd="5dp"
@@ -74,6 +73,7 @@
                                     android:focusable="true">
 
                                     <FrameLayout
+                                        android:id="@+id/message_btn"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:background="@drawable/follow_btn">
