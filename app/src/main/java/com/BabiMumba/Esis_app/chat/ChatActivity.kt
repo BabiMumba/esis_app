@@ -11,5 +11,8 @@ class ChatActivity : AppCompatActivity() {
         setContentView(R.layout.activity_chat)
         val nom = intent.getStringExtra("nom").toString()
         name_User.text = nom
+        back_btn.setOnClickListener{
+            onBackPressed()
+        }
     }
 }
