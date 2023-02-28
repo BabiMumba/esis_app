@@ -141,7 +141,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="10dp"
                         android:background="@android:color/transparent"
-                        android:hint="Type a message"
+                        android:hint="taper votre message ici"
                         android:maxLines="6"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"

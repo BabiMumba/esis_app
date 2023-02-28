@@ -105,7 +105,9 @@ class InfosActivity : AppCompatActivity() {
         recycler_users.adapter = adpter
         mLayoutManager!!.reverseLayout = true
         message_btn.setOnClickListener {
-            startActivity(Intent(this,ChatActivity::class.java))
+            startActivity(Intent(this,ChatActivity::class.java)
+                .putExtra("nom",item_text_1.text.toString())
+            )
         }
     }
     fun read_name(){
