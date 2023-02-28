@@ -50,68 +50,24 @@
                             android:layout_height="match_parent"
                             android:padding="@dimen/_13sdp"
                             >
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:paddingTop="@dimen/_5sdp"
+                                android:paddingBottom="@dimen/_5sdp"
+                                android:paddingStart="@dimen/_10sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:paddingEnd="@dimen/_10sdp"
+                                android:id="@+id/message_btn"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/item_text_4"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="@dimen/_13sdp"
-                                android:orientation="horizontal"
-                                android:weightSum="2">
-
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="0dp"
-                                    android:layout_height="35dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_weight="1"
-                                    android:minWidth="35dp"
-                                    android:clickable="true"
-                                    app:cardBackgroundColor="@android:color/transparent"
-                                    app:cardCornerRadius="3dp"
-                                    app:cardElevation="0dp"
-                                    android:focusable="true">
-
-                                    <FrameLayout
-                                        android:id="@+id/message_btn"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:background="@drawable/follow_btn">
-
-                                        <RelativeLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="35dp"
-                                            android:background="?attr/selectableItemBackground"
-                                            android:clickable="true"
-                                            android:focusable="true"
-                                            android:minWidth="40dp">
-
-                                            <TextView
-                                                android:id="@+id/item_button_1_text"
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="wrap_content"
-                                                android:layout_centerInParent="true"
-                                                android:ellipsize="end"
-                                                android:gravity="center"
-                                                android:lines="1"
-                                                android:maxLength="20"
-                                                android:minWidth="120dp"
-                                                android:paddingStart="15dp"
-                                                android:paddingEnd="15dp"
-                                                android:text="Message"
-                                                android:textColor="@color/white"
-                                                android:textSize="15sp"
-                                                android:textStyle="bold" />
-
-                                        </RelativeLayout>
-
-                                    </FrameLayout>
-
-                                </androidx.cardview.widget.CardView>
+                                android:layout_below="@id/item_text_4"
+                                android:text="message"
+                                android:textAllCaps="false"
+                                android:background="@drawable/follow_btn"
+                                android:textColor="@color/primary_text"
+                                />
 
 
 
-                            </LinearLayout>
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
