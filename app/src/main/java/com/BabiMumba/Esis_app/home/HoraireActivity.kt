@@ -45,17 +45,19 @@ class HoraireActivity : AppCompatActivity() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
-
-        val progressBar = ProgressDialog(this)
+/*
+  val progressBar = ProgressDialog(this)
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
         progressBar.setCancelable(true)
+
+ */
 
         if (isConnectedNetwork(this)){
 
         }else{
             supportActionBar?.hide()
-            progressBar.dismiss()
+           // progressBar.dismiss()
             network_visibility.visibility = View.VISIBLE
             visibility_page.visibility = View.GONE
             lyt_btn.visibility = View.GONE
@@ -120,12 +122,12 @@ class HoraireActivity : AppCompatActivity() {
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
-                progressBar.show()
+                //progressBar.show()
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                progressBar.dismiss()
+                //progressBar.dismiss()
             }
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
@@ -137,7 +139,7 @@ class HoraireActivity : AppCompatActivity() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 progressHori.visibility = View.VISIBLE
                 progressHori.progress = newProgress
-                progressBar.show()
+               // progressBar.show()
                 if (newProgress == 100){
                     progressHori.visibility = View.GONE
                     if (view != null) {

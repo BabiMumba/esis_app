@@ -8,6 +8,15 @@
     android:layout_height="match_parent"
     android:id="@+id/actualite_id"
     tools:context=".home.ActualiteActivity">
+    <ProgressBar
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_15sdp"
+        android:id="@+id/progressHori"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_marginTop="-2dp"
+        android:progress="20"
+        />
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="@dimen/_200sdp"
@@ -31,6 +40,7 @@
         />
 
     <WebView
+        android:layout_below="@id/progressHori"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/web_eventmtn"

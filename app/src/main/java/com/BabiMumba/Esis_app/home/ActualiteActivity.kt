@@ -15,14 +15,12 @@ import android.os.Environment
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.webkit.URLUtil
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_horaire.*
 
 
 class ActualiteActivity : AppCompatActivity() {
@@ -74,7 +72,7 @@ class ActualiteActivity : AppCompatActivity() {
         progressBar.setTitle("Patienter...")
         progressBar.setMessage("chargement de la page")
         progressBar.setCancelable(true)
-        progressBar.show()
+        //progressBar.show()
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
@@ -88,12 +86,12 @@ class ActualiteActivity : AppCompatActivity() {
         webView.webViewClient = object : WebViewClient(){
             override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                 super.onPageStarted(view, url, favicon)
-                progressBar.show()
+                //progressBar.show()
             }
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                progressBar.dismiss()
+               // progressBar.dismiss()
             }
 
             override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
@@ -101,6 +99,21 @@ class ActualiteActivity : AppCompatActivity() {
                 return true
             }
         }
+        webView.webChromeClient = object :WebChromeClient(){
+            override fun onProgressChanged(view: WebView?, newProgress: Int) {
+                progressHori.visibility = View.VISIBLE
+                progressHori.progress = newProgress
+                // progressBar.show()
+                if (newProgress == 100){
+                    progressHori.visibility = View.GONE
+                    if (view != null) {
+                        title = view.title
+                    }
+                }
+                super.onProgressChanged(view, newProgress)
+            }
+        }
+
 
         webView.loadUrl(lien)
         //Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/", "$nom.pdf"
