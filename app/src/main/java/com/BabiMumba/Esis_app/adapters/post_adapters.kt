@@ -191,6 +191,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                                 afd = holder.image.context.assets.openFd("like_raw.mp3")
                                 mediaPlayer.setDataSource(afd.fileDescriptor)
                                 mediaPlayer.prepare()
+                                mediaPlayer.start()
                             }catch (e:Exception){
                                 Toast.makeText(holder.image.context, "$e", Toast.LENGTH_SHORT).show()
                             }
