@@ -1,7 +1,9 @@
 package com.BabiMumba.Esis_app.chat
 
+import android.content.Intent
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -46,6 +48,11 @@ class ChatActivity : AppCompatActivity() {
             },1000)
 
 
+        }
+        mssg4.setOnClickListener {
+            val i = Intent(Intent.ACTION_VIEW)
+            i.data = Uri.parse("https://api.whatsapp.com/send?phone=243975937553")
+            startActivity(i)
         }
        
         
