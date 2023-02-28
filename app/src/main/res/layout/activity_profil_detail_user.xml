@@ -92,7 +92,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/item_counter_card_parent"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="@dimen/_50sdp"
                     android:layout_centerVertical="true"
                     app:cardBackgroundColor="@android:color/transparent"
                     app:cardElevation="0dp">
@@ -252,9 +252,6 @@
                 android:text="Promot: L1_A"
                 android:textColor="#5B5A5F"
                 android:textSize="15sp" />
-
-
-
             <TextView
                 android:id="@+id/item_text_4"
                 android:layout_width="wrap_content"
@@ -267,7 +264,6 @@
                 android:textColor="#36618A"
                 android:textSize="15sp"
                 android:textStyle="bold" />
-
             <TextView
                 android:id="@+id/item_text_1"
                 android:layout_width="wrap_content"
@@ -281,7 +277,6 @@
                 android:textColor="#131313"
                 android:textSize="15sp"
                 android:textStyle="bold" />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/button_head_card_parent"
                 android:layout_width="80dp"
