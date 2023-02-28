@@ -20,7 +20,10 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_actualite.*
 import kotlinx.android.synthetic.main.activity_horaire.*
+import kotlinx.android.synthetic.main.activity_horaire.non_internet
+import kotlinx.android.synthetic.main.activity_horaire.progressHori
 
 
 class ActualiteActivity : AppCompatActivity() {
@@ -56,12 +59,10 @@ class ActualiteActivity : AppCompatActivity() {
         if (isConnectedNetwork(this)){
             //connecter
         }else{
-            /*
               web_eventmtn.visibility = View.GONE
-            txvp.visibility = View.VISIBLE
+            text_noi.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
-             */
-            webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
+
 
 
         }
@@ -81,6 +82,7 @@ class ActualiteActivity : AppCompatActivity() {
         webView.settings.allowFileAccess = true
         webView.settings.domStorageEnabled = true
         webView.settings.setAppCacheEnabled(true)
+        webView.settings.loadsImagesAutomatically = true
         //webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
         webView.webViewClient = object : WebViewClient(){

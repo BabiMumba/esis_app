@@ -28,7 +28,7 @@
         ads:lottie_rawRes="@raw/nini"
         ads:lottie_loop="true"/>
     <TextView
-        android:id="@+id/txvp"
+        android:id="@+id/text_noi"
         android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
