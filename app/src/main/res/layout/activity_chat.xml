@@ -65,7 +65,7 @@
                 android:id="@+id/status"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Online"
+                android:text="en ligne"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"
                 android:textColor="#F5F5F5" />
 
@@ -417,12 +417,11 @@
 
                 <ImageView
                     android:id="@+id/item_mic_icon"
-                    app:srcCompat="@drawable/ic_baseline_mic_none_24"
-                    app:tint="#FFFEFF"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_centerHorizontal="true"
-                    android:layout_centerVertical="true" />
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_baseline_mic_none_24"
+                    app:tint="#FFFEFF" />
 
             </RelativeLayout>
 

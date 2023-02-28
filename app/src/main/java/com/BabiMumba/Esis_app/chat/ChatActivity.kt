@@ -1,9 +1,13 @@
 package com.BabiMumba.Esis_app.chat
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.res.AssetFileDescriptor
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import kotlinx.android.synthetic.main.activity_chat.*
+
 
 class ChatActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,5 +18,21 @@ class ChatActivity : AppCompatActivity() {
         back_btn.setOnClickListener{
             onBackPressed()
         }
+        item_mic_click_parent.setOnClickListener {
+            val mediaPlayer = MediaPlayer()
+            var afd: AssetFileDescriptor
+            try {
+                afd = assets.openFd("song.mp3")
+                mediaPlayer.setDataSource(afd.fileDescriptor)
+                mediaPlayer.prepare()
+                mediaPlayer.start()
+            }catch (e:Exception){
+                Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
+            }
+            Toast.makeText(this, "lancement", Toast.LENGTH_SHORT).show()
+
+        }
+       
+        
     }
 }
