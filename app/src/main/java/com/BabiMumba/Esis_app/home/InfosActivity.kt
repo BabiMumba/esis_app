@@ -5,6 +5,7 @@ modifier: 07/02/2023
 package com.BabiMumba.Esis_app.home
 
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +33,7 @@ class InfosActivity : AppCompatActivity() {
     lateinit var adpter: poste_users_adapters
     private var mLayoutManager: LinearLayoutManager? = null
     private lateinit var firebaseAuth: FirebaseAuth
+    lateinit var collection_name:String
 
     private companion object{
         private const val TAG = "BANNER_AD_TAG"
@@ -43,6 +45,13 @@ class InfosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_infos)
 
 
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+        if (adm == "oui"){
+            collection_name = "Professeur"
+        }else{
+            collection_name = "Utilisateurs"
+        }
         /// initialisation d'admob
         MobileAds.initialize(this){
             Log.d(TAG,"initialisation complet")
@@ -111,6 +120,7 @@ class InfosActivity : AppCompatActivity() {
         }
     }
     fun read_name(){
+
         val ad_mail = intent.getStringExtra("mail").toString()
         val db = FirebaseFirestore.getInstance()
         val docRef = db.collection("Utilisateurs").document(ad_mail)
