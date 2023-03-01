@@ -44,12 +44,21 @@ class PublishPost : AppCompatActivity() {
     var token_id:String = ""
     var filepath: Uri? = null
 
+    lateinit var collection_name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_publish_post)
 
         firebaseAuth = FirebaseAuth.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
+
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+        if (adm == "oui"){
+            collection_name = "Professeur"
+        }else{
+            collection_name = "Utilisateurs"
+        }
 
 
         read_name()
@@ -214,7 +223,7 @@ class PublishPost : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
+        val docRef = db.collection(collection_name).document(mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){
@@ -244,12 +253,12 @@ class PublishPost : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
+        var mail = ""
         if (adm == "oui"){
-
+            mail = firebaseUser?.email.toString().replaceAfter("@"," ")
         }else{
-            val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+           mail = firebaseUser?.email.toString().replaceAfter("@"," ")
         }
-
         val data = poste_users_model(imageurl,id_post,token_id,userId,imposte,msg,"","","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("poste_save")
         databaseReference.child(mail).child(id_post).setValue(data)
