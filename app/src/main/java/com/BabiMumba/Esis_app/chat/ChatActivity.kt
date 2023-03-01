@@ -26,6 +26,7 @@ class ChatActivity : AppCompatActivity() {
         back_btn.setOnClickListener{
             onBackPressed()
         }
+
         item_mic_click_parent.setOnClickListener {
             val mediaPlayer = MediaPlayer.create(this, R.raw.song)
             Handler().postDelayed({
@@ -46,8 +47,7 @@ class ChatActivity : AppCompatActivity() {
 
 
         }
-
-
+        check_teste()
 
         mssg4.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
