@@ -6,11 +6,15 @@ import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.BabiMumba.Esis_app.R
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.android.synthetic.main.content_syllabus.*
 
 
 class ChatActivity : AppCompatActivity() {
@@ -42,6 +46,9 @@ class ChatActivity : AppCompatActivity() {
 
 
         }
+
+
+
         mssg4.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW)
             i.data = Uri.parse("https://api.whatsapp.com/send?phone=243975937553")
@@ -49,5 +56,18 @@ class ChatActivity : AppCompatActivity() {
         }
        
         
+    }
+    fun check_teste() {
+        InputComment.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                send_comment.isVisible = item_input.text.toString().trim().isNotEmpty()
+                send_comment.setOnClickListener {
+
+                }
+            }
+
+            override fun afterTextChanged(s: Editable) {}
+        })
     }
 }

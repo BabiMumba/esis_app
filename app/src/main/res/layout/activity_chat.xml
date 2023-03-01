@@ -122,7 +122,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text="Message content"
+                            android:text="bonjour babi"
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@android:color/black"
                             android:textStyle="normal" />
@@ -156,7 +156,6 @@
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:layout_below="@id/fst_mssg"
                     android:id="@+id/mssg1"
@@ -539,11 +538,19 @@
                 android:focusable="true">
 
                 <ImageView
+                    android:visibility="gone"
                     android:id="@+id/item_mic_icon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_centerInParent="true"
                     app:srcCompat="@drawable/ic_baseline_mic_none_24"
+                    app:tint="#FFFEFF" />
+                <ImageView
+                    android:id="@+id/item_send"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerInParent="true"
+                    app:srcCompat="@drawable/ic_send"
                     app:tint="#FFFEFF" />
 
             </RelativeLayout>
