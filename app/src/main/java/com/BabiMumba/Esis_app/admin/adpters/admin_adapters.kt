@@ -7,7 +7,6 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.view.*
 import android.widget.*
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
@@ -56,6 +55,7 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         //holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
        // holder.admin.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
+
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
