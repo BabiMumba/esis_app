@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.home
 import android.Manifest
 import android.app.ProgressDialog
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -92,9 +93,6 @@ class PublishPost : AppCompatActivity() {
                     }
                 }).check()
         }
-
-
-
     }
 
     fun loading(isLoading: Boolean){
@@ -244,7 +242,14 @@ class PublishPost : AppCompatActivity() {
     }
     fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
         val firebaseUser = firebaseAuth.currentUser
-        val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+        if (adm == "oui"){
+
+        }else{
+            val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+        }
+
         val data = poste_users_model(imageurl,id_post,token_id,userId,imposte,msg,"","","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("poste_save")
         databaseReference.child(mail).child(id_post).setValue(data)

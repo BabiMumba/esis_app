@@ -1,9 +1,6 @@
 package com.BabiMumba.Esis_app.admin.adpters
 
 
-import android.app.Dialog
-import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.view.*
 import android.widget.*
@@ -12,14 +9,10 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.BabiMumba.Esis_app.home.InfosActivity
-import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.SetOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
 class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
