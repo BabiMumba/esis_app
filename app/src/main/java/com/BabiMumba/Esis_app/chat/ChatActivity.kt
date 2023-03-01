@@ -9,6 +9,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import com.BabiMumba.Esis_app.R
 import kotlinx.android.synthetic.main.activity_chat.*
@@ -38,9 +39,9 @@ class ChatActivity : AppCompatActivity() {
         item_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
+                item_mic_icon.isInvisible = item_input.text.toString().trim().isNotEmpty()
                 item_send.isVisible = item_input.text.toString().trim().isNotEmpty()
                 item_send.setOnClickListener {
-                    item_mic_icon.visibility = View.GONE
                     message_sent.text = item_input.text.toString()
                     fst_mssg.visibility = View.VISIBLE
                     val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
