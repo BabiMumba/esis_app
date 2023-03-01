@@ -49,9 +49,6 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
     }
 
     override fun onBindViewHolder(holder: admin_adapters.viewholder, position: Int, model: modeluser) {
-        val sharedPreferences = holder.image.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        //val mail_cach = sharedPreferences.getString("mail",null)
-        val admin = sharedPreferences.getString("administrateur",null)
 
         holder.name.text = model.nom
         holder.mail.text = model.mail
