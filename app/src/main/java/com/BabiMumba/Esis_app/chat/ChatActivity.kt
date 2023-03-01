@@ -27,26 +27,6 @@ class ChatActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        item_mic_click_parent.setOnClickListener {
-            val mediaPlayer = MediaPlayer.create(this, R.raw.song)
-            Handler().postDelayed({
-                mediaPlayer.start()
-                mssg1.visibility = View.VISIBLE
-                Handler().postDelayed({
-                    mediaPlayer.start()
-                    mssg2.visibility = View.VISIBLE
-                    Handler().postDelayed({
-                        mediaPlayer.start()
-                        mssg3.visibility = View.VISIBLE
-                        mssg4.visibility = View.VISIBLE
-
-                    },3000)
-
-                },4000)
-            },1000)
-
-
-        }
         check_teste()
 
         mssg4.setOnClickListener {
@@ -63,6 +43,7 @@ class ChatActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 item_send.isVisible = item_input.text.toString().trim().isNotEmpty()
                 item_send.setOnClickListener {
+                    fst_mssg.visibility = View.VISIBLE
                     val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
                     Handler().postDelayed({
                         mediaPlayer.start()
