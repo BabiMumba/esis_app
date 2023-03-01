@@ -545,6 +545,7 @@
                     android:layout_centerInParent="true"
                     app:srcCompat="@drawable/ic_baseline_mic_none_24"
                     app:tint="#FFFEFF" />
+
                 <ImageView
                     android:id="@+id/item_send"
                     android:layout_width="24dp"
