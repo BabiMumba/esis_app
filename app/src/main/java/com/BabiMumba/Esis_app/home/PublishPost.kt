@@ -255,7 +255,10 @@ class PublishPost : AppCompatActivity() {
         val adm = sharedPreferences.getString("administrateur",null)
         var mail = ""
         if (adm == "oui"){
-            mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+            val na1 = firebaseUser?.email.toString().replaceAfter("@"," ")
+            val na2 = firebaseUser?.email.toString().replaceBefore("."," ")
+            mail = "$na1$na2"
+
         }else{
            mail = firebaseUser?.email.toString().replaceAfter("@"," ")
         }
