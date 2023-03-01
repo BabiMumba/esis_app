@@ -170,7 +170,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                      */
                     val intent = Intent(holder.itemView.context, InfosActivity::class.java)
                     intent.putExtra("mail",model.mail)
-                    intent.putExtra("admin",model.admin_assistant)
+                    intent.putExtra("admin",model.administrateur)
                     holder.itemView.context.startActivity(intent)
 
                 }
