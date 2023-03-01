@@ -23,7 +23,7 @@ class ChatActivity : AppCompatActivity() {
             onBackPressed()
         }
         item_mic_click_parent.setOnClickListener {
-            val mediaPlayer = MediaPlayer()
+            val mediaPlayer = MediaPlayer.create(this, R.raw.like_raw)
 
             Handler().postDelayed({
                 mediaPlayer.start()
