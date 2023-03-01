@@ -189,7 +189,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                             val mediaPlayer = MediaPlayer.create(holder.image.context, R.raw.like_raw)
                             mediaPlayer.start()
                             likereference!!.child(postkey).child(userid).setValue(true)
-
                             if (model.token_users != token_id){
                                 FcmNotificationsSender.pushNotification(
                                     holder.message.context,
@@ -198,7 +197,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                                     "${mon_nom} a aimer votre publication",
                                 )
                             }
-
                             false
                         }
                     }

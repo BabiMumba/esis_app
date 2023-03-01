@@ -24,14 +24,7 @@ class ChatActivity : AppCompatActivity() {
         }
         item_mic_click_parent.setOnClickListener {
             val mediaPlayer = MediaPlayer()
-            val afd: AssetFileDescriptor
-            try {
-                afd = assets.openFd("song.mp3")
-                mediaPlayer.setDataSource(afd.fileDescriptor)
-                mediaPlayer.prepare()
-            }catch (e:Exception){
-                Toast.makeText(this, "$e", Toast.LENGTH_SHORT).show()
-            }
+
             Handler().postDelayed({
                 mediaPlayer.start()
                 mssg1.visibility = View.VISIBLE
