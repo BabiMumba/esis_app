@@ -4,6 +4,7 @@ class modeluser {
 
     lateinit var nom:String
     lateinit var admin_assistant:String
+    lateinit var administrateur:String
     lateinit var mail:String
     lateinit var profil:String
     lateinit var promotion:String
@@ -12,6 +13,7 @@ class modeluser {
     constructor(){}
     constructor(
         nom: String,
+        admin_assistant: String,
         administrateur: String,
         mail: String,
         profil:String,
@@ -19,7 +21,8 @@ class modeluser {
         sexe:String,
     ) {
         this.nom = nom
-        this.admin_assistant = administrateur
+        this.admin_assistant = admin_assistant
+        this.administrateur = administrateur
         this.mail = mail
         this.profil = profil
         this.promotion = promotion

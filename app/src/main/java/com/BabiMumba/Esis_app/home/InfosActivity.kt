@@ -44,9 +44,7 @@ class InfosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos)
 
-
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        val adm = sharedPreferences.getString("administrateur",null)
+        val adm = intent.getStringExtra("admin")
         if (adm == "oui"){
             collection_name = "Professeur"
         }else{
