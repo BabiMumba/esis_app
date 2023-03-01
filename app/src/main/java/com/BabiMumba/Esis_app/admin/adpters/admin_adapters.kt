@@ -58,8 +58,7 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
         //holder.itemView.visibility = if (model.mail==mail_cach) View.GONE else  View.VISIBLE
-        holder.admin.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
-
+       // holder.admin.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
         val circularProgressDrawable = CircularProgressDrawable(holder.image.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
