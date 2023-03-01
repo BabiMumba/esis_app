@@ -123,7 +123,7 @@ class InfosActivity : AppCompatActivity() {
 
         val ad_mail = intent.getStringExtra("mail").toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(ad_mail)
+        val docRef = db.collection(collection_name).document(ad_mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){
