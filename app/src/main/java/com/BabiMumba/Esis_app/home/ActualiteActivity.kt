@@ -68,19 +68,12 @@ class ActualiteActivity : AppCompatActivity() {
 
         val lien = intent.getStringExtra("url_link").toString()
         registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-        val progressBar = ProgressDialog(this)
-        progressBar.setTitle("Patienter...")
-        progressBar.setMessage("chargement de la page")
-        progressBar.setCancelable(true)
-        //progressBar.show()
+
         webView.settings.javaScriptEnabled = true
         webView.settings.builtInZoomControls = true
         webView.settings.setSupportZoom(true)
-        webView.settings.setAppCachePath(this.cacheDir.absolutePath)
-        webView.settings.setAppCacheMaxSize( 5 * 1024 * 1024)
         webView.settings.allowFileAccess = true
         webView.settings.domStorageEnabled = true
-        webView.settings.setAppCacheEnabled(true)
         webView.settings.loadsImagesAutomatically = true
         //webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
         webView.settings.cacheMode = WebSettings.LOAD_CACHE_ELSE_NETWORK
@@ -104,7 +97,6 @@ class ActualiteActivity : AppCompatActivity() {
             override fun onProgressChanged(view: WebView?, newProgress: Int) {
                 progressHori.visibility = View.VISIBLE
                 progressHori.progress = newProgress
-                // progressBar.show()
                 if (newProgress == 100){
                     progressHori.visibility = View.GONE
                     if (view != null) {

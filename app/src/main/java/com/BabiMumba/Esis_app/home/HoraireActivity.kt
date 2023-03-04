@@ -114,7 +114,6 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.setSupportZoom(true)
             webView.settings.allowFileAccess = true
             webView.settings.useWideViewPort = true
-            webView.settings.loadWithOverviewMode = true
             webView.settings.domStorageEnabled = true
             webView.settings.loadsImagesAutomatically = true
         }
@@ -149,7 +148,6 @@ class HoraireActivity : AppCompatActivity() {
                 super.onProgressChanged(view, newProgress)
             }
 
-
         }
 
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
@@ -157,7 +155,6 @@ class HoraireActivity : AppCompatActivity() {
     }
 
     private fun telecharger(lien:String,nom:String) {
-
         var url1: URL? = null
         try {
             url1 = URL(lien)
