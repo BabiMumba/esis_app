@@ -97,9 +97,11 @@ class InfosActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         val ad_mail = intent.getStringExtra("mail").toString()
         read_name()
-        val mail2 = ad_mail.replaceAfter("@"," ")
+        var mail2 = ad_mail.replaceAfter("@"," ")
+        if (mail2.contains(".")){
+            mail2 =  mail2.replace(".","")
+        }
         mLayoutManager = GridLayoutManager(this@InfosActivity,3)
-
         recycler_users.layoutManager = mLayoutManager
         val ref = FirebaseDatabase.getInstance().getReference("poste_save")
         val options = FirebaseRecyclerOptions.Builder<poste_users_model>()

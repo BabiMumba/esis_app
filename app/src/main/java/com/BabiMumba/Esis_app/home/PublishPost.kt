@@ -261,6 +261,7 @@ class PublishPost : AppCompatActivity() {
         databaseReference.child(mail).child(id_post).setValue(data)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
 
