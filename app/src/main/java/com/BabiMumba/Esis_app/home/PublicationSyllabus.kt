@@ -45,6 +45,7 @@ class PublicationSyllabus : AppCompatActivity() {
     var token_id:String = ""
     var lien_image:String = ""
     lateinit var filepath: Uri
+    lateinit var collection_name:String
     var cover_path: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,6 +53,14 @@ class PublicationSyllabus : AppCompatActivity() {
         setContentView(R.layout.activity_publication_syllabus)
 
         firebaseAuth = FirebaseAuth.getInstance()
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+
+        collection_name = if (adm == "oui"){
+            "Professeur"
+        }else{
+            "Utilisateurs"
+        }
 
 
         storageReference = FirebaseStorage.getInstance().reference
@@ -307,7 +316,7 @@ class PublicationSyllabus : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
+        val docRef = db.collection(collection_name).document(mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){

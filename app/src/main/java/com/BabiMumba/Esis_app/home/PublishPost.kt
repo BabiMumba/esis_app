@@ -54,6 +54,7 @@ class PublishPost : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
+
         if (adm == "oui"){
             collection_name = "Professeur"
         }else{
