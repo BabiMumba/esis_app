@@ -142,6 +142,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
         holder.image.setOnClickListener{
             val intent = Intent(holder.itemView.context, InfosActivity::class.java)
             intent.putExtra("mail",model.ad_mail)
+            intent.putExtra("admin",model.administrateur)
             holder.itemView.context.startActivity(intent)
         }
 
