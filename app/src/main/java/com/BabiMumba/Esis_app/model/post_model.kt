@@ -23,8 +23,8 @@ class post_model {
     constructor(){}
     constructor(
         nom: String,
-        ad_mail: String,
         admin_assistant: String,
+        ad_mail: String,
         id_reserv1: String,
         id_reserv2: String,
         id_reserv3: String,
@@ -40,8 +40,8 @@ class post_model {
         commentaire:Int
     ) {
         this.nom = nom
-        this.ad_mail = ad_mail
         this.admin_assistant = admin_assistant
+        this.ad_mail = ad_mail
         this.id_reserv1 = id_reserv1
         this.id_reserv2 = id_reserv2
         this.id_reserv3 = id_reserv3
