@@ -150,9 +150,12 @@ class ProfilFragment : Fragment() {
         }
 
         view.findViewById<RelativeLayout>(R.id.rr4).setOnClickListener {
+            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+            val admin = sharedPreferences.getString("administrateur",null)
             if (isConnectedNetwork(requireActivity())){
                 val intent = Intent(requireActivity(), InfosActivity::class.java)
                 intent.putExtra("mail",mm)
+                intent.putExtra("admin",admin)
                 startActivity(intent)
             }else{
                 Toast.makeText(requireActivity(), "probleme de connexion ", Toast.LENGTH_SHORT).show()
