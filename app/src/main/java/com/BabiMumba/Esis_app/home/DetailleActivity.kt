@@ -172,7 +172,7 @@ class DetailleActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
 
-        val admin_state = sharedPreferences.getString("administrateur",null)
+        val admin_state = sharedPreferences.getString("admin_assistant",null)
 
 
         if ((id_uses.toString() == id_last)|| (admin_state == "oui")) {
