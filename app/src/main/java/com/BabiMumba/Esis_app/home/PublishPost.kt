@@ -207,7 +207,7 @@ class PublishPost : AppCompatActivity() {
         val date_de_pub = sdf.format(Date())
         val msg = message_commnq.text.toString()
         val id_pst = databaseReference.push().key!!.toString()
-        val donnee = post_model(mon_nom,admin_as,mail,g"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
+        val donnee = post_model(mon_nom,admin_as,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
