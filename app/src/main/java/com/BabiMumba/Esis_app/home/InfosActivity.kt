@@ -45,10 +45,10 @@ class InfosActivity : AppCompatActivity() {
         setContentView(R.layout.activity_infos)
 
         val adm = intent.getStringExtra("admin")
-        if (adm == "oui"){
-            collection_name = "Professeur"
+        collection_name = if (adm == "oui"){
+            "Professeur"
         }else{
-            collection_name = "Utilisateurs"
+            "Utilisateurs"
         }
         /// initialisation d'admob
         MobileAds.initialize(this){

@@ -101,9 +101,16 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
     override fun onBindViewHolder(holder: viewholder, position: Int, model: post_model) {
 
         val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        val state_admin = sharedPreferences.getString("premium",null)
+        val admin = sharedPreferences.getString("administrateur",null)
 
-        holder.admin_i.visibility = if (model.ad_mail == "babimumba243@gmail.com") View.VISIBLE else View.GONE
+
+        holder.admin_i.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
+
+        collection_name = if (adm == "oui"){
+            "Professeur"
+        }else{
+            "Utilisateurs"
+        }
 
         read_name()
         get_token()
@@ -214,18 +221,17 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             progressBar!!.visibility = View.GONE
         }
     }
-    fun read_name(){
+    fun read_name(collection_name:String){
         firebaseAuth = FirebaseAuth.getInstance()
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
+        val docRef = db.collection(collection_name).document(mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
                     val postn = it.data?.getValue("post-nom").toString()
-
                     mon_nom = "$pren $postn"
                 }else{
                     Log.d(ContentValues.TAG,"no such document")

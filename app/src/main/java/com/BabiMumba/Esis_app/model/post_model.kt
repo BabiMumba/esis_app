@@ -3,6 +3,7 @@ package com.BabiMumba.Esis_app.model
 class post_model {
 
     lateinit var nom:String
+    lateinit var admin_assistant:String
     lateinit var ad_mail:String
     lateinit var id_reserv1:String
     lateinit var id_reserv2:String
@@ -23,6 +24,7 @@ class post_model {
     constructor(
         nom: String,
         ad_mail: String,
+        admin_assistant: String,
         id_reserv1: String,
         id_reserv2: String,
         id_reserv3: String,
@@ -39,6 +41,7 @@ class post_model {
     ) {
         this.nom = nom
         this.ad_mail = ad_mail
+        this.admin_assistant = admin_assistant
         this.id_reserv1 = id_reserv1
         this.id_reserv2 = id_reserv2
         this.id_reserv3 = id_reserv3
