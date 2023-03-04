@@ -91,6 +91,9 @@ class HomeFragment : Fragment() {
         //new image upluade for firebase database
 
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n1-1.jpg?alt=media&token=17862754-5cad-4b88-91e6-f6022de3e9cf", ""))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/genie_logiciel.jpg?alt=media&token=ab621f1f-13e6-404f-8d97-4f201f507296", ""))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/design_multi.jpg?alt=media&token=3c2b7c9c-47a2-4f41-9093-f009d295a057", ""))
+        imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/reseau_info.jpg?alt=media&token=fd78e54c-ece4-474e-a09a-7b341ef10ad5", ""))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/n2-1.jpg?alt=media&token=dea51bc4-4dd8-4483-9ee5-7b44f277e8af", ""))
         imageList.add(SlideModel("https://firebasestorage.googleapis.com/v0/b/media-4dbe5.appspot.com/o/FILLE2.jpg?alt=media&token=3d6415b4-1fa5-4795-ab0f-2769f76bd036", ""))
 
