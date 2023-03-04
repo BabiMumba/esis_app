@@ -193,6 +193,9 @@ class PublicationSyllabus : AppCompatActivity() {
     }
 
     fun processupload(filepath: Uri?) {
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val admin_as = sharedPreferences.getString("admin_assistant",null).toString()
+        val admin = sharedPreferences.getString("administrateur",null).toString()
         val firebaseUser = firebaseAuth.currentUser
         val id_users = firebaseUser?.uid.toString()
         val mail_users = firebaseUser?.email.toString()
@@ -225,7 +228,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                     if (it.isSuccessful){
                                         ref.downloadUrl.addOnSuccessListener { lien:Uri ->
                                             val obj = syllabus_model(
-                                                name,
+                                                name,admin_as,admin,
                                                 lien.toString(),
                                                 mail_users,
                                                 id_users,
@@ -258,6 +261,7 @@ class PublicationSyllabus : AppCompatActivity() {
                     }else{
                         val obj = syllabus_model(
                             name,
+                            admin_as,admin,
                             link_cover,
                             mail_users,
                             id_users,
