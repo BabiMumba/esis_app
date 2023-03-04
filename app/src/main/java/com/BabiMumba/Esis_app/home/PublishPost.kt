@@ -256,8 +256,11 @@ class PublishPost : AppCompatActivity() {
         var mail = ""
         if (adm == "oui"){
             val na1 = firebaseUser?.email.toString().replaceAfter("@"," ")
-            val na2 = na1.replaceAfter(".","")
-            val n3 = na1.replaceBefore(".","")
+            if (na1.contains(".")){
+                na1.replace(".","")
+            }
+            val n3 = na1.replaceAfter(".","")
+
             mail = "$na2$n3"
 
         }else{
