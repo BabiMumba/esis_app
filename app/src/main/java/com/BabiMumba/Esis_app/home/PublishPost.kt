@@ -251,20 +251,10 @@ class PublishPost : AppCompatActivity() {
     }
     fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
         val firebaseUser = firebaseAuth.currentUser
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
-        val adm = sharedPreferences.getString("administrateur",null)
-        var mail = ""
-        if (adm == "oui"){
-            val na1 = firebaseUser?.email.toString().replaceAfter("@"," ")
-            if (na1.contains(".")){
-                na1.replace(".","")
-            }
-            val n3 = na1.replaceAfter(".","")
 
-            mail = "$na2$n3"
-
-        }else{
-           mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+        var mail = firebaseUser?.email.toString().replaceAfter("@"," ")
+        if (mail.contains(".")){
+           mail =  mail.replace(".","")
         }
         val data = poste_users_model(imageurl,id_post,token_id,userId,imposte,msg,"","","","")
         databaseReference = FirebaseDatabase.getInstance().getReference("poste_save")
