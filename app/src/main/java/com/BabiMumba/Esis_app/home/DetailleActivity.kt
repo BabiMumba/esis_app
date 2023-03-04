@@ -63,6 +63,7 @@ class DetailleActivity : AppCompatActivity() {
 
     lateinit var adpter: commentaire_adapters
     private var mLayoutManager: LinearLayoutManager? = null
+    lateinit var collection_name:String
 
     private val broadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
@@ -82,7 +83,15 @@ class DetailleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detaille)
 
+        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
 
+
+        collection_name = if (adm == "oui"){
+            "Professeur"
+        }else{
+            "Utilisateurs"
+        }
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
         }
@@ -162,7 +171,7 @@ class DetailleActivity : AppCompatActivity() {
         setListener()
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+
         val admin_state = sharedPreferences.getString("administrateur",null)
 
 
