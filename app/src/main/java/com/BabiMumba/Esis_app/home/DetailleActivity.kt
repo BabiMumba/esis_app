@@ -395,7 +395,7 @@ class DetailleActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
+        val docRef = db.collection(collection_name).document(mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it != null) {
