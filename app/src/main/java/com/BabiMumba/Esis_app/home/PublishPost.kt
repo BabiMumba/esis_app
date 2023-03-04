@@ -168,6 +168,7 @@ class PublishPost : AppCompatActivity() {
     fun publish_post1(){
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val admin_as = sharedPreferences.getString("admin_assistant",null).toString()
+        val admin = sharedPreferences.getString("administrateur",null).toString()
         loading(true)
         databaseReference = FirebaseDatabase.getInstance().getReference("forum_discussion")
         val firebaseUser = firebaseAuth.currentUser
@@ -179,7 +180,7 @@ class PublishPost : AppCompatActivity() {
         val msg = message_commnq.text.toString()
         val name_image = "forum_post/$mail/$name.png"
         val id_pst = databaseReference.push().key!!.toString()
-        val donnee = post_model(mon_nom,admin_as,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
+        val donnee = post_model(mon_nom,admin_as,admin,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){
@@ -198,6 +199,7 @@ class PublishPost : AppCompatActivity() {
     fun publish_post2(uri: Uri,name_image:String){
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val admin_as = sharedPreferences.getString("admin_assistant",null).toString()
+        val admin = sharedPreferences.getString("administrateur",null).toString()
         loading(true)
         databaseReference = FirebaseDatabase.getInstance().getReference("forum_discussion")
         val firebaseUser = firebaseAuth.currentUser
@@ -207,7 +209,7 @@ class PublishPost : AppCompatActivity() {
         val date_de_pub = sdf.format(Date())
         val msg = message_commnq.text.toString()
         val id_pst = databaseReference.push().key!!.toString()
-        val donnee = post_model(mon_nom,admin_as,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
+        val donnee = post_model(mon_nom,admin_as,admin,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
         databaseReference.child(id_pst).setValue(donnee)
             .addOnCompleteListener {
                 if (it.isSuccessful){

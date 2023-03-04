@@ -4,6 +4,7 @@ class post_model {
 
     lateinit var nom:String
     lateinit var admin_assistant:String
+    lateinit var administrateur:String
     lateinit var ad_mail:String
     lateinit var id_reserv1:String
     lateinit var id_reserv2:String
@@ -24,6 +25,7 @@ class post_model {
     constructor(
         nom: String,
         admin_assistant: String,
+        administrateur: String,
         ad_mail: String,
         id_reserv1: String,
         id_reserv2: String,
@@ -41,6 +43,7 @@ class post_model {
     ) {
         this.nom = nom
         this.admin_assistant = admin_assistant
+        this.administrateur = administrateur
         this.ad_mail = ad_mail
         this.id_reserv1 = id_reserv1
         this.id_reserv2 = id_reserv2
