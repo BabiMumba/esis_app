@@ -37,6 +37,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
     var likereference: DatabaseReference? = null
     var mon_nom = ""
     var token_id = ""
+    lateinit var collection_name:String
     private lateinit var firebaseAuth: FirebaseAuth
 
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
@@ -106,13 +107,13 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
 
         holder.admin_i.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
 
-        collection_name = if (adm == "oui"){
+        collection_name = if (admin == "oui"){
             "Professeur"
         }else{
             "Utilisateurs"
         }
 
-        read_name()
+        read_name(collection_name)
         get_token()
         var testclick = false
         val circularProgressDrawable = CircularProgressDrawable(holder.message.context)
