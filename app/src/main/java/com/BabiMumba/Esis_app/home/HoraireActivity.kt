@@ -110,12 +110,17 @@ class HoraireActivity : AppCompatActivity() {
             webView.restoreState(savedInstanceState)
         }else{
             webView.settings.javaScriptEnabled = true
+            webView.settings.javaScriptCanOpenWindowsAutomatically = true
             webView.settings.builtInZoomControls = true
             webView.settings.setSupportZoom(true)
+            webView.settings.allowContentAccess = true
+            webView.isHorizontalScrollBarEnabled = false
+            webView.settings.setRenderPriority(WebSettings.RenderPriority.HIGH)
             webView.settings.allowFileAccess = true
             webView.settings.useWideViewPort = true
             webView.settings.domStorageEnabled = true
             webView.settings.loadsImagesAutomatically = true
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE,null)
         }
 
         webView.webViewClient = object : WebViewClient(){
