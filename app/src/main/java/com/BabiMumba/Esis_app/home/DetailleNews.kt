@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +36,9 @@ class DetailleNews : AppCompatActivity() {
         val promot = intent.getStringExtra("promot")
         val id_news = intent.getStringExtra("id_news")
 
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val admin_state = sharedPreferences.getString("admin_assistant",null)
+
         promot_news.text = promot
         title_news.text = titre
         descri.text = message
@@ -57,6 +61,7 @@ class DetailleNews : AppCompatActivity() {
 
     fun popup_menu(){
         val id_news = intent.getStringExtra("id_news").toString()
+        val image = intent.getStringExtra("image")
         menu_btn.setOnClickListener {
             val pop = PopupMenu(this@DetailleNews, menu_btn)
             pop.menuInflater.inflate(R.menu.news_popup, pop.menu)
@@ -70,6 +75,7 @@ class DetailleNews : AppCompatActivity() {
                            .putExtra("titre",title_news.text.toString())
                            .putExtra("message",descri.text.toString())
                            .putExtra("id_news",id_news)
+                           .putExtra("image",image)
                            .putExtra("mod","oui")
 
                        )

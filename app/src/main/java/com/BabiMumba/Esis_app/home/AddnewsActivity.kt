@@ -89,7 +89,7 @@ class AddnewsActivity : AppCompatActivity() {
                 message_news.error= "Votre message est obligatoire"
             }else{
                 if (mod == "oui"){
-                    val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
+                    val image_news =intent.getStringExtra("image").toString()
                     if (filepath == null){
                         update_data(image_news)
                     }else{
