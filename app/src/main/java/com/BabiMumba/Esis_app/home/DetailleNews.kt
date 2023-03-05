@@ -6,6 +6,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -38,8 +39,13 @@ class DetailleNews : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val admin_state = sharedPreferences.getString("mail",null)
-        val admin_prof = sharedPreferences.getString("mail",null)
+        val admin_prof = sharedPreferences.getString("administrateur",null)
 
+        if ((addrese_mail == admin_state) || admin_prof == "oui"){
+            menu_btn.visibility = View.VISIBLE
+        }else{
+            menu_btn.visibility = View.GONE
+        }
         promot_news.text = promot
         title_news.text = titre
         descri.text = message
