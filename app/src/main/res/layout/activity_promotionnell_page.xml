@@ -16,7 +16,6 @@
         android:gravity="center"
         android:textColor="@color/primary_text"
         android:textStyle="bold"
-
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginTop="@dimen/_5sdp"
         />

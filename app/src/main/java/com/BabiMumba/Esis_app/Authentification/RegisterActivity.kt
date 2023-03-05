@@ -297,9 +297,6 @@ class RegisterActivity : AppCompatActivity() {
             "L4_MSI",
             "L4_GL",
             "L4_DESIGN",
-            "VC_L1",
-            "VC_L2",
-            "VC_L3",
         )
         alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
             checkedItem[0] = which
