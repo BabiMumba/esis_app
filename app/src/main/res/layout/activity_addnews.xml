@@ -29,10 +29,11 @@
             android:src="@drawable/ic_baseline_add_a_photo_24"
             app:tint="@color/gris" />
         <TextView
+            android:id="@+id/text_ind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/image_news"
-            android:text="Falcultatif"
+            android:text="Facultatif"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_5sdp"
             />

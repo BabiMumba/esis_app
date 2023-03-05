@@ -96,8 +96,8 @@ class AddnewsActivity : AppCompatActivity() {
         val imageUri : Uri
         if (requestCode == 101 && resultCode == RESULT_OK) {
             imageUri = data?.data!!
-            image_file.setImageURI(imageUri)
-            txt1.visibility = View.GONE
+            image_news.setImageURI(imageUri)
+            text_ind.visibility = View.GONE
             filepath = data.data!!
         }
     }
