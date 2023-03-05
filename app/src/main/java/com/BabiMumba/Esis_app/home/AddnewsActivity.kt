@@ -1,12 +1,16 @@
 package com.BabiMumba.Esis_app.home
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
+import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_addnews.*
 import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
@@ -17,6 +21,7 @@ import kotlin.collections.HashMap
 
 class AddnewsActivity : AppCompatActivity() {
 
+    var filepath: Uri? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)
@@ -86,6 +91,16 @@ class AddnewsActivity : AppCompatActivity() {
             customAlertDialog.show()
         }
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val imageUri : Uri
+        if (requestCode == 101 && resultCode == RESULT_OK) {
+            imageUri = data?.data!!
+            image_file.setImageURI(imageUri)
+            txt1.visibility = View.GONE
+            filepath = data.data!!
+        }
+    }
     private fun send_data(){
         val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
@@ -149,6 +164,16 @@ class AddnewsActivity : AppCompatActivity() {
             "ESIS COMMUNIQUE",
             "$title",
         )
+    }
+    fun pick_image() {
+        ImagePicker.Companion.with(this)
+            .crop() //Crop image(Optional), Check Customization for more option
+            .compress(18000) //l'image final sera compresser jusqu'a 12 mega octet
+            .maxResultSize(
+                700,
+                700
+            ) //Final image resolution will be less than 1080 x 1080(Optional)
+            .start(101)
     }
 
 

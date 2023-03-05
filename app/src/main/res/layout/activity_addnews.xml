@@ -18,15 +18,24 @@
         android:layout_alignParentStart="true"
 
         >
+
         <ImageView
             android:id="@+id/image_news"
             android:layout_width="@dimen/_80sdp"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_baseline_add_a_photo_24"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_baseline_add_a_photo_24"
             app:tint="@color/gris" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/image_news"
+            android:text="Falcultatif"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            />
 
     </RelativeLayout>
     <RelativeLayout

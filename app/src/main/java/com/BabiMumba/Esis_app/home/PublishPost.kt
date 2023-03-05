@@ -128,7 +128,7 @@ class PublishPost : AppCompatActivity() {
     fun pick_image() {
         ImagePicker.Companion.with(this)
             .crop() //Crop image(Optional), Check Customization for more option
-            .compress(12000) //l'image final sera compresser jusqu'a 12 mega octet
+            .compress(18000) //l'image final sera compresser jusqu'a 12 mega octet
             .maxResultSize(
                 700,
                 700
@@ -136,10 +136,8 @@ class PublishPost : AppCompatActivity() {
             .start(101)
     }
     fun publish_poste(filepath: Uri?) {
-
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_de_pub = sdf.format(Date())
-
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val pd = ProgressDialog(this)
