@@ -12,7 +12,10 @@ import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -29,9 +32,14 @@ import kotlin.collections.HashMap
 class AddnewsActivity : AppCompatActivity() {
 
     var filepath: Uri? = null
+    private lateinit var storageReference: StorageReference
+    private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_addnews)
+
+        storageReference = FirebaseStorage.getInstance().reference
+        firebaseAuth = FirebaseAuth.getInstance()
 
         val ttl = intent.getStringExtra("titre")
         val message = intent.getStringExtra("message")
@@ -42,6 +50,7 @@ class AddnewsActivity : AppCompatActivity() {
             message_news.setText(message.toString())
             send_commq.setText("modifier")
         }else{
+
 
         }
         image_news.setOnClickListener {
@@ -84,6 +93,22 @@ class AddnewsActivity : AppCompatActivity() {
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
                     send_data(image_news)
                 }else{
+                    val firebaseUser = firebaseAuth.currentUser
+                    var mail = firebaseUser?.email.toString()
+                    if (mail.contains(".")){
+                       mail =  mail.replace(".","")
+                    }
+                    val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
+                    val date_de_pub = sdf.format(Date())
+                    val name = "news_image$date_de_pub"
+                    val name_image = "news_post/$mail/$name.png"
+                    val reference = storageReference.child(name_image)
+                    reference.putFile(filepath!!)
+                        .addOnSuccessListener {
+                            reference.downloadUrl.addOnSuccessListener {
+                                send_data(it.toString())
+                            }
+                        }
 
                 }
 
