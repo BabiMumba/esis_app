@@ -34,15 +34,9 @@
             android:name=".users.Profil_DetailUser"
             android:exported="false" />
         <activity
-            android:name=".admin.Adminpage"
-            android:exported="false" />
-        <activity
             android:name=".home.HoraireActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
-        <activity
-            android:name=".admin.AdministateurPage"
-            android:exported="false" />
         <activity
             android:name=".admin.PromotionnellPage"
             android:exported="false" />
