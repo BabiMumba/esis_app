@@ -6,12 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".admin.PromotionnellPage">
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Compte Administrateur"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textColor="@color/primary_text"
+        android:textStyle="bold"
+
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/promo_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+       android:layout_below="@id/txt1"
         tools:itemCount="8"
         tools:listitem="@layout/users_rod" />
 

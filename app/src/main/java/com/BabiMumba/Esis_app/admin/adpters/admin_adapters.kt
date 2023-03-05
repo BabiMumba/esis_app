@@ -1,14 +1,12 @@
 package com.BabiMumba.Esis_app.admin.adpters
 
 
-import android.content.Intent
 import android.view.*
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.admin.model.modeluser
-import com.BabiMumba.Esis_app.home.InfosActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -23,14 +21,12 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
         var image:CircleImageView
         var name:TextView
         var mail:TextView
-        var admin:TextView
         var rela_id:RelativeLayout
 
         init {
             image = item.findViewById(R.id.image_profil_rod)
             name = item.findViewById(R.id.name_user)
             mail = item.findViewById(R.id.mail_user)
-            admin = item.findViewById(R.id.admin_v)
             rela_id = item.findViewById(R.id.rela_id)
         }
     }
