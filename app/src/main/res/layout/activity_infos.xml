@@ -52,6 +52,7 @@
                             >
 
                             <TextView
+                                android:visibility="gone"
                                 android:id="@+id/message_btn"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -84,6 +85,7 @@
                                     app:cardElevation="0dp">
 
                                     <RelativeLayout
+                                        android:visibility="gone"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent">
 
@@ -193,7 +195,7 @@
                                 android:layout_alignParentStart="true"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="Promot: L1_A"
+                                android:text=""
                                 android:textColor="#5B5A5F"
                                 android:textSize="@dimen/_10sdp" />
 
@@ -205,7 +207,7 @@
                                 android:layout_alignParentStart="true"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="babimumba243@gmail.com"
+                                android:text="mail"
                                 android:textColor="#36618A"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
@@ -219,7 +221,7 @@
                                 android:layout_marginTop="5dp"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="babi mumba"
+                                android:text="name"
                                 android:textColor="#131313"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
