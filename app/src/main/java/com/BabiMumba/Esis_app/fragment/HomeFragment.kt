@@ -68,7 +68,7 @@ class HomeFragment : Fragment() {
             override fun onAdImpression() {
                 super.onAdImpression()
                 Log.d(TAG, "onAdImpression: ")
-                Toast.makeText(requireActivity() , "impression recu", Toast.LENGTH_SHORT).show()
+                //Toast.makeText(requireActivity() , "impression recu", Toast.LENGTH_SHORT).show()
             }
 
             override fun onAdLoaded() {
