@@ -37,6 +37,14 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/_5sdp"
             />
+        <ProgressBar
+            android:indeterminate="true"g
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/progress_bar"
+            />
 
     </RelativeLayout>
     <RelativeLayout
