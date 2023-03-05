@@ -66,10 +66,6 @@
                                 android:text="Envoyer un message"
                                 android:textAllCaps="false"
                                 android:textColor="@color/primary_text" />
-
-
-
-
                             <RelativeLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/_65sdp"
@@ -93,7 +89,8 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:orientation="horizontal"
-                                            android:weightSum="3">
+                                            android:weightSum="3"
+                                            >
 
                                             <RelativeLayout
                                                 android:id="@+id/item_1_click_parent"
