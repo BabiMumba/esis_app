@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -12,6 +13,12 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.firestore.FirebaseFirestore
+import com.karumi.dexter.Dexter
+import com.karumi.dexter.PermissionToken
+import com.karumi.dexter.listener.PermissionDeniedResponse
+import com.karumi.dexter.listener.PermissionGrantedResponse
+import com.karumi.dexter.listener.PermissionRequest
+import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_addnews.*
 import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
 import kotlinx.android.synthetic.main.activity_addnews.promotion_text
@@ -37,6 +44,31 @@ class AddnewsActivity : AppCompatActivity() {
         }else{
 
         }
+        image_news.setOnClickListener {
+            Dexter.withContext(
+                applicationContext
+            )
+                .withPermission(Manifest.permission.READ_EXTERNAL_STORAGE)
+                .withListener(object : PermissionListener {
+                    override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
+                        pick_image()
+                    }
+
+                    override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
+                        Toast.makeText(
+                            this@AddnewsActivity,
+                            "vous devez accepter pour continuer",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                    override fun onPermissionRationaleShouldBeShown(
+                        permissionRequest: PermissionRequest,
+                        permissionToken: PermissionToken
+                    ) {
+                        permissionToken.continuePermissionRequest()
+                    }
+                }).check()
+        }
 
         send_commq.setOnClickListener {
             if (promotion_text.text.toString() == ""){
@@ -48,8 +80,11 @@ class AddnewsActivity : AppCompatActivity() {
             }else{
                 if (mod == "oui"){
                     update_data()
+                }else if (filepath == null){
+                    val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
+                    send_data(image_news)
                 }else{
-                    send_data()
+
                 }
 
             }
@@ -101,7 +136,7 @@ class AddnewsActivity : AppCompatActivity() {
             filepath = data.data!!
         }
     }
-    private fun send_data(){
+    private fun send_data(image_news:String){
         val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
         val post_nom = sharedPreferences.getString("post-nom",null)
@@ -117,7 +152,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
         infor_user["promot"] = promotion_text.text.toString()
-        infor_user["image"] = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
+        infor_user["image"] = image_news
         database.collection("communique")
             .document(id_doc)
             .set(infor_user)
@@ -165,6 +200,7 @@ class AddnewsActivity : AppCompatActivity() {
             "$title",
         )
     }
+
     fun pick_image() {
         ImagePicker.Companion.with(this)
             .crop() //Crop image(Optional), Check Customization for more option

@@ -38,8 +38,10 @@
             android:layout_marginStart="@dimen/_5sdp"
             />
         <ProgressBar
-            android:indeterminate="true"g
+            android:visibility="gone"
+            android:indeterminate="true"
             android:layout_width="@dimen/_25sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
             android:layout_height="@dimen/_25sdp"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
