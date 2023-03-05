@@ -89,10 +89,14 @@ class AddnewsActivity : AppCompatActivity() {
                 message_news.error= "Votre message est obligatoire"
             }else{
                 if (mod == "oui"){
+                    progress_bar.visibility = View.VISIBLE
                     update_data()
+                    progress_bar.visibility = View.GONE
                 }else if (filepath == null){
+                    progress_bar.visibility = View.VISIBLE
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
                     send_data(image_news)
+                    progress_bar.visibility = View.GONE
                 }else{
                     progress_bar.visibility = View.VISIBLE
                     val firebaseUser = firebaseAuth.currentUser
