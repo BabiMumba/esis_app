@@ -89,7 +89,37 @@ class AddnewsActivity : AppCompatActivity() {
                 message_news.error= "Votre message est obligatoire"
             }else{
                 if (mod == "oui"){
-                    update_data()
+                    val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
+                    if (filepath == null){
+                        update_data(image_news)
+                    }else{
+                        progress_bar.visibility = View.VISIBLE
+                        val firebaseUser = firebaseAuth.currentUser
+                        var mail = firebaseUser?.email.toString()
+                        if (mail.contains(".")){
+                            mail =  mail.replace(".","")
+                        }
+                        val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
+                        val date_de_pub = sdf.format(Date())
+                        val name = "news_image$date_de_pub"
+                        val name_image = "news_post/$mail/$name.png"
+                        val reference = storageReference.child(name_image)
+                        reference.putFile(filepath!!)
+                            .addOnSuccessListener {
+                                reference.downloadUrl.addOnSuccessListener {
+                                    update_data(it.toString())
+                                    progress_bar.visibility = View.GONE
+                                }
+                            }
+                            .addOnFailureListener{
+                                Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+                            }
+                            .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
+                                val poucent =  (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
+                                progress_bar.progress = poucent.toInt()
+                            }
+                    }
+
                 }else if (filepath == null){
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
                     send_data(image_news)
