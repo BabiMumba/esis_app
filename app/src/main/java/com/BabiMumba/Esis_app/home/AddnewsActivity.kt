@@ -92,7 +92,7 @@ class AddnewsActivity : AppCompatActivity() {
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
-        val id_doc = "le$date_dins"
+        val id_doc = "le${System.currentTimeMillis()}"
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["titre"] = title_news.text.toString()
