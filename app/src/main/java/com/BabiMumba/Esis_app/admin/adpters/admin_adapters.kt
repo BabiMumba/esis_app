@@ -36,7 +36,7 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): admin_adapters.viewholder {
-        val v = LayoutInflater.from(parent.context).inflate(R.layout.users_rod,parent, false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.admin_row,parent, false)
         return viewholder(v)
     }
 

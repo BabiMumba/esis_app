@@ -16,15 +16,6 @@
         />
 
     <TextView
-        android:id="@+id/admin_v"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/_5sdp"
-        android:text="Admin Ass."
-        android:textColor="@color/primary" />
-
-    <TextView
         android:id="@+id/name_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
