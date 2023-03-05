@@ -34,10 +34,11 @@ class DetailleNews : AppCompatActivity() {
         val image = intent.getStringExtra("image")
         val auteur = intent.getStringExtra("auteur")
         val promot = intent.getStringExtra("promot")
-        val id_news = intent.getStringExtra("id_news")
+        val addrese_mail = intent.getStringExtra("mail")
 
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
-        val admin_state = sharedPreferences.getString("admin_assistant",null)
+        val admin_state = sharedPreferences.getString("mail",null)
+        val admin_prof = sharedPreferences.getString("mail",null)
 
         promot_news.text = promot
         title_news.text = titre
@@ -56,6 +57,7 @@ class DetailleNews : AppCompatActivity() {
             .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(news_image_id)
+
         popup_menu()
     }
 

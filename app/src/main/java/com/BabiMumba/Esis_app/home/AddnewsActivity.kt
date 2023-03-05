@@ -205,6 +205,7 @@ class AddnewsActivity : AppCompatActivity() {
         val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
         val post_nom = sharedPreferences.getString("post-nom",null)
+        val mail_add = sharedPreferences.getString("mail",null)
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
@@ -216,6 +217,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["autor"] = "$prenoms $post_nom"
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
+        infor_user["mail"] = mail_add.toString()
         infor_user["promot"] = promotion_text.text.toString()
         infor_user["image"] = image_news
         database.collection("communique")
