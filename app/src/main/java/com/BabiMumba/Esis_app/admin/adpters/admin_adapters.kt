@@ -63,14 +63,16 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
             .into(holder.image)
 
         //boite de dialogue
-
-        holder.itemView.setOnClickListener {
+/*
+   holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, InfosActivity::class.java)
             intent.putExtra("mail",model.mail)
             intent.putExtra("admin",model.administrateur)
             holder.itemView.context.startActivity(intent)
 
         }
+ */
+
 
     }
 
