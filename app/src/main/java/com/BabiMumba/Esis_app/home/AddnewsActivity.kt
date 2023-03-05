@@ -55,6 +55,7 @@ class AddnewsActivity : AppCompatActivity() {
             alertDialog.setIcon(R.drawable.pdf_file)
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
+                "Toutes les promotions",
                 "L1",
                 "L2",
                 "L3_AS",
