@@ -89,14 +89,10 @@ class AddnewsActivity : AppCompatActivity() {
                 message_news.error= "Votre message est obligatoire"
             }else{
                 if (mod == "oui"){
-                    progress_bar.visibility = View.VISIBLE
                     update_data()
-                    progress_bar.visibility = View.GONE
                 }else if (filepath == null){
-                    progress_bar.visibility = View.VISIBLE
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
                     send_data(image_news)
-                    progress_bar.visibility = View.GONE
                 }else{
                     progress_bar.visibility = View.VISIBLE
                     val firebaseUser = firebaseAuth.currentUser
@@ -207,7 +203,7 @@ class AddnewsActivity : AppCompatActivity() {
                 }
             }
     }
-    private fun update_data(){
+    private fun update_data(image_news: String){
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val id_news = intent.getStringExtra("id_news").toString()
@@ -216,6 +212,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["titre"] = title_news.text.toString()
         infor_user["message"] = message_news.text.toString()
         infor_user["date"] = date_dins
+        infor_user["image"] = image_news
         infor_user["promot"] = promotion_text.text.toString()
         database.collection("communique").document(id_news)
             .update(infor_user)

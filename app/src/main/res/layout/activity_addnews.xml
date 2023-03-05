@@ -33,7 +33,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentBottom="true"
                     android:src="@drawable/ic_baseline_add_a_photo_24"
-                    app:tint="@color/gris" />
+                    />
                 <TextView
                     android:id="@+id/text_ind"
                     android:layout_width="wrap_content"
@@ -45,7 +45,6 @@
                     />
                 <ProgressBar
                     android:visibility="gone"
-                    android:indeterminate="true"
                     android:layout_width="@dimen/_25sdp"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:layout_height="@dimen/_25sdp"
