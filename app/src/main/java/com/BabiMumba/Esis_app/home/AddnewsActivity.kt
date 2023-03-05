@@ -16,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -93,6 +94,7 @@ class AddnewsActivity : AppCompatActivity() {
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
                     send_data(image_news)
                 }else{
+                    progress_bar.visibility = View.VISIBLE
                     val firebaseUser = firebaseAuth.currentUser
                     var mail = firebaseUser?.email.toString()
                     if (mail.contains(".")){
@@ -107,7 +109,15 @@ class AddnewsActivity : AppCompatActivity() {
                         .addOnSuccessListener {
                             reference.downloadUrl.addOnSuccessListener {
                                 send_data(it.toString())
+                                progress_bar.visibility = View.GONE
                             }
+                        }
+                        .addOnFailureListener{
+                            Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+                        }
+                        .addOnProgressListener { taskSnapshot: UploadTask.TaskSnapshot ->
+                            val poucent =  (100 * taskSnapshot.bytesTransferred / taskSnapshot.totalByteCount).toFloat()
+                            progress_bar.progress = poucent.toInt()
                         }
 
                 }
