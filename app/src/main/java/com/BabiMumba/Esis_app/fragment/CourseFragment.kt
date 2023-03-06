@@ -145,13 +145,6 @@ class CourseFragment : Fragment(), Pdf_listener_file {
             File(Environment.getExternalStorageDirectory().toString()+"/"+Environment.DIRECTORY_DOWNLOADS)
         ))
 
-        /*
-        findpdf( File(
-                Environment.getExternalStorageDirectory()
-                    .toString() + "/" + Environment.DIRECTORY_DOWNLOADS + "/syllabus esis/"
-            ))
-
-         */
         pdfAdapter = pdfAdapter2(requireActivity(), pdfList, this)
         recyclerView.adapter = pdfAdapter
     }
