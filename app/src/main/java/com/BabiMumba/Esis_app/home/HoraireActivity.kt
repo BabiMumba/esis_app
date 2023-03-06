@@ -47,21 +47,13 @@ class HoraireActivity : AppCompatActivity() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
-/*
-  val progressBar = ProgressDialog(this)
-        progressBar.setTitle("Patienter...")
-        progressBar.setMessage("chargement de la page")
-        progressBar.setCancelable(true)
 
- */
 
         if (isConnectedNetwork(this)){
 
         }else{
             supportActionBar?.hide()
-           // progressBar.dismiss()
-            network_visibility.visibility = View.VISIBLE
-            visibility_page.visibility = View.GONE
+
             lyt_btn.visibility = View.GONE
         }
         webView = findViewById(R.id.web_horaire)

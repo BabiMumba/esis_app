@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
+import android.text.InputType
 import android.text.TextWatcher
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -57,9 +58,11 @@ class ChatActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
         val prenom = sharedPreferences.getString("prenom","")
 
-        item_mic_card_parent.setOnClickListener {
+        item_mic_click_parent.setOnClickListener {
             if (item_send.isVisible){
                 message_sent.text = item_input.text.toString()
+                item_input.setText("")
+
                 text_content.text = "hey 👋👋 bonjour $prenom\n c'est Babi Mumba"
                 fst_mssg.visibility = View.VISIBLE
                 val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
