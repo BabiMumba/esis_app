@@ -13,6 +13,7 @@ class ImageView : AppCompatActivity() {
         setContentView(R.layout.activity_image_view)
 
         val lien_image = intent.getStringExtra("lien_image")
+
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f

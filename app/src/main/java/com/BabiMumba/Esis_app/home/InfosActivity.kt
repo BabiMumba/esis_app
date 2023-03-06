@@ -18,6 +18,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.poste_users_adapters
 import com.BabiMumba.Esis_app.chat.ChatActivity
 import com.BabiMumba.Esis_app.model.poste_users_model
+import com.BabiMumba.Esis_app.users.ImageView
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.ads.*
@@ -117,6 +118,11 @@ class InfosActivity : AppCompatActivity() {
         message_btn.setOnClickListener {
             startActivity(Intent(this,ChatActivity::class.java)
                 .putExtra("nom",mon_nom)
+            )
+        }
+        imgView_proPic.setOnClickListener {
+            startActivity(Intent(this,ImageView::class.java)
+                .putExtra("lien_image",lien_image)
             )
         }
     }
