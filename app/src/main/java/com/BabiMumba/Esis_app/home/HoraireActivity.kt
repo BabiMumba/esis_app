@@ -96,14 +96,13 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         fabMic.setOnClickListener {
-            /*
+
             val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             //val actulaity_link = "https://www.esisalama.com/index.php"
             val intent = Intent(this, ActualiteActivity::class.java)
             intent.putExtra("url_link",actulaity_link)
             startActivity(intent)
-             */
-            downloadTask(lien)
+           // downloadTask(lien)
 
         }
 
