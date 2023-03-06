@@ -47,20 +47,23 @@ class HoraireActivity : AppCompatActivity() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
+        supportActionBar?.hide()
 
         val promot_link = intent.getStringExtra("promot_link").toString()
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
-
         if (isConnectedNetwork(this)){
 
         }else{
-            supportActionBar?.hide()
+            network_visibility.visibility = View.VISIBLE
+            visibility_page.visibility = View.GONE
+            lyt_btn.visibility = View.GONE
+
             val noms = "Horaire $promot_link"
             val file2:File = File("$theDir$noms.pdf")
             if (file2.exists()){
                 val builder = AlertDialog.Builder(this)
-                builder.setMessage("vous etes hors connexion voulez-vous voir l'horaire sauvegarder $promot_link")
+                builder.setMessage("vous êtes hors connexion, voulez-vous voir l'horaire sauvegarder $promot_link")
                     .setTitle("Horaire Sauvegarder")
                     .setNegativeButton("Non") {_: DialogInterface?, i: Int ->
                         onBackPressed()
@@ -73,11 +76,9 @@ class HoraireActivity : AppCompatActivity() {
 
                     }
                     .show()
-            }else{
-                network_visibility.visibility = View.VISIBLE
-                visibility_page.visibility = View.GONE
             }
-            lyt_btn.visibility = View.GONE
+
+
         }
         webView = findViewById(R.id.web_horaire)
 
