@@ -119,7 +119,7 @@ class ActualiteActivity : AppCompatActivity() {
             request.allowScanningByMediaScanner()
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED) //notifie la personne si le telechargment termine
             request.setDestinationInExternalPublicDir(
-                Environment.DIRECTORY_DOWNLOADS+ "/syllabus esis/",
+                Environment.DIRECTORY_DOWNLOADS,
                 filename
             )
             val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager

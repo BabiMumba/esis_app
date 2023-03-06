@@ -1,20 +1,20 @@
 package com.BabiMumba.Esis_app.home
 
 
-import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.AlertDialog
 import android.app.DownloadManager
-import android.app.ProgressDialog
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
+import android.media.MediaScannerConnection
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.webkit.*
@@ -28,6 +28,7 @@ import java.io.IOException
 import java.net.MalformedURLException
 import java.net.URL
 import java.util.*
+
 
 class HoraireActivity : AppCompatActivity() {
 
@@ -316,6 +317,35 @@ class HoraireActivity : AppCompatActivity() {
         }
     }
 
+    @Throws(Exception::class)
+    private fun downloadTask(url: String): Boolean {
+        if (!url.startsWith("http")) {
+            return false
+        }
+        val name = "temp.mcaddon"
+        try {
+            val file = File(Environment.getExternalStorageDirectory(), "Download")
+            if (!file.exists()) {
+                file.mkdirs()
+            }
+            val result = File(file.absolutePath + File.separator + name)
+            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
+            val request = DownloadManager.Request(Uri.parse(url))
+            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
+            request.setDestinationUri(Uri.fromFile(result))
+            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+            downloadManager?.enqueue(request)
+            //mToast(mContext, "Starting download...");
+            MediaScannerConnection.scanFile(
+                this@HoraireActivity, arrayOf(result.toString()), null
+            ) { path, uri -> }
+        } catch (e: Exception) {
+            Log.e(">>>>>", e.toString())
+            //mToast(this, e.toString());
+            return false
+        }
+        return true
+    }
     //creer un fichier
 
     fun _createFile(file: File) {
