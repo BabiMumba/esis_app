@@ -53,25 +53,28 @@ class ChatActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 item_mic_icon.isInvisible = item_input.text.toString().trim().isNotEmpty()
                 item_send.isVisible = item_input.text.toString().trim().isNotEmpty()
-                item_send.setOnClickListener {
-                    message_sent.text = item_input.text.toString()
-                    fst_mssg.visibility = View.VISIBLE
-                    val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
-                    Handler().postDelayed({
-                        mediaPlayer.start()
-                        mssg1.visibility = View.VISIBLE
+                item_mic_card_parent.setOnClickListener {
+                    if (item_send.isVisible){
+                        message_sent.text = item_input.text.toString()
+                        fst_mssg.visibility = View.VISIBLE
+                        val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
                         Handler().postDelayed({
                             mediaPlayer.start()
-                            mssg2.visibility = View.VISIBLE
+                            mssg1.visibility = View.VISIBLE
                             Handler().postDelayed({
                                 mediaPlayer.start()
-                                mssg3.visibility = View.VISIBLE
-                                mssg4.visibility = View.VISIBLE
+                                mssg2.visibility = View.VISIBLE
+                                Handler().postDelayed({
+                                    mediaPlayer.start()
+                                    mssg3.visibility = View.VISIBLE
+                                    mssg4.visibility = View.VISIBLE
 
-                            },3000)
+                                },3000)
 
-                        },4000)
-                    },1000)
+                            },4000)
+                        },1000)
+                    }
+
 
                 }
             }
