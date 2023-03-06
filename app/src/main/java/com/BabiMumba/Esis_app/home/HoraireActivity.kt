@@ -90,7 +90,7 @@ class HoraireActivity : AppCompatActivity() {
             toggleFabMode(fabAdd)
         }
         dowload.setOnClickListener {
-            _createFolder(File(theDir + "Horaire"))
+            _createFolder(File(theDir))
         }
 
         fabMic.setOnClickListener {
@@ -282,7 +282,7 @@ class HoraireActivity : AppCompatActivity() {
             }
         } else if (file.exists()) {
             val noms = "Horaire $promot_link"
-            val file2:File = File("$theDir/Horaire/$noms.pdf")
+            val file2:File = File("$theDir$noms.pdf")
             if (file2.exists()){
                 Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
                 val builder = AlertDialog.Builder(this)
