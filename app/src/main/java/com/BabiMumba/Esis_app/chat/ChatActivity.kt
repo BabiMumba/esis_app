@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.chat
 
+import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
@@ -48,6 +49,8 @@ class ChatActivity : AppCompatActivity() {
         
     }
     fun check_teste() {
+        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val prenom = sharedPreferences.getString("prenom","")
         item_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
@@ -56,7 +59,7 @@ class ChatActivity : AppCompatActivity() {
                 item_mic_card_parent.setOnClickListener {
                     if (item_send.isVisible){
                         message_sent.text = item_input.text.toString()
-                        text_content.text = "hey bonjour "
+                        text_content.text = "hey bonjour $prenom"
 
                         fst_mssg.visibility = View.VISIBLE
                         val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
@@ -71,9 +74,9 @@ class ChatActivity : AppCompatActivity() {
                                     mssg3.visibility = View.VISIBLE
                                     mssg4.visibility = View.VISIBLE
 
-                                },3000)
+                                },2000)
 
-                            },4000)
+                            },2000)
                         },1000)
                     }
 
