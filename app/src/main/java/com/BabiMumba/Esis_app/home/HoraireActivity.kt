@@ -48,17 +48,38 @@ class HoraireActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
 
+        val promot_link = intent.getStringExtra("promot_link").toString()
+        val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
+
 
         if (isConnectedNetwork(this)){
 
         }else{
             supportActionBar?.hide()
 
+            val noms = "Horaire $promot_link"
+            val file2:File = File("$theDir$noms.pdf")
+            if (file2.exists()){
+                val builder = AlertDialog.Builder(this)
+                builder.setMessage("vous etes hors connexion voulez-vous voir l'horaire sauvegarder $promot_link")
+                    .setTitle("Horaire Sauvegarder")
+                    .setNegativeButton("Non") {_: DialogInterface?, i: Int ->
+                        onBackPressed()
+                    }
+                    .setPositiveButton("oui") { _: DialogInterface?, i: Int ->
+                        startActivity(
+                            Intent(this, DocumentActivity2::class.java)
+                                .putExtra("path", file2.absolutePath)
+                        )
+
+                    }
+                    .show()
+            }else{
+                network_visibility.visibility = View.VISIBLE
+            }
             lyt_btn.visibility = View.GONE
         }
         webView = findViewById(R.id.web_horaire)
-        val promot_link = intent.getStringExtra("promot_link").toString()
-        val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
 
         backDrop = findViewById(R.id.back_drop)
         lytMic = findViewById(R.id.lyt_mic)
@@ -88,7 +109,6 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         fabMic.setOnClickListener {
-
             val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             //val actulaity_link = "https://www.esisalama.com/index.php"
             val intent = Intent(this, ActualiteActivity::class.java)
