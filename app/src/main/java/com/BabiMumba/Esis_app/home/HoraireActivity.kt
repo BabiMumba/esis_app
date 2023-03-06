@@ -309,7 +309,7 @@ class HoraireActivity : AppCompatActivity() {
                     }
                     .show()
             }else{
-                Toast.makeText(this, "c fichier n'existe pas ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "fichier n'existe pas ", Toast.LENGTH_SHORT).show()
                telecharger(lien,noms)
             }
             //Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
@@ -330,7 +330,7 @@ class HoraireActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         } else if (file.exists()) {
-            Toast.makeText(applicationContext, "c fichier existe deja!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(applicationContext, "fichier existe deja!", Toast.LENGTH_SHORT).show()
         }
     }
 

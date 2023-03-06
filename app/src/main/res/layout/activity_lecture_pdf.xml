@@ -12,6 +12,7 @@
     <com.google.android.gms.ads.AdView
         android:id="@+id/bannerAd"
         android:layout_width="match_parent"
+        android:visibility="gone"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         ads:adSize="BANNER"

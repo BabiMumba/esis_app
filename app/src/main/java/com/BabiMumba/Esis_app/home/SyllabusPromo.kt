@@ -67,7 +67,7 @@ class SyllabusPromo : AppCompatActivity() {
             override fun onAdImpression() {
                 super.onAdImpression()
                 Log.d(TAG, "onAdImpression: ")
-                Toast.makeText(this@SyllabusPromo, "impression effectuer", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this@SyllabusPromo, "impression effectuer", Toast.LENGTH_SHORT).show()
             }
 
             override fun onAdLoaded() {
