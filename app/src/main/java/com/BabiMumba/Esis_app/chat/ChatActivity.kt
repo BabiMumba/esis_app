@@ -59,7 +59,7 @@ class ChatActivity : AppCompatActivity() {
                 item_mic_card_parent.setOnClickListener {
                     if (item_send.isVisible){
                         message_sent.text = item_input.text.toString()
-                        text_content.text = "hey bonjour $prenom"
+                        text_content.text = "hey bonjour $prenom c'est Babi Mumba"
 
                         fst_mssg.visibility = View.VISIBLE
                         val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)

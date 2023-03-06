@@ -95,7 +95,6 @@
                 android:layout_height="wrap_content">
 
                 <androidx.cardview.widget.CardView
-                    android:visibility="gone"
                     android:id="@+id/fst_mssg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -150,7 +149,7 @@
                             <ImageView
                                 android:layout_width="15dp"
                                 android:layout_height="15dp"
-                                app:srcCompat="@drawable/ic_read"
+                                app:srcCompat="@drawable/double_check"
                                 app:tint="#42BDEE" />
 
                         </LinearLayout>
@@ -161,6 +160,7 @@
                 <androidx.cardview.widget.CardView
                     android:layout_below="@id/fst_mssg"
                     android:id="@+id/mssg1"
+                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"
@@ -186,7 +186,6 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text=""
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@android:color/black"
                             android:textStyle="normal" />
