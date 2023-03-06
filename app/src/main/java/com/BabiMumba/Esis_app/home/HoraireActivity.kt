@@ -56,7 +56,6 @@ class HoraireActivity : AppCompatActivity() {
 
         }else{
             supportActionBar?.hide()
-
             val noms = "Horaire $promot_link"
             val file2:File = File("$theDir$noms.pdf")
             if (file2.exists()){
@@ -76,6 +75,7 @@ class HoraireActivity : AppCompatActivity() {
                     .show()
             }else{
                 network_visibility.visibility = View.VISIBLE
+                visibility_page.visibility = View.GONE
             }
             lyt_btn.visibility = View.GONE
         }
