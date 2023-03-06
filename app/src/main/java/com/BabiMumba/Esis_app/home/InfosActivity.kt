@@ -118,6 +118,7 @@ class InfosActivity : AppCompatActivity() {
         message_btn.setOnClickListener {
             startActivity(Intent(this,ChatActivity::class.java)
                 .putExtra("nom",mon_nom)
+                .putExtra("lien_image",lien_image)
             )
         }
         imgView_proPic.setOnClickListener {

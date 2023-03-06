@@ -11,7 +11,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_chat.*
 
 
@@ -20,6 +22,7 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat)
         val nom = intent.getStringExtra("nom").toString()
+        val profil = intent.getStringExtra("lien_image").toString()
         name_User.text = nom
         back_btn.setOnClickListener{
             onBackPressed()
@@ -32,7 +35,16 @@ class ChatActivity : AppCompatActivity() {
             i.data = Uri.parse("https://api.whatsapp.com/send?phone=243975937553")
             startActivity(i)
         }
-       
+        val circularProgressDrawable = CircularProgressDrawable(this)
+        circularProgressDrawable.strokeWidth = 5f
+        circularProgressDrawable.centerRadius = 30f
+        circularProgressDrawable.start()
+        Glide
+            .with(applicationContext)
+            .load(profil)
+            // .diskCacheStrategy(DiskCacheStrategy.ALL)
+            .placeholder(circularProgressDrawable)
+            .into(image)
         
     }
     fun check_teste() {
