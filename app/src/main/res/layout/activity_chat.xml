@@ -525,11 +525,13 @@
             app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="23dp"
             app:cardElevation="0dp"
+            android:clickable="true"
             android:layout_width="46dp"
             android:layout_height="46dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="4dp">
+            android:layout_marginStart="4dp"
+            android:focusable="true">
 
             <RelativeLayout
                 android:id="@+id/item_mic_click_parent"
