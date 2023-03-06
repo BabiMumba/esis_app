@@ -16,6 +16,8 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_chat.*
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class ChatActivity : AppCompatActivity() {
@@ -28,6 +30,12 @@ class ChatActivity : AppCompatActivity() {
         back_btn.setOnClickListener{
             onBackPressed()
         }
+        val sdf = SimpleDateFormat("HH:mm:ss")
+        val heure = sdf.format(Date())
+        heure1.text = heure
+        text_time.text = heure
+        heure2.text = heure
+        heure3.text = heure
 
         check_teste()
 
@@ -56,11 +64,9 @@ class ChatActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 item_mic_icon.isInvisible = item_input.text.toString().trim().isNotEmpty()
                 item_send.isVisible = item_input.text.toString().trim().isNotEmpty()
-                item_mic_card_parent.setOnClickListener {
-                    if (item_send.isVisible){
+                item_send.setOnClickListener {
                         message_sent.text = item_input.text.toString()
-                        text_content.text = "hey bonjour $prenom c'est Babi Mumba"
-
+                        text_content.text = "hey 👋👋 bonjour $prenom\n c'est Babi Mumba"
                         fst_mssg.visibility = View.VISIBLE
                         val mediaPlayer = MediaPlayer.create(this@ChatActivity, R.raw.song)
                         Handler().postDelayed({
@@ -78,7 +84,6 @@ class ChatActivity : AppCompatActivity() {
 
                             },2000)
                         },1000)
-                    }
 
 
                 }
