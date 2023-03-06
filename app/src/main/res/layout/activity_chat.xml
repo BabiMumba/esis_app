@@ -159,7 +159,6 @@
 
                 </androidx.cardview.widget.CardView>
                 <androidx.cardview.widget.CardView
-                    android:visibility="gone"
                     android:layout_below="@id/fst_mssg"
                     android:id="@+id/mssg1"
                     android:layout_width="wrap_content"
@@ -187,7 +186,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:text="@string/salutation_user"
+                            android:text=""
                             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                             android:textColor="@android:color/black"
                             android:textStyle="normal" />
