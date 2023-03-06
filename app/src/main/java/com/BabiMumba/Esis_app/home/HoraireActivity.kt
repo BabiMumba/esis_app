@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
+import org.jetbrains.anko.downloadManager
 import java.io.File
 import java.io.IOException
 import java.net.MalformedURLException
@@ -95,11 +96,14 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         fabMic.setOnClickListener {
+            /*
             val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
             //val actulaity_link = "https://www.esisalama.com/index.php"
             val intent = Intent(this, ActualiteActivity::class.java)
             intent.putExtra("url_link",actulaity_link)
             startActivity(intent)
+             */
+            downloadTask(lien)
 
         }
 
@@ -174,6 +178,7 @@ class HoraireActivity : AppCompatActivity() {
         request.setDescription("Telechargement...")
         request.setVisibleInDownloadsUi(true)
         request.setAllowedOverMetered(true)
+        downloadManager.enqueue(request)
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
         request.setDestinationInExternalPublicDir(
