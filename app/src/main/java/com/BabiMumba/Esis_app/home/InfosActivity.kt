@@ -115,7 +115,7 @@ class InfosActivity : AppCompatActivity() {
         mLayoutManager!!.reverseLayout = true
         message_btn.setOnClickListener {
             startActivity(Intent(this,ChatActivity::class.java)
-                .putExtra("nom",item_text_1.text.toString())
+                .putExtra("nom",mon_nom)
             )
         }
     }
