@@ -113,6 +113,7 @@ class InfosActivity : AppCompatActivity() {
         adpter = poste_users_adapters(options)
         recycler_users.adapter = adpter
         mLayoutManager!!.reverseLayout = true
+
         message_btn.setOnClickListener {
             startActivity(Intent(this,ChatActivity::class.java)
                 .putExtra("nom",mon_nom)
