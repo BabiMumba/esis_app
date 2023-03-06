@@ -204,7 +204,7 @@
                                 android:layout_alignParentStart="true"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="mail"
+                                android:text=""
                                 android:textColor="#36618A"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
@@ -218,7 +218,7 @@
                                 android:layout_marginTop="5dp"
                                 android:ellipsize="end"
                                 android:lines="1"
-                                android:text="name"
+                                android:text=""
                                 android:textColor="#131313"
                                 android:textSize="@dimen/_10sdp"
                                 android:textStyle="bold" />
