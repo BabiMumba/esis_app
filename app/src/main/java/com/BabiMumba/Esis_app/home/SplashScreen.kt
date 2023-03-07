@@ -12,6 +12,7 @@ import com.BabiMumba.Esis_app.Authentification.LoginActivity
 import com.BabiMumba.Esis_app.Authentification.RegisterActivity
 import com.BabiMumba.Esis_app.Authentification.SigninActivity
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_splash_screen.*
 
@@ -26,7 +27,7 @@ class SplashScreen : AppCompatActivity() {
 
         Handler().postDelayed(
             {
-                val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+                val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
                 val name = sharedPreferences.getInt("count",0)
                 lnb = name+1
                 val editor = sharedPreferences.edit()

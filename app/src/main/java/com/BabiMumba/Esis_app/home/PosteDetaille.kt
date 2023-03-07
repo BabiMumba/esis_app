@@ -19,6 +19,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.commentaire_poste_adapters
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.commentaire_poste_model
@@ -64,7 +65,7 @@ class PosteDetaille : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
 
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val admin_state = sharedPreferences.getString("administrateur",null)
 
 
@@ -202,7 +203,7 @@ class PosteDetaille : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     val imgetxt = it.data?.getValue("profil")
                     mon_nom = "$pren $postn"
                     photo_profil = imgetxt.toString()

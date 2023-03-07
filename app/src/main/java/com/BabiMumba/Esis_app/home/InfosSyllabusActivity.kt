@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.save_profil_adapters
 import com.BabiMumba.Esis_app.model.save_profil_syllabus
 import com.bumptech.glide.Glide
@@ -58,12 +59,12 @@ class InfosSyllabusActivity : AppCompatActivity() {
         val ad_mail = intent.getStringExtra("mail").toString()
         val db = FirebaseFirestore.getInstance()
 
-        val docRef = db.collection("Utilisateurs").document(ad_mail)
+        val docRef = db.collection(Constant.Etudiant).document(ad_mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     val imgetxt = it.data?.getValue("profil")
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()

@@ -13,6 +13,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.save_profil_syllabus
 import com.BabiMumba.Esis_app.model.syllabus_model
@@ -53,13 +54,13 @@ class PublicationSyllabus : AppCompatActivity() {
         setContentView(R.layout.activity_publication_syllabus)
 
         firebaseAuth = FirebaseAuth.getInstance()
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
 
         collection_name = if (adm == "oui"){
-            "Professeur"
+           Constant.Admin
         }else{
-            "Utilisateurs"
+            Constant.Etudiant
         }
 
 
@@ -202,7 +203,7 @@ class PublicationSyllabus : AppCompatActivity() {
     }
 
     fun processupload(filepath: Uri?) {
-        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val admin_as = sharedPreferences.getString("admin_assistant",null).toString()
         val admin = sharedPreferences.getString("administrateur",null).toString()
         val firebaseUser = firebaseAuth.currentUser
@@ -321,7 +322,7 @@ class PublicationSyllabus : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     val imgetxt = it.data?.getValue("profil")
                     mon_nom = "$pren $postn"
                     lien_image = imgetxt.toString()

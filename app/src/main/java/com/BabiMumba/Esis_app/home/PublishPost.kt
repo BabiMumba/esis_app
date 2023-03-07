@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.post_model
 import com.BabiMumba.Esis_app.model.poste_users_model
@@ -52,13 +53,13 @@ class PublishPost : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         storageReference = FirebaseStorage.getInstance().reference
 
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
 
-        if (adm == "oui"){
-            collection_name = "Professeur"
+        collection_name = if (adm == "oui"){
+            Constant.Admin
         }else{
-            collection_name = "Utilisateurs"
+            Constant.Etudiant
         }
 
 
