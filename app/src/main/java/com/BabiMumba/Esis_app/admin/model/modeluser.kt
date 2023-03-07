@@ -2,7 +2,7 @@ package com.BabiMumba.Esis_app.admin.model
 
 class modeluser {
 
-    lateinit var nom:String
+    lateinit var prenom:String
     lateinit var admin_assistant:String
     lateinit var administrateur:String
     lateinit var mail:String
@@ -12,7 +12,7 @@ class modeluser {
 
     constructor(){}
     constructor(
-        nom: String,
+        prenom: String,
         admin_assistant: String,
         administrateur: String,
         mail: String,
@@ -20,7 +20,7 @@ class modeluser {
         promotion:String,
         sexe:String,
     ) {
-        this.nom = nom
+        this.prenom = prenom
         this.admin_assistant = admin_assistant
         this.administrateur = administrateur
         this.mail = mail

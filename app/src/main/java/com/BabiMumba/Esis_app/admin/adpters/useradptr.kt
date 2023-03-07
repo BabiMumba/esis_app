@@ -53,7 +53,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
         //val mail_cach = sharedPreferences.getString("mail",null)
         val admin = sharedPreferences.getString("administrateur",null)
 
-        holder.name.text = model.nom
+        holder.name.text = model.prenom
         holder.mail.text = model.mail
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
@@ -102,7 +102,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                                 }
                             }
                     }else{
-                        val nom = model.nom
+                        val nom = model.prenom
                         val alertDialog = AlertDialog.Builder(holder.image.context).create()
                         alertDialog.setTitle("Administrateur assistant")
                         alertDialog.setMessage("""

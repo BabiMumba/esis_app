@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.databinding.ActivityRegisterBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
@@ -168,7 +169,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun SavePrefData(imagelink:String){
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
-        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply(){
             putString("nom",binding.nom.text.toString())

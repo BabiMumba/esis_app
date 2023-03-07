@@ -38,7 +38,7 @@ class admin_adapters (options: FirestoreRecyclerOptions<modeluser>):
 
     override fun onBindViewHolder(holder: admin_adapters.viewholder, position: Int, model: modeluser) {
 
-        holder.name.text = model.nom
+        holder.name.text = model.prenom
         holder.mail.text = model.mail
 
         //holder.itemView.setBackgroundColor(Color.parseColor("#00000"))
