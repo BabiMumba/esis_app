@@ -13,6 +13,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.PublishPost
 import com.BabiMumba.Esis_app.model.post_model
 import com.BabiMumba.Esis_app.adapters.post_adapters
@@ -49,7 +50,7 @@ class ForumFragment : Fragment() {
         val recyclerv = viewf.findViewById<RecyclerView>(R.id.recycler_frg)
         val add_btn = viewf.findViewById<RelativeLayout>(R.id.r1)
         val txt = viewf.findViewById<TextView>(R.id.txt1)
-        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val prenom = sharedPreferences.getString("prenom",null)
 
         txt.text = "Quoi de neuf $prenom ?"

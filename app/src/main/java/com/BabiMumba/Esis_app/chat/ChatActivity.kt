@@ -15,6 +15,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.activity_chat.*
 import java.text.SimpleDateFormat
@@ -55,7 +56,7 @@ class ChatActivity : AppCompatActivity() {
             // .diskCacheStrategy(DiskCacheStrategy.ALL)
             .placeholder(circularProgressDrawable)
             .into(image)
-        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val prenom = sharedPreferences.getString("prenom","")
 
         item_mic_click_parent.setOnClickListener {
@@ -87,7 +88,7 @@ class ChatActivity : AppCompatActivity() {
         
     }
     fun check_teste() {
-        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val prenom = sharedPreferences.getString("prenom","")
         item_input.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}

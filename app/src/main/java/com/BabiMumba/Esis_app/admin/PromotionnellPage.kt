@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.adpters.admin_adapters
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -26,7 +27,7 @@ class PromotionnellPage : AppCompatActivity() {
         layoutManager = LinearLayoutManager(this@PromotionnellPage)
         promo_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
-        val ref = FirebaseFirestore.getInstance().collection("Professeur")
+        val ref = FirebaseFirestore.getInstance().collection(Constant.Admin)
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,

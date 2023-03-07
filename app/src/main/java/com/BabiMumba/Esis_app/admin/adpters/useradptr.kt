@@ -11,6 +11,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.BabiMumba.Esis_app.home.InfosActivity
 import com.BabiMumba.Esis_app.home.PosteDetaille
@@ -49,7 +50,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
     }
 
     override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
-        val sharedPreferences = holder.image.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = holder.image.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         //val mail_cach = sharedPreferences.getString("mail",null)
         val admin = sharedPreferences.getString("administrateur",null)
 
@@ -91,7 +92,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                         val database = FirebaseFirestore.getInstance()
                         val infor_user:MutableMap<String, Any> = HashMap()
                         infor_user["admin_assistant"] = "non"
-                        database.collection("Utilisateurs")
+                        database.collection(Constant.Etudiant)
                             .document(model.mail)
                             .set(infor_user, SetOptions.merge())
                             .addOnCompleteListener {
@@ -116,7 +117,7 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                             val database = FirebaseFirestore.getInstance()
                             val infor_user:MutableMap<String, Any> = HashMap()
                             infor_user["admin_assistant"] = "oui"
-                            database.collection("Utilisateurs")
+                            database.collection(Constant.Etudiant)
                                 .document(model.mail)
                                 .set(infor_user, SetOptions.merge())
                                 .addOnCompleteListener {

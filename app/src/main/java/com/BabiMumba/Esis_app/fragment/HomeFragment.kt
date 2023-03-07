@@ -13,6 +13,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.*
 import com.BabiMumba.Esis_app.users.ProfilUser
 import com.bumptech.glide.Glide
@@ -128,7 +129,7 @@ class HomeFragment : Fragment() {
             intent.putExtra("promotion","Tous")
             startActivity(intent)
         }
-        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val pm = sharedPreferences.getString("promotion",null)
         viewF.findViewById<TextView>(R.id.titre2).text = "Horaire\n$pm"
 

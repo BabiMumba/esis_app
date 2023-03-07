@@ -17,6 +17,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.AllusersActivity
 import com.BabiMumba.Esis_app.admin.SaleControleActivity
 import com.BabiMumba.Esis_app.home.*
@@ -45,7 +46,7 @@ class ProfilFragment : Fragment() {
         return v
     }
     private fun readData(view: View){
-        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val name = sharedPreferences.getString("post-nom",null)
         val num = sharedPreferences.getString("numero de telephone",null)
         val prenoms = sharedPreferences.getString("prenom",null)
@@ -76,7 +77,7 @@ class ProfilFragment : Fragment() {
         view.findViewById<RelativeLayout>(R.id.user_get).setOnClickListener {
             startActivity(Intent(requireActivity(), AllusersActivity::class.java))
         }
-        val sharedPreferences = requireActivity().getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
         val adm2 = sharedPreferences.getString("admin_assistant",null)
         if (adm == "oui"){
@@ -99,14 +100,14 @@ class ProfilFragment : Fragment() {
                     if (it!= null){
                         val admin = it.data?.getValue("admin_assistant").toString()
                         if (admin=="oui"){
-                            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                            val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.apply() {
                                 putString("admin_assistant", "oui")
                             }.apply()
                             Toast.makeText(requireActivity(), "vous êtes désormais un administrateur", Toast.LENGTH_SHORT).show()
                         }else{
-                            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+                            val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
                             val editor = sharedPreferences.edit()
                             editor.apply() {
                                 putString("admin_assistant", "non")
@@ -150,7 +151,7 @@ class ProfilFragment : Fragment() {
         }
 
         view.findViewById<RelativeLayout>(R.id.rr4).setOnClickListener {
-            val sharedPreferences = requireActivity().getSharedPreferences("info_users",Context.MODE_PRIVATE)
+            val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
             val admin = sharedPreferences.getString("administrateur",null)
             if (isConnectedNetwork(requireActivity())){
                 val intent = Intent(requireActivity(), InfosActivity::class.java)

@@ -11,6 +11,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.adpters.useradptr
 import com.BabiMumba.Esis_app.admin.model.modeluser
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -57,7 +58,7 @@ class AllusersActivity : AppCompatActivity() {
        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager
         //Rreference des utilisateur
-        val ref = FirebaseFirestore.getInstance().collection("Utilisateurs")
+        val ref = FirebaseFirestore.getInstance().collection(Constant.Etudiant)
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,
