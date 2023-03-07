@@ -38,12 +38,16 @@ class SplashScreen : AppCompatActivity() {
                 }.apply()
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
-                    if (profil_com == 1){
-                        Toast.makeText(this, "votre profil est complet", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(this, "votre profil n'est pasg complet", Toast.LENGTH_SHORT).show()
+                    if (firebaseAuth.currentUser != null){
+                        if (profil_com == 1){
+                            val intent = Intent(this,MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }else{
+                            Toast.makeText(this, "votre profil n'est pas complet", Toast.LENGTH_SHORT).show()
+                        }
                     }
-                  chek_users()
+
                 },2000)
 
         },1000)
