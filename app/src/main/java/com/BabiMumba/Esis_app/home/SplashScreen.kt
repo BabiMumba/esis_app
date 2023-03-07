@@ -29,6 +29,8 @@ class SplashScreen : AppCompatActivity() {
             {
                 val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
                 val name = sharedPreferences.getInt("count",0)
+                val profil_com = sharedPreferences.getInt("profil_completed",0)
+
                 lnb = name+1
                 val editor = sharedPreferences.edit()
                 editor.apply() {
@@ -36,6 +38,11 @@ class SplashScreen : AppCompatActivity() {
                 }.apply()
                 slogan.visibility = View.VISIBLE
                 Handler().postDelayed({
+                    if (profil_com == 1){
+                        Toast.makeText(this, "votre profil est complet", Toast.LENGTH_SHORT).show()
+                    }else{
+                        Toast.makeText(this, "votre profil n'est pasg complet", Toast.LENGTH_SHORT).show()
+                    }
                   chek_users()
                 },2000)
 
