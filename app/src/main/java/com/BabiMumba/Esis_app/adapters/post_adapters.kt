@@ -15,6 +15,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.home.InfosActivity
 import com.BabiMumba.Esis_app.home.PosteDetaille
@@ -101,16 +102,16 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
 
     override fun onBindViewHolder(holder: viewholder, position: Int, model: post_model) {
 
-        val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val admin = sharedPreferences.getString("administrateur",null)
 
 
         holder.admin_i.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
 
         collection_name = if (admin == "oui"){
-            "Professeur"
+            Constant.Admin
         }else{
-            "Utilisateurs"
+            Constant.Etudiant
         }
 
         read_name(collection_name)

@@ -23,6 +23,7 @@ import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.net.MalformedURLException
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.DetailleActivity
 import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
 import com.karumi.dexter.Dexter
@@ -45,7 +46,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
 
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
         load_data(holder.image_user.context)
-        val sharedPreferences = holder.admin_i.context.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
         holder.description.text = syllabusModel.description
         holder.nom_user.text = syllabusModel.nom_user
