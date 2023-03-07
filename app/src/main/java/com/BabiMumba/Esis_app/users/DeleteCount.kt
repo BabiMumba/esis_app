@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.model.model_logout
 import com.BabiMumba.Esis_app.home.SplashScreen
 import com.firebase.client.Firebase
@@ -30,7 +31,7 @@ class DeleteCount : AppCompatActivity() {
     }
     fun clik_method(){
         btn_verif.setOnClickListener {
-            val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+            val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
             val password = sharedPreferences.getString("mot de passe",null)
             if (txt_passwor.text.toString() != password){
                 Toast.makeText(this, "mot de passe incorrecte", Toast.LENGTH_SHORT).show()
@@ -51,7 +52,7 @@ class DeleteCount : AppCompatActivity() {
     private fun save_person() {
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val promo = sharedPreferences.getString("promotion",null)
-        val pstom = sharedPreferences.getString("post-nom",null)
+        val pstom = sharedPreferences.getString("post_nom",null)
         val prenom = sharedPreferences.getString("prenom",null)
         val profil_users = sharedPreferences.getString("lien profil",null)
         loading(true)

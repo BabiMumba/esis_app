@@ -12,6 +12,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.database.FirebaseDatabase
@@ -37,7 +38,7 @@ class DetailleNews : AppCompatActivity() {
         val promot = intent.getStringExtra("promot")
         val addrese_mail = intent.getStringExtra("mail")
 
-        val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val admin_state = sharedPreferences.getString("mail",null)
         val admin_prof = sharedPreferences.getString("administrateur",null)
 

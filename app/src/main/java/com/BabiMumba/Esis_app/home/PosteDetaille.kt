@@ -198,7 +198,7 @@ class PosteDetaille : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection("Utilisateurs").document(mail)
+        val docRef = db.collection(Constant.Etudiant).document(mail)
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){

@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -40,13 +41,14 @@ class UpdateProfilActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         //initialisatin de la collection
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
-        if (adm == "oui"){
-            collection_name = "Professeur"
+        collection_name = if (adm == "oui"){
+            Constant.Admin
         }else{
-            collection_name = "Utilisateurs"
+            Constant.Etudiant
         }
+
         readData()
         setListener()
     }
@@ -133,7 +135,7 @@ class UpdateProfilActivity : AppCompatActivity() {
             .addOnSuccessListener { document ->
                 if (document != null){
                     val name = document.data?.getValue("nom").toString()
-                    val postname = document.data?.getValue("post-nom").toString()
+                    val postname = document.data?.getValue("post_nom").toString()
                     val num = document.data?.getValue("Numero de telephone").toString()
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
@@ -167,18 +169,18 @@ class UpdateProfilActivity : AppCompatActivity() {
             .start(101)
     }
     private fun SavePrefData() {
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply() {
             putString("nom", ui_name.text.toString())
-            putString("post-nom", ui_post_name.text.toString())
+            putString("post_nom", ui_post_name.text.toString())
             putString("prenom", prenom_ui.text.toString())
             putString("promotion", promot.text.toString())
         }.apply()
         showtoast("mise ajour reussi")
     }
     private fun update_data(){
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val count_app = sharedPreferences.getInt("count",0)
         loading(true)
         val fireuser= firebaseAuth.currentUser
@@ -186,7 +188,7 @@ class UpdateProfilActivity : AppCompatActivity() {
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["nom"] = ui_name.text.toString()
-        infor_user["post-nom"] = ui_post_name.text.toString()
+        infor_user["post_nom"] = ui_post_name.text.toString()
         infor_user["prenom"] = prenom_ui.text.toString()
         infor_user["promotion"] = promot.text.toString()
         infor_user["ouverture_application"] = count_app

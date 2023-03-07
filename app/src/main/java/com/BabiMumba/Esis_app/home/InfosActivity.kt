@@ -138,7 +138,7 @@ class InfosActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     val imgetxt = it.data?.getValue("profil")
                     val mail = it.data?.getValue("mail")
                     val promotion = it.data?.getValue("promotion")

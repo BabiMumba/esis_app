@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_profil_user.*
@@ -30,7 +31,7 @@ class ProfilUser : AppCompatActivity() {
     }
 
     private fun readData(){
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
             val name = sharedPreferences.getString("nom",null)
             val postname = sharedPreferences.getString("post-nom",null)
             val num = sharedPreferences.getString("numero de telephone",null)
