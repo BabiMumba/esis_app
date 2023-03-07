@@ -184,11 +184,16 @@ class RegisterActivity : AppCompatActivity() {
             putString("administrateur","non")
             putString("admin_assistant","non")
             putInt("count",1)
+            putInt("post_forum",0)
+            putInt("syllabus_telecharger",0)
+            putInt("commentaireg",0)
+            putInt("profil_completed",1)
         }.apply()
         abonnement("syllabus")
         abonnement("forum")
         acti_sy("forum_state")
         acti_sy("syllabus_state")
+
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }
