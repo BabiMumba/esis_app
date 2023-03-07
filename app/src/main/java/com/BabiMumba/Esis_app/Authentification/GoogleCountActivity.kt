@@ -1,12 +1,14 @@
 package com.BabiMumba.Esis_app.Authentification
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -51,6 +53,12 @@ class GoogleCountActivity : AppCompatActivity() {
             .build()
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.apply() {
+            putInt("profil_completed", 0)
+        }.apply()
+
         mAut = FirebaseAuth.getInstance()
         google_count.setOnClickListener {
             sign_in()
@@ -93,8 +101,6 @@ class GoogleCountActivity : AppCompatActivity() {
 
                         }
                         googleSignInClient.signOut()
-
-                        //firebaseAuthWithGoogle(account.idToken!!)
                     }else{
                         googleSignInClient.signOut()
                         Toast.makeText(this, "vous n'etes pas un etudiant", Toast.LENGTH_SHORT).show()

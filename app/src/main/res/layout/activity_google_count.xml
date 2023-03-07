@@ -14,12 +14,11 @@
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Passer votre meuilleur cursus scolaire"
         android:layout_above="@id/re_lgn"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:textStyle="bold"
+        android:text="Passer votre meilleur cursus academique"
         android:textColor="@color/primary_text"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txt2"
