@@ -80,12 +80,12 @@ class ProfilFragment : Fragment() {
         val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
         val adm2 = sharedPreferences.getString("admin_assistant",null)
-        if (adm == "oui"){
-            collection_name = "Professeur"
-
+        collection_name = if (adm == "oui"){
+            Constant.Admin
         }else{
-            collection_name = "Utilisateurs"
+            Constant.Etudiant
         }
+
         if (adm2 == "oui"){
             view.findViewById<RelativeLayout>(R.id.rr9).visibility = View.VISIBLE
         }
