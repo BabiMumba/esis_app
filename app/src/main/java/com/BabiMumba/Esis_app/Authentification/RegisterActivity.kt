@@ -97,7 +97,7 @@ class RegisterActivity : AppCompatActivity() {
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
-        database.collection("Utilisateurs")
+        database.collection(Constant.Etudiant)
             .document(inputMail)
             .set(infor_user, SetOptions.merge())
             .addOnCompleteListener {
@@ -141,7 +141,7 @@ class RegisterActivity : AppCompatActivity() {
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["nom"] = binding.nom.text.toString()
         infor_user["date arriver"] = date_dins.toString()
-        infor_user["post-nom"] = binding.postNom.text.toString()
+        infor_user["post_nom"] = binding.postNom.text.toString()
         infor_user["prenom"] = binding.prenom.text.toString()
         infor_user["mail"] = inputMail
         infor_user["sexe"] = binding.genreChoice.text.toString()
@@ -154,7 +154,7 @@ class RegisterActivity : AppCompatActivity() {
         infor_user["id_reserve2"] = ""
         infor_user["id_reserve3"] = ""
         infor_user["id_reserve4"] = ""
-        database.collection("Utilisateurs")
+        database.collection(Constant.Etudiant)
             .document(inputMail)
             .set(infor_user)
             .addOnCompleteListener {
@@ -174,7 +174,7 @@ class RegisterActivity : AppCompatActivity() {
         editor.apply(){
             putString("nom",binding.nom.text.toString())
             putString("date arriver",date_dins.toString())
-            putString("post-nom",binding.postNom.text.toString())
+            putString("post_nom",binding.postNom.text.toString())
             putString("prenom",binding.prenom.text.toString())
             putString("mail",inputMail)
             putString("sexe",binding.genreChoice.text.toString())

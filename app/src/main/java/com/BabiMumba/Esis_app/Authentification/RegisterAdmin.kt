@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.databinding.ActivityRegisterAdminBinding
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -97,7 +98,7 @@ class RegisterAdmin : AppCompatActivity() {
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["profil"] = p
-        database.collection("Professeur")
+        database.collection(Constant.Admin)
             .document(inputMail)
             .set(infor_user, SetOptions.merge())
             .addOnCompleteListener {
@@ -154,7 +155,7 @@ class RegisterAdmin : AppCompatActivity() {
         infor_user["id_reserve2"] = ""
         infor_user["id_reserve3"] = ""
         infor_user["id_reserve4"] = ""
-        database.collection("Professeur")
+        database.collection(Constant.Admin)
             .document(inputMail)
             .set(infor_user)
             .addOnCompleteListener {
@@ -169,7 +170,7 @@ class RegisterAdmin : AppCompatActivity() {
     private fun SavePrefData(imagelink:String){
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
-        val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.apply(){
             putString("nom",binding.nom.text.toString())
