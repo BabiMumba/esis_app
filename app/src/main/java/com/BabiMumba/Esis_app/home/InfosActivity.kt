@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.poste_users_adapters
 import com.BabiMumba.Esis_app.chat.ChatActivity
 import com.BabiMumba.Esis_app.model.poste_users_model
@@ -47,9 +48,9 @@ class InfosActivity : AppCompatActivity() {
 
         val adm = intent.getStringExtra("admin")
         collection_name = if (adm == "oui"){
-            "Professeur"
+           Constant.Admin
         }else{
-            "Utilisateurs"
+            Constant.Etudiant
         }
         /// initialisation d'admob
         MobileAds.initialize(this){

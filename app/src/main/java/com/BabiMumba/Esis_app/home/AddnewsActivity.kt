@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
@@ -202,7 +203,7 @@ class AddnewsActivity : AppCompatActivity() {
         }
     }
     private fun send_data(image_news:String){
-        val sharedPreferences = this.getSharedPreferences("info_users", Context.MODE_PRIVATE)
+        val sharedPreferences = this.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom",null)
         val post_nom = sharedPreferences.getString("post-nom",null)
         val mail_add = sharedPreferences.getString("mail",null)

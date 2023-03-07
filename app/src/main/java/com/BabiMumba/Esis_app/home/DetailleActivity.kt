@@ -22,6 +22,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.commentaire_adapters
 import com.BabiMumba.Esis_app.model.commentaire_model
 import com.BabiMumba.Esis_app.model.commentaire_poste_model
@@ -88,9 +89,9 @@ class DetailleActivity : AppCompatActivity() {
 
 
         collection_name = if (adm == "oui"){
-            "Professeur"
+            Constant.Admin
         }else{
-            "Utilisateurs"
+            Constant.Etudiant
         }
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
@@ -400,7 +401,7 @@ class DetailleActivity : AppCompatActivity() {
             .addOnSuccessListener {
                 if (it != null) {
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     val imgetxt = it.data?.getValue("profil")
                     mon_nom = "$pren $postn"
                     photo_profil = imgetxt.toString()
