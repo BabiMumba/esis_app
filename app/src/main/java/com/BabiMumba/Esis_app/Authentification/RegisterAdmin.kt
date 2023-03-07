@@ -142,7 +142,7 @@ class RegisterAdmin : AppCompatActivity() {
         val infor_user:MutableMap<String, Any> = HashMap()
         infor_user["nom"] = binding.nom.text.toString()
         infor_user["date arriver"] = date_dins.toString()
-        infor_user["post-nom"] = binding.postNom.text.toString()
+        infor_user["post_nom"] = binding.postNom.text.toString()
         infor_user["prenom"] = binding.prenom.text.toString()
         infor_user["mail"] = inputMail
         infor_user["sexe"] = binding.genreChoice.text.toString()
@@ -175,7 +175,7 @@ class RegisterAdmin : AppCompatActivity() {
         editor.apply(){
             putString("nom",binding.nom.text.toString())
             putString("date arriver",date_dins.toString())
-            putString("post-nom",binding.postNom.text.toString())
+            putString("post_nom",binding.postNom.text.toString())
             putString("prenom",binding.prenom.text.toString())
             putString("mail",inputMail)
             putString("promotion",binding.promotionChoice.text.toString())
