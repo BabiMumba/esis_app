@@ -157,7 +157,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             intent.putExtra("cle",cle)
             intent.putExtra("texte",model.message)
             intent.putExtra("token",model.token_users)
-
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
 
             val increment: MutableMap<String, Any> = HashMap()
@@ -224,6 +223,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             progressBar!!.visibility = View.GONE
         }
     }
+
     fun read_name(collection_name:String){
         firebaseAuth = FirebaseAuth.getInstance()
         val firebaseUser = firebaseAuth.currentUser
@@ -241,7 +241,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                 }
             }
             .addOnFailureListener {
-                Log.d(ContentValues.TAG,"erreeur $it")
+                Log.d(ContentValues.TAG,"erreur $it")
 
             }
     }

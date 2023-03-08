@@ -228,7 +228,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
         )
         val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
-        Toast.makeText(context, "Telechargement...", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "lancement du telechargement...", Toast.LENGTH_SHORT).show()
     }
     fun increament_dwnlad(context: Context,pm:String,cle:String){
 
@@ -257,6 +257,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             }
     }
 
+
     /*
      fun getlikebuttonstatus(postkey: String?, userid: String?) {
             likereference = FirebaseDatabase.getInstance().getReference("likes")
@@ -277,11 +278,6 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
             })
         }
      */
-
-    /*
-
-     */
-
 
 }
 
