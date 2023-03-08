@@ -35,11 +35,13 @@ class GoogleCountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_google_count)
 
+
         FirebaseApp.initializeApp(this)
         val firebaseAppCheck = FirebaseAppCheck.getInstance()
         firebaseAppCheck.installAppCheckProviderFactory(
             PlayIntegrityAppCheckProviderFactory.getInstance()
         )
+
         progressDialog = ProgressDialog(this,R.style.MyDialogTheme)
         progressDialog.setTitle("Patienter...")
         progressDialog.setMessage("chargement du compte")

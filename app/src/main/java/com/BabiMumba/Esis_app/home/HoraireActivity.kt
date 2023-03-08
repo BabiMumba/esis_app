@@ -48,7 +48,6 @@ class HoraireActivity : AppCompatActivity() {
         }
     }
 
-
     lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -196,7 +195,7 @@ class HoraireActivity : AppCompatActivity() {
         request.setTitle(nom)
         request.setMimeType("application/pdf")
         request.allowScanningByMediaScanner()
-        request.setDescription("Telechargement...")
+        request.setDescription("Sauvegarde de l'horaire...")
         request.setVisibleInDownloadsUi(true)
         request.setAllowedOverMetered(true)
         downloadManager.enqueue(request)
@@ -207,7 +206,7 @@ class HoraireActivity : AppCompatActivity() {
         )
         val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
-        Toast.makeText(this, "lancement du telechargement", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "Sauvegarde encours", Toast.LENGTH_SHORT).show()
     }
     override fun onBackPressed() {
         if (webView.canGoBack()) {
@@ -376,6 +375,7 @@ class HoraireActivity : AppCompatActivity() {
 
     //suprimer un fichier
 
+
     fun deleteFile(file: File) {
         if (file.exists()) {
             if (file.isFile) {
@@ -393,6 +393,5 @@ class HoraireActivity : AppCompatActivity() {
         } else Toast.makeText(applicationContext, "c'est n'esxiste pas", Toast.LENGTH_SHORT)
             .show()
     }
-
 
 }
