@@ -311,7 +311,7 @@ class HoraireActivity : AppCompatActivity() {
             val noms = "Horaire $promot_link"
             val file2:File = File("$theDir$noms.pdf")
             if (file2.exists()){
-                Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
+               // Toast.makeText(this, "c fichier existe", Toast.LENGTH_SHORT).show()
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("Voulez-vous ecraser l'ancien fichier sauvegarder de $promot_link")
                     .setTitle("Sauvegarder l'horaire")
@@ -336,42 +336,13 @@ class HoraireActivity : AppCompatActivity() {
                     }
                     .show()
             }else{
-                Toast.makeText(this, "fichier n'existe pas ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Sauvegarde de l'horaire ", Toast.LENGTH_SHORT).show()
                telecharger(lien,noms)
             }
             //Toast.makeText(applicationContext, "le dossier existe", Toast.LENGTH_SHORT).show()
         }
     }
 
-    @Throws(Exception::class)
-    private fun downloadTask(url: String): Boolean {
-        if (!url.startsWith("http")) {
-            return false
-        }
-        val name = "temp.mcaddon"
-        try {
-            val file = File(Environment.getExternalStorageDirectory(), "Download")
-            if (!file.exists()) {
-                file.mkdirs()
-            }
-            val result = File(file.absolutePath + File.separator + name)
-            val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
-            val request = DownloadManager.Request(Uri.parse(url))
-            request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE or DownloadManager.Request.NETWORK_WIFI)
-            request.setDestinationUri(Uri.fromFile(result))
-            request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-            downloadManager?.enqueue(request)
-            //mToast(mContext, "Starting download...");
-            MediaScannerConnection.scanFile(
-                this@HoraireActivity, arrayOf(result.toString()), null
-            ) { path, uri -> }
-        } catch (e: Exception) {
-            Log.e(">>>>>", e.toString())
-            //mToast(this, e.toString());
-            return false
-        }
-        return true
-    }
     //creer un fichier
 
     fun _createFile(file: File) {
@@ -386,7 +357,7 @@ class HoraireActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
         } else if (file.exists()) {
-            Toast.makeText(applicationContext, "fichier existe deja!", Toast.LENGTH_SHORT).show()
+            //Toast.makeText(applicationContext, "fichier existe deja!", Toast.LENGTH_SHORT).show()
         }
     }
 
