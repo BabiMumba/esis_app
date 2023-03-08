@@ -5,9 +5,7 @@ import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.app.AlertDialog
 import android.app.DownloadManager
-import android.content.Context
-import android.content.DialogInterface
-import android.content.Intent
+import android.content.*
 import android.graphics.Bitmap
 import android.media.MediaScannerConnection
 import android.net.ConnectivityManager
@@ -22,6 +20,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_horaire.*
 import org.jetbrains.anko.downloadManager
 import java.io.File
@@ -40,6 +39,15 @@ class HoraireActivity : AppCompatActivity() {
     private var rotate = false
     var theDir = Environment.getExternalStorageDirectory().toString() + "/Download/"
 
+    private val broadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val action = intent?.action
+            if (DownloadManager.ACTION_DOWNLOAD_COMPLETE == action) {
+                Toast.makeText(this@HoraireActivity, "horaire sauvegarder", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
 
     lateinit var webView: WebView
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +55,8 @@ class HoraireActivity : AppCompatActivity() {
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
-        supportActionBar?.hide()
+
+        registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
         val promot_link = intent.getStringExtra("promot_link").toString()
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
