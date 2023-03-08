@@ -47,7 +47,6 @@ class SplashScreen : AppCompatActivity() {
                             Toast.makeText(this, "votre profil n'est pas complet", Toast.LENGTH_SHORT).show()
                             firebaseAuth.signOut()
                             startActivity(Intent(this,GoogleCountActivity::class.java))
-
                         }
                     }else{
                         startActivity(Intent(this,GoogleCountActivity::class.java))
