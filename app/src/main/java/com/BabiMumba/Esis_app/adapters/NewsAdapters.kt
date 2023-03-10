@@ -25,11 +25,13 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
         var titre: TextView
         var message: TextView
         var date: TextView
+        var promot_: TextView
         init {
             image = item.findViewById(R.id.img_news)
             titre = item.findViewById(R.id.titre_news)
             message = item.findViewById(R.id.message_news)
             date = item.findViewById(R.id.date_news)
+            promot_ = item.findViewById(R.id.promot_adap)
         }
 
     }
@@ -37,12 +39,12 @@ class NewsAdapters(options: FirestoreRecyclerOptions<news_model>):
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewsAdapters.viewholder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.layout_news,parent,false)
         return viewholder(v)
-
     }
     override fun onBindViewHolder(holder: NewsAdapters.viewholder, position: Int, model: news_model) {
         holder.titre.text = model.titre
         holder.message.text = model.message
         holder.date.text = model.date
+        holder.promot_.text = model.promot
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailleNews::class.java)
             intent.putExtra("date" ,model.date)

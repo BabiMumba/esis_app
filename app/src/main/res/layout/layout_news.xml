@@ -1,7 +1,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/_110sdp"
+    android:layout_height="@dimen/_140sdp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="@dimen/_15sdp"
     android:layout_margin="@dimen/_5sdp"
@@ -19,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_3sdp"
             >
+
             <ImageView
                 android:id="@+id/img_news"
                 android:layout_width="match_parent"
@@ -32,6 +33,7 @@
         <TextView
             android:layout_marginStart="@dimen/_4sdp"
             android:id="@+id/titre_news"
+            android:layout_below="@id/promot_adap"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/rela_news"
@@ -54,6 +56,23 @@
             android:maxLines="4"
             android:text="@string/txt_lorem2"
             android:textColor="@color/primary_text" />
+
+        <TextView
+            android:id="@+id/promot_adap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/news_input"
+            android:gravity="center"
+            android:padding="@dimen/_5sdp"
+            android:text="Promotion"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+
+            />
         <RelativeLayout
             android:layout_toEndOf="@id/rela_news"
             android:layout_width="match_parent"

@@ -142,7 +142,7 @@ class ProfilFragment : Fragment() {
             startActivity(Intent(requireActivity(), AboutDeveloppeur::class.java))
         }
         view.findViewById<RelativeLayout>(R.id.rr6).setOnClickListener {
-            startActivity(Intent(requireActivity(), FeedBack::class.java).putExtra("mail",mm))
+            startActivity(Intent(requireActivity(), SaleControleActivity::class.java).putExtra("mail",mm))
 
         }
         view.findViewById<RelativeLayout>(R.id.rr10).setOnClickListener {

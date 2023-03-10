@@ -44,7 +44,6 @@ class PublishPost : AppCompatActivity() {
     var lien_image:String = ""
     var token_id:String = ""
     var filepath: Uri? = null
-
     lateinit var collection_name:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

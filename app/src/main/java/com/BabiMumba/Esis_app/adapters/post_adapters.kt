@@ -234,7 +234,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             .addOnSuccessListener {
                 if (it!=null){
                     val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post-nom").toString()
+                    val postn = it.data?.getValue("post_nom").toString()
                     mon_nom = "$pren $postn"
                 }else{
                     Log.d(ContentValues.TAG,"no such document")
