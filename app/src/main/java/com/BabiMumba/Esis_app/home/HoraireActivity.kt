@@ -23,6 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_horaire.*
 import org.jetbrains.anko.downloadManager
+import org.jetbrains.anko.toast
 import java.io.File
 import java.io.IOException
 import java.net.MalformedURLException
@@ -173,6 +174,9 @@ class HoraireActivity : AppCompatActivity() {
                     progressHori.visibility = View.GONE
                     if (view != null) {
                         title = view.title
+
+                    }else{
+                        Toast.makeText(this@HoraireActivity, "titre $title", Toast.LENGTH_SHORT).show()
                     }
                 }
                 super.onProgressChanged(view, newProgress)

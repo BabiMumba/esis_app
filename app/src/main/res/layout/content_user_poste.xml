@@ -20,11 +20,12 @@
             android:layout_height="@dimen/_1sdp"
             android:background="@color/primary_text"
             />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@id/view"
             android:id="@+id/recycler_users"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/view"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/_5sdp"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
