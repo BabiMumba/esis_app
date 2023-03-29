@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.DetailleActivity
 import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -76,6 +78,24 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(circularProgressDrawable)
                 .into(syllabus_icone)
+
+            //quand on click sur le syllabus
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailleActivity::class.java)
+                intent.putExtra("lien_book",book.lien_du_livre)
+                intent.putExtra("nom_prof",book.nom_prof)
+                intent.putExtra("syllabus",book.nom_syllabus)
+                intent.putExtra("user",book.nom_user)
+                intent.putExtra("id_users",book.id_user)
+                intent.putExtra("date",book.date_heure)
+                intent.putExtra("description",book.description)
+                intent.putExtra("promo",book.nom_promotion)
+                intent.putExtra("image_url",book.lien_pdf)
+                intent.putExtra("couverture",book.pochette)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                itemView.context.startActivity(intent)
+            }
+
         }
 
 

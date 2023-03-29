@@ -60,10 +60,6 @@ class DetailleActivity : AppCompatActivity() {
         private const val TAG = "BANNER_AD_TAG"
     }
     private var adview: AdView? = null
-
-
-    lateinit var adpter: commentaire_adapters
-    private var mLayoutManager: LinearLayoutManager? = null
     lateinit var collection_name:String
 
     private val broadcastReceiver = object : BroadcastReceiver() {
@@ -86,7 +82,6 @@ class DetailleActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
-
 
         collection_name = if (adm == "oui"){
             Constant.Admin
@@ -135,7 +130,6 @@ class DetailleActivity : AppCompatActivity() {
                 Log.d(TAG, "onAdOpened: ")
             }
         }
-
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
         read_name()
@@ -172,34 +166,13 @@ class DetailleActivity : AppCompatActivity() {
         setListener()
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
-
         val admin_state = sharedPreferences.getString("admin_assistant",null)
-
-
         if ((id_uses.toString() == id_last)|| (admin_state == "oui")) {
             dele_pst.visibility = View.VISIBLE
         } else {
             dele_pst.visibility = View.GONE
         }
 
-        mLayoutManager = LinearLayoutManager(this@DetailleActivity)
-        //mLayoutManager!!.reverseLayout = true
-        //mLayoutManager!!.stackFromEnd = true
-        comment_recyclerview.layoutManager = mLayoutManager
-
-
-        if (promo != "L1" && promo != "L2") {
-            promo = "Tous"
-        }
-        val ref = FirebaseDatabase.getInstance().getReference("syllabus")
-        val options = FirebaseRecyclerOptions.Builder<commentaire_model>()
-            .setQuery(
-                ref.child(promo).child(cles.toString()).child("comment_syl"),
-                commentaire_model::class.java
-            )
-            .build()
-        adpter = commentaire_adapters(options)
-        comment_recyclerview.adapter = adpter
 
 
     }
@@ -208,16 +181,6 @@ class DetailleActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val tlc = sharedPreferences.getInt("point",0)
         tlc_s = tlc
-    }
-    override fun onStart() {
-        super.onStart()
-        adpter.startListening()
-        comment_recyclerview!!.recycledViewPool.clear()
-        adpter.notifyDataSetChanged()
-    }
-    override fun onStop() {
-        super.onStop()
-        adpter.stopListening()
     }
 
     fun setListener() {
@@ -229,7 +192,7 @@ class DetailleActivity : AppCompatActivity() {
                 PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem): Boolean {
                     if (item.itemId == R.id.delete_id) {
-                        DeletePoste()
+                      //  DeletePoste()
                     }
                     return true
                 }
@@ -277,24 +240,9 @@ class DetailleActivity : AppCompatActivity() {
             val intent = Intent(this, LectureActivity::class.java)
             intent.putExtra("nom", name_syllabus.text.toString())
             intent.putExtra("lien_book", lien)
-            add_view()
+ //incrementer le nombre de lecture
             startActivity(intent)
         }
-        check_teste()
-    }
-
-    fun check_teste() {
-        InputComment.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
-                send_comment.isVisible = InputComment.text.toString().trim().isNotEmpty()
-                send_comment.setOnClickListener {
-                    check_post()
-                }
-            }
-
-            override fun afterTextChanged(s: Editable) {}
-        })
     }
 
     private fun telecharger() {
@@ -321,43 +269,10 @@ class DetailleActivity : AppCompatActivity() {
         )
         val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
-        add_downloas()
+        //increment le chiffre de telechargement
         Toast.makeText(this, "lancement du telechargement", Toast.LENGTH_SHORT).show()
     }
 
-    fun ajouter_data() {
-        val cal = Calendar.getInstance()
-        val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
-        val strDate = sdf1.format(cal.time)
-        val cle = intent.getStringExtra("cle")
-        var pm = intent.getStringExtra("promo")
-        val msg = InputComment.text.toString()
-        /*
-        val hashMap = HashMap<String, Any>()
-        hashMap["commentaire"] = InputComment.text.toString()
-        hashMap["nom"] = mon_nom
-        hashMap["date"] = strDate.toString()
-        hashMap["profil"] = photo_profil
-
-         */
-
-        val donnee = commentaire_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
-
-        if (pm != "L1" && pm != "L2") {
-            pm = "Tous"
-        }
-        val ref = FirebaseDatabase.getInstance().getReference("syllabus")
-        ref.child(pm.toString()).child(cle.toString()).child("comment_syl").child(ref.push().key!!)
-            .setValue(donnee)
-            .addOnSuccessListener {
-                InputComment.setText("")
-                add_comment()
-                Toast.makeText(this, "commenter", Toast.LENGTH_SHORT).show()
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "erreur: ${it.message}", Toast.LENGTH_SHORT).show()
-            }
-    }
     fun DeletePosteStorage() {
         val image_name_id = intent.getStringExtra("image_url")
         val storageRef = storageReference
@@ -372,25 +287,6 @@ class DetailleActivity : AppCompatActivity() {
                 }
             }
 
-    }
-    fun DeletePoste() {
-        val cle = intent.getStringExtra("cle")
-        var pm = intent.getStringExtra("promo")
-        if (pm != "L1" && pm != "L2") {
-            pm = "Tous"
-        }
-        val ref = FirebaseDatabase.getInstance().getReference("syllabus")
-
-        ref.child(pm.toString()).child(cle.toString()).removeValue()
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    DeletePosteStorage()
-                    Toast.makeText(this, "publication supprimenr", Toast.LENGTH_SHORT).show()
-
-                } else {
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
     }
     fun read_name() {
         val firebaseUser = firebaseAuth.currentUser
@@ -413,100 +309,6 @@ class DetailleActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
             }
-    }
-    fun add_downloas() {
-        var promo = intent.getStringExtra("promo")
-        val cle = intent.getStringExtra("cle")
-
-        if (promo != "L1" && promo != "L2") {
-            promo = "Tous"
-        }
-        val increment: MutableMap<String, Any> = HashMap()
-        increment["download"] = ServerValue.increment(1)
-        FirebaseDatabase.getInstance().reference.child("syllabus")
-            .child(promo.toString()).child((cle.toString()))
-            .updateChildren(increment)
-            .addOnSuccessListener {
-
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(
-                    this@DetailleActivity,
-                    e.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-    }
-    fun add_view() {
-        var promo = intent.getStringExtra("promo")
-        val cle = intent.getStringExtra("cle")
-
-        if (promo != "L1" && promo != "L2") {
-            promo = "Tous"
-        }
-        val increment: MutableMap<String, Any> = HashMap()
-        increment["like"] = ServerValue.increment(1)
-        FirebaseDatabase.getInstance().reference.child("syllabus")
-            .child(promo.toString()).child((cle.toString()))
-            .updateChildren(increment)
-            .addOnCompleteListener { 
-                if (it.isSuccessful){
-                    
-                }else{
-                    Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
-    fun add_comment() {
-        var promo = intent.getStringExtra("promo").toString()
-        val cle = intent.getStringExtra("cle").toString()
-        val increment: MutableMap<String, Any> = HashMap()
-        if (promo != "L1" && promo != "L2") {
-            promo = "Tous"
-        }
-
-        increment["comment"] = ServerValue.increment(1)
-        FirebaseDatabase.getInstance().reference.child("syllabus")
-            .child(promo).child((cle))
-            .updateChildren(increment)
-            .addOnSuccessListener {
-            }
-            .addOnFailureListener { e ->
-                Toast.makeText(
-                    this@DetailleActivity,
-                    e.toString(),
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-    }
-    fun check_post() {
-        val cle = intent.getStringExtra("cle")
-        var pm = intent.getStringExtra("promo")
-        if (pm != "L1" && pm != "L2") {
-            pm = "Tous"
-        }
-        val ref = FirebaseDatabase.getInstance().getReference("syllabus").child(pm.toString())
-            .child(cle.toString())
-        val eventListener: ValueEventListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    ajouter_data()
-                    InputComment.setText("")
-                } else {
-                    Toast.makeText(
-                        this@DetailleActivity,
-                        "commentaire non permis",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("TAG", error.message) //Don't ignore potential errors!
-            }
-        }
-        ref.addListenerForSingleValueEvent(eventListener)
-
     }
 
 }
