@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.adapters.syllabusAdaptersNew
 import com.BabiMumba.Esis_app.adapters.syllabus_adapters
 import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
@@ -97,6 +98,30 @@ class SyllabusViewer : AppCompatActivity() {
             txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE*/
         }
+        val syllabusAdaptersNew = syllabusAdaptersNew()
+        recycler_promo.apply {
+            layoutManager = LinearLayoutManager(this@SyllabusViewer)
+            adapter = syllabusAdaptersNew
+        }
+        val books = mutableListOf<Syllabus_model>()
+        db.collection("syllabus")
+            .get()
+            .addOnSuccessListener { result->
+                for(document in result){
+
+                    val nom_syllabus = document.getString("nom_syllabus")
+                    val nom_user = document.getString("nom_user")
+                    val date_push = document.getString("date_heure")
+                    val promotion = document.getString("nom_promotion")
+
+                }
+                syllabusAdaptersNew.items = books
+            }
+
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur ${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
 
 
 

@@ -28,7 +28,7 @@
             android:layout_marginBottom="@dimen/_10sdp"
             >
             <EditText
-
+                android:id="@+id/edt_recherche"
                 android:drawableEnd="@drawable/ic_baseline_search_24"
                 android:layout_toStartOf="@id/sort"
                 android:layout_width="match_parent"
@@ -56,10 +56,10 @@
             android:layout_height="wrap_content" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_below="@id/l1"
             android:id="@+id/recycler_promo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@id/l1"
             tools:itemCount="4"
             tools:listitem="@layout/item_syllabus" />
 
