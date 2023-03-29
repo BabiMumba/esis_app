@@ -141,15 +141,16 @@ class DetailleActivity : AppCompatActivity() {
         val id_uses = intent.getStringExtra("id_users")
         val date = intent.getStringExtra("date")
         var promo = intent.getStringExtra("promo").toString()
-        val cles = intent.getStringExtra("cle")
         val descrip = intent.getStringExtra("description")
         val cover_ic = intent.getStringExtra("couverture")
+        val lien = intent.getStringExtra("lien_book")
+
 
         nom_du_prof.text = nom_prof
         name_syllabus.text = syllabus
         user_id.text = user
         date_id.text = date
-        description_tv.text = descrip
+        description_tv.text = lien
         my_txtv_pm.text = promo
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
