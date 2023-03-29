@@ -85,7 +85,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/sy_na"
-            android:textColor="@color/primary_text"
             android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
             android:hint="@string/ex_logique"
@@ -93,6 +92,7 @@
             android:importantForAutofill="no"
             android:inputType="text"
             android:padding="@dimen/_10sdp"
+            android:textColor="@color/primary_text"
             android:textColorHint="@color/gris" />
 
         <TextView

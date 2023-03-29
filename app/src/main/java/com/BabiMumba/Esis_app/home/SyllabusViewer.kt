@@ -4,6 +4,8 @@ import android.content.Context
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.TextView
@@ -15,6 +17,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.syllabusAdaptersNew
 import com.BabiMumba.Esis_app.adapters.syllabus_adapters
 import com.BabiMumba.Esis_app.model.Syllabus_model
+import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.firebase.auth.FirebaseAuth
@@ -30,6 +33,7 @@ import kotlinx.android.synthetic.main.activity_syllabus_promo.txvp
 
 class SyllabusViewer : AppCompatActivity() {
 
+    lateinit var linearLayoutManager: LinearLayoutManager
     lateinit var auth: FirebaseAuth
     lateinit var db: FirebaseFirestore
     private var currentuser: FirebaseUser? = null
@@ -100,20 +104,34 @@ class SyllabusViewer : AppCompatActivity() {
         }
         val syllabusAdaptersNew = syllabusAdaptersNew()
         recycler_promo.apply {
-            layoutManager = LinearLayoutManager(this@SyllabusViewer)
+            linearLayoutManager = LinearLayoutManager(this@SyllabusViewer)
+            linearLayoutManager.reverseLayout = true
+            linearLayoutManager.onSaveInstanceState()
+            linearLayoutManager.stackFromEnd = true
+            layoutManager = linearLayoutManager
             adapter = syllabusAdaptersNew
         }
-        val books = mutableListOf<Syllabus_model>()
+        val books = mutableListOf<newsyllabus_model>()
         db.collection("syllabus")
+            //.whereEqualTo("nom_promotion","L3_DESIGN")
             .get()
             .addOnSuccessListener { result->
                 for(document in result){
-
-                    val nom_syllabus = document.getString("nom_syllabus")
-                    val nom_user = document.getString("nom_user")
-                    val date_push = document.getString("date_heure")
-                    val promotion = document.getString("nom_promotion")
-
+                   document?.let {
+                       Toast.makeText(this, "il ya quelque chose", Toast.LENGTH_SHORT).show()
+                   }
+                    val nom_syllabus = document.getString("nom_syllabus").toString()
+                    val nom_user = document.getString("nom_user").toString()
+                    val date_push = document.getString("date_heure").toString()
+                    val promotion = document.getString("nom_promotion").toString()
+                    val commnent = document.get("comment").toString()
+                    val like = document.get("like").toString()
+                    val download = document.get("download").toString()
+                    val lien_image = document.getString("lien_profil").toString()
+                    val pochette = document.getString("pochette").toString()
+                    val nom_prof = document.getString("nom_prof").toString()
+                    val descrip = document.getString("description").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"","","","",promotion,descrip,nom_prof,"",nom_user,date_push,lien_image,"","","","",like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
@@ -121,6 +139,21 @@ class SyllabusViewer : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "erreur ${it.message}", Toast.LENGTH_SHORT).show()
             }
+
+        edt_recherche.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //syllabusAdaptersNew.filter.filter(s.toString())
+                syllabusAdaptersNew.getFilter().filter(s.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
 
 
 
