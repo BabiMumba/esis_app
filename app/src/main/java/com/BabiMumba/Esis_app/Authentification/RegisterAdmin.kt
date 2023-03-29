@@ -184,6 +184,7 @@ class RegisterAdmin : AppCompatActivity() {
             putString("lien profil",imagelink)
             putString("administrateur","oui")
             putString("admin_assistant","oui")
+            putInt("profil_completed",1)
             putInt("count",1)
 
         }.apply()

@@ -129,7 +129,7 @@ class HoraireActivity : AppCompatActivity() {
         }
 
         fabCall.setOnClickListener {
-            webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
+            webView.reload()
         }
 
         if (savedInstanceState != null){
@@ -140,8 +140,6 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.builtInZoomControls = true
             webView.settings.setSupportZoom(true)
             webView.settings.allowContentAccess = true
-            webView.isHorizontalScrollBarEnabled = false
-            webView.settings.setRenderPriority(WebSettings.RenderPriority.HIGH)
             webView.settings.allowFileAccess = true
             webView.settings.useWideViewPort = true
             webView.settings.domStorageEnabled = true
@@ -157,9 +155,10 @@ class HoraireActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
-                //progressBar.dismiss()
+                if (title==getString(R.string.app_name)){
+                    webView.reload()
+                }
             }
-
             override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
                 view.loadUrl(url!!)
                 return true
@@ -174,9 +173,6 @@ class HoraireActivity : AppCompatActivity() {
                     progressHori.visibility = View.GONE
                     if (view != null) {
                         title = view.title
-
-                    }else{
-                        Toast.makeText(this@HoraireActivity, "titre $title", Toast.LENGTH_SHORT).show()
                     }
                 }
                 super.onProgressChanged(view, newProgress)

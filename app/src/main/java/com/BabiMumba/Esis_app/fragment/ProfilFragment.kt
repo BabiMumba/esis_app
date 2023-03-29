@@ -47,7 +47,7 @@ class ProfilFragment : Fragment() {
     }
     private fun readData(view: View){
         val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-        val name = sharedPreferences.getString("post-nom",null)
+        val name = sharedPreferences.getString("post_nom",null)
         val num = sharedPreferences.getString("numero de telephone",null)
         val prenoms = sharedPreferences.getString("prenom",null)
         val mail = sharedPreferences.getString("mail",null)
@@ -270,7 +270,6 @@ class ProfilFragment : Fragment() {
                 Toast.LENGTH_LONG
             ).show()
         }
-
     }
     private fun desabonnement(nom:String){
         //  FirebaseMessaging.getInstance().subscribeToTopic("all");

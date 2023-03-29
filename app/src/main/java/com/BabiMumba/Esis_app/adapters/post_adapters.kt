@@ -150,7 +150,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
         holder.itemView.setOnClickListener{
             val cle = getRef(position).key
             val intent = Intent(holder.itemView.context, PosteDetaille::class.java)
-
             intent.putExtra("post_image",model.image_poste)
             intent.putExtra("image_url",model.image_name_id)
             intent.putExtra("user_id",model.users_id)
@@ -158,7 +157,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             intent.putExtra("texte",model.message)
             intent.putExtra("token",model.token_users)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-
             val increment: MutableMap<String, Any> = HashMap()
             increment["vue"] = ServerValue.increment(1)
             FirebaseDatabase.getInstance().reference.child("forum_discussion")

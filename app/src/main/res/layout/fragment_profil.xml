@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/primary"
     >
+
     <RelativeLayout
         android:padding="@dimen/_15sdp"
         android:layout_width="match_parent"
@@ -33,9 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/p1"
-                android:hint="bm"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_10sdp"
+                android:hint="bm"
                 android:textColor="@color/primary_text"
                 android:textStyle="bold" />
 
@@ -470,7 +471,6 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:visibility="gone"
                     android:id="@+id/rr9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -633,4 +633,4 @@
 
     </RelativeLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>
