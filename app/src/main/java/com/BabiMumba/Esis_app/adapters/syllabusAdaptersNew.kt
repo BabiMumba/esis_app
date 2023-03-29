@@ -92,6 +92,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
                 intent.putExtra("promo",book.nom_promotion)
                 intent.putExtra("image_url",book.lien_pdf)
                 intent.putExtra("couverture",book.pochette)
+                intent.putExtra("id_book",book.id_book)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 itemView.context.startActivity(intent)
             }

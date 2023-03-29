@@ -32,8 +32,13 @@ import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.karumi.dexter.Dexter
@@ -52,10 +57,10 @@ import java.util.*
 class DetailleActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var storageReference: StorageReference
-    var mon_nom: String = ""
-    var photo_profil: String = ""
+    lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
+    private var currentuser: FirebaseUser? = null
     private var tlc_s: Int? = null
-
     private companion object{
         private const val TAG = "BANNER_AD_TAG"
     }
@@ -82,6 +87,10 @@ class DetailleActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences("info_users", Context.MODE_PRIVATE)
         val adm = sharedPreferences.getString("administrateur",null)
+
+        auth = Firebase.auth
+        db = Firebase.firestore
+        currentuser = auth.currentUser
 
         collection_name = if (adm == "oui"){
             Constant.Admin
@@ -132,7 +141,6 @@ class DetailleActivity : AppCompatActivity() {
         }
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
-        read_name()
         load_data()
         registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
         val nom_prof = intent.getStringExtra("nom_prof")
@@ -143,14 +151,13 @@ class DetailleActivity : AppCompatActivity() {
         var promo = intent.getStringExtra("promo").toString()
         val descrip = intent.getStringExtra("description")
         val cover_ic = intent.getStringExtra("couverture")
-        val lien = intent.getStringExtra("lien_book")
 
 
         nom_du_prof.text = nom_prof
         name_syllabus.text = syllabus
         user_id.text = user
         date_id.text = date
-        description_tv.text = lien
+        description_tv.text = descrip
         my_txtv_pm.text = promo
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
@@ -185,7 +192,6 @@ class DetailleActivity : AppCompatActivity() {
     }
 
     fun setListener() {
-        
         dele_pst.setOnClickListener {
             val pop = PopupMenu(this@DetailleActivity, dele_pst)
             pop.menuInflater.inflate(R.menu.popup_menu, pop.menu)
@@ -271,7 +277,21 @@ class DetailleActivity : AppCompatActivity() {
         val dm = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         dm.enqueue(request)
         //increment le chiffre de telechargement
+        incrementDowload()
         Toast.makeText(this, "lancement du telechargement", Toast.LENGTH_SHORT).show()
+    }
+    private fun incrementDowload() {
+        val doc = intent.getStringExtra("id_book").toString()
+        db.collection("syllabus").document(doc)
+            .update("download",FieldValue.increment(1))
+            .addOnSuccessListener {
+                Toast.makeText(this, "telecharger", Toast.LENGTH_SHORT).show()
+                
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
     }
 
     fun DeletePosteStorage() {
@@ -288,28 +308,6 @@ class DetailleActivity : AppCompatActivity() {
                 }
             }
 
-    }
-    fun read_name() {
-        val firebaseUser = firebaseAuth.currentUser
-        val mail = firebaseUser?.email.toString()
-        val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection(collection_name).document(mail)
-        docRef.get()
-            .addOnSuccessListener {
-                if (it != null) {
-                    val pren = it.data?.getValue("prenom").toString()
-                    val postn = it.data?.getValue("post_nom").toString()
-                    val imgetxt = it.data?.getValue("profil")
-                    mon_nom = "$pren $postn"
-                    photo_profil = imgetxt.toString()
-
-                } else {
-                    Log.d(ContentValues.TAG, "no such document")
-                }
-            }
-            .addOnFailureListener {
-                Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
-            }
     }
 
 }

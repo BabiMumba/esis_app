@@ -20,11 +20,13 @@ package com.BabiMumba.Esis_app.model
      var id_reserve2:String,
      var id_reserve3:String,
      var id_reserve4:String,
+     var id_book:String,
      var like:Int =0,
      var download :Int= 0,
      var comment:Int =0,
 ){
      constructor():this(
+         "",
          "",
          "",
          "",
