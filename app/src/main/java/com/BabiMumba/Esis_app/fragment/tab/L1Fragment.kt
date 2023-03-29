@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.syllabus_adapters
 import com.BabiMumba.Esis_app.home.PublicationSyllabus
-import com.BabiMumba.Esis_app.model.syllabus_model
+import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.FirebaseDatabase
@@ -52,10 +52,10 @@ class L1Fragment : Fragment() {
         val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child("L1")
 
         recp.layoutManager = linearLayoutManager
-        val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+        val options = FirebaseRecyclerOptions.Builder<Syllabus_model>()
             .setQuery(
                 ref,
-                syllabus_model::class.java
+                Syllabus_model::class.java
             )
             .build()
         myadaptes_syllabus = syllabus_adapters(options)

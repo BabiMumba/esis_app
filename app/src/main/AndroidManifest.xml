@@ -32,6 +32,9 @@
             android:name=".users.ImageView"
             android:exported="false" />
         <activity
+            android:name=".home.Add_book"
+            android:exported="false" />
+        <activity
             android:name=".chat.ChatActivity"
             android:exported="false" />
         <activity

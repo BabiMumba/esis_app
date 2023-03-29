@@ -23,7 +23,6 @@ class Syllabus_FragmentActivity : AppCompatActivity() {
         tabLayout.addTab(tabLayout.newTab().setText("L1"))
         tabLayout.addTab(tabLayout.newTab().setText("L2(A/B)"))
 
-
         tabLayout.tabGravity = TabLayout.GRAVITY_FILL
         val adapter = tabs_adapters(this,supportFragmentManager,tabLayout.tabCount)
         viewPager.adapter = adapter

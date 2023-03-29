@@ -16,7 +16,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.model.save_profil_syllabus
-import com.BabiMumba.Esis_app.model.syllabus_model
+import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -237,7 +237,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                 .addOnCompleteListener{
                                     if (it.isSuccessful){
                                         ref.downloadUrl.addOnSuccessListener { lien:Uri ->
-                                            val obj = syllabus_model(
+                                            val obj = Syllabus_model(
                                                 name,admin_as,admin,
                                                 lien.toString(),
                                                 mail_users,
@@ -269,7 +269,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                     }
                                 }
                     }else{
-                        val obj = syllabus_model(
+                        val obj = Syllabus_model(
                             name,
                             admin_as,admin,
                             link_cover,

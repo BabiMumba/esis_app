@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.home.Add_book
 import com.BabiMumba.Esis_app.home.AddnewsActivity
 import com.BabiMumba.Esis_app.home.PublicationSyllabus
 import kotlinx.android.synthetic.main.activity_sale_controle.*
@@ -29,7 +30,7 @@ class SaleControleActivity : AppCompatActivity() {
             )
         }
         add_syllabus.setOnClickListener {
-            startActivity(Intent(this,PublicationSyllabus::class.java)
+            startActivity(Intent(this,Add_book::class.java)
             )
         }
         prof_count.setOnClickListener {

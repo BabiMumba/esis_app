@@ -1,6 +1,6 @@
 package com.BabiMumba.Esis_app.model
 
-class syllabus_model{
+class Syllabus_model{
     lateinit var nom_syllabu: String
     lateinit var admin_assistant:String
     lateinit var administrateur:String

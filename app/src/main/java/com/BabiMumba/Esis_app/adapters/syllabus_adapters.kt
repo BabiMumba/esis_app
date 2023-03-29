@@ -13,12 +13,11 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.BabiMumba.Esis_app.model.syllabus_model
+import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import java.net.MalformedURLException
@@ -36,15 +35,15 @@ import java.net.URL
 import java.util.HashMap
 
 
-class syllabus_adapters(options: FirebaseRecyclerOptions<syllabus_model>) :
+class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
 
-    FirebaseRecyclerAdapter<syllabus_model, syllabus_adapters.myviewholder>(options) {
+    FirebaseRecyclerAdapter<Syllabus_model, syllabus_adapters.myviewholder>(options) {
 
     var progressBar: ProgressBar? = null
     private var tlc_s: Int? = null
 
 
-    override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: syllabus_model) {
+    override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: Syllabus_model) {
         load_data(holder.image_user.context)
         val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)

@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Context
@@ -8,6 +9,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.OpenableColumns
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -15,8 +17,6 @@ import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
-import com.BabiMumba.Esis_app.model.save_profil_syllabus
-import com.BabiMumba.Esis_app.model.syllabus_model
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
@@ -126,6 +126,7 @@ class Add_book : AppCompatActivity() {
             alertDialog.setIcon(R.drawable.pdf_file)
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
+                "Toutes les promotions",
                 "L1",
                 "L2",
                 "L3_AS",
@@ -169,6 +170,15 @@ class Add_book : AppCompatActivity() {
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(102)
     }
+    @SuppressLint("Range")
+    fun getFileNameFromUri(context: Context, uri: Uri): String? {
+        val fileName: String?
+        val cursor = context.contentResolver.query(uri, null, null, null, null)
+        cursor?.moveToFirst()
+        fileName = cursor?.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME))
+        cursor?.close()
+        return fileName
+    }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 101 && resultCode == RESULT_OK)
@@ -179,6 +189,9 @@ class Add_book : AppCompatActivity() {
                 icone_failed.visibility = View.GONE
                 icone_succes.visibility = View.VISIBLE
                 publish_file.isEnabled = true
+                val filename = getFileNameFromUri(this, filepath)
+                original_title.setText(filename)
+
             }else
             {
                 icone_failed.visibility = View.VISIBLE
@@ -208,20 +221,22 @@ class Add_book : AppCompatActivity() {
         val id_users = firebaseUser?.uid.toString()
         val mail_users = firebaseUser?.email.toString()
         val sdf = SimpleDateFormat("dd/M/yyyy HH:mm:ss")
+        val tsp = SimpleDateFormat("yyyy-M-dd")
         val currentDate = sdf.format(Date())
+        val timespam = tsp.format(Date())
+        val document = "$timespam-${System.currentTimeMillis()}"
+        val nn = promotion_text.text.toString()
        val pd = ProgressDialog(this)
-        pd.setTitle("Importation du fichier....!!!")
+        pd.setTitle("Importation du fichier $nn")
         pd.show()
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
         val nameProf = nom_du_prof.text.toString()
-        val nn = promotion_text.text.toString()
-
         val name_save_sta = "livres/$nn/$name.pdf"
         val name_cover = "couverture/$nn/$name.png"
         val link_cover = "https://firebasestorage.googleapis.com/v0/b/e-learning-e8097.appspot.com/o/pdf_file_esis.png?alt=media&token=4b010801-6e61-4420-8359-a4f0e8d12a21"
         val reference = storageReference.child(name_save_sta)
-        val id_poste = databaseReference.push().key!!.toString()
+       // val id_poste = databaseReference.push().key!!.toString()
         reference.putFile(filepath!!)
             .addOnSuccessListener {
                 reference.downloadUrl.addOnSuccessListener { uri: Uri ->
@@ -255,16 +270,14 @@ class Add_book : AppCompatActivity() {
                                                 "like" to 0,
                                                 "comment" to 0,
                                                 "download" to 0,
+                                                "id_book" to document,
                                             )
                                             val db = Firebase.firestore
-                                            db.collection("syllabus").add(book).addOnCompleteListener {
+                                            db.collection("syllabus").document(document).set(book).addOnCompleteListener {
                                                 if (it.isSuccessful){
                                                     // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
                                                     pd.dismiss()
                                                     Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
-                                                    icone_failed.visibility = View.VISIBLE
-                                                    icone_succes.visibility = View.GONE
-                                                    publish_file.isEnabled = false
                                                     sendnotif(promotion_text.text.toString())
                                                     // save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
                                                     nom_du_syllabus.setText("")
@@ -274,7 +287,6 @@ class Add_book : AppCompatActivity() {
                                                     Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
                                                 }
                                             }
-
 
                                         }
                                     }else{
@@ -307,21 +319,19 @@ class Add_book : AppCompatActivity() {
                             "like" to 0,
                             "comment" to 0,
                             "download" to 0,
+                            "id_book" to document,
                         )
                         val db = Firebase.firestore
-                        db.collection("syllabus").add(book).addOnCompleteListener {
+                        db.collection("syllabus").document(document).set(book).addOnCompleteListener {
                             if (it.isSuccessful){
-                                // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
                                 pd.dismiss()
                                 Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
-                                icone_failed.visibility = View.VISIBLE
-                                icone_succes.visibility = View.GONE
-                                publish_file.isEnabled = false
                                 sendnotif(promotion_text.text.toString())
                                 // save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
                                 nom_du_syllabus.setText("")
                                 nom_du_prof.setText("")
                                 description.setText("")
+
                             }else{
                                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
                             }

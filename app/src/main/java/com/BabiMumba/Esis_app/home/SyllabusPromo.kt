@@ -1,7 +1,6 @@
 package com.BabiMumba.Esis_app.home
 
 import android.content.Context
-import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,11 +13,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.adapters.syllabus_adapters
-import com.BabiMumba.Esis_app.model.syllabus_model
+import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.activity_actualite.*
 import kotlinx.android.synthetic.main.activity_syllabus_promo.*
 import kotlinx.android.synthetic.main.activity_syllabus_promo.non_internet
 import kotlinx.android.synthetic.main.activity_syllabus_promo.txvp
@@ -80,8 +78,6 @@ class SyllabusPromo : AppCompatActivity() {
                 Log.d(TAG, "onAdOpened: ")
             }
         }
-
-
         if (isConnectedNetwork(this)){
             //connecter
         }else{
@@ -104,10 +100,10 @@ class SyllabusPromo : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child(pm)
 
         recp.layoutManager = linearLayoutManager
-        val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+        val options = FirebaseRecyclerOptions.Builder<Syllabus_model>()
             .setQuery(
                 ref,
-                syllabus_model::class.java
+                Syllabus_model::class.java
             )
             .build()
         myadaptes_syllabus = syllabus_adapters(options)
@@ -146,10 +142,10 @@ class SyllabusPromo : AppCompatActivity() {
                         if (snapshot.exists()){
                             val t = snapshot.childrenCount
                             recp.layoutManager = linearLayoutManager
-                            val options = FirebaseRecyclerOptions.Builder<syllabus_model>()
+                            val options = FirebaseRecyclerOptions.Builder<Syllabus_model>()
                                 .setQuery(
                                     query,
-                                    syllabus_model::class.java
+                                    Syllabus_model::class.java
                                 )
                                 .build()
                             myadaptes_syllabus = syllabus_adapters(options)
