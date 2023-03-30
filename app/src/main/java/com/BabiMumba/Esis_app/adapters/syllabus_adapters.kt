@@ -100,7 +100,6 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
         holder.image_user.setOnClickListener{
             val intent = Intent(holder.itemView.context, InfosSyllabusActivity::class.java)
             intent.putExtra("mail",syllabusModel.mail_users)
-
             holder.itemView.context.startActivity(intent)
 
         }

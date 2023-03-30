@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.home.DetailleActivity
+import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
 import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -61,7 +62,6 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
             nom_prof.text = book.nom_prof
             like_text.text = book.like.toString()
 
-
             val circularProgressDrawable = CircularProgressDrawable(itemView.context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
@@ -96,6 +96,13 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 itemView.context.startActivity(intent)
             }
+            image_user.setOnClickListener {
+                val intent = Intent(itemView.context, InfosSyllabusActivity::class.java)
+                intent.putExtra("mail",book.mail_users)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                itemView.context.startActivity(intent)
+            }
+
 
         }
 

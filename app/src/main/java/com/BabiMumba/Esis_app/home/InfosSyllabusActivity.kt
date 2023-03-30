@@ -14,43 +14,59 @@ import com.BabiMumba.Esis_app.model.save_profil_syllabus
 import com.bumptech.glide.Glide
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_infos_syllabus.*
 import kotlinx.android.synthetic.main.content_user_syllabus.*
 
 class InfosSyllabusActivity : AppCompatActivity() {
 
-
     var mon_nom:String = ""
     var lien_image:String = ""
-    lateinit var adpter: save_profil_adapters
-    private var mLayoutManager: LinearLayoutManager? = null
-    private lateinit var firebaseAuth: FirebaseAuth
+    lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var auth: FirebaseAuth
+    lateinit var db: FirebaseFirestore
+    private var currentuser: FirebaseUser? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_infos_syllabus)
-
-        firebaseAuth = FirebaseAuth.getInstance()
+        //initialisation
+        auth = Firebase.auth
+        db = Firebase.firestore
+        currentuser = auth.currentUser
 
         val ad_mail = intent.getStringExtra("mail").toString()
         Toast.makeText(this, ad_mail, Toast.LENGTH_SHORT).show()
+       // read_name()
+        val saveProfilAdapters = save_profil_adapters()
+        recycler_syllabus.apply {
+            linearLayoutManager = LinearLayoutManager(this@InfosSyllabusActivity)
+            linearLayoutManager.reverseLayout = true
+            linearLayoutManager.onSaveInstanceState()
+            linearLayoutManager.stackFromEnd = true
+            layoutManager = linearLayoutManager
+            adapter = saveProfilAdapters
+        }
+        val book_save = mutableListOf<save_profil_syllabus>()
+        db.collection("syllabus")
+            .get()
+            .addOnSuccessListener {result ->
+                for (document in result){
+                    val nom_syl = document.getString("nom_syllabus").toString()
+                    val promotion = document.getString("nom_promotion").toString()
+                    book_save.add(save_profil_syllabus("",nom_syl,"",promotion,"","",""))
+                }
+                saveProfilAdapters.items = book_save
 
-        read_name()
-        val mail2 = ad_mail.replaceAfter("@"," ")
-        mLayoutManager = LinearLayoutManager(this@InfosSyllabusActivity)
-
-        recycler_syllabus.layoutManager = mLayoutManager
-        val ref = FirebaseDatabase.getInstance().getReference("syllabus_poste_save")
-        val options = FirebaseRecyclerOptions.Builder<save_profil_syllabus>()
-            .setQuery(
-                ref.child(mail2),
-                save_profil_syllabus::class.java
-            )
-            .build()
-        adpter = save_profil_adapters(options)
-        recycler_syllabus.adapter = adpter
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
+            }
 
 
     }
@@ -58,7 +74,6 @@ class InfosSyllabusActivity : AppCompatActivity() {
     fun read_name(){
         val ad_mail = intent.getStringExtra("mail").toString()
         val db = FirebaseFirestore.getInstance()
-
         val docRef = db.collection(Constant.Etudiant).document(ad_mail)
         docRef.get()
             .addOnSuccessListener {
@@ -86,16 +101,5 @@ class InfosSyllabusActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "erreur ${it}", Toast.LENGTH_SHORT).show()
             }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        adpter.startListening()
-        recycler_syllabus.recycledViewPool.clear()
-        adpter.notifyDataSetChanged()
-    }
-    override fun onStop() {
-        super.onStop()
-        adpter.stopListening()
     }
 }

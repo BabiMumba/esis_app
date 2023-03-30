@@ -13,56 +13,74 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.model.save_profil_syllabus
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import java.net.MalformedURLException
 import java.net.URL
 
-class save_profil_adapters (options:FirebaseRecyclerOptions<save_profil_syllabus>):FirebaseRecyclerAdapter<save_profil_syllabus, save_profil_adapters.viewholder>(options){
+class save_profil_adapters :RecyclerView.Adapter<save_profil_adapters.ViewHolder>(){
 
 
-    var progressBar: ProgressBar? = null
+    var items:MutableList<save_profil_syllabus> = mutableListOf()
+        set(value){
+            field = value
+            search_book = value
+            notifyDataSetChanged()
+        }
 
-    inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.item_syllabus,parent,false)
+        return ViewHolder(itemview)
+    }
 
-        var download:ImageView
-        var name:TextView
-        var pm:TextView
-        init {
-            download = itemview.findViewById(R.id.dowload_btn)
-            name = itemview.findViewById(R.id.n_syllabus)
-            pm = itemview.findViewById(R.id.promot)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val book = search_book[position]
+        holder.bind(book)
+    }
+
+    override fun getItemCount() = search_book.size
+    inner class ViewHolder(itemview: View):RecyclerView.ViewHolder(itemview){
+        var download:ImageView = itemView.findViewById(R.id.dowload_btn)
+        var name:TextView = itemview.findViewById(R.id.n_syllabus)
+        var pm:TextView = itemview.findViewById(R.id.promot)
+        fun bind(book: save_profil_syllabus){
+            name.text = book.nom_livre
+            pm.text = book.promotion_
 
         }
 
+
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewholder {
-        val v =LayoutInflater.from(parent.context).inflate(R.layout.syllabus_card_user,parent,false)
-        return viewholder(v)
-    }
 
-    override fun onBindViewHolder(holder: viewholder, position: Int, model: save_profil_syllabus) {
-        holder.name.text = model.nom_livre
-        holder.pm.text = model.promotion_
-        holder.download.setOnClickListener {
-            try {
-                telecharger(holder.download.context,model.nom_livre,model.lien_livre)
-            }catch (e:Exception){
-                Toast.makeText(holder.download.context, "erreur: $e", Toast.LENGTH_SHORT).show()
+    private var search_book:MutableList<save_profil_syllabus> = mutableListOf()
+
+    fun getFilter(): Filter {
+        return object : Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()){
+                    search_book = items
+                }else{
+                    val resultlist = items.filter {
+                        it.nom_livre.lowercase().contains( charSearch.lowercase())
+                    }
+                    search_book = resultlist as MutableList<save_profil_syllabus>
+                }
+                val filterResults = FilterResults()
+                filterResults.values = search_book
+                return filterResults
+            }
+
+            override fun publishResults(p0: CharSequence?, resulta: FilterResults?) {
+                search_book = resulta?.values as MutableList<save_profil_syllabus>
+                notifyDataSetChanged()
             }
 
         }
+    }
 
-    }
-    override fun onDataChanged() {
-        super.onDataChanged()
-        if (progressBar != null) {
-            progressBar!!.visibility = View.GONE
-        }
-    }
+
+
     fun telecharger(context: Context,nom:String,lien:String) {
-
         var url1: URL? = null
         try {
             url1 = URL(lien)

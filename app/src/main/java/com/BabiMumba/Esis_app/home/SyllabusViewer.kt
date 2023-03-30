@@ -136,7 +136,8 @@ class SyllabusViewer : AppCompatActivity() {
                     val id_book = document.getString("id_book").toString()
                     val id_user = document.getString("id_user").toString()
                     val id_storage = document.getString("lien_pdf").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val mail_user = document.getString("mail_users").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,mail_user,id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
