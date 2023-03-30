@@ -116,9 +116,10 @@ class SyllabusViewer : AppCompatActivity() {
             //.whereEqualTo("nom_promotion","L3_DESIGN")
             .get()
             .addOnSuccessListener { result->
+               val nb=  result.count()
                 for(document in result){
                    document?.let {
-                       Toast.makeText(this, "il ya quelque chose", Toast.LENGTH_SHORT).show()
+                       edt_recherche.setHint("Rechercher syllabus($nb)")
                    }
                     val nom_syllabus = document.getString("nom_syllabus").toString()
                     val nom_user = document.getString("nom_user").toString()
@@ -133,7 +134,8 @@ class SyllabusViewer : AppCompatActivity() {
                     val descrip = document.getString("description").toString()
                     val lien_livre = document.getString("lien_du_livre").toString()
                     val id_book = document.getString("id_book").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"","","","",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val id_user = document.getString("id_user").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,"","",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
@@ -158,10 +160,51 @@ class SyllabusViewer : AppCompatActivity() {
         })
 
 
+    }
 
+    override fun onResume() {
+        val syllabusAdaptersNew = syllabusAdaptersNew()
+        recycler_promo.apply {
+            linearLayoutManager = LinearLayoutManager(this@SyllabusViewer)
+            linearLayoutManager.reverseLayout = true
+            linearLayoutManager.onSaveInstanceState()
+            linearLayoutManager.stackFromEnd = true
+            layoutManager = linearLayoutManager
+            adapter = syllabusAdaptersNew
+        }
+        val books = mutableListOf<newsyllabus_model>()
+        db.collection("syllabus")
+            //.whereEqualTo("nom_promotion","L3_DESIGN")
+            .get()
+            .addOnSuccessListener { result->
+                val nb=  result.count()
+                for(document in result){
+                    document?.let {
+                        edt_recherche.setHint("Rechercher syllabus($nb)")
+                    }
+                    val nom_syllabus = document.getString("nom_syllabus").toString()
+                    val nom_user = document.getString("nom_user").toString()
+                    val date_push = document.getString("date_heure").toString()
+                    val promotion = document.getString("nom_promotion").toString()
+                    val commnent = document.get("comment").toString()
+                    val like = document.get("like").toString()
+                    val download = document.get("download").toString()
+                    val lien_image = document.getString("lien_profil").toString()
+                    val pochette = document.getString("pochette").toString()
+                    val nom_prof = document.getString("nom_prof").toString()
+                    val descrip = document.getString("description").toString()
+                    val lien_livre = document.getString("lien_du_livre").toString()
+                    val id_book = document.getString("id_book").toString()
+                    val id_user = document.getString("id_user").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,"","",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                }
+                syllabusAdaptersNew.items = books
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur ${it.message}", Toast.LENGTH_SHORT).show()
+            }
 
-
-
+        super.onResume()
     }
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

@@ -30,7 +30,6 @@ class SplashScreen : AppCompatActivity() {
                 val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
                 val name = sharedPreferences.getInt("count",0)
                 val profil_com = sharedPreferences.getInt("profil_completed",0)
-
                 lnb = name+1
                 val editor = sharedPreferences.edit()
                 editor.apply() {
@@ -52,7 +51,7 @@ class SplashScreen : AppCompatActivity() {
                         startActivity(Intent(this,GoogleCountActivity::class.java))
                     }
 
-                },2000)
+                },1000)
 
         },1000)
 

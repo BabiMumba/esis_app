@@ -12,7 +12,9 @@
         android:padding="@dimen/_5sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -90,79 +92,6 @@
                 android:textColor="@color/black"
                 android:textStyle="normal" />
         </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/layou_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            >
-            <FrameLayout
-                android:layout_alignParentEnd="true"
-                android:id="@+id/layout_send"
-                android:layout_width="@dimen/_40sdp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:background="@drawable/backgound_chat_input"
-                >
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:id="@+id/send_comment"
-                    android:layout_marginStart="@dimen/_4sdp"
-                    android:padding="@dimen/_8sdp"
-                    android:src="@drawable/ic_send"
-                    android:tint="@color/primary"
-                    />
-            </FrameLayout>
-
-            <EditText
-                android:id="@+id/InputComment"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_alignParentStart="true"
-                android:layout_marginTop="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_2sdp"
-                android:layout_toStartOf="@id/layout_send"
-                android:background="@drawable/backgound_chat_input"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:hint="Votre commentaire"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:inputType="text|textMultiLine|textCapSentences"
-                android:paddingStart="@dimen/_16sdp"
-                android:paddingEnd="@dimen/_16sdp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/secondary_text" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/cle"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Commentaire: "
-            android:textColor="@color/primary_text"
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/_5sdp"
-            android:id="@+id/comment_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:stackFromEnd="true"
-            android:background="@color/white"
-            android:clipToPadding="false"
-            tools:listitem="@layout/item_comment2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:orientation="vertical"
-            android:paddingBottom="@dimen/_5sdp"
-            tools:itemCount="20"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toTopOf="@+id/InputComment"
-            app:layout_constraintTop_toBottomOf="@+id/layout_downl" />
 
     </LinearLayout>
 

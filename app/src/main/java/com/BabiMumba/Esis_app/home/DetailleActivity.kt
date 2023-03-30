@@ -148,7 +148,7 @@ class DetailleActivity : AppCompatActivity() {
         val user = intent.getStringExtra("user")
         val id_uses = intent.getStringExtra("id_users")
         val date = intent.getStringExtra("date")
-        var promo = intent.getStringExtra("promo").toString()
+        val promo = intent.getStringExtra("promo").toString()
         val descrip = intent.getStringExtra("description")
         val cover_ic = intent.getStringExtra("couverture")
 
@@ -181,8 +181,6 @@ class DetailleActivity : AppCompatActivity() {
             dele_pst.visibility = View.GONE
         }
 
-
-
     }
 
     fun load_data(){
@@ -199,7 +197,7 @@ class DetailleActivity : AppCompatActivity() {
                 PopupMenu.OnMenuItemClickListener {
                 override fun onMenuItemClick(item: MenuItem): Boolean {
                     if (item.itemId == R.id.delete_id) {
-                      //  DeletePoste()
+                       DeleteBook()
                     }
                     return true
                 }
@@ -254,6 +252,18 @@ class DetailleActivity : AppCompatActivity() {
         }
     }
 
+    private fun DeleteBook() {
+        val doc = intent.getStringExtra("id_book").toString()
+        db.collection("syllabus").document(doc)
+            .delete()
+            .addOnSuccessListener {
+                DeleteBookStorage()
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     private fun telecharger() {
         val intent = intent
         val lien = intent.getStringExtra("lien_book")
@@ -301,7 +311,6 @@ class DetailleActivity : AppCompatActivity() {
             .update("like",FieldValue.increment(1))
             .addOnSuccessListener {
                 Toast.makeText(this, "lire add", Toast.LENGTH_SHORT).show()
-
             }
             .addOnFailureListener {
                 Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
@@ -309,7 +318,22 @@ class DetailleActivity : AppCompatActivity() {
 
     }
 
-    fun DeletePosteStorage() {
+    fun DeleteBookStorage() {
+        val image_name_id = intent.getStringExtra("image_url")
+        val storageRef = storageReference
+        val desertRef = storageRef.child(image_name_id.toString())
+        desertRef.delete()
+            .addOnCompleteListener {
+                if (it.isSuccessful) {
+                    Toast.makeText(this, "fichier supprime", Toast.LENGTH_SHORT).show()
+                    onBackPressed()
+                } else {
+                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
+                }
+            }
+
+    }
+    fun DeleteimagCoverStorage() {
         val image_name_id = intent.getStringExtra("image_url")
         val storageRef = storageReference
         val desertRef = storageRef.child(image_name_id.toString())
