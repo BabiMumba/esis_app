@@ -319,9 +319,9 @@ class DetailleActivity : AppCompatActivity() {
     }
 
     fun DeleteBookStorage() {
-        val image_name_id = intent.getStringExtra("image_url")
+        val image_name_id = intent.getStringExtra("image_url").toString()
         val storageRef = storageReference
-        val desertRef = storageRef.child(image_name_id.toString())
+        val desertRef = storageRef.child(image_name_id)
         desertRef.delete()
             .addOnCompleteListener {
                 if (it.isSuccessful) {

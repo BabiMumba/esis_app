@@ -135,7 +135,8 @@ class SyllabusViewer : AppCompatActivity() {
                     val lien_livre = document.getString("lien_du_livre").toString()
                     val id_book = document.getString("id_book").toString()
                     val id_user = document.getString("id_user").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,"","",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val id_storage = document.getString("lien_pdf").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
@@ -161,6 +162,7 @@ class SyllabusViewer : AppCompatActivity() {
 
 
     }
+
 
     override fun onResume() {
         val syllabusAdaptersNew = syllabusAdaptersNew()
@@ -196,13 +198,30 @@ class SyllabusViewer : AppCompatActivity() {
                     val lien_livre = document.getString("lien_du_livre").toString()
                     val id_book = document.getString("id_book").toString()
                     val id_user = document.getString("id_user").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,"","",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val id_storage = document.getString("lien_pdf").toString()
+                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
             .addOnFailureListener {
                 Toast.makeText(this, "erreur ${it.message}", Toast.LENGTH_SHORT).show()
             }
+
+        edt_recherche.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+            override fun onTextChanged(s: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                //syllabusAdaptersNew.filter.filter(s.toString())
+                syllabusAdaptersNew.getFilter().filter(s.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+
 
         super.onResume()
     }

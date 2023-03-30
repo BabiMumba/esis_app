@@ -232,8 +232,9 @@ class Add_book : AppCompatActivity() {
         val name = nom_du_syllabus.text.toString()
         val descp = description.text.toString()
         val nameProf = nom_du_prof.text.toString()
-        val name_save_sta = "livres/$nn/$name.pdf"
-        val name_cover = "couverture/$nn/$name.png"
+        val sys = System.currentTimeMillis()
+        val name_save_sta = "livres/$nn/${name}$sys.pdf"
+        val name_cover = "couverture/$nn/$name$sys.png"
         val link_cover = "https://firebasestorage.googleapis.com/v0/b/e-learning-e8097.appspot.com/o/pdf_file_esis.png?alt=media&token=4b010801-6e61-4420-8359-a4f0e8d12a21"
         val reference = storageReference.child(name_save_sta)
        // val id_poste = databaseReference.push().key!!.toString()
@@ -279,10 +280,6 @@ class Add_book : AppCompatActivity() {
                                                     pd.dismiss()
                                                     Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                                     sendnotif(promotion_text.text.toString())
-                                                    // save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
-                                                    nom_du_syllabus.setText("")
-                                                    nom_du_prof.setText("")
-                                                    description.setText("")
                                                 }else{
                                                     Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
                                                 }
@@ -328,10 +325,6 @@ class Add_book : AppCompatActivity() {
                                 Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                 sendnotif(promotion_text.text.toString())
                                 // save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
-                                nom_du_syllabus.setText("")
-                                nom_du_prof.setText("")
-                                description.setText("")
-
                             }else{
                                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
                             }
