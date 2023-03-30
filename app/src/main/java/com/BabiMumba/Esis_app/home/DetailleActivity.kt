@@ -224,7 +224,8 @@ class DetailleActivity : AppCompatActivity() {
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                        telecharger()
+                       // telecharger()
+                        incrementDowload()
                     }
 
                     override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
@@ -243,6 +244,7 @@ class DetailleActivity : AppCompatActivity() {
                 }).check()
         }
         btn_read.setOnClickListener {
+            incrementRead()
             val lien = intent.getStringExtra("lien_book")
             val intent = Intent(this, LectureActivity::class.java)
             intent.putExtra("nom", name_syllabus.text.toString())
@@ -285,8 +287,21 @@ class DetailleActivity : AppCompatActivity() {
         db.collection("syllabus").document(doc)
             .update("download",FieldValue.increment(1))
             .addOnSuccessListener {
-                Toast.makeText(this, "telecharger", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "incrementer", Toast.LENGTH_SHORT).show()
                 
+            }
+            .addOnFailureListener {
+                Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
+            }
+
+    }
+    private fun incrementRead() {
+        val doc = intent.getStringExtra("id_book").toString()
+        db.collection("syllabus").document(doc)
+            .update("like",FieldValue.increment(1))
+            .addOnSuccessListener {
+                Toast.makeText(this, "lire add", Toast.LENGTH_SHORT).show()
+
             }
             .addOnFailureListener {
                 Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
