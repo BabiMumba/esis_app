@@ -27,6 +27,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemview = LayoutInflater.from(parent.context).inflate(R.layout.item_syllabus,parent,false)
         return ViewHolder(itemview)
+
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -111,6 +112,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
 
 
     private var search_book:MutableList<newsyllabus_model> = mutableListOf()
+
 
     fun getFilter(): Filter {
         return object : Filter(){

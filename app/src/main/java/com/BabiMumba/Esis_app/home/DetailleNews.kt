@@ -31,12 +31,14 @@ class DetailleNews : AppCompatActivity() {
         setContentView(R.layout.activity_detaille_news)
 
         val titre = intent.getStringExtra("titre")
+
         val message = intent.getStringExtra("message")
         val date = intent.getStringExtra("date")
         val image = intent.getStringExtra("image")
         val auteur = intent.getStringExtra("auteur")
         val promot = intent.getStringExtra("promot")
         val addrese_mail = intent.getStringExtra("mail")
+
 
         val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
         val admin_state = sharedPreferences.getString("mail",null)
@@ -55,6 +57,7 @@ class DetailleNews : AppCompatActivity() {
         val circularProgressDrawable = CircularProgressDrawable(this)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
+
         circularProgressDrawable.start()
         Glide
             .with(this)

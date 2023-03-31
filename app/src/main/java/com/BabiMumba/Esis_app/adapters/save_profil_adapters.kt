@@ -18,7 +18,6 @@ import java.net.URL
 
 class save_profil_adapters :RecyclerView.Adapter<save_profil_adapters.ViewHolder>(){
 
-
     var items:MutableList<save_profil_syllabus> = mutableListOf()
         set(value){
             field = value
@@ -27,7 +26,7 @@ class save_profil_adapters :RecyclerView.Adapter<save_profil_adapters.ViewHolder
         }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.item_syllabus,parent,false)
+        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.syllabus_card_user,parent,false)
         return ViewHolder(itemview)
     }
 
@@ -38,7 +37,7 @@ class save_profil_adapters :RecyclerView.Adapter<save_profil_adapters.ViewHolder
 
     override fun getItemCount() = search_book.size
     inner class ViewHolder(itemview: View):RecyclerView.ViewHolder(itemview){
-        var download:ImageView = itemView.findViewById(R.id.dowload_btn)
+      //  var download:ImageView = itemView.findViewById(R.id.dowload_btn)
         var name:TextView = itemview.findViewById(R.id.n_syllabus)
         var pm:TextView = itemview.findViewById(R.id.promot)
         fun bind(book: save_profil_syllabus){

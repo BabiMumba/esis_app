@@ -81,7 +81,6 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                         nb_like.text = "$likecount"
                         like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
 
-
                     } else {
                         val likecount = snapshot.child(postkey).childrenCount.toInt()
                         like_text.text = "$likecount"
