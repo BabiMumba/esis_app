@@ -96,7 +96,6 @@ class SyllabusPromo : AppCompatActivity() {
             l1.visibility = View.GONE
         }
         val sort = findViewById<TextView>(R.id.sort_data)
-
         val ref = FirebaseDatabase.getInstance().reference.child("syllabus").child(pm)
 
         recp.layoutManager = linearLayoutManager

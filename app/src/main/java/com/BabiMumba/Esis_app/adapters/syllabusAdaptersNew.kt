@@ -36,6 +36,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
     }
 
     override fun getItemCount() = search_book.size
+
     inner class ViewHolder(itemview: View):RecyclerView.ViewHolder(itemview){
         val syllabus_icone:ImageView = itemView.findViewById(R.id.syllabus_icone)
         val layout_dowload:LinearLayout = itemView.findViewById(R.id.layout_tlc)
@@ -81,7 +82,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
                 .into(syllabus_icone)
 
             //quand on click sur le syllabus
-            itemView.setOnClickListener {
+           /* itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailleActivity::class.java)
                 intent.putExtra("lien_book",book.lien_du_livre)
                 intent.putExtra("nom_prof",book.nom_prof)
@@ -96,7 +97,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
                 intent.putExtra("id_book",book.id_book)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 itemView.context.startActivity(intent)
-            }
+            }*/
             image_user.setOnClickListener {
                 val intent = Intent(itemView.context, InfosSyllabusActivity::class.java)
                 intent.putExtra("mail",book.mail_users)

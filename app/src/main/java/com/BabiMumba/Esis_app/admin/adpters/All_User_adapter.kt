@@ -24,8 +24,15 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
-class useradptr (options: FirestoreRecyclerOptions<modeluser>):
-    FirestoreRecyclerAdapter<modeluser,useradptr.viewholder>(options) {
+class All_User_adapter (options: FirestoreRecyclerOptions<modeluser>):
+    FirestoreRecyclerAdapter<modeluser,All_User_adapter.viewholder>(options) {
+
+    var items:MutableList<modeluser> = mutableListOf()
+        set(value){
+            field = value
+            search_book = value
+            notifyDataSetChanged()
+        }
 
 
     inner  class  viewholder(item: View):RecyclerView.ViewHolder(item){
@@ -45,13 +52,14 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): useradptr.viewholder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): All_User_adapter.viewholder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.users_rod,parent, false)
         return viewholder(v)
     }
 
 
-    override fun onBindViewHolder(holder: useradptr.viewholder, position: Int, model: modeluser) {
+    override fun onBindViewHolder(holder: All_User_adapter.viewholder, position: Int, model: modeluser) {
+
         val sharedPreferences = holder.image.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         //val mail_cach = sharedPreferences.getString("mail",null)
         val admin = sharedPreferences.getString("administrateur",null)
@@ -187,6 +195,33 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
 
         }
 
+    }
+
+    private var search_book:MutableList<modeluser> = mutableListOf()
+
+    fun getFilter(): Filter {
+        return object : Filter(){
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charSearch = constraint.toString()
+                if (charSearch.isEmpty()){
+                    search_book = items
+                }else{
+                    val resultlist = items.filter {
+                        it.prenom.lowercase().contains( charSearch.lowercase())
+                    }
+                    search_book = resultlist as MutableList<modeluser>
+                }
+                val filterResults = FilterResults()
+                filterResults.values = search_book
+                return filterResults
+            }
+
+            override fun publishResults(p0: CharSequence?, resulta: FilterResults?) {
+                search_book = resulta?.values as MutableList<modeluser>
+                notifyDataSetChanged()
+            }
+
+        }
     }
 
 
