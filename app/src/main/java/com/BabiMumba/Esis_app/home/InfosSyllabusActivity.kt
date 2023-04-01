@@ -41,8 +41,9 @@ class InfosSyllabusActivity : AppCompatActivity() {
         currentuser = auth.currentUser
 
         val ad_mail = intent.getStringExtra("mail").toString()
+
         Toast.makeText(this, ad_mail, Toast.LENGTH_SHORT).show()
-       // read_name()
+        read_name()
         val saveProfilAdapters = save_profil_adapters()
         recycler_syllabus.apply {
             linearLayoutManager = LinearLayoutManager(this@InfosSyllabusActivity)

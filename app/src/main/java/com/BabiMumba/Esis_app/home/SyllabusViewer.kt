@@ -117,6 +117,7 @@ class SyllabusViewer : AppCompatActivity() {
             .get()
             .addOnSuccessListener { result->
                val nb=  result.count()
+
                 for(document in result){
                    document?.let {
                        edt_recherche.setHint("Rechercher syllabus($nb)")
@@ -137,7 +138,10 @@ class SyllabusViewer : AppCompatActivity() {
                     val id_user = document.getString("id_user").toString()
                     val id_storage = document.getString("lien_pdf").toString()
                     val mail_user = document.getString("mail_users").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,mail_user,id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val token_user = document.getString("token_users").toString()
+                    val admin_assistant = document.getString("admin_assistant").toString()
+                    val adminstrateur = document.getString("administrateur").toString()
+                    books.add(newsyllabus_model(nom_syllabus,admin_assistant,adminstrateur,pochette,mail_user,id_user,id_storage,token_user,promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
@@ -200,7 +204,11 @@ class SyllabusViewer : AppCompatActivity() {
                     val id_book = document.getString("id_book").toString()
                     val id_user = document.getString("id_user").toString()
                     val id_storage = document.getString("lien_pdf").toString()
-                    books.add(newsyllabus_model(nom_syllabus,"","",pochette,"",id_user,id_storage,"",promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+                    val mail_user = document.getString("mail_users").toString()
+                    val token_user = document.getString("token_users").toString()
+                    val admin_assistant = document.getString("admin_assistant").toString()
+                    val adminstrateur = document.getString("administrateur").toString()
+                    books.add(newsyllabus_model(nom_syllabus,admin_assistant,adminstrateur,pochette,mail_user,id_user,id_storage,token_user,promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
                 }
                 syllabusAdaptersNew.items = books
             }
