@@ -25,6 +25,8 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.DetailleActivity
 import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -35,16 +37,16 @@ import java.net.URL
 import java.util.HashMap
 
 
-class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
+class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
 
-    FirebaseRecyclerAdapter<Syllabus_model, syllabus_adapters.myviewholder>(options) {
+    FirestoreRecyclerAdapter<Syllabus_model, syllabus_adapters.myviewholder>(options) {
 
     var progressBar: ProgressBar? = null
     private var tlc_s: Int? = null
 
 
     override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: Syllabus_model) {
-        load_data(holder.image_user.context)
+    //    load_data(holder.image_user.context)
         val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
         holder.description.text = syllabusModel.description
@@ -78,7 +80,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
             .into(holder.syllabus_icone)
 
 
-        holder.itemView.setOnClickListener {
+      /*  holder.itemView.setOnClickListener {
            val cle = getRef(position).key
             val intent = Intent(holder.itemView.context, DetailleActivity::class.java)
             intent.putExtra("lien_book",syllabusModel.lien_du_livre)
@@ -143,7 +145,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
             }
 
         }
-
+*/
     }
 
 
@@ -193,13 +195,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
 
     }
 
-    override fun onDataChanged() {
-        super.onDataChanged()
-        if (progressBar != null) {
-            progressBar!!.visibility = View.GONE
-        }
-    }
-    fun load_data(context: Context){
+ /*   fun load_data(context: Context){
         val sharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val tlc = sharedPreferences.getInt("point",0)
         tlc_s = tlc
@@ -228,7 +224,8 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
         dm.enqueue(request)
         Toast.makeText(context, "lancement du telechargement...", Toast.LENGTH_SHORT).show()
     }
-    fun increament_dwnlad(context: Context,pm:String,cle:String){
+
+  *//*  fun increament_dwnlad(context: Context,pm:String,cle:String){
 
         var promo = pm
         if (promo!="L1" && promo!= "L2"){
@@ -254,7 +251,7 @@ class syllabus_adapters(options: FirebaseRecyclerOptions<Syllabus_model>) :
                 ).show()
             }
     }
-
+*/
 
     /*
      fun getlikebuttonstatus(postkey: String?, userid: String?) {

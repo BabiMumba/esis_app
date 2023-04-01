@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
 
         viewF.findViewById<CardView>(R.id.catL1).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
-            intent.putExtra("promotion","L1")
+           // intent.putExtra("promotion","L1")
             startActivity(intent)
         }
         viewF.findViewById<CardView>(R.id.catL2).setOnClickListener {
@@ -126,7 +126,7 @@ class HomeFragment : Fragment() {
         }
         viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
-            intent.putExtra("promotion","Tous")
+           // intent.putExtra("promotion","Tous")
             startActivity(intent)
         }
         val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)

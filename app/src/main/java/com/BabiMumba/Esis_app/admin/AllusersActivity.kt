@@ -31,9 +31,8 @@ class AllusersActivity : AppCompatActivity() {
     private var layoutManager:LinearLayoutManager?= null
     lateinit var firebaseAuth: FirebaseAuth
     lateinit var adaps: useradptr
-
     private companion object{
-        private const val TAG = "REWARDED_INTER_TAG"
+        private const val TAG = "REWARDED_INTER_TAG_"
     }
     private var mRewardedInterstitialAd : RewardedInterstitialAd? = null
 
@@ -49,17 +48,17 @@ class AllusersActivity : AppCompatActivity() {
                 .setTestDeviceIds(listOf("e3ecfe91-a277-4650-92e0-4f0cf2ad9c13","1bda7af6-ef75-48d9-a0d7-2ea9121c42e6"))
                 .build()
         )
-       // loadrewardedInters()
+        // loadrewardedInters()
         tresor.setOnClickListener {
             showRewardedInters()
         }
 
         firebaseAuth = FirebaseAuth.getInstance()
-       layoutManager = LinearLayoutManager(this@AllusersActivity)
+        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager
-
         //Rreference des utilisateur
         val ref = FirebaseFirestore.getInstance().collection(Constant.Etudiant)
+          //  .whereEqualTo("administrateur", "oui")
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
             .setQuery(
                 ref,
@@ -68,7 +67,9 @@ class AllusersActivity : AppCompatActivity() {
             .build()
         adaps = useradptr(options)
 
-        }
+        users_recyclerview.adapter = adaps
+
+    }
 
 
     private fun loadrewardedInters() {
@@ -136,7 +137,7 @@ class AllusersActivity : AppCompatActivity() {
 
                 }
             mRewardedInterstitialAd!!.show(this){
-              //  ajouter()
+                //  ajouter()
                 tresor.visibility = View.GONE
                 Toast.makeText(this, "recompence accorder", Toast.LENGTH_SHORT).show()
                 Log.d(TAG,"onUserEarnedrewarded: ")
@@ -177,4 +178,4 @@ class AllusersActivity : AppCompatActivity() {
         }
     }
 
-    }
+}
