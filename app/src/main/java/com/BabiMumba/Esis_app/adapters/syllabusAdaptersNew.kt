@@ -111,10 +111,7 @@ class syllabusAdaptersNew:RecyclerView.Adapter<syllabusAdaptersNew.ViewHolder>()
 
     }
 
-
     private var search_book:MutableList<newsyllabus_model> = mutableListOf()
-
-
     fun getFilter(): Filter {
         return object : Filter(){
             override fun performFiltering(constraint: CharSequence?): FilterResults {

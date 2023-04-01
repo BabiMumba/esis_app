@@ -57,6 +57,7 @@ class AllusersActivity : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
        layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager
+
         //Rreference des utilisateur
         val ref = FirebaseFirestore.getInstance().collection(Constant.Etudiant)
         val options = FirestoreRecyclerOptions.Builder<modeluser>()
@@ -66,9 +67,6 @@ class AllusersActivity : AppCompatActivity() {
             )
             .build()
         adaps = useradptr(options)
-        users_recyclerview.adapter = adaps
-        //nom a rechercher sur la barre de recherche
-        val nom_search = "promotion"
 
         }
 
