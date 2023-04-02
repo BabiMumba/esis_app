@@ -1,6 +1,7 @@
 package com.BabiMumba.Esis_app.home
 
 import android.content.Context
+import android.content.Intent
 import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.syllabus_adapters
 import com.BabiMumba.Esis_app.model.Syllabus_model
+import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.ads.*
@@ -88,21 +90,40 @@ class SyllabusPromo : AppCompatActivity() {
         }
 
         val recp = findViewById<RecyclerView>(R.id.recycler_promo)
+        l1.setOnClickListener {
+            startActivity(Intent(this,SyllabusViewer::class.java))
+        }
         linearLayoutManager = LinearLayoutManager(this)
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
+
         val pm = intent.getStringExtra("promotion").toString()
 
-        val ref = FirebaseFirestore.getInstance().collection("syllabus")
-        recp.layoutManager = linearLayoutManager
-        val options = FirestoreRecyclerOptions.Builder<Syllabus_model>()
-            .setQuery(
-                ref,
-                Syllabus_model::class.java
-            )
-            .build()
-        myadaptes_syllabus = syllabus_adapters(options)
+        if (pm != ""){
+            val ref = FirebaseFirestore.getInstance().collection("syllabus")
+                .whereEqualTo("nom_promotion",pm)
+            recp.layoutManager = linearLayoutManager
+            val options = FirestoreRecyclerOptions.Builder<newsyllabus_model>()
+                .setQuery(
+                    ref,
+                    newsyllabus_model::class.java
+                )
+                .build()
+            myadaptes_syllabus = syllabus_adapters(options)
+        }else{
+            val ref = FirebaseFirestore.getInstance().collection("syllabus")
+            recp.layoutManager = linearLayoutManager
+            val options = FirestoreRecyclerOptions.Builder<newsyllabus_model>()
+                .setQuery(
+                    ref,
+                    newsyllabus_model::class.java
+                )
+                .build()
+            myadaptes_syllabus = syllabus_adapters(options)
+        }
+
+
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()

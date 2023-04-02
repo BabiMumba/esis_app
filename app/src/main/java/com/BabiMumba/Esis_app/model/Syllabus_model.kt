@@ -1,77 +1,56 @@
 package com.BabiMumba.Esis_app.model
 
-class Syllabus_model{
-    lateinit var nom_syllabu: String
-    lateinit var admin_assistant:String
-    lateinit var administrateur:String
-    lateinit var pochette: String
-    lateinit var mail_users: String
-    lateinit var id_user: String
-    lateinit var lien_pdf: String
-    lateinit var token_users: String
-    lateinit var nom_promotion: String
-    lateinit var description: String
-    lateinit var nom_prof: String
-    lateinit var lien_du_livre:String
-    lateinit var nom_user:String
-    lateinit var date_heure:String
-    lateinit var lien_profil:String
-    var like =0
-    var download= 0
-    var comment =0
-    lateinit var id_reserve1:String
-    lateinit var id_reserve2:String
-    lateinit var id_reserve3:String
-    lateinit var id_reserve4:String
+data class Syllabus_model(
+        var nom_syllabu: String,
+        var admin_assistant:String,
+        var administrateur:String,
+        var pochette: String,
+        var mail_users: String,
+        var id_user: String,
+        var lien_pdf: String,
+        var token_users: String,
+        var nom_promotion: String,
+        var description: String,
+        var nom_prof: String,
+        var lien_du_livre:String,
+        var nom_user:String,
+        var date_heure:String,
+        var lien_profil:String,
+        var id_reserve1:String,
+        var id_reserve2:String,
+        var id_reserve3:String,
+        var id_reserve4:String,
+        var like:Int =0,
+        var download:Int= 0,
+        var comment:Int =0,
 
+){
+    constructor():this(
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        0,
+        0,
+        0,
+    )
 
-    constructor(){}
-    constructor(
-        nom_syllabu: String,
-        admin_assistant: String,
-        administrateur: String,
-        pochette: String,
-        mail_users: String,
-        id_user: String,
-        lien_pdf: String,
-        token_users: String,
-        nom_promotion: String,
-        description: String,
-        nom_prof: String,
-        lien_du_livre: String,
-        nom_user:String,
-        date_heure:String,
-        lien_profil:String,
-        like: Int,
-        download: Int,
-        comment: Int,
-        id_reserve1: String,
-        id_reserve2: String,
-        id_reserve3: String,
-        id_reserve4: String,
-    ) {
-        this.nom_syllabu = nom_syllabu
-        this.admin_assistant = admin_assistant
-        this.administrateur = administrateur
-        this.pochette = pochette
-        this.mail_users = mail_users
-        this.id_user = id_user
-        this.lien_pdf = lien_pdf
-        this.token_users = token_users
-        this.nom_promotion = nom_promotion
-        this.description = description
-        this.nom_prof = nom_prof
-        this.lien_du_livre = lien_du_livre
-        this.like = like
-        this.lien_profil = lien_profil
-        this.download = download
-        this.comment = comment
-        this.nom_user = nom_user
-        this.date_heure = date_heure
-        this.id_reserve1 = id_reserve1
-        this.id_reserve2 = id_reserve2
-        this.id_reserve3 = id_reserve3
-        this.id_reserve4 = id_reserve4
-    }
 
 }
+
+

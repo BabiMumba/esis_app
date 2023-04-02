@@ -48,6 +48,7 @@ class L2Fragment : Fragment() {
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
+/*
 
         recp.layoutManager = linearLayoutManager
         val options = FirebaseRecyclerOptions.Builder<Syllabus_model>()
@@ -60,6 +61,7 @@ class L2Fragment : Fragment() {
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         myadaptes_syllabus.startListening()
+*/
 
         return v
     }

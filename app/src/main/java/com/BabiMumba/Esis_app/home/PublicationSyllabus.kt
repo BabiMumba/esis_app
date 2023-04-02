@@ -250,7 +250,7 @@ class PublicationSyllabus : AppCompatActivity() {
                                                 uri.toString()
                                                 ,mon_nom,
                                                 currentDate,
-                                                lien_image, 0, 0, 0,"","","","")
+                                                lien_image, "","","","", 0, 0,0)
                                             databaseReference.child(nn).child(id_poste).setValue(obj)
                                             pd.dismiss()
                                             Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
@@ -283,7 +283,7 @@ class PublicationSyllabus : AppCompatActivity() {
                             uri.toString()
                             ,mon_nom,
                             currentDate,
-                            lien_image, 0, 0, 0,"","","","")
+                            lien_image, "","","","" ,0, 0,0)
                         databaseReference.child(nn).child(id_poste).setValue(obj)
                        pd.dismiss()
                         Toast.makeText(applicationContext, "Syllabus partager", Toast.LENGTH_LONG).show()

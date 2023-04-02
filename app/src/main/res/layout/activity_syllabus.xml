@@ -21,32 +21,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         >
+
         <RelativeLayout
             android:id="@+id/l1"
-            android:background="@drawable/background_input"
-            android:layout_margin="@dimen/_5sdp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginBottom="@dimen/_10sdp"
-            >
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:background="@drawable/background_input">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_10sdp"
-                android:text="Recherche un syllabus"
-                />
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:text="Recherche un syllabus" />
+
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_search_24"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_centerVertical="true"
-                />
-
-
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:src="@drawable/ic_baseline_search_24" />
 
 
         </RelativeLayout>

@@ -128,7 +128,8 @@ class Add_book : AppCompatActivity() {
             val listItems = arrayOf(
                 "Toutes les promotions",
                 "L1",
-                "L2",
+                "L2_A",
+                "L2_B",
                 "L3_AS",
                 "L3_TLC",
                 "L3_GL",

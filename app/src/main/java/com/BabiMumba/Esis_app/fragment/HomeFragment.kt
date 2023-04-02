@@ -116,12 +116,12 @@ class HomeFragment : Fragment() {
 
         viewF.findViewById<CardView>(R.id.catL1).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
-           // intent.putExtra("promotion","L1")
+           intent.putExtra("promotion","L1")
             startActivity(intent)
         }
         viewF.findViewById<CardView>(R.id.catL2).setOnClickListener {
             val intent = Intent(activity, SyllabusViewer::class.java)
-           // intent.putExtra("promotion","L2")
+            intent.putExtra("promotion","L2")
             startActivity(intent)
         }
         viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {

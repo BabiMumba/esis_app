@@ -13,7 +13,6 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
-import com.BabiMumba.Esis_app.model.Syllabus_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
@@ -25,6 +24,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.DetailleActivity
 import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
+import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.karumi.dexter.Dexter
@@ -37,15 +37,14 @@ import java.net.URL
 import java.util.HashMap
 
 
-class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
+class syllabus_adapters(options: FirestoreRecyclerOptions<newsyllabus_model>) :
 
-    FirestoreRecyclerAdapter<Syllabus_model, syllabus_adapters.myviewholder>(options) {
+    FirestoreRecyclerAdapter<newsyllabus_model, syllabus_adapters.myviewholder>(options) {
 
     var progressBar: ProgressBar? = null
     private var tlc_s: Int? = null
 
-
-    override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: Syllabus_model) {
+    override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: newsyllabus_model) {
     //    load_data(holder.image_user.context)
         val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val state_admin = sharedPreferences.getString("premium",null)
@@ -54,7 +53,7 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
         holder.date.text = syllabusModel.date_heure
         holder.nom_prof.text = syllabusModel.nom_prof
         holder.promotion.text = syllabusModel.nom_promotion
-        holder.nom_syllabus.text = syllabusModel.nom_syllabu
+        holder.nom_syllabus.text = syllabusModel.nom_syllabus
         holder.nb_comment.text = syllabusModel.comment.toString()
         holder.nb_download.text = syllabusModel.download.toString()
         holder.like_text.text = syllabusModel.like.toString()
@@ -80,12 +79,11 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
             .into(holder.syllabus_icone)
 
 
-      /*  holder.itemView.setOnClickListener {
-           val cle = getRef(position).key
+        holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, DetailleActivity::class.java)
             intent.putExtra("lien_book",syllabusModel.lien_du_livre)
             intent.putExtra("nom_prof",syllabusModel.nom_prof)
-            intent.putExtra("syllabus",syllabusModel.nom_syllabu)
+            intent.putExtra("syllabus",syllabusModel.nom_syllabus)
             intent.putExtra("user",syllabusModel.nom_user)
             intent.putExtra("id_users",syllabusModel.id_user)
             intent.putExtra("date",syllabusModel.date_heure)
@@ -93,7 +91,7 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
             intent.putExtra("promo",syllabusModel.nom_promotion)
             intent.putExtra("image_url",syllabusModel.lien_pdf)
             intent.putExtra("couverture",syllabusModel.pochette)
-            intent.putExtra("cle",cle)
+            intent.putExtra("id_book",syllabusModel.id_book)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
             holder.itemView.context.startActivity(intent)
 
@@ -105,6 +103,7 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
             holder.itemView.context.startActivity(intent)
 
         }
+        /*
         holder.layout_dowload.setOnClickListener {
             val cle = getRef(position).key.toString()
             try {
@@ -121,7 +120,7 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<Syllabus_model>) :
                     .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     .withListener(object : PermissionListener {
                         override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                            telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
+                            //telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
                         }
 
                         override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
