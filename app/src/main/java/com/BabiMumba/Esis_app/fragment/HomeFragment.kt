@@ -125,7 +125,13 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
         val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-        val pm = sharedPreferences.getString("promotion",null)
+        val pm = sharedPreferences.getString("promotion","")
+        val admin = sharedPreferences.getString("administrateur","")
+        if(admin !="non"){
+            viewF.findViewById<CardView>(R.id.cat_tous).visibility = View.GONE
+        }
+
+
         viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
            intent.putExtra("promotion",pm)
@@ -138,9 +144,10 @@ class HomeFragment : Fragment() {
         viewF.findViewById<TextView>(R.id.promo_syl).text = "$pm"
 
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
-          //  val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
-            val intent = Intent(activity, HoraireActivity::class.java)
-            intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
+            val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+            val intent = Intent(activity, ActualiteActivity::class.java)
+            //intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
+            intent.putExtra("url_link",actulaity_link)
             startActivity(intent)
         }
         viewF.findViewById<CardView>(R.id.esis_web).setOnClickListener {

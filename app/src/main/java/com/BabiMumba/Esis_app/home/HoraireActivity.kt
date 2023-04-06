@@ -64,12 +64,13 @@ class HoraireActivity : AppCompatActivity() {
         if (isConnectedNetwork(this)){
 
         }else{
+            //si l'utilisateur est hors connexion
+
             network_visibility.visibility = View.VISIBLE
             visibility_page.visibility = View.GONE
             lyt_btn.visibility = View.GONE
-
             val noms = "Horaire $promot_link"
-            val file2:File = File("$theDir$noms.pdf")
+            val file2 = File("$theDir$noms.pdf")
             if (file2.exists()){
                 val builder = AlertDialog.Builder(this)
                 builder.setMessage("vous êtes hors connexion, voulez-vous voir l'horaire sauvegarder $promot_link")
@@ -90,7 +91,6 @@ class HoraireActivity : AppCompatActivity() {
 
         }
         webView = findViewById(R.id.web_horaire)
-
         backDrop = findViewById(R.id.back_drop)
         lytMic = findViewById(R.id.lyt_mic)
         lytCall = findViewById(R.id.lyt_call)
@@ -292,7 +292,6 @@ class HoraireActivity : AppCompatActivity() {
     }
 
     //creer un dossier
-
     fun _createFolder(file: File) {
         val promot_link = intent.getStringExtra("promot_link").toString()
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"

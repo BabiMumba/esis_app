@@ -1,7 +1,9 @@
 package com.BabiMumba.Esis_app.Authentification
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +11,7 @@ import android.util.Log
 import android.widget.Toast
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
+import com.BabiMumba.Esis_app.home.DocumentActivity2
 import com.BabiMumba.Esis_app.home.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -105,7 +108,13 @@ class GoogleCountActivity : AppCompatActivity() {
                         googleSignInClient.signOut()
                     }else{
                         googleSignInClient.signOut()
-                        Toast.makeText(this, "vous n'etes pas un etudiant", Toast.LENGTH_SHORT).show()
+                        val builder = AlertDialog.Builder(this)
+                        builder.setMessage("Matricule non reconnu, Veillez selectionnez votre compte d'esis. \n  ")
+                            .setTitle("Erreur de compte")
+                            .setPositiveButton("recommencer") { dialogue: DialogInterface, i: Int ->
+                                dialogue.cancel()
+                            }
+                            .show()
                     }
 
                 }catch (e:Exception){
