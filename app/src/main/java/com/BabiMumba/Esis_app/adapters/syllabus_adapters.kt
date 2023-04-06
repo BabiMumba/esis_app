@@ -27,6 +27,9 @@ import com.BabiMumba.Esis_app.home.InfosSyllabusActivity
 import com.BabiMumba.Esis_app.model.newsyllabus_model
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.ktx.Firebase
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -103,6 +106,13 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<newsyllabus_model>) :
             holder.itemView.context.startActivity(intent)
 
         }
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        val user_id = firebaseUser?.uid
+        val post = getItem(position).id_book
+
+
+        //like
         /*
         holder.layout_dowload.setOnClickListener {
             val cle = getRef(position).key.toString()

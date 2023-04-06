@@ -27,6 +27,7 @@ import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_addnews.*
 import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
 import kotlinx.android.synthetic.main.activity_addnews.promotion_text
+import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.collections.HashMap
@@ -209,7 +210,7 @@ class AddnewsActivity : AppCompatActivity() {
         val mail_add = sharedPreferences.getString("mail",null)
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
-        val date_dins = sdf.format(Date())
+        val date_dins = sdf.format(Date())//2021-03-01 12:08:43
         val id_doc = "le${System.currentTimeMillis()}"
         val database = FirebaseFirestore.getInstance()
         val infor_user:MutableMap<String, Any> = HashMap()

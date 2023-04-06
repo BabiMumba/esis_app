@@ -124,14 +124,18 @@ class HomeFragment : Fragment() {
             intent.putExtra("promotion","L2")
             startActivity(intent)
         }
-        viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
-            val intent = Intent(activity, SyllabusPromo::class.java)
-           // intent.putExtra("promotion","Tous")
-            startActivity(intent)
-        }
         val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val pm = sharedPreferences.getString("promotion",null)
+        viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
+            val intent = Intent(activity, SyllabusPromo::class.java)
+           intent.putExtra("promotion",pm)
+            startActivity(intent)
+        }
+
+        //si c'est un etudiant
+
         viewF.findViewById<TextView>(R.id.titre2).text = "Horaire\n$pm"
+        viewF.findViewById<TextView>(R.id.promo_syl).text = "$pm"
 
         viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
           //  val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"

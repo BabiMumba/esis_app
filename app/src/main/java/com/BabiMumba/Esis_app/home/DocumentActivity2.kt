@@ -65,12 +65,17 @@ class DocumentActivity2 : AppCompatActivity() {
                 Log.d(TAG, "onAdOpened: ")
             }
         }
-
-
         filepath = intent.getStringExtra("path").toString()
         val file = File(filepath)
         val path = Uri.fromFile(file)
-        pdfView.fromUri(path).load()
+        pdfView.fromUri(path)
+            .password(null)
+            .defaultPage(0)
+            .enableSwipe(true)
+            .swipeHorizontal(false)
+            .enableDoubletap(true)
+            .load()
+
 
     }
     override fun onPause() {

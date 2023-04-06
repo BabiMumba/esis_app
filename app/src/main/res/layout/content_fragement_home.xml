@@ -413,13 +413,14 @@
                                 android:src="@drawable/livre_syllabus_u" />
 
                             <TextView
+                                android:id="@+id/promo_syl"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="serif"
-                                android:textSize="@dimen/_10ssp"
-                                android:text="Toute\nles promotions"
+                                android:text="Votre\npromotions"
                                 android:textColor="@color/black"
+                                android:textSize="@dimen/_10ssp"
                                 android:textStyle="bold" />
 
                         </net.colindodd.gradientlayout.GradientRelativeLayout>
@@ -454,14 +455,14 @@
                                 android:layout_height="@dimen/_60sdp"
                                 android:layout_alignParentEnd="true"
                                 android:maxHeight="@dimen/_80sdp"
-                                android:src="@drawable/livre_syllabus_u" />
+                                android:src="@drawable/ic_search_black_24dp" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="serif"
-                                android:text="L2"
+                                android:text="Rechercher\nun syllabus"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 

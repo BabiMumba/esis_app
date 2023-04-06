@@ -4,6 +4,9 @@ import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import android.view.LayoutInflater
+import android.view.View
+import android.widget.RelativeLayout
+import android.widget.TextView
 import com.BabiMumba.Esis_app.R
 import java.io.File
 
@@ -12,14 +15,14 @@ class pdfAdapter2(
     private val pdffiles: List<File>,
     private val pdf_listener_file: Pdf_listener_file
 
-) : RecyclerView.Adapter<pdf_viewholder2>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): pdf_viewholder2 {
-        return pdf_viewholder2(
+) : RecyclerView.Adapter<pdf_viewholder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): pdf_viewholder {
+        return pdf_viewholder(
             LayoutInflater.from(context).inflate(R.layout.item_pdf_3d, parent, false)
         )
     }
 
-    override fun onBindViewHolder(holder: pdf_viewholder2, position: Int) {
+    override fun onBindViewHolder(holder: pdf_viewholder, position: Int) {
         holder.tvName.text = pdffiles[position].name
         holder.container.isSelected = true
         holder.container.setOnClickListener {
@@ -29,7 +32,19 @@ class pdfAdapter2(
         }
     }
 
+
     override fun getItemCount(): Int {
         return pdffiles.size
     }
+}
+
+class pdf_viewholder(itemview: View) : RecyclerView.ViewHolder(itemview) {
+    var tvName: TextView
+    var container: RelativeLayout
+
+    init {
+        tvName = itemview.findViewById(R.id.pdf_name)
+        container = itemview.findViewById(R.id.container)
+    }
+
 }

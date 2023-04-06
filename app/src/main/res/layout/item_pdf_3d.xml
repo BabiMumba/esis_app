@@ -50,7 +50,6 @@
         android:background="@drawable/pdf_file"
         android:elevation="10dp"
         android:layout_alignParentBottom="true"
-
         />
     <TextView
         android:id="@+id/pdf_name"
