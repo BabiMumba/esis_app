@@ -246,7 +246,7 @@ class PublishPost : AppCompatActivity() {
             "id_reserv1" to "",
             "id_reserv2" to "",
             "id_reserv3" to "",
-            "image_poste" to "",
+            "image_poste" to uri,
             "id_poste" to document,
             "vue" to 0,
             "nb_comment" to 0,

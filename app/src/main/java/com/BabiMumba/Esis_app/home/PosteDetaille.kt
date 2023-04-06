@@ -377,7 +377,7 @@ class PosteDetaille : AppCompatActivity() {
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val donne: post_model? = dataSnapshot.getValue(post_model::class.java)
-                nb_comment.text = donne?.commentaire.toString()
+                nb_comment.text = donne?.nb_comment.toString()
                 nb_vue.text = donne?.vue.toString()
 
             }

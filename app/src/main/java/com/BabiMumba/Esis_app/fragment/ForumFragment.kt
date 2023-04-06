@@ -19,8 +19,10 @@ import com.BabiMumba.Esis_app.model.post_model
 import com.BabiMumba.Esis_app.adapters.post_adapters
 import com.airbnb.lottie.LottieAnimationView
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_forum.*
 
 
@@ -63,10 +65,11 @@ class ForumFragment : Fragment() {
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
 
+        val ref = FirebaseFirestore.getInstance().collection("poste_forum")
         recyclerv.layoutManager = linearLayoutManager
-        val options = FirebaseRecyclerOptions.Builder<post_model>()
+        val options = FirestoreRecyclerOptions.Builder<post_model>()
             .setQuery(
-                FirebaseDatabase.getInstance().reference.child("forum_discussion"),
+                ref,
                 post_model::class.java
             )
             .build()
