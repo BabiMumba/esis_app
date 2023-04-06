@@ -22,6 +22,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -32,6 +34,7 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
+import kotlinx.android.synthetic.main.activity_publication_syllabus.*
 import kotlinx.android.synthetic.main.activity_publish_post.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -178,22 +181,40 @@ class PublishPost : AppCompatActivity() {
         val name = "image${System.currentTimeMillis()}"
         val msg = message_commnq.text.toString()
         val name_image = "forum_post/$mail/$name.png"
-        val id_pst = databaseReference.push().key!!.toString()
-        val donnee = post_model(mon_nom,admin_as,admin,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,"1",0,0)
-        databaseReference.child(id_pst).setValue(donnee)
-            .addOnCompleteListener {
-                if (it.isSuccessful){
-                    save_post_mprfl(id_user,"1",lien_image,id_pst,msg)
-                    message_commnq.setText("")
-                    message_commnq.hint = "nouveau poste"
-                    Toast.makeText(this, "publier avec succes", Toast.LENGTH_SHORT).show()
-                    sendnotif()
-                    loading(false)
-                }else{
-                    loading(false)
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
+        val tsp = SimpleDateFormat("yyyy-M-dd")
+        val timespam = tsp.format(Date())
+        val document = "$timespam-${System.currentTimeMillis()}"
+        val poste_data = hashMapOf<String,Any>(
+            "nom" to mon_nom,
+            "admin_assistant" to admin_as,
+            "administrateur" to admin,
+            "ad_mail" to mail,
+            "token_users" to token_id,
+            "users_id" to id_user,
+            "image_name_id" to name_image,
+            "date" to date_de_pub,
+            "message" to msg,
+            "profil" to lien_image,
+            "id_reserv1" to "",
+            "id_reserv2" to "",
+            "id_reserv3" to "",
+            "image_poste" to "",
+            "id_poste" to document,
+            "vue" to 0,
+            "nb_comment" to 0,
+        )
+        val db = Firebase.firestore
+        db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
+            if (it.isSuccessful){
+                // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
+                loading(false)
+                sendnotif()
+            }else{
+                loading(false)
+                Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
             }
+        }
+
     }
     fun publish_post2(uri: Uri,name_image:String){
         val sharedPreferences = getSharedPreferences("info_users",Context.MODE_PRIVATE)
@@ -207,23 +228,43 @@ class PublishPost : AppCompatActivity() {
         val sdf = SimpleDateFormat("HH:mm dd/M/yyyy ")
         val date_de_pub = sdf.format(Date())
         val msg = message_commnq.text.toString()
-        val id_pst = databaseReference.push().key!!.toString()
-        val donnee = post_model(mon_nom,admin_as,admin,mail,"","","",id_pst,token_id,id_user,name_image,date_de_pub,msg,lien_image,uri.toString(),0,0)
-        databaseReference.child(id_pst).setValue(donnee)
-            .addOnCompleteListener {
-                if (it.isSuccessful){
-                    save_post_mprfl(id_user,uri.toString(),lien_image,id_pst,msg)
-                    message_commnq.setText("")
-                    message_commnq.hint = "nouveau poste"
-                    Toast.makeText(this, "publier avec succes", Toast.LENGTH_SHORT).show()
-                    sendnotif()
-                    loading(false)
-                }else{
-                    loading(false)
-                    Toast.makeText(this, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
-                }
+        val tsp = SimpleDateFormat("yyyy-M-dd")
+        val timespam = tsp.format(Date())
+        val document = "$timespam-${System.currentTimeMillis()}"
+
+        val poste_data = hashMapOf<String,Any>(
+            "nom" to mon_nom,
+            "admin_assistant" to admin_as,
+            "administrateur" to admin,
+            "ad_mail" to mail,
+            "token_users" to token_id,
+            "users_id" to id_user,
+            "image_name_id" to name_image,
+            "date" to date_de_pub,
+            "message" to msg,
+            "profil" to lien_image,
+            "id_reserv1" to "",
+            "id_reserv2" to "",
+            "id_reserv3" to "",
+            "image_poste" to "",
+            "id_poste" to document,
+            "vue" to 0,
+            "nb_comment" to 0,
+        )
+        val db = Firebase.firestore
+        db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
+            if (it.isSuccessful){
+                // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
+                loading(false)
+                sendnotif()
+            }else{
+                loading(false)
+                Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
             }
+        }
+
     }
+
     fun read_name(){
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
@@ -254,7 +295,8 @@ class PublishPost : AppCompatActivity() {
             token_id = token.toString()
         })
     }
-    fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
+
+    /*fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
         val firebaseUser = firebaseAuth.currentUser
 
         var mail = firebaseUser?.email.toString().replaceAfter("@"," ")
@@ -274,6 +316,7 @@ class PublishPost : AppCompatActivity() {
             }
 
     }
+    */
     fun sendnotif() {
         FcmNotificationsSender.pushNotification(
             this,

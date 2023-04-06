@@ -24,6 +24,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.common.reflect.Reflection.getPackageName
 import com.google.firebase.auth.FirebaseAuth
@@ -32,7 +34,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
 
-class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecyclerAdapter<post_model, post_adapters.viewholder>(options){
+class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRecyclerAdapter<post_model, post_adapters.viewholder>(options){
 
     var progressBar: ProgressBar? = null
     var likereference: DatabaseReference? = null
@@ -92,6 +94,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
                 override fun onCancelled(error: DatabaseError) {}
             })
         }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewholder {
@@ -123,12 +126,11 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
 
         val firebaseUser = FirebaseAuth.getInstance().currentUser
         val userid = firebaseUser!!.uid
-        val postkey = getRef(position).key
-
+        //val postkey = getRef(position).key
         holder.message.text = model.message
         holder.nom.text = model.nom
         holder.date.text = model.date
-        holder.comment.text = model.commentaire.toString()
+        holder.comment.text = model.nb_comment.toString()
         holder.nb_vue.text = model.vue.toString()
        //holder.image.setImageBitmap(getConversionImage(model.profil))
 
@@ -146,30 +148,9 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             holder.itemView.context.startActivity(intent)
         }
 
-        holder.itemView.setOnClickListener{
-            val cle = getRef(position).key
-            val intent = Intent(holder.itemView.context, PosteDetaille::class.java)
-            intent.putExtra("post_image",model.image_poste)
-            intent.putExtra("image_url",model.image_name_id)
-            intent.putExtra("user_id",model.users_id)
-            intent.putExtra("cle",cle)
-            intent.putExtra("texte",model.message)
-            intent.putExtra("token",model.token_users)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            val increment: MutableMap<String, Any> = HashMap()
-            increment["vue"] = ServerValue.increment(1)
-            FirebaseDatabase.getInstance().reference.child("forum_discussion")
-                .child((getRef(position).key.toString()))
-                .updateChildren(increment)
-                .addOnCompleteListener {
-                    if (it.isSuccessful){
-                        //Toast.makeText(holder.message.context, "add 1", Toast.LENGTH_SHORT).show()
-                    }else{
-                        Toast.makeText(holder.message.context, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                    }
-                }
-            holder.itemView.context.startActivity(intent)
-        }
+        /*holder.itemView.setOnClickListener
+        */
+
         holder.poste_image.visibility = if (model.image_poste=="1") View.GONE else View.VISIBLE
 
         Glide
@@ -182,7 +163,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
             .placeholder(circularProgressDrawable)
             .into(holder.poste_image)
 
-        holder.getlikebuttonstatus(postkey,userid)
+       /* holder.getlikebuttonstatus(postkey,userid)
         holder.layout_like.setOnClickListener {
             testclick = true
             likereference!!.addValueEventListener(object : ValueEventListener {
@@ -212,7 +193,7 @@ class post_adapters (options:FirebaseRecyclerOptions<post_model>):FirebaseRecycl
 
                 }
             })
-        }
+        }*/
     }
     override fun onDataChanged() {
         super.onDataChanged()
