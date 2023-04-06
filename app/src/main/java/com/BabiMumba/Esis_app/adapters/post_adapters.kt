@@ -4,9 +4,6 @@ package com.BabiMumba.Esis_app.adapters
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
-import android.content.res.AssetFileDescriptor
-import android.media.MediaPlayer
-import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -16,20 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
-import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
 import com.BabiMumba.Esis_app.home.InfosActivity
-import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.BabiMumba.Esis_app.model.post_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.firebase.ui.database.FirebaseRecyclerAdapter
-import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.client.Firebase
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.common.reflect.Reflection.getPackageName
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
@@ -124,15 +118,11 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
         circularProgressDrawable.centerRadius = 30f
         circularProgressDrawable.start()
 
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        val userid = firebaseUser!!.uid
-        //val postkey = getRef(position).key
         holder.message.text = model.message
         holder.nom.text = model.nom
         holder.date.text = model.date
         holder.comment.text = model.nb_comment.toString()
         holder.nb_vue.text = model.vue.toString()
-       //holder.image.setImageBitmap(getConversionImage(model.profil))
 
         Glide
             .with(holder.image.context)
@@ -148,9 +138,6 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             holder.itemView.context.startActivity(intent)
         }
 
-        /*holder.itemView.setOnClickListener
-        */
-
         holder.poste_image.visibility = if (model.image_poste=="1") View.GONE else View.VISIBLE
 
         Glide
@@ -162,6 +149,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             //.apply(RequestOptions.overrideOf(400,400))
             .placeholder(circularProgressDrawable)
             .into(holder.poste_image)
+
+
 
        /* holder.getlikebuttonstatus(postkey,userid)
         holder.layout_like.setOnClickListener {
@@ -194,6 +183,19 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
                 }
             })
         }*/
+
+        holder.itemView.setOnClickListener {
+            val db = FirebaseFirestore.getInstance()
+            db.collection("poste_forum").document(model.id_poste)
+                .update("vue",FieldValue.increment(1))
+                .addOnSuccessListener {
+                    Toast.makeText(holder.itemView.context, "incrementer", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(holder.itemView.context, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
+                }
+
+        }
     }
     override fun onDataChanged() {
         super.onDataChanged()

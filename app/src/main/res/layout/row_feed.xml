@@ -121,7 +121,6 @@
             app:srcCompat="@drawable/ic_like" />
 
         <TextView
-            android:textColor="@color/primary_text"
             android:id="@+id/like_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -129,7 +128,8 @@
             android:layout_marginTop="@dimen/_5sdp"
             android:layout_toEndOf="@id/like_personn_count"
             android:gravity="center"
-            android:text="20" />
+            android:text="0"
+            android:textColor="@color/primary_text" />
 
 
         <LinearLayout
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="20"
+                        android:text="0"
                         android:layout_gravity="center"
                         android:textColor="@color/black"
                         android:textSize="13sp" />

@@ -198,7 +198,7 @@ class PublishPost : AppCompatActivity() {
             "id_reserv1" to "",
             "id_reserv2" to "",
             "id_reserv3" to "",
-            "image_poste" to "",
+            "image_poste" to "1",
             "id_poste" to document,
             "vue" to 0,
             "nb_comment" to 0,
@@ -206,9 +206,9 @@ class PublishPost : AppCompatActivity() {
         val db = Firebase.firestore
         db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
             if (it.isSuccessful){
-                // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "publier", Toast.LENGTH_SHORT).show()
                 loading(false)
-                sendnotif()
+               // sendnotif()
             }else{
                 loading(false)
                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
@@ -254,9 +254,9 @@ class PublishPost : AppCompatActivity() {
         val db = Firebase.firestore
         db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
             if (it.isSuccessful){
-                // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
+                 Toast.makeText(this, "publication envoyer", Toast.LENGTH_SHORT).show()
                 loading(false)
-                sendnotif()
+               // sendnotif()
             }else{
                 loading(false)
                 Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
@@ -322,7 +322,7 @@ class PublishPost : AppCompatActivity() {
             this,
             "/topics/forum",
             getString(R.string.app_name),
-            "${mon_nom} a publier une nouvelle photo",
+            "${mon_nom} vien de publier dans esis forum",
         )
     }
 
