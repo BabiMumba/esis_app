@@ -23,11 +23,13 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessaging
 import de.hdodenhof.circleimageview.CircleImageView
+import java.util.HashMap
 
 class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRecyclerAdapter<post_model, post_adapters.viewholder>(options){
 
@@ -91,14 +93,21 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             })
         }
 
-        fun get_status_btn_like(Id_post:String,userid: String?){
-            val ref = FirebaseFirestore.getInstance().collection("like_poste_forum").document(Id_post)
-                .addSnapshotListener { snapshot, error ->
-                  for (document in snapshot!!.id){
-                      if (document.equals(userid)){
+        val user_id = FirebaseAuth.getInstance().currentUser!!.uid
 
-                      }
-                  }
+        fun get_status_btn_like(Id_post:String,userid: String?){
+            val ref = FirebaseFirestore.getInstance().collection("poste_forum").document(Id_post).collection("like_poste")
+                .whereEqualTo(Id_post, userid)
+                .get()
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful){
+                        val document = task.result
+                        if (document.exists()){
+
+                        }else{
+
+                        }
+                    }
 
                 }
         }
@@ -201,6 +210,25 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
                 }
             })
         }*/
+
+        val user_id = FirebaseAuth.getInstance().currentUser!!.uid
+        holder.get_status_btn_like(model.id_poste,user_id)
+
+        holder.layout_like.setOnClickListener {
+            val db = FirebaseFirestore.getInstance()
+            val data_comment = HashMap<String, Any>()
+            data_comment[user_id] = true
+            db.collection("poste_forum").document(model.id_poste).collection("like_poste").document(model.id_poste)
+                .set(data_comment)
+                .addOnSuccessListener {
+                    Toast.makeText(holder.itemView.context, "vous avez aimer", Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(holder.itemView.context, "ereur:${it.message}", Toast.LENGTH_SHORT).show()
+                }
+
+        }
+
 
         holder.itemView.setOnClickListener {
             //incrementer le nombre de vue
