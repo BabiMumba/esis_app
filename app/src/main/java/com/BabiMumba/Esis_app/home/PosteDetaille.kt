@@ -29,6 +29,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -157,9 +158,7 @@ class PosteDetaille : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 send_comment.isVisible = InputComment.text.toString().trim().isNotEmpty()
                 send_comment.setOnClickListener {
-                   // check_post(InputComment.text.toString())
-                    val msg = InputComment.text.toString()
-                    ajouter_data(msg)
+                   check_post(InputComment.text.toString())
                     InputComment.setText("")
                 }
             }
@@ -167,22 +166,27 @@ class PosteDetaille : AppCompatActivity() {
         })
     }
     fun ajouter_data(msg:String){
+        val firebaseUser = firebaseAuth.currentUser
+        val id_user = firebaseUser?.uid.toString()
         val cal = Calendar.getInstance()
         val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("id_poste")
+        val tsp = SimpleDateFormat("yyyy-M-dd")
+        val timespam = tsp.format(Date())
+        val document = "$timespam-${System.currentTimeMillis()}"
         val data_comment = HashMap<String, Any>()
         data_comment["commentaire"] = msg
         data_comment["nom"] = mon_nom
         data_comment["date"] = strDate.toString()
         data_comment["profil"]= photo_profil
-        data_comment["id_nul"]= ""
         data_comment["id_reserve"]= ""
         data_comment["id_reserve2"]= ""
+        data_comment["id_user"]= id_user
+        data_comment["timespam"]= document
         val db = Firebase.firestore
 
-        val user_id= FirebaseAuth.getInstance().currentUser.toString()
-        db.collection("poste_forum").document(cle.toString()).collection("commentaire").document(user_id)
+        db.collection("poste_forum").document(cle.toString()).collection("commentaire").document(document)
             .set(data_comment)
             .addOnSuccessListener {
                 Toast.makeText(this, "commenter", Toast.LENGTH_SHORT).show()
@@ -264,16 +268,15 @@ class PosteDetaille : AppCompatActivity() {
         alertDialog.show()
     }
     fun DeletePoste(){
-        val cle = intent.getStringExtra("cle")
+        val cle = intent.getStringExtra("id_poste")
         val image_poster = intent.getStringExtra("post_image")
-        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
-        ref.child(cle.toString()).removeValue()
+        val ref = FirebaseFirestore.getInstance().collection("poste_forum")
+        .document(cle.toString()).delete()
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     if (image_poster != "1"){
                         DeletePosteStorage()
                     }
-                    DeletePosteMyprofil()
                     Toast.makeText(this, "publication supprimenr", Toast.LENGTH_SHORT).show()
 
                 }else{
@@ -281,21 +284,7 @@ class PosteDetaille : AppCompatActivity() {
                 }
             }
     }
-    fun DeletePosteMyprofil(){
-        val firebaseUser = firebaseAuth.currentUser
-        val mail = firebaseUser?.email.toString().replaceAfter("@"," ")
-        val cle = intent.getStringExtra("cle")
-        val ref = FirebaseDatabase.getInstance().getReference("poste_save")
-        ref.child(mail).child(cle.toString()).removeValue()
-            .addOnCompleteListener {
-                if (it.isSuccessful){
-                    onBackPressed()
 
-                }else{
-                    Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
-    }
     fun DeletePosteStorage(){
         val image_name_id = intent.getStringExtra("image_url")
         val storageRef = storageReference
@@ -312,21 +301,21 @@ class PosteDetaille : AppCompatActivity() {
 
     }
     fun check_post(msg: String){
-        val cle = intent.getStringExtra("cle")
-        val ref = FirebaseFirestore.getInstance().collection("forum_discussion").document(cle.toString())
-        val eventListener: ValueEventListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    ajouter_data(msg)
-                }else{
-                    Toast.makeText(this@PosteDetaille, "commentaire non permis", Toast.LENGTH_SHORT).show()
-                }
-            }
+        val cle = intent.getStringExtra("id_poste")
+        FirebaseFirestore.getInstance().collection("poste_forum").document(cle.toString())
+            .get()
+            .addOnCompleteListener{task ->
+                if (task.isSuccessful){
+                  val document = task.result
+                    if (document.exists()){
+                        Toast.makeText(this, "document existe", Toast.LENGTH_SHORT).show()
+                        ajouter_data(msg)
+                    }else{
 
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("TAG", error.message) //Don't ignore potential errors!
+                    }
+                }
+
             }
-        }
       //
 
 
