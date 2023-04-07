@@ -68,6 +68,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
         }
 
 
+        //si on clik sur le bouton
+
         fun getlikebuttonstatus(postkey: String?, userid: String?) {
             likereference = FirebaseDatabase.getInstance().getReference("likes_poste")
             likereference!!.addValueEventListener(object : ValueEventListener {
@@ -77,7 +79,6 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
                         like_text.text = "$likecount"
                         nb_like.text = "$likecount"
                         like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
-
                     } else {
                         val likecount = snapshot.child(postkey).childrenCount.toInt()
                         like_text.text = "$likecount"
@@ -89,6 +90,19 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
                 override fun onCancelled(error: DatabaseError) {}
             })
         }
+
+        fun get_status_btn_like(Id_post:String,userid: String?){
+            val ref = FirebaseFirestore.getInstance().collection("like_poste_forum").document(Id_post)
+                .addSnapshotListener { snapshot, error ->
+                  for (document in snapshot!!.id){
+                      if (document.equals(userid)){
+
+                      }
+                  }
+
+                }
+        }
+
 
     }
 
@@ -154,8 +168,10 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
 
 
-       /* holder.getlikebuttonstatus(postkey,userid)
-        holder.layout_like.setOnClickListener {
+
+/*        holder.getlikebuttonstatus(postkey,userid)
+        */
+        /*holder.layout_like.setOnClickListener {
             testclick = true
             likereference!!.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {

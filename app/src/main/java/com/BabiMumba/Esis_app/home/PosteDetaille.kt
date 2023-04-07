@@ -316,10 +316,6 @@ class PosteDetaille : AppCompatActivity() {
                 }
 
             }
-      //
-
-
-
     }
     fun ShortDialog()  {
         val dialog = Dialog(this)
