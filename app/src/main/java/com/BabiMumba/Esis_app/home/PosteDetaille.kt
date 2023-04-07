@@ -100,7 +100,6 @@ class PosteDetaille : AppCompatActivity() {
         setListener()
         get_token()
         mLayoutManager = LinearLayoutManager(this@PosteDetaille)
-
         val id_poste = intent.getStringExtra("id_poste").toString()
 
         poste_recyclerview.layoutManager = mLayoutManager
@@ -158,7 +157,9 @@ class PosteDetaille : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
                 send_comment.isVisible = InputComment.text.toString().trim().isNotEmpty()
                 send_comment.setOnClickListener {
-                    check_post(InputComment.text.toString())
+                   // check_post(InputComment.text.toString())
+                    val msg = InputComment.text.toString()
+                    ajouter_data(msg)
                     InputComment.setText("")
                 }
             }
@@ -170,8 +171,7 @@ class PosteDetaille : AppCompatActivity() {
         val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
         val strDate = sdf1.format(cal.time)
         val cle = intent.getStringExtra("id_poste")
-
-           val data_comment = HashMap<String, Any>()
+        val data_comment = HashMap<String, Any>()
         data_comment["commentaire"] = msg
         data_comment["nom"] = mon_nom
         data_comment["date"] = strDate.toString()
@@ -179,13 +179,13 @@ class PosteDetaille : AppCompatActivity() {
         data_comment["id_nul"]= ""
         data_comment["id_reserve"]= ""
         data_comment["id_reserve2"]= ""
-
-       // val donnee = commentaire_poste_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
         val db = Firebase.firestore
 
-        db.collection("poste_forum").document(cle.toString()).collection("commentaire")
-            .add(data_comment)
+        val user_id= FirebaseAuth.getInstance().currentUser.toString()
+        db.collection("poste_forum").document(cle.toString()).collection("commentaire").document(user_id)
+            .set(data_comment)
             .addOnSuccessListener {
+                Toast.makeText(this, "commenter", Toast.LENGTH_SHORT).show()
                 add_comment()
               /*  val nb = findViewById<TextView>(R.id.nb_comment)
                 val MyScore = Integer.parseInt(nb.text.toString());
@@ -204,7 +204,15 @@ class PosteDetaille : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser
         val mail = firebaseUser?.email.toString()
         val db = FirebaseFirestore.getInstance()
-        val docRef = db.collection(Constant.Etudiant).document(mail)
+        var docRef = db.collection(Constant.Etudiant).document(mail)
+
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, MODE_PRIVATE)
+        val admin = sharedPreferences.getString("administrateur","")
+        docRef = if (admin == "oui"){
+            db.collection(Constant.Admin).document(mail)
+        }else{
+            db.collection(Constant.Etudiant).document(mail)
+        }
         docRef.get()
             .addOnSuccessListener {
                 if (it!=null){
@@ -305,7 +313,7 @@ class PosteDetaille : AppCompatActivity() {
     }
     fun check_post(msg: String){
         val cle = intent.getStringExtra("cle")
-        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion").child(cle.toString())
+        val ref = FirebaseFirestore.getInstance().collection("forum_discussion").document(cle.toString())
         val eventListener: ValueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -319,7 +327,7 @@ class PosteDetaille : AppCompatActivity() {
                 Log.d("TAG", error.message) //Don't ignore potential errors!
             }
         }
-        ref.addListenerForSingleValueEvent(eventListener)
+      //
 
 
 
