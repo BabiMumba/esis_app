@@ -104,6 +104,7 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
 
         holder.admin_i.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
+       // holder.like_text.text = count.toString()
 
         collection_name = if (admin == "oui"){
             Constant.Admin

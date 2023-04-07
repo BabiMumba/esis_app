@@ -63,6 +63,7 @@ class PosteDetaille : AppCompatActivity() {
         read_name()
 
         //val cle = intent.getStringExtra("cle")
+
         val txtdescrip = intent.getStringExtra("texte")
         val user_id = intent.getStringExtra("user_id")
 
@@ -114,7 +115,6 @@ class PosteDetaille : AppCompatActivity() {
         adpter = commentaire_poste_adapters(options)
         poste_recyclerview.adapter = adpter
 
-        getAuterDate()
         check_teste()
 
 
@@ -371,28 +371,6 @@ class PosteDetaille : AppCompatActivity() {
 
                 )
         }
-
-
-    }
-    fun getAuterDate(){
-
-        val cle = intent.getStringExtra("cle")
-        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion").child(cle.toString())
-        val eventListener: ValueEventListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val donne: post_model? = dataSnapshot.getValue(post_model::class.java)
-                nb_comment.text = donne?.nb_comment.toString()
-                nb_vue.text = donne?.vue.toString()
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("TAG", error.message) //Don't ignore potential errors!
-            }
-        }
-        ref.addListenerForSingleValueEvent(eventListener)
-
-
 
 
     }
