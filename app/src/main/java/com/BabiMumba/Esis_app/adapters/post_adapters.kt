@@ -95,15 +95,14 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
         val user_id = FirebaseAuth.getInstance().currentUser!!.uid
 
-        fun get_status_btn_like(Id_post:String,userid: String?){
-            val ref = FirebaseFirestore.getInstance().collection("poste_forum").document(Id_post).collection("like_poste")
-                .whereEqualTo(Id_post, userid)
+        fun get_status_btn_like(Id_post:String,userid: String){
+            val ref = FirebaseFirestore.getInstance().collection("poste_forum").document(Id_post).collection("like_poste").document(userid)
                 .get()
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful){
                         val document = task.result
                         if (document.exists()){
-
+                            like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
                         }else{
 
                         }
@@ -218,7 +217,7 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             val db = FirebaseFirestore.getInstance()
             val data_comment = HashMap<String, Any>()
             data_comment[user_id] = true
-            db.collection("poste_forum").document(model.id_poste).collection("like_poste").document(model.id_poste)
+            db.collection("poste_forum").document(model.id_poste).collection("like_poste").document(user_id)
                 .set(data_comment)
                 .addOnSuccessListener {
                     Toast.makeText(holder.itemView.context, "vous avez aimer", Toast.LENGTH_SHORT).show()
