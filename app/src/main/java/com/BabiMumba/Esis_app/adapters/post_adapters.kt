@@ -14,6 +14,7 @@ import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.home.InfosActivity
+import com.BabiMumba.Esis_app.home.PosteDetaille
 import com.BabiMumba.Esis_app.model.post_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -185,6 +186,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
         }*/
 
         holder.itemView.setOnClickListener {
+            //incrementer le nombre de vue
+
             val db = FirebaseFirestore.getInstance()
             db.collection("poste_forum").document(model.id_poste)
                 .update("vue",FieldValue.increment(1))
@@ -194,6 +197,17 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
                 .addOnFailureListener {
                     Toast.makeText(holder.itemView.context, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
                 }
+            val intent = Intent(holder.itemView.context, PosteDetaille::class.java)
+            intent.putExtra("post_image",model.image_poste)
+            intent.putExtra("image_url",model.image_name_id)
+            intent.putExtra("user_id",model.users_id)
+            intent.putExtra("id_poste",model.id_poste)
+            intent.putExtra("texte",model.message)
+            intent.putExtra("token",model.token_users)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            holder.itemView.context.startActivity(intent)
+
+
 
         }
     }

@@ -14,9 +14,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerAdapter
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import de.hdodenhof.circleimageview.CircleImageView
 
-class commentaire_poste_adapters (options:FirebaseRecyclerOptions<commentaire_poste_model>):FirebaseRecyclerAdapter<commentaire_poste_model, commentaire_poste_adapters.viewholder>(options){
+class commentaire_poste_adapters (options: FirestoreRecyclerOptions<commentaire_poste_model>):FirestoreRecyclerAdapter<commentaire_poste_model, commentaire_poste_adapters.viewholder>(options){
 
 
     var progressBar: ProgressBar? = null

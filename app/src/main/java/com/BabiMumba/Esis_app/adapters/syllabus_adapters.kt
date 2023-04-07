@@ -182,7 +182,6 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<newsyllabus_model>) :
         var promotion:TextView
         var admin_i:TextView
 
-
         init {
             syllabus_icone = itemView.findViewById(R.id.syllabus_icone)
             layout_dowload = itemView.findViewById(R.id.layout_tlc)

@@ -26,11 +26,14 @@ import com.BabiMumba.Esis_app.model.commentaire_poste_model
 import com.BabiMumba.Esis_app.model.post_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.firebase.ui.database.FirebaseRecyclerOptions
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -58,7 +61,7 @@ class PosteDetaille : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         read_name()
 
-        val cle = intent.getStringExtra("cle")
+        //val cle = intent.getStringExtra("cle")
         val txtdescrip = intent.getStringExtra("texte")
         val user_id = intent.getStringExtra("user_id")
 
@@ -98,11 +101,13 @@ class PosteDetaille : AppCompatActivity() {
         get_token()
         mLayoutManager = LinearLayoutManager(this@PosteDetaille)
 
+        val id_poste = intent.getStringExtra("id_poste").toString()
+
         poste_recyclerview.layoutManager = mLayoutManager
-        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
-        val options = FirebaseRecyclerOptions.Builder<commentaire_poste_model>()
+        val ref = FirebaseFirestore.getInstance().collection("poste_forum").document(id_poste).collection("commentaire")
+        val options = FirestoreRecyclerOptions.Builder<commentaire_poste_model>()
             .setQuery(
-                ref.child(cle.toString()).child("commente_poste"),
+                ref,
                 commentaire_poste_model::class.java
             )
             .build()
@@ -164,30 +169,31 @@ class PosteDetaille : AppCompatActivity() {
         val cal = Calendar.getInstance()
         val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")
         val strDate = sdf1.format(cal.time)
-        val cle = intent.getStringExtra("cle")
+        val cle = intent.getStringExtra("id_poste")
 
-        /*
-           val hashMap = HashMap<String, Any>()
-        hashMap["commentaire"] = msg
-        hashMap["nom"] = mon_nom
-        hashMap["date"] = strDate.toString()
-        hashMap["profil"]= photo_profil
-         */
+           val data_comment = HashMap<String, Any>()
+        data_comment["commentaire"] = msg
+        data_comment["nom"] = mon_nom
+        data_comment["date"] = strDate.toString()
+        data_comment["profil"]= photo_profil
+        data_comment["id_nul"]= ""
+        data_comment["id_reserve"]= ""
+        data_comment["id_reserve2"]= ""
 
-        val donnee = commentaire_poste_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
-        val ref = FirebaseDatabase.getInstance().getReference("forum_discussion")
-        ref.child(cle.toString()).child("commente_poste").child(ref.push().key!!)
-            .setValue(donnee)
+       // val donnee = commentaire_poste_model(mon_nom, strDate.toString(),msg,photo_profil,"","","","")
+        val db = Firebase.firestore
+
+        db.collection("poste_forum").document(cle.toString()).collection("commentaire")
+            .add(data_comment)
             .addOnSuccessListener {
                 add_comment()
-                val nb = findViewById<TextView>(R.id.nb_comment)
+              /*  val nb = findViewById<TextView>(R.id.nb_comment)
                 val MyScore = Integer.parseInt(nb.text.toString());
-
                 if (MyScore > 1){
                     sendnotif(MyScore)
                 }else if (MyScore<1 ){
                     sendnotifsimple()
-                }
+                }*/
 
             }
             .addOnFailureListener {
@@ -217,15 +223,16 @@ class PosteDetaille : AppCompatActivity() {
             }
     }
     fun add_comment(){
-        val cle = intent.getStringExtra("cle")
+        val cle = intent.getStringExtra("id_poste")
         val increment: MutableMap<String, Any> = HashMap()
-        increment["commentaire"] = ServerValue.increment(1)
-        FirebaseDatabase.getInstance().reference.child("forum_discussion")
-            .child((cle.toString()))
-            .updateChildren(increment)
+        increment["nb_comment"] = FieldValue.increment(1)
+        val db = Firebase.firestore
+            db.collection("poste_forum")
+            .document((cle.toString()))
+            .update(increment)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-
+                    Toast.makeText(this, "commentaire ajouter", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                 }
