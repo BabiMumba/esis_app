@@ -45,10 +45,14 @@ class UpdateProfilActivity : AppCompatActivity() {
         val adm = sharedPreferences.getString("administrateur",null)
         collection_name = if (adm == "oui"){
             Constant.Admin
+
         }else{
             Constant.Etudiant
         }
 
+        if (adm== "oui"){
+            l4.visibility = View.GONE
+        }
         readData()
         setListener()
     }
@@ -126,6 +130,9 @@ class UpdateProfilActivity : AppCompatActivity() {
         customAlertDialog.show()
     }
     private fun readData(){
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
         val db = FirebaseFirestore.getInstance()
@@ -139,9 +146,12 @@ class UpdateProfilActivity : AppCompatActivity() {
                     val num = document.data?.getValue("Numero de telephone").toString()
                     val prenoms = document.data?.getValue("prenom").toString()
                     val mailTo = document.data?.getValue("mail").toString()
-                    val promotion = document.data?.getValue("promotion").toString()
+                    if (adm!="oui"){
+                        val promotion = document.data?.getValue("promotion").toString()
+                        promot.text = promotion
+                    }
+
                   ///  val admin = document.data?.getValue("adminP").toString()
-                    promot.text = promotion
                     u_mail.text = mailTo
                     u_nume.text = num
                     ui_post_name.setText(postname)
@@ -170,18 +180,24 @@ class UpdateProfilActivity : AppCompatActivity() {
     }
     private fun SavePrefData() {
         val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur","")
+
         val editor = sharedPreferences.edit()
         editor.apply() {
             putString("nom", ui_name.text.toString())
             putString("post_nom", ui_post_name.text.toString())
             putString("prenom", prenom_ui.text.toString())
-            putString("promotion", promot.text.toString())
+            if (adm!="oui"){
+                putString("promotion", promot.text.toString())
+            }
+
         }.apply()
         showtoast("mise ajour reussi")
     }
     private fun update_data(){
         val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val count_app = sharedPreferences.getInt("count",0)
+        val adm = sharedPreferences.getString("administrateur",null)
         loading(true)
         val fireuser= firebaseAuth.currentUser
         val mail = fireuser?.email.toString()
@@ -190,7 +206,9 @@ class UpdateProfilActivity : AppCompatActivity() {
         infor_user["nom"] = ui_name.text.toString()
         infor_user["post_nom"] = ui_post_name.text.toString()
         infor_user["prenom"] = prenom_ui.text.toString()
-        infor_user["promotion"] = promot.text.toString()
+        if (adm!="oui"){
+            infor_user["promotion"] = promot.text.toString()
+        }
         infor_user["ouverture_application"] = count_app
         database.collection(collection_name)
             .document(mail)

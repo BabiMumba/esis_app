@@ -25,13 +25,14 @@
             app:civ_border_width="2dp" />
 
         <TextView
-            android:id="@+id/admin_state"
             android:visibility="gone"
+            android:id="@+id/admin_state"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/imgView_proPic"
             android:text="Admin"
-            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/_13sdp"
+            android:layout_alignParentEnd="true"
             android:textColor="@color/profilePrimaryDark"
             android:textStyle="bold"
             android:textSize="@dimen/_13sdp"

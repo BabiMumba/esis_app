@@ -217,6 +217,11 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["titre"] = title_news.text.toString()
         infor_user["message"] = message_news.text.toString()
         infor_user["autor"] = "$prenoms $post_nom"
+        if (promotion_text.text.toString() == "Toutes les promotions"){
+            infor_user["all_promotion"] = true
+        }else{
+            infor_user["all_promotion"] = false
+        }
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
         infor_user["mail"] = mail_add.toString()
