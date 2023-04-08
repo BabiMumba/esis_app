@@ -4,74 +4,76 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_new_versio"
     android:padding="@dimen/_10sdp"
-    android:layout_marginStart="@dimen/_5sdp"
-    android:layout_marginEnd="@dimen/_5sdp"
     app:cardCornerRadius="@dimen/_15sdp"
-    android:layout_marginTop="@dimen/_5sdp"
     android:layout_height="wrap_content">
     <RelativeLayout
-        android:layout_marginTop="@dimen/_60sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <LinearLayout
-            android:layout_marginBottom="@dimen/_13sdp"
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_13sdp"
+            android:orientation="vertical">
+
             <ImageView
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_80sdp"
                 android:layout_gravity="center"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:src="@drawable/boy_read"
-                />
+                android:src="@drawable/boy_read" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nouvelle version trouvee"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_5sdp"
+                android:text="Nouvelle version trouvee"
+                android:textColor="@color/black"
                 android:textSize="@dimen/_13sdp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Version:2.2.3"
-                android:textColor="@color/black"
                 android:layout_gravity="center"
-                />
+                android:text="Version: 2.2.3"
+                android:textColor="@color/black" />
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="@dimen/_5sdp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Taille:5 Mo"
-                android:textColor="@color/black"
-                android:layout_gravity="center"
-                />
+                android:text="Taille: 5 Mo"
+                android:textColor="@color/black" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Optimisation de la partie forum de l'application \n fixation de bugs coter serveur"
-                android:textColor="@color/black"
-                android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/_5sdp"
-                />
-            <TextView
+                android:fontFamily="@font/myriad"
+                android:gravity="start"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@string/txt_lorem2"
+                android:maxLines="5"
+                android:textColor="@color/black" />
+
+            <Button
                 android:id="@+id/update_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_5sdp"
-                android:text="Mettre a jour maintenant"
-                android:textColor="@color/black"
-                android:paddingStart="@dimen/_10sdp"
-                android:paddingEnd="@dimen/_10sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
                 android:background="@drawable/background_lgin"
-                />
+                android:fontFamily="serif"
+                android:paddingStart="@dimen/_15sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_15sdp"
+                android:textAllCaps="false"
+                android:paddingBottom="@dimen/_10sdp"
+                android:text="Mettre a jour maintenant"
+                android:textColor="@color/white" />
 
 
         </LinearLayout>

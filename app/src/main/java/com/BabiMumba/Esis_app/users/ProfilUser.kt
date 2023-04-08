@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
@@ -17,6 +18,13 @@ class ProfilUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profil_user)
         firebaseAuth = FirebaseAuth.getInstance()
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+        val admin = sharedPreferences.getString("administrateur","")
+        if (admin == "oui"){
+            l4.visibility = View.GONE
+            admin_state.visibility = View.VISIBLE
+
+        }
 
         readData()
         seTlistener()
@@ -32,13 +40,13 @@ class ProfilUser : AppCompatActivity() {
 
     private fun readData(){
         val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-            val name = sharedPreferences.getString("nom",null)
-            val postname = sharedPreferences.getString("post-nom",null)
-            val num = sharedPreferences.getString("numero de telephone",null)
-            val prenoms = sharedPreferences.getString("prenom",null)
-            val mailTo = sharedPreferences.getString("mail",null)
-            val promotion = sharedPreferences.getString("promotion",null)
-            val imgetxt = sharedPreferences.getString("lien profil",null)
+            val name = sharedPreferences.getString("nom","")
+            val postname = sharedPreferences.getString("post_nom","")
+            val num = sharedPreferences.getString("numero de telephone","")
+            val prenoms = sharedPreferences.getString("prenom","")
+            val mailTo = sharedPreferences.getString("mail","")
+            val promotion = sharedPreferences.getString("promotion","")
+            val imgetxt = sharedPreferences.getString("lien profil","")
             promot.text = promotion
             u_mail.text = mailTo
             u_nume.text = num

@@ -53,6 +53,7 @@ class PosteDetaille : AppCompatActivity() {
 
     lateinit var adpter: commentaire_poste_adapters
     private var mLayoutManager: LinearLayoutManager? = null
+    lateinit var collection_name:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,17 +65,21 @@ class PosteDetaille : AppCompatActivity() {
 
         //val cle = intent.getStringExtra("cle")
 
+        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+        val adm = sharedPreferences.getString("administrateur",null)
+
+        collection_name = if (adm == "oui"){
+            Constant.Admin
+        }else{
+            Constant.Etudiant
+        }
         val txtdescrip = intent.getStringExtra("texte")
         val user_id = intent.getStringExtra("user_id")
 
         val firebaseUser = firebaseAuth.currentUser
         val id_last = firebaseUser?.uid.toString()
 
-        val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-        val admin_state = sharedPreferences.getString("administrateur",null)
-
-
-        if ((user_id.toString() == id_last)||( admin_state=="oui")){
+        if ((user_id.toString() == id_last)||( adm=="oui")){
             delete_btn.visibility = View.VISIBLE
         }else{
             delete_btn.visibility = View.GONE
@@ -189,6 +194,7 @@ class PosteDetaille : AppCompatActivity() {
         db.collection("poste_forum").document(cle.toString()).collection("commentaire").document(document)
             .set(data_comment)
             .addOnSuccessListener {
+                _increment_data()
                 Toast.makeText(this, "commenter", Toast.LENGTH_SHORT).show()
                 add_comment()
               /*  val nb = findViewById<TextView>(R.id.nb_comment)
@@ -299,6 +305,24 @@ class PosteDetaille : AppCompatActivity() {
                 }
             }
 
+    }
+
+    fun _increment_data(){
+        val db = FirebaseFirestore.getInstance()
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val increment = hashMapOf<String,Any>(
+            "nb_commentaire_count" to FieldValue.increment(1),
+        )
+        db.collection(collection_name).document(mail)
+            .set(increment)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()
+                }else{
+                    Log.d("Add_book","erreur:${it.exception}")
+                }
+            }
     }
     fun check_post(msg: String){
         val cle = intent.getStringExtra("id_poste")

@@ -51,7 +51,10 @@ class MainActivity : AppCompatActivity() {
         lp.copyFrom(dialog.window!!.attributes)
         lp.width = WindowManager.LayoutParams.WRAP_CONTENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-        dialog.findViewById<View>(R.id.update_btn).setOnClickListener { v: View? -> onBackPressed() }
+        dialog.findViewById<View>(R.id.update_btn).setOnClickListener { v: View? ->
+            dialog.cancel()
+
+        }
         // dialog.findViewById<View>(R.id.btn_feedback).setOnClickListener { v: View? -> startActivity(settg)}
         dialog.show()
         dialog.window!!.attributes = lp

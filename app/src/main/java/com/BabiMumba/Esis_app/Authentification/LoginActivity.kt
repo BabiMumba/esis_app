@@ -48,7 +48,7 @@ class LoginActivity : AppCompatActivity() {
                     editor.apply(){
                         putString("nom",document.data?.getValue("nom").toString())
                         putString("date d'inscription",document.data?.getValue("date d'inscription").toString())
-                        putString("post-nom",document.data?.getValue("post-nom").toString())
+                        putString("post_nom",document.data?.getValue("post-nom").toString())
                         putString("prenom",document.data?.getValue("prenom").toString())
                         putString("mail",document.data?.getValue("mail").toString())
                         putString("sexe",document.data?.getValue("sexe").toString())

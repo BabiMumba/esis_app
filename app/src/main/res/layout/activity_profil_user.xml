@@ -24,6 +24,19 @@
             app:civ_border_color="@color/primary_dark"
             app:civ_border_width="2dp" />
 
+        <TextView
+            android:id="@+id/admin_state"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgView_proPic"
+            android:text="Admin"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/profilePrimaryDark"
+            android:textStyle="bold"
+            android:textSize="@dimen/_13sdp"
+            />
+
     </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
@@ -166,10 +179,10 @@
                 />
 
             <RelativeLayout
-                android:layout_below="@id/v3"
                 android:id="@+id/l4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/v3"
                 android:layout_gravity="center"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_5sdp"

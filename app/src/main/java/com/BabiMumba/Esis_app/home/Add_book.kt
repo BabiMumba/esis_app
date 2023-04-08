@@ -22,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -245,7 +246,7 @@ class Add_book : AppCompatActivity() {
                     if (cover_path != null){
                         val ref = storageReference.child(name_cover)
                             ref.putFile(cover_path!!)
-                                .addOnCompleteListener{
+                                .addOnCompleteListener{ it ->
                                     if (it.isSuccessful){
                                         ref.downloadUrl.addOnSuccessListener { lien:Uri ->
                                             //donnee a recuperer
@@ -275,14 +276,15 @@ class Add_book : AppCompatActivity() {
                                                 "id_book" to document,
                                             )
                                             val db = Firebase.firestore
-                                            db.collection("syllabus").document(document).set(book).addOnCompleteListener {
-                                                if (it.isSuccessful){
+                                            db.collection("syllabus").document(document).set(book).addOnCompleteListener {task->
+                                                if (task.isSuccessful){
                                                     // Toast.makeText(this, "compte creer", Toast.LENGTH_SHORT).show()
                                                     pd.dismiss()
+                                                    _increment_data()
                                                     Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                                     sendnotif(promotion_text.text.toString())
                                                 }else{
-                                                    Toast.makeText(this, "${it.exception}", Toast.LENGTH_SHORT).show()
+                                                    Toast.makeText(this, "${task.exception}", Toast.LENGTH_SHORT).show()
                                                 }
                                             }
 
@@ -294,6 +296,7 @@ class Add_book : AppCompatActivity() {
                                 }
                     }else{
                         //donnee a recuperer
+
                         val book = hashMapOf<String,Any>(
                             "nom_syllabus" to name,
                             "admin_assistant" to admin_as,
@@ -323,6 +326,7 @@ class Add_book : AppCompatActivity() {
                         db.collection("syllabus").document(document).set(book).addOnCompleteListener {
                             if (it.isSuccessful){
                                 pd.dismiss()
+                                _increment_data()
                                 Toast.makeText(applicationContext, "Syllabus publier", Toast.LENGTH_LONG).show()
                                 sendnotif(promotion_text.text.toString())
                                 // save_syllabus_mprfl(uri.toString(),name,id_poste,promotion_text.text.toString())
@@ -348,6 +352,24 @@ class Add_book : AppCompatActivity() {
                 pourc.text = "${percent.toInt()}%"
             }
 
+    }
+
+    fun _increment_data(){
+        val db = FirebaseFirestore.getInstance()
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val increment = hashMapOf<String,Any>(
+            "add_syllabus_count" to FieldValue.increment(1),
+        )
+        db.collection(collection_name).document(mail)
+            .set(increment)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()
+                }else{
+                    Log.d("Add_book","erreur:${it.exception}")
+                }
+            }
     }
 
     fun read_name(){

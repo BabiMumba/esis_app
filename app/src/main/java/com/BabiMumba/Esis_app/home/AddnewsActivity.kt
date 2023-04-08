@@ -205,9 +205,9 @@ class AddnewsActivity : AppCompatActivity() {
     }
     private fun send_data(image_news:String){
         val sharedPreferences = this.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-        val prenoms = sharedPreferences.getString("prenom",null)
-        val post_nom = sharedPreferences.getString("post-nom",null)
-        val mail_add = sharedPreferences.getString("mail",null)
+        val prenoms = sharedPreferences.getString("prenom","")
+        val post_nom = sharedPreferences.getString("post_nom","")
+        val mail_add = sharedPreferences.getString("mail","")
         //loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())//2021-03-01 12:08:43

@@ -21,6 +21,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -206,6 +207,7 @@ class PublishPost : AppCompatActivity() {
         val db = Firebase.firestore
         db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
             if (it.isSuccessful){
+                _increment_data()
                 Toast.makeText(this, "publier", Toast.LENGTH_SHORT).show()
                 loading(false)
                // sendnotif()
@@ -254,6 +256,7 @@ class PublishPost : AppCompatActivity() {
         val db = Firebase.firestore
         db.collection("poste_forum").document(document).set(poste_data).addOnCompleteListener {
             if (it.isSuccessful){
+                _increment_data()
                  Toast.makeText(this, "publication envoyer", Toast.LENGTH_SHORT).show()
                 loading(false)
                // sendnotif()
@@ -294,6 +297,23 @@ class PublishPost : AppCompatActivity() {
             val token = task.result
             token_id = token.toString()
         })
+    }
+    fun _increment_data(){
+        val db = FirebaseFirestore.getInstance()
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val increment = hashMapOf<String,Any>(
+            "add_poste_forum_count" to FieldValue.increment(1),
+        )
+        db.collection(collection_name).document(mail)
+            .set(increment)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()
+                }else{
+                    Log.d("Add_book","erreur:${it.exception}")
+                }
+            }
     }
 
     /*fun save_post_mprfl(userId:String,imposte:String,imageurl:String,id_post:String,msg:String){
