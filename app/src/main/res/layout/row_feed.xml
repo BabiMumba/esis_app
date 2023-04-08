@@ -111,16 +111,21 @@
             android:background="@color/gris" />
 
         <ImageView
-            android:layout_margin="@dimen/_5sdp"
+            android:visibility="gone"
             android:id="@+id/like_personn_count"
-            android:layout_below="@id/image_poste1"
             android:layout_width="@dimen/_15sdp"
             android:layout_height="@dimen/_15sdp"
+            android:layout_below="@id/image_poste1"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/ic_like" />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/like_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,6 +147,7 @@
                 android:layout_weight="1">
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:id="@+id/layout_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

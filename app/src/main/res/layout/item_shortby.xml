@@ -36,15 +36,15 @@
                 android:textColor="#272525"
                 android:textStyle="bold" />
 
-            <TextView
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/txt2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Les commentaires les plus recents afficherons en premier"
+                android:text="Les commentaires les plus recents\n afficherons en premier"
                 android:textColor="#272525"
-                android:textStyle="normal|italic" />
+                android:textStyle="normal" />
 
         </RelativeLayout>
         <RelativeLayout
@@ -64,15 +64,14 @@
                 android:textColor="#272525"
                 android:textStyle="bold" />
 
-            <TextView
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Les commentaires les plus anciens \n afficherons en premier"
                 android:layout_below="@id/txt1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_5sdp"
-                android:text="Les commentaires les plus anciens afficherons en premier"
-                android:textColor="#272525"
-                android:textStyle="normal|italic" />
+         />
 
         </RelativeLayout>
 

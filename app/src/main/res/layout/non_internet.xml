@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_10sdp"
-        android:text="Salut babi"
+        android:text="Hors connexion"
         android:textColor="@color/black"
         android:textStyle="bold" />
 
@@ -24,9 +24,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_5sdp"
         android:fontFamily="serif"
-        android:text="Rassure-toi que tu as deja activer la connexion"
+        android:text="Rassurez-vous que la connexion est activer "
         android:textColor="@color/black"
-        android:textStyle="normal" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/kaeloo_img"
@@ -43,8 +43,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/kaeloo_img"
         android:layout_centerHorizontal="true"
-        android:text="Quitter"
         android:background="@color/white"
+        android:text="Quitter"
         android:textAllCaps="false"
         android:textColor="@color/black" />
 

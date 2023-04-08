@@ -11,30 +11,21 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.PopupMenu
 import android.widget.Toast
-import androidx.core.view.isVisible
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
-import com.BabiMumba.Esis_app.adapters.commentaire_adapters
-import com.BabiMumba.Esis_app.model.commentaire_model
-import com.BabiMumba.Esis_app.model.commentaire_poste_model
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.*
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
@@ -51,8 +42,6 @@ import kotlinx.android.synthetic.main.activity_detaille.*
 import kotlinx.android.synthetic.main.content_syllabus.*
 import java.net.MalformedURLException
 import java.net.URL
-import java.text.SimpleDateFormat
-import java.util.*
 
 class DetailleActivity : AppCompatActivity() {
     private lateinit var firebaseAuth: FirebaseAuth

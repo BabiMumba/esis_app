@@ -177,8 +177,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
 
 
-/*        holder.getlikebuttonstatus(postkey,userid)
-        */
+        /*holder.getlikebuttonstatus(postkey,userid)*/
+
         /*holder.layout_like.setOnClickListener {
             testclick = true
             likereference!!.addValueEventListener(object : ValueEventListener {
