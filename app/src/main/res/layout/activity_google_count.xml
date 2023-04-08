@@ -49,8 +49,8 @@
             android:padding="@dimen/_12sdp"
             android:text="Se connecter avec mon matricule"
             android:textAllCaps="false"
-            android:textSize="@dimen/_13sdp"
             android:textColor="@color/white"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold" />
 
 

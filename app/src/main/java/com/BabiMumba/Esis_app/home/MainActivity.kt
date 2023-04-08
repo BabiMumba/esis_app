@@ -1,26 +1,17 @@
 package com.BabiMumba.Esis_app.home
 
 import android.annotation.SuppressLint
-import android.content.ContentValues
-import android.content.Context
-import android.content.Intent
+import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
+import android.view.Window
+import android.view.WindowManager
 import android.widget.Toast
-import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
-import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.fragment.*
-import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         loadFragmant(HomeFragment())
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
+        showDialog()
 
 
 
@@ -48,6 +40,21 @@ class MainActivity : AppCompatActivity() {
             commit()
         }
     override fun onBackPressed() {
+    }
+
+    private fun showDialog() {
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.new_version)
+        dialog.setCancelable(false)
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window!!.attributes)
+        lp.width = WindowManager.LayoutParams.WRAP_CONTENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        dialog.findViewById<View>(R.id.update_btn).setOnClickListener { v: View? -> onBackPressed() }
+        // dialog.findViewById<View>(R.id.btn_feedback).setOnClickListener { v: View? -> startActivity(settg)}
+        dialog.show()
+        dialog.window!!.attributes = lp
     }
 
     private fun showtoast(message:String){
