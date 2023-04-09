@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.admin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.admin.adpters.useradptr
 import com.BabiMumba.Esis_app.admin.model.modeluser
+import com.BabiMumba.Esis_app.users.SearchUserActivity
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.ads.*
@@ -53,6 +55,9 @@ class AllusersActivity : AppCompatActivity() {
             showRewardedInters()
         }
 
+        search_users.setOnClickListener {
+            startActivity(Intent(this,SearchUserActivity::class.java))
+        }
         firebaseAuth = FirebaseAuth.getInstance()
         layoutManager = LinearLayoutManager(this@AllusersActivity)
         users_recyclerview.layoutManager = layoutManager

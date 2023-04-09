@@ -20,6 +20,7 @@ class ProfilUser : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
         val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val admin = sharedPreferences.getString("administrateur","")
+
         if (admin == "oui"){
             l4.visibility = View.GONE
             admin_state.visibility = View.VISIBLE

@@ -102,6 +102,7 @@ class SyllabusViewer : AppCompatActivity() {
             txvp.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE*/
         }
+
         val syllabusAdaptersNew = syllabusAdaptersNew()
         recycler_promo.apply {
             linearLayoutManager = LinearLayoutManager(this@SyllabusViewer)
@@ -147,6 +148,7 @@ class SyllabusViewer : AppCompatActivity() {
             syllabusAdaptersNew.items = books
 
         }
+
 /*
 
         db.collection("syllabus")

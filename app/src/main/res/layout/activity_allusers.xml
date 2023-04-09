@@ -4,12 +4,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:padding="@dimen/_10sdp"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".admin.AllusersActivity">
+    <EditText
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:padding="@dimen/_10sdp"
+        android:hint="Rechercher un etudiant"
+        android:id="@+id/search_users"
+        android:enabled="false"
+        android:drawableEnd="@drawable/ic_search_black_24dp"
+        />
 
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_below="@id/search_users"
         android:id="@+id/users_recyclerview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

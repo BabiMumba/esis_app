@@ -110,7 +110,8 @@ class useradptr (options: FirestoreRecyclerOptions<modeluser>):
                             en ajoutant $nom en tant qu'administrateur assistant il aura la possibilite de \n
                             a)publier des syllabus
                             b)publier un communique
-                            
+                            c)Supprimer un syllabus
+                      
                         """.trimIndent())
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE,"ajouter"){
                                 d: DialogInterface, _:Int ->

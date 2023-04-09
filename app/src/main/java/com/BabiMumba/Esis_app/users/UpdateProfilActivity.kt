@@ -16,6 +16,7 @@ import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -93,6 +94,23 @@ class UpdateProfilActivity : AppCompatActivity() {
         l4.setOnClickListener {
             choixpromo()
         }
+    }
+    fun _increment_data(){
+        val db = FirebaseFirestore.getInstance()
+        val firebaseUser = firebaseAuth.currentUser
+        val mail = firebaseUser?.email.toString()
+        val increment = hashMapOf<String,Any>(
+            "change_profil_count" to FieldValue.increment(1),
+        )
+        db.collection(collection_name).document(mail)
+            .set(increment)
+            .addOnCompleteListener {
+                if (it.isSuccessful){
+                    Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()
+                }else{
+                    Log.d("Add_book","erreur:${it.exception}")
+                }
+            }
     }
     private fun choixpromo() {
         val checkedItem = intArrayOf(-1)
@@ -215,6 +233,7 @@ class UpdateProfilActivity : AppCompatActivity() {
             .update(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+                    _increment_data()
                     SavePrefData()
                     loading(false)
                 }else{

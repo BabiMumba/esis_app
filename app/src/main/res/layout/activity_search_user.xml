@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_10sdp"
+    tools:context=".users.SearchUserActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_input_new"
+        android:padding="@dimen/_10sdp"
+        android:hint="Rechercher un etudiant"
+        android:id="@+id/search_user"
+        android:drawableEnd="@drawable/ic_search_black_24dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/search_user"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:id="@+id/users_recycl"
+        tools:listitem="@layout/users_rod"
+        tools:itemCount="4"
+        />
+
+
+
+
+
+
+
+</RelativeLayout>
