@@ -1,12 +1,16 @@
 package com.BabiMumba.Esis_app.home
 
 import android.Manifest
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
@@ -50,6 +54,9 @@ class AddnewsActivity : AppCompatActivity() {
         val message = intent.getStringExtra("message")
         val mod = intent.getStringExtra("mod")
 
+        promotion_choice.setOnClickListener {
+            choise_promotion()
+        }
         if (mod == "oui"){
             title_news.setText(ttl.toString())
             message_news.setText(message.toString())
@@ -158,42 +165,7 @@ class AddnewsActivity : AppCompatActivity() {
 
             }
         }
-        val checkedItem = intArrayOf(-1)
-        promotion_choice.setOnClickListener {
-            val alertDialog = AlertDialog.Builder(this)
-            alertDialog.setIcon(R.drawable.pdf_file)
-            alertDialog.setTitle("Promotion")
-            val listItems = arrayOf(
-                "Toutes les promotions",
-                "L1",
-                "L2",
-                "L3_AS",
-                "L3_TLC",
-                "L3_GL",
-                "L3_MSI",
-                "L3_DESIGN",
-                "L4_AS",
-                "L4_TLC",
-                "L4_MSI",
-                "L4_GL",
-                "L4_DESIGN",
-                "VC_L1",
-                "VC_L2",
-                "VC_L3",
-            )
 
-            alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
-                checkedItem[0] = which
-                val s = listItems[which]
-                promotion_text.text = s
-                dialog.dismiss()
-            }
-            alertDialog.setNegativeButton("Annuler") { dialog, which ->
-                dialog.dismiss()
-            }
-            val customAlertDialog = alertDialog.create()
-            customAlertDialog.show()
-        }
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -296,6 +268,25 @@ class AddnewsActivity : AppCompatActivity() {
                 700
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(101)
+    }
+    fun choise_promotion(){
+        val dialog = Dialog(this)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setContentView(R.layout.item_promotion_check)
+        dialog.setCancelable(true)
+        val lp = WindowManager.LayoutParams()
+        lp.copyFrom(dialog.window!!.attributes)
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
+        val btn =dialog.findViewById<Button>(R.id.valide_btn)
+
+        btn.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
+        dialog.window!!.attributes = lp
+
     }
 
 

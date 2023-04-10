@@ -1,5 +1,6 @@
 package com.BabiMumba.Esis_app.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.BabiMumba.Esis_app.R
+import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.adapters.NewsAdapters
 import com.BabiMumba.Esis_app.model.news_model
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -30,6 +32,9 @@ class CommuniqueFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_communique, container, false)
         val recy = view.findViewById<RecyclerView>(R.id.news_recyler)
         recy.layoutManager = layoutManager
+
+        val sharedPreferences = requireActivity().getSharedPreferences(Constant.Save_to_sharep,Context.MODE_PRIVATE)
+        val promot = sharedPreferences.getString("promotion","")
 
         val ref = FirebaseFirestore.getInstance().collection("communique")
         val option = FirestoreRecyclerOptions.Builder<news_model>()
