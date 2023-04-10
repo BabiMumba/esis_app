@@ -25,8 +25,10 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_addnews.*
+import kotlinx.android.synthetic.main.activity_addnews.progress_bar
 import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
 import kotlinx.android.synthetic.main.activity_addnews.promotion_text
+import kotlinx.android.synthetic.main.activity_publish_post.*
 import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
@@ -217,11 +219,7 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["titre"] = title_news.text.toString()
         infor_user["message"] = message_news.text.toString()
         infor_user["autor"] = "$prenoms $post_nom"
-        if (promotion_text.text.toString() == "Toutes les promotions"){
-            infor_user["all_promotion"] = true
-        }else{
-            infor_user["all_promotion"] = false
-        }
+        infor_user["all_promotion"] = promotion_text.text.toString() == "Toutes les promotions"
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
         infor_user["mail"] = mail_add.toString()
@@ -232,7 +230,7 @@ class AddnewsActivity : AppCompatActivity() {
             .set(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
-                    sendnotif(title_news.text.toString())
+                   // sendnotif(title_news.text.toString())
                     Toast.makeText(this, "envoyer avec succe", Toast.LENGTH_SHORT).show()
                    // loading(false)
                 }else{
@@ -241,6 +239,16 @@ class AddnewsActivity : AppCompatActivity() {
                    // loading(false)
                 }
             }
+    }
+    fun loading(isLoading: Boolean){
+        if (isLoading){
+            progress_bar.visibility = View.VISIBLE
+            publish_btn.visibility = View.GONE
+        }else{
+            progress_bar.visibility = View.GONE
+            publish_btn.visibility = View.VISIBLE
+
+        }
     }
     private fun update_data(image_news: String){
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")

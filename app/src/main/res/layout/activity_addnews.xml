@@ -125,17 +125,30 @@
                 android:paddingBottom="@dimen/_50sdp"
                 android:textColorHint="@color/primary_text"
                 tools:ignore="RtlSymmetry" />
+
             <Button
+                android:background="@drawable/news_input"
                 android:id="@+id/send_commq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/message_news"
+                android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_15sdp"
                 android:text="Publier"
                 android:textAllCaps="false"
-
                 />
+
+            <ProgressBar
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/message_news"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:visibility="gone"
+                android:id="@+id/progress_bar_send"
+                />
+
 
         </RelativeLayout>
 
