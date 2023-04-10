@@ -11,6 +11,7 @@ import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.BabiMumba.Esis_app.R
@@ -270,6 +271,7 @@ class AddnewsActivity : AppCompatActivity() {
             .start(101)
     }
     fun choise_promotion(){
+        val liste_promotion = mutableListOf<String>()
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.item_promotion_check)
@@ -279,8 +281,77 @@ class AddnewsActivity : AppCompatActivity() {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
         val btn =dialog.findViewById<Button>(R.id.valide_btn)
+        val cbx_l1 = dialog.findViewById<CheckBox>(R.id.l1)
+        val cbx_l2a = dialog.findViewById<CheckBox>(R.id.ckb_l2a)
+        val cbx_l2b = dialog.findViewById<CheckBox>(R.id.ckb_l2b)
+        val cbx_l3as = dialog.findViewById<CheckBox>(R.id.ckb_l3as)
+        val cbx_l3tlc = dialog.findViewById<CheckBox>(R.id.ckb_l3tlc)
+        val cbx_l3gl = dialog.findViewById<CheckBox>(R.id.ckb_l3gl)
+        val cbx_l3msi = dialog.findViewById<CheckBox>(R.id.ckb_l3msi)
+        val cbx_l3des = dialog.findViewById<CheckBox>(R.id.ckb_l3design)
+        val cbx_l4as = dialog.findViewById<CheckBox>(R.id.ckb_l4as)
+        val cbx_l4tlc = dialog.findViewById<CheckBox>(R.id.ckb_l4tlc)
+        val cbx_l4gl = dialog.findViewById<CheckBox>(R.id.ckb_l4gl)
+        val cbx_l4msi = dialog.findViewById<CheckBox>(R.id.ckb_l4msi)
+        val cbx_l4des = dialog.findViewById<CheckBox>(R.id.ckb_l4design)
+        val cbx_vcl1 = dialog.findViewById<CheckBox>(R.id.ckb_vcl1)
+        val cbx_vcl2 = dialog.findViewById<CheckBox>(R.id.ckb_vcl2)
+        val cbx_vcl3 = dialog.findViewById<CheckBox>(R.id.ckb_vcl3)
 
+        //verifier si le case sont coche
         btn.setOnClickListener {
+
+            if (cbx_l1.isChecked){
+                liste_promotion.add("L1")
+            }
+            if (cbx_l2a.isChecked){
+                liste_promotion.add("L2_A")
+            }
+            if (cbx_l2b.isChecked){
+                liste_promotion.add("L2_B")
+            }
+            if (cbx_l3as.isChecked){
+                liste_promotion.add("l3_AS")
+            }
+            if (cbx_l3tlc.isChecked){
+                liste_promotion.add("L3_TLC")
+            }
+            if (cbx_l3gl.isChecked){
+                liste_promotion.add("L3_GL")
+            }
+            if (cbx_l3msi.isChecked){
+                liste_promotion.add("L3_MSI")
+            }
+            if (cbx_l3des.isChecked){
+                liste_promotion.add("L3_DESIGN")
+            }
+            if (cbx_l4as.isChecked){
+                liste_promotion.add("L4_AS")
+            }
+            if (cbx_l4tlc.isChecked){
+                liste_promotion.add("L4_TLC")
+            }
+            if (cbx_l4gl.isChecked){
+                liste_promotion.add("l4_GL")
+            }
+            if (cbx_l4msi.isChecked){
+                liste_promotion.add("L4_MSI")
+            }
+            if (cbx_l4des.isChecked){
+                liste_promotion.add("L4_DESIGN")
+            }
+            if (cbx_vcl1.isChecked){
+                liste_promotion.add("VC_L1")
+            }
+            if (cbx_vcl2.isChecked){
+                liste_promotion.add("VC_L3")
+            }
+            if (cbx_vcl3.isChecked){
+                liste_promotion.add("VC_L3")
+            }
+
+
+
             dialog.dismiss()
         }
 
