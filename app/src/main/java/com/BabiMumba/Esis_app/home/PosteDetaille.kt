@@ -33,6 +33,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
@@ -315,7 +316,7 @@ class PosteDetaille : AppCompatActivity() {
             "nb_commentaire_count" to FieldValue.increment(1),
         )
         db.collection(collection_name).document(mail)
-            .set(increment)
+            .set(increment, SetOptions.merge())
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()

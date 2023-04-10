@@ -18,6 +18,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
@@ -103,7 +104,7 @@ class UpdateProfilActivity : AppCompatActivity() {
             "change_profil_count" to FieldValue.increment(1),
         )
         db.collection(collection_name).document(mail)
-            .set(increment)
+            .set(increment, SetOptions.merge())
             .addOnCompleteListener {
                 if (it.isSuccessful){
                     Toast.makeText(this, "nombre incrementer", Toast.LENGTH_SHORT).show()

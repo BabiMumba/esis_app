@@ -210,7 +210,7 @@ class AddnewsActivity : AppCompatActivity() {
         val prenoms = sharedPreferences.getString("prenom","")
         val post_nom = sharedPreferences.getString("post_nom","")
         val mail_add = sharedPreferences.getString("mail","")
-        //loading(true)
+        loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())//2021-03-01 12:08:43
         val id_doc = "le${System.currentTimeMillis()}"
@@ -232,25 +232,26 @@ class AddnewsActivity : AppCompatActivity() {
                 if (it.isSuccessful){
                    // sendnotif(title_news.text.toString())
                     Toast.makeText(this, "envoyer avec succe", Toast.LENGTH_SHORT).show()
-                   // loading(false)
+                    loading(false)
                 }else{
                     Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
                    // showtoast(it.exception?.message.toString())
-                   // loading(false)
+                    loading(false)
                 }
             }
     }
     fun loading(isLoading: Boolean){
         if (isLoading){
-            progress_bar.visibility = View.VISIBLE
-            publish_btn.visibility = View.GONE
+            progress_bar_send.visibility = View.VISIBLE
+            send_commq.visibility = View.GONE
         }else{
-            progress_bar.visibility = View.GONE
-            publish_btn.visibility = View.VISIBLE
+            progress_bar_send.visibility = View.GONE
+            send_commq.visibility = View.VISIBLE
 
         }
     }
     private fun update_data(image_news: String){
+        loading(true)
         val sdf = SimpleDateFormat("dd-M-yyyy HH:mm:ss")
         val date_dins = sdf.format(Date())
         val id_news = intent.getStringExtra("id_news").toString()
@@ -265,8 +266,10 @@ class AddnewsActivity : AppCompatActivity() {
             .update(infor_user)
             .addOnCompleteListener {
                 if (it.isSuccessful){
+                    loading(true)
                     Toast.makeText(this, "modifier avec succee", Toast.LENGTH_SHORT).show()
                 }else{
+                    loading(false)
                     Toast.makeText(this, "erreur: ${it.exception}", Toast.LENGTH_SHORT).show()
                 }
             }

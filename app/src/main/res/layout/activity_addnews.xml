@@ -127,17 +127,16 @@
                 tools:ignore="RtlSymmetry" />
 
             <Button
-                android:background="@drawable/news_input"
                 android:id="@+id/send_commq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/message_news"
-                android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/_15sdp"
+                android:background="@drawable/news_input"
                 android:text="Publier"
                 android:textAllCaps="false"
-                />
+                android:textColor="@color/white" />
 
             <ProgressBar
                 android:layout_width="@dimen/_25sdp"
