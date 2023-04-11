@@ -169,6 +169,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
+                android:visibility="gone"
                 android:id="@+id/ckb_vcl1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -180,6 +181,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
+                android:visibility="gone"
                 android:id="@+id/ckb_vcl2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,6 +193,7 @@
                 android:textStyle="bold" />
 
             <CheckBox
+                android:visibility="gone"
                 android:id="@+id/ckb_vcl3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

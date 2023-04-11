@@ -5,15 +5,15 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import com.BabiMumba.Esis_app.R
 import com.BabiMumba.Esis_app.Utils.Constant
 import com.BabiMumba.Esis_app.fcm.FcmNotificationsSender
@@ -30,18 +30,14 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import kotlinx.android.synthetic.main.activity_addnews.*
-import kotlinx.android.synthetic.main.activity_addnews.progress_bar
-import kotlinx.android.synthetic.main.activity_addnews.promotion_choice
-import kotlinx.android.synthetic.main.activity_addnews.promotion_text
-import kotlinx.android.synthetic.main.activity_publish_post.*
-import java.sql.Timestamp
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
+
 
 class AddnewsActivity : AppCompatActivity() {
 
     var filepath: Uri? = null
+    var liste_promotion = mutableListOf<String>()
     private lateinit var storageReference: StorageReference
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +46,7 @@ class AddnewsActivity : AppCompatActivity() {
 
         storageReference = FirebaseStorage.getInstance().reference
         firebaseAuth = FirebaseAuth.getInstance()
+
 
         val ttl = intent.getStringExtra("titre")
         val message = intent.getStringExtra("message")
@@ -63,7 +60,6 @@ class AddnewsActivity : AppCompatActivity() {
             message_news.setText(message.toString())
             send_commq.setText("modifier")
         }else{
-
 
         }
         image_news.setOnClickListener {
@@ -91,9 +87,8 @@ class AddnewsActivity : AppCompatActivity() {
                     }
                 }).check()
         }
-
         send_commq.setOnClickListener {
-            if (promotion_text.text.toString() == ""){
+            if (liste_promotion.size < 1){
                 Toast.makeText(this, "promotion obligatoire", Toast.LENGTH_SHORT).show()
             }else if (title_news.text.toString().trim().isEmpty()){
                 title_news.error = "titre de votre communique"
@@ -134,7 +129,7 @@ class AddnewsActivity : AppCompatActivity() {
 
                 }else if (filepath == null){
                     val image_news = "https://www.esisalama.com/assets/img/actualite/img-25082022-141338.png"
-                    send_data(image_news)
+                    //send_data(image_news)
                 }else{
                     progress_bar.visibility = View.VISIBLE
                     val firebaseUser = firebaseAuth.currentUser
@@ -150,7 +145,7 @@ class AddnewsActivity : AppCompatActivity() {
                     reference.putFile(filepath!!)
                         .addOnSuccessListener {
                             reference.downloadUrl.addOnSuccessListener {
-                                send_data(it.toString())
+                                //send_data(it.toString())
                                 progress_bar.visibility = View.GONE
                             }
                         }
@@ -178,7 +173,7 @@ class AddnewsActivity : AppCompatActivity() {
             filepath = data.data!!
         }
     }
-    private fun send_data(image_news:String){
+    private fun send_data(image_news:String,promotion_selected:String){
         val sharedPreferences = this.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val prenoms = sharedPreferences.getString("prenom","")
         val post_nom = sharedPreferences.getString("post_nom","")
@@ -192,11 +187,10 @@ class AddnewsActivity : AppCompatActivity() {
         infor_user["titre"] = title_news.text.toString()
         infor_user["message"] = message_news.text.toString()
         infor_user["autor"] = "$prenoms $post_nom"
-        infor_user["all_promotion"] = promotion_text.text.toString() == "Toutes les promotions"
         infor_user["id_doc"] = id_doc
         infor_user["date"] = date_dins
         infor_user["mail"] = mail_add.toString()
-        infor_user["promot"] = promotion_text.text.toString()
+        infor_user["promot"] = promotion_selected
         infor_user["image"] = image_news
         database.collection("communique")
             .document(id_doc)
@@ -271,7 +265,6 @@ class AddnewsActivity : AppCompatActivity() {
             .start(101)
     }
     fun choise_promotion(){
-        val liste_promotion = mutableListOf<String>()
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.item_promotion_check)
@@ -281,7 +274,7 @@ class AddnewsActivity : AppCompatActivity() {
         lp.width = WindowManager.LayoutParams.MATCH_PARENT
         lp.height = WindowManager.LayoutParams.WRAP_CONTENT
         val btn =dialog.findViewById<Button>(R.id.valide_btn)
-        val cbx_l1 = dialog.findViewById<CheckBox>(R.id.l1)
+        val cbx_l1 = dialog.findViewById<CheckBox>(R.id.ckb_l1)
         val cbx_l2a = dialog.findViewById<CheckBox>(R.id.ckb_l2a)
         val cbx_l2b = dialog.findViewById<CheckBox>(R.id.ckb_l2b)
         val cbx_l3as = dialog.findViewById<CheckBox>(R.id.ckb_l3as)
@@ -294,10 +287,6 @@ class AddnewsActivity : AppCompatActivity() {
         val cbx_l4gl = dialog.findViewById<CheckBox>(R.id.ckb_l4gl)
         val cbx_l4msi = dialog.findViewById<CheckBox>(R.id.ckb_l4msi)
         val cbx_l4des = dialog.findViewById<CheckBox>(R.id.ckb_l4design)
-        val cbx_vcl1 = dialog.findViewById<CheckBox>(R.id.ckb_vcl1)
-        val cbx_vcl2 = dialog.findViewById<CheckBox>(R.id.ckb_vcl2)
-        val cbx_vcl3 = dialog.findViewById<CheckBox>(R.id.ckb_vcl3)
-
         //verifier si le case sont coche
         btn.setOnClickListener {
 
@@ -340,7 +329,7 @@ class AddnewsActivity : AppCompatActivity() {
             if (cbx_l4des.isChecked){
                 liste_promotion.add("L4_DESIGN")
             }
-            if (cbx_vcl1.isChecked){
+       /*     if (cbx_vcl1.isChecked){
                 liste_promotion.add("VC_L1")
             }
             if (cbx_vcl2.isChecked){
@@ -348,9 +337,14 @@ class AddnewsActivity : AppCompatActivity() {
             }
             if (cbx_vcl3.isChecked){
                 liste_promotion.add("VC_L3")
+            }*/
+            val adapter_liste = ArrayAdapter(this,android.R.layout.simple_list_item_1,liste_promotion)
+            lstv_promot.adapter = adapter_liste
+
+            Toast.makeText(this, "${liste_promotion.size}", Toast.LENGTH_SHORT).show()
+            for (i in liste_promotion){
+
             }
-
-
 
             dialog.dismiss()
         }

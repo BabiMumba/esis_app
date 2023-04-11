@@ -66,11 +66,12 @@
                     />
 
             </RelativeLayout>
+
             <RelativeLayout
-                android:layout_below="@id/may_relative"
                 android:id="@+id/promotion_choice"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_45sdp"
+                android:layout_below="@id/may_relative"
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:background="@drawable/background_input_new"
@@ -97,13 +98,20 @@
 
 
             </RelativeLayout>
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lstv_promot"
+                android:layout_below="@id/promotion_choice"
+                />
+
 
             <EditText
                 android:id="@+id/title_news"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primary_text"
-                android:layout_below="@+id/promotion_choice"
+                android:layout_below="@+id/lstv_promot"
                 android:layout_marginTop="@dimen/_10sdp"
                 android:textColorHint="@color/primary_text"
                 android:background="@drawable/background_input_new"
