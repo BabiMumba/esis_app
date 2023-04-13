@@ -329,24 +329,16 @@ class AddnewsActivity : AppCompatActivity() {
             if (cbx_l4des.isChecked){
                 liste_promotion.add("L4_DESIGN")
             }
-       /*     if (cbx_vcl1.isChecked){
-                liste_promotion.add("VC_L1")
-            }
-            if (cbx_vcl2.isChecked){
-                liste_promotion.add("VC_L3")
-            }
-            if (cbx_vcl3.isChecked){
-                liste_promotion.add("VC_L3")
-            }*/
+            dialog.dismiss()
+
             val adapter_liste = ArrayAdapter(this,android.R.layout.simple_list_item_1,liste_promotion)
             lstv_promot.adapter = adapter_liste
 
-            Toast.makeText(this, "${liste_promotion.size}", Toast.LENGTH_SHORT).show()
+          /*  Toast.makeText(this, "${liste_promotion.size}", Toast.LENGTH_SHORT).show()
             for (i in liste_promotion){
 
-            }
+            }*/
 
-            dialog.dismiss()
         }
 
         dialog.show()

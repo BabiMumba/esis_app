@@ -17,7 +17,13 @@ class FeedBack : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_back)
         btn_send.setOnClickListener {
-            sen_message_feedback()
+            if (txt_feedback.text.toString().trim().isEmpty()){
+                txt_feedback.error = "Entrer votre message"
+            }else{
+
+                sen_message_feedback()
+            }
+
         }
 
     }

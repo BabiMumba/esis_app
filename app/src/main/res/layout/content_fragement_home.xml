@@ -498,7 +498,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/_5sdp"
                                 android:fontFamily="serif"
-                                android:text="Lecture"
+                                android:text="Lire \nSyllabus"
                                 android:textColor="@color/black"
                                 android:textStyle="bold" />
 
