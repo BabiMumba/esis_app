@@ -20,7 +20,6 @@ class FeedBack : AppCompatActivity() {
             if (txt_feedback.text.toString().trim().isEmpty()){
                 txt_feedback.error = "Entrer votre message"
             }else{
-
                 sen_message_feedback()
             }
 

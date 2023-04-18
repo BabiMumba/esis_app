@@ -16,7 +16,8 @@ class FcmNotificationsSender {
        companion object {
         private const val BASE_URL = "https://fcm.googleapis.com/fcm/send"
         private const val ServerKey =
-            "key=AAAAHtlHJQQ:APA91bEc-qS2w945WB8EiR2NNmlFz6RClXctiT6bu8oY5YcycQkvEh5BjJ72jSn-0p_t8zhnMJWvCrh3g4FWYvXcZfV3nMzLA-wADFlWQHguzle11_jxDoyAfG1djJdO9R4MgYAsHqvv"
+            "key=AAAAoPlT1mk:APA91bGugFlpIQSOmLlFfNpRT7Q_0elXBnVoKpT2BxYCoRW-0LognYS8T37hTxnmU9LKICoPSmtDtqXlNL-lD8wRDBs70t5XRiyn0UkEvPIs2Uyg5bST41kRvoy0CcvfcBSrma4Ykg0N"
+
 
         fun pushNotification(context: Context?, token: String?, title: String, message: String?) {
             val policy = ThreadPolicy.Builder().permitAll().build()
