@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.github.barteksc.pdfviewer.PDFView
+import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.google.android.gms.ads.*
 import java.io.File
 
@@ -69,6 +70,9 @@ class DocumentActivity2 : AppCompatActivity() {
         val file = File(filepath)
         val path = Uri.fromFile(file)
         pdfView.fromUri(path)
+            .enableAnnotationRendering(true)
+            .scrollHandle(DefaultScrollHandle(this))
+            .defaultPage(0)
             .password(null)
             .defaultPage(0)
             .enableSwipe(true)
@@ -77,7 +81,19 @@ class DocumentActivity2 : AppCompatActivity() {
             .load()
 
 
+
     }
+    /*
+    enableSwipe(true)
+            .swipeHorizontal(false)
+            .onPageChange(this)
+            .enableAnnotationRendering(true)
+            .onLoad(this)
+            .scrollHandle(new DefaultScrollHandle(this))
+            .spacing(10)
+            .load();
+     */
+
     override fun onPause() {
         adview?.pause()
         super.onPause()

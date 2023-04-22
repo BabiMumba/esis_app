@@ -9,6 +9,7 @@ import android.os.Handler
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
@@ -62,6 +63,9 @@ class ChatActivity : AppCompatActivity() {
             if (item_send.isVisible){
                 message_sent.text = item_input.text.toString()
                 item_input.setText("")
+                //fermer le clavier
+                val inputManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                inputManager.hideSoftInputFromWindow(item_input.windowToken,0)
 
                 text_content.text = "hey 👋👋 bonjour $prenom\n c'est Babi Mumba"
                 fst_mssg.visibility = View.VISIBLE
