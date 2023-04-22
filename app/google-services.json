@@ -8,12 +8,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:691377788521:android:a0e33d074a421bd41574f8",
+        "mobilesdk_app_id": "1:691377788521:android:2c90b11dbdcb337b1574f8",
         "android_client_info": {
-          "package_name": "com.BabiMumba.Esis_app"
+          "package_name": "com.Esisalama.babim"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "691377788521-bomb7q51j1m156pqar1j78k0to8j541a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Esisalama.babim",
+            "certificate_hash": "209834108b83db17f270d06aadc0ffa5c4916357"
+          }
+        },
         {
           "client_id": "691377788521-l8d805iis5tg33judo5kjdob2ef1cmp4.apps.googleusercontent.com",
           "client_type": 3

@@ -1,0 +1,15 @@
+package com.Esisalama.babim.model
+
+class news_model(
+    var titre:String,
+     var mail:String,
+     var message:String,
+     var date:String,
+     var image:String,
+     var id_doc:String,
+     var autor:String,
+     var promot:String,
+     var all_promotion:Boolean
+) {
+       constructor():this("","","","","","","", "",false)
+}

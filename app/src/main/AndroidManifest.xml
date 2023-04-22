@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.BabiMumba.Esis_app">
+    package="com.Esisalama.babim">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -29,122 +29,122 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".users.SearchUserActivity"
+            android:name="com.Esisalama.babim.users.SearchUserActivity"
             android:exported="false" />
         <activity
-            android:name=".users.ImageView"
+            android:name="com.Esisalama.babim.users.ImageView"
             android:exported="false" />
         <activity
-            android:name=".home.SyllabusViewer"
+            android:name="com.Esisalama.babim.home.SyllabusViewer"
             android:exported="false" />
         <activity
-            android:name=".home.Add_book"
+            android:name="com.Esisalama.babim.home.Add_book"
             android:exported="false" />
         <activity
-            android:name=".chat.ChatActivity"
+            android:name="com.Esisalama.babim.chat.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".users.Profil_DetailUser"
+            android:name="com.Esisalama.babim.users.Profil_DetailUser"
             android:exported="false" />
         <activity
-            android:name=".home.HoraireActivity"
+            android:name="com.Esisalama.babim.home.HoraireActivity"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".admin.PromotionnellPage"
+            android:name="com.Esisalama.babim.admin.PromotionnellPage"
             android:exported="false" />
         <activity
-            android:name=".Authentification.RegisterAdmin"
+            android:name="com.Esisalama.babim.Authentification.RegisterAdmin"
             android:exported="false" />
         <activity
-            android:name=".home.DetailleNews"
+            android:name="com.Esisalama.babim.home.DetailleNews"
             android:exported="false" />
         <activity
-            android:name=".home.AddnewsActivity"
+            android:name="com.Esisalama.babim.home.AddnewsActivity"
             android:exported="false" />
         <activity
-            android:name=".home.SyllabusPromo"
+            android:name="com.Esisalama.babim.home.SyllabusPromo"
             android:exported="false" />
         <activity
-            android:name=".home.ThankActivity"
+            android:name="com.Esisalama.babim.home.ThankActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.GoogleCountActivity"
+            android:name="com.Esisalama.babim.Authentification.GoogleCountActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.LogoutActivity"
+            android:name="com.Esisalama.babim.admin.LogoutActivity"
             android:exported="false" />
         <activity
-            android:name=".admin.AllusersActivity"
+            android:name="com.Esisalama.babim.admin.AllusersActivity"
             android:exported="false"
             android:theme="@style/Recherche" />
         <activity
-            android:name=".admin.SaleControleActivity"
+            android:name="com.Esisalama.babim.admin.SaleControleActivity"
             android:exported="false" />
         <activity
-            android:name=".users.DeleteCount"
+            android:name="com.Esisalama.babim.users.DeleteCount"
             android:exported="false" />
         <activity
-            android:name=".Authentification.LoginActivity"
+            android:name="com.Esisalama.babim.Authentification.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".home.FeedBack"
+            android:name="com.Esisalama.babim.home.FeedBack"
             android:exported="false" />
         <activity
-            android:name=".home.AboutDeveloppeur"
+            android:name="com.Esisalama.babim.home.AboutDeveloppeur"
             android:exported="false" />
         <activity
-            android:name=".home.DocumentActivity2"
+            android:name="com.Esisalama.babim.home.DocumentActivity2"
             android:exported="false" />
         <activity
-            android:name=".users.UpdateProfilActivity"
+            android:name="com.Esisalama.babim.users.UpdateProfilActivity"
             android:exported="false" />
         <activity
-            android:name=".users.ProfilUser"
+            android:name="com.Esisalama.babim.users.ProfilUser"
             android:exported="false" />
         <activity
-            android:name=".home.LectureActivity"
+            android:name="com.Esisalama.babim.home.LectureActivity"
             android:exported="false" />
         <activity
-            android:name=".home.InfosSyllabusActivity"
+            android:name="com.Esisalama.babim.home.InfosSyllabusActivity"
             android:exported="false" />
         <activity
-            android:name=".home.DetailleActivity"
+            android:name="com.Esisalama.babim.home.DetailleActivity"
             android:exported="false" />
         <activity
-            android:name=".home.PublicationSyllabus"
+            android:name="com.Esisalama.babim.home.PublicationSyllabus"
             android:exported="false" />
         <activity
-            android:name=".home.PublishPost"
+            android:name="com.Esisalama.babim.home.PublishPost"
             android:exported="false" />
         <activity
-            android:name=".home.InfosActivity"
+            android:name="com.Esisalama.babim.home.InfosActivity"
             android:exported="false" />
         <activity
-            android:name=".home.PosteDetaille"
+            android:name="com.Esisalama.babim.home.PosteDetaille"
             android:exported="false" />
         <activity
-            android:name=".home.LectureActivity_Pdf"
+            android:name="com.Esisalama.babim.home.LectureActivity_Pdf"
             android:exported="false"
             android:theme="@style/Theme.Mydark" />
         <activity
-            android:name=".home.ResultatActivity"
+            android:name="com.Esisalama.babim.home.ResultatActivity"
             android:exported="false" />
         <activity
-            android:name=".home.ActualiteActivity"
+            android:name="com.Esisalama.babim.home.ActualiteActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.RegisterActivity"
+            android:name="com.Esisalama.babim.Authentification.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".Authentification.SigninActivity"
+            android:name="com.Esisalama.babim.Authentification.SigninActivity"
             android:exported="false" />
         <activity
-            android:name=".home.MainActivity"
+            android:name="com.Esisalama.babim.home.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".home.SplashScreen"
+            android:name="com.Esisalama.babim.home.SplashScreen"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -155,7 +155,7 @@
         </activity>
 
         <service
-            android:name=".fcm.MyFirebaseMessaging"
+            android:name="com.Esisalama.babim.fcm.MyFirebaseMessaging"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
