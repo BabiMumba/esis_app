@@ -290,6 +290,7 @@ class AddnewsActivity : AppCompatActivity() {
         //verifier si le case sont coche
         btn.setOnClickListener {
 
+
             if (cbx_l1.isChecked){
                 liste_promotion.add("L1")
             }

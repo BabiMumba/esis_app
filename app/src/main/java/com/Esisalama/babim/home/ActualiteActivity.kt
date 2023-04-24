@@ -59,7 +59,7 @@ class ActualiteActivity : AppCompatActivity() {
         if (isConnectedNetwork(this)){
             //connecter
         }else{
-              web_eventmtn.visibility = View.GONE
+            web_eventmtn.visibility = View.GONE
             text_noi.visibility = View.VISIBLE
             non_internet.visibility = View.VISIBLE
 
