@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         loadFragmant(HomeFragment())
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
         bottomNavigationView.selectedItemId = R.id.home
-        showDialog()
+     //   showDialog()
 
 
 

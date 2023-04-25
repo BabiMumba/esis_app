@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.Esisalama.babim.R
 import com.Esisalama.babim.Utils.Constant
@@ -53,7 +54,41 @@ class AddnewsActivity : AppCompatActivity() {
         val mod = intent.getStringExtra("mod")
 
         promotion_choice.setOnClickListener {
-            choise_promotion()
+            //single choice
+            val checkedItem = intArrayOf(-1)
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setIcon(R.drawable.developement_ic)
+            alertDialog.setTitle("Promotion")
+            val listItems = arrayOf(
+                "Toutes les promotions",
+                "L1",
+                "L2_A",
+                "L2_B",
+                "L3_AS",
+                "L3_TLC",
+                "L3_GL",
+                "L3_MSI",
+                "L3_DESIGN",
+                "L4_AS",
+                "L4_TLC",
+                "L4_MSI",
+                "L4_GL",
+                "L4_DESIGN",
+            )
+            alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
+                checkedItem[0] = which
+                val s = listItems[which]
+                //binding.promotionChoice.text = s
+                promotion_text.setText(s)
+                dialog.dismiss()
+            }
+            alertDialog.setNegativeButton("Annuler") { dialog, which ->
+                dialog.dismiss()
+            }
+            val customAlertDialog = alertDialog.create()
+            customAlertDialog.show()
+
+
         }
         if (mod == "oui"){
             title_news.setText(ttl.toString())
@@ -88,7 +123,7 @@ class AddnewsActivity : AppCompatActivity() {
                 }).check()
         }
         send_commq.setOnClickListener {
-            if (liste_promotion.size < 1){
+            if (promotion_text.text.toString().trim().isEmpty()){
                 Toast.makeText(this, "promotion obligatoire", Toast.LENGTH_SHORT).show()
             }else if (title_news.text.toString().trim().isEmpty()){
                 title_news.error = "titre de votre communique"
@@ -113,6 +148,7 @@ class AddnewsActivity : AppCompatActivity() {
                         val reference = storageReference.child(name_image)
                         reference.putFile(filepath!!)
                             .addOnSuccessListener {
+
                                 reference.downloadUrl.addOnSuccessListener {
                                     update_data(it.toString())
                                     progress_bar.visibility = View.GONE
@@ -132,6 +168,8 @@ class AddnewsActivity : AppCompatActivity() {
                     //send_data(image_news)
                 }else{
                     progress_bar.visibility = View.VISIBLE
+                    //disable button send
+                    send_commq.isEnabled = false
                     val firebaseUser = firebaseAuth.currentUser
                     var mail = firebaseUser?.email.toString()
                     if (mail.contains(".")){
@@ -145,7 +183,7 @@ class AddnewsActivity : AppCompatActivity() {
                     reference.putFile(filepath!!)
                         .addOnSuccessListener {
                             reference.downloadUrl.addOnSuccessListener {
-                                //send_data(it.toString())
+                                send_data(it.toString(),promotion_text.text.toString())
                                 progress_bar.visibility = View.GONE
                             }
                         }
@@ -198,6 +236,8 @@ class AddnewsActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful){
                    // sendnotif(title_news.text.toString())
+                    //enable button send
+                    send_commq.isEnabled = true
                     Toast.makeText(this, "envoyer avec succe", Toast.LENGTH_SHORT).show()
                     loading(false)
                 }else{
@@ -241,10 +281,8 @@ class AddnewsActivity : AppCompatActivity() {
                 }
             }
 
-
-
-
     }
+
     fun sendnotif(title: String) {
         FcmNotificationsSender.pushNotification(
             this,
@@ -264,7 +302,9 @@ class AddnewsActivity : AppCompatActivity() {
             ) //Final image resolution will be less than 1080 x 1080(Optional)
             .start(101)
     }
-    fun choise_promotion(){
+
+    /*fun choise_promotion(){
+
         val dialog = Dialog(this)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.setContentView(R.layout.item_promotion_check)
@@ -289,7 +329,6 @@ class AddnewsActivity : AppCompatActivity() {
         val cbx_l4des = dialog.findViewById<CheckBox>(R.id.ckb_l4design)
         //verifier si le case sont coche
         btn.setOnClickListener {
-
 
             if (cbx_l1.isChecked){
                 liste_promotion.add("L1")
@@ -335,17 +374,17 @@ class AddnewsActivity : AppCompatActivity() {
             val adapter_liste = ArrayAdapter(this,android.R.layout.simple_list_item_1,liste_promotion)
             lstv_promot.adapter = adapter_liste
 
-          /*  Toast.makeText(this, "${liste_promotion.size}", Toast.LENGTH_SHORT).show()
+          *//*  Toast.makeText(this, "${liste_promotion.size}", Toast.LENGTH_SHORT).show()
             for (i in liste_promotion){
 
-            }*/
+            }*//*
 
         }
 
         dialog.show()
         dialog.window!!.attributes = lp
 
-    }
+    }*/
 
 
 }
