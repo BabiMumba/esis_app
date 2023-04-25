@@ -17,129 +17,19 @@ import de.hdodenhof.circleimageview.CircleImageView
 import com.Esisalama.babim.Utils.Constant
 import com.Esisalama.babim.home.DetailleActivity
 import com.Esisalama.babim.home.InfosSyllabusActivity
+import com.Esisalama.babim.home.SyllabusPromo
 import com.Esisalama.babim.model.newsyllabus_model
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 
 
-class syllabus_adapters(options: FirestoreRecyclerOptions<newsyllabus_model>) :
+class syllabus_adapters(val syllabus_liste: ArrayList<newsyllabus_model>) :
 
-    FirestoreRecyclerAdapter<newsyllabus_model, syllabus_adapters.myviewholder>(options) {
+    RecyclerView.Adapter<syllabus_adapters.myviewholder>() {
 
     var progressBar: ProgressBar? = null
     private var tlc_s: Int? = null
-
-    override fun onBindViewHolder(holder: myviewholder, position: Int, syllabusModel: newsyllabus_model) {
-    //    load_data(holder.image_user.context)
-        val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
-        val state_admin = sharedPreferences.getString("premium",null)
-        holder.description.text = syllabusModel.description
-        holder.nom_user.text = syllabusModel.nom_user
-        holder.date.text = syllabusModel.date_heure
-        holder.nom_prof.text = syllabusModel.nom_prof
-        holder.promotion.text = syllabusModel.nom_promotion
-        holder.nom_syllabus.text = syllabusModel.nom_syllabus
-        holder.nb_comment.text = syllabusModel.comment.toString()
-        holder.nb_download.text = syllabusModel.download.toString()
-        holder.like_text.text = syllabusModel.like.toString()
-
-        holder.admin_i.visibility = if (syllabusModel.admin_assistant=="oui") View.VISIBLE else View.GONE
-
-       // holder.image_user.setImageBitmap(getConversionImage(syllabusModel.lien_profil))
-        val circularProgressDrawable = CircularProgressDrawable(holder.nom_user.context)
-        circularProgressDrawable.strokeWidth = 5f
-        circularProgressDrawable.centerRadius = 30f
-        circularProgressDrawable.start()
-        Glide
-            .with(holder.image_user.context)
-            .load(syllabusModel.lien_profil)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .placeholder(circularProgressDrawable)
-            .into(holder.image_user)
-        Glide
-            .with(holder.image_user.context)
-            .load(syllabusModel.pochette)
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .placeholder(circularProgressDrawable)
-            .into(holder.syllabus_icone)
-
-
-        holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, DetailleActivity::class.java)
-            intent.putExtra("lien_book",syllabusModel.lien_du_livre)
-            intent.putExtra("nom_prof",syllabusModel.nom_prof)
-            intent.putExtra("syllabus",syllabusModel.nom_syllabus)
-            intent.putExtra("user",syllabusModel.nom_user)
-            intent.putExtra("id_users",syllabusModel.id_user)
-            intent.putExtra("date",syllabusModel.date_heure)
-            intent.putExtra("description",syllabusModel.description)
-            intent.putExtra("promo",syllabusModel.nom_promotion)
-            intent.putExtra("image_url",syllabusModel.lien_pdf)
-            intent.putExtra("couverture",syllabusModel.pochette)
-            intent.putExtra("id_book",syllabusModel.id_book)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            holder.itemView.context.startActivity(intent)
-
-        }
-
-        holder.image_user.setOnClickListener{
-            val intent = Intent(holder.itemView.context, InfosSyllabusActivity::class.java)
-            intent.putExtra("mail",syllabusModel.mail_users)
-            holder.itemView.context.startActivity(intent)
-
-        }
-
-        val firebaseUser = FirebaseAuth.getInstance().currentUser
-        val user_id = firebaseUser?.uid
-        val post = getItem(position).id_book
-
-
-        //like
-        /*
-        holder.layout_dowload.setOnClickListener {
-            val cle = getRef(position).key.toString()
-            try {
-                tlc_s = tlc_s?.plus(1)
-                val sharedPreferences = holder.date.context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
-                val editor = sharedPreferences.edit()
-                editor.apply{
-                    tlc_s?.let { putInt("point", it)
-                    }
-                }.apply()
-                Dexter.withContext(
-                    holder.image_user.context
-                )
-                    .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    .withListener(object : PermissionListener {
-                        override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                            //telecharger(holder.layout_dowload.context,syllabusModel.nom_syllabu,syllabusModel.lien_du_livre)
-                        }
-
-                        override fun onPermissionDenied(permissionDeniedResponse: PermissionDeniedResponse) {
-                            Toast.makeText(
-                                holder.admin_i.context,
-                                "vous devez accepter pour continuer",
-                                Toast.LENGTH_SHORT
-                            ).show()
-                        }
-                        override fun onPermissionRationaleShouldBeShown(
-                            permissionRequest: PermissionRequest,
-                            permissionToken: PermissionToken
-                        ) {
-                            permissionToken.continuePermissionRequest()
-                        }
-                    }).check()
-                increament_dwnlad(holder.layout_dowload.context,syllabusModel.nom_promotion,cle)
-
-            }catch (e:Exception){
-                Toast.makeText(holder.image_user.context, "$e", Toast.LENGTH_SHORT).show()
-            }
-
-        }
-*/
-    }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myviewholder {
         val view =
@@ -183,40 +73,108 @@ class syllabus_adapters(options: FirestoreRecyclerOptions<newsyllabus_model>) :
             admin_i = itemView.findViewById(R.id.admin_ic)
 
         }
+        fun binItems(syllabusModel: newsyllabus_model){
+            val sharedPreferences = admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
+            val state_admin = sharedPreferences.getString("premium",null)
+            description.text = syllabusModel.description
+            nom_user.text = syllabusModel.nom_user
+            date.text = syllabusModel.date_heure
+            nom_prof.text = syllabusModel.nom_prof
+            promotion.text = syllabusModel.nom_promotion
+            nom_syllabus.text = syllabusModel.nom_syllabus
+            nb_comment.text = syllabusModel.comment.toString()
+            nb_download.text = syllabusModel.download.toString()
+            like_text.text = syllabusModel.like.toString()
+            admin_i.visibility = if (syllabusModel.admin_assistant=="oui") View.VISIBLE else View.GONE
 
-    }
+            val circularProgressDrawable = CircularProgressDrawable(nom_user.context)
+            circularProgressDrawable.strokeWidth = 5f
+            circularProgressDrawable.centerRadius = 30f
+            circularProgressDrawable.start()
+            Glide
+                .with(image_user.context)
+                .load(syllabusModel.lien_profil)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(image_user)
+            Glide
+                .with(image_user.context)
+                .load(syllabusModel.pochette)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .placeholder(circularProgressDrawable)
+                .into(syllabus_icone)
 
- /*   fun load_data(context: Context){
-        val sharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
-        val tlc = sharedPreferences.getInt("point",0)
-        tlc_s = tlc
-    }
-    fun telecharger(context: Context, nom:String, lien:String) {
 
-        var url1: URL? = null
-        try {
-            url1 = URL(lien)
-        } catch (e: MalformedURLException) {
-            e.printStackTrace()
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailleActivity::class.java)
+                intent.putExtra("lien_book",syllabusModel.lien_du_livre)
+                intent.putExtra("nom_prof",syllabusModel.nom_prof)
+                intent.putExtra("syllabus",syllabusModel.nom_syllabus)
+                intent.putExtra("user",syllabusModel.nom_user)
+                intent.putExtra("id_users",syllabusModel.id_user)
+                intent.putExtra("date",syllabusModel.date_heure)
+                intent.putExtra("description",syllabusModel.description)
+                intent.putExtra("promo",syllabusModel.nom_promotion)
+                intent.putExtra("image_url",syllabusModel.lien_pdf)
+                intent.putExtra("couverture",syllabusModel.pochette)
+                intent.putExtra("id_book",syllabusModel.id_book)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                itemView.context.startActivity(intent)
+
+            }
+
+            image_user.setOnClickListener{
+                val intent = Intent(itemView.context, InfosSyllabusActivity::class.java)
+                intent.putExtra("mail",syllabusModel.mail_users)
+                itemView.context.startActivity(intent)
+
+            }
+
+
+
         }
-        val request = DownloadManager.Request(Uri.parse(url1.toString()))
-        request.setTitle(nom)
-        request.setMimeType("application/pdf")
-        request.allowScanningByMediaScanner()
-        request.setDescription("Telechargement...")
-        request.setVisibleInDownloadsUi(true)
-        request.setAllowedOverMetered(true)
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
-        request.setDestinationInExternalPublicDir(
-            Environment.DIRECTORY_DOWNLOADS, "$nom.pdf"
-        )
-        val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
-        dm.enqueue(request)
-        Toast.makeText(context, "lancement du telechargement...", Toast.LENGTH_SHORT).show()
+
     }
 
-  *//*  fun increament_dwnlad(context: Context,pm:String,cle:String){
+    override fun getItemCount(): Int {
+        return syllabus_liste.size
+    }
+
+    override fun onBindViewHolder(holder: myviewholder, position: Int) {
+        holder.binItems(syllabus_liste[position])
+    }
+
+    /*   fun load_data(context: Context){
+           val sharedPreferences = context.getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
+           val tlc = sharedPreferences.getInt("point",0)
+           tlc_s = tlc
+       }
+       fun telecharger(context: Context, nom:String, lien:String) {
+
+           var url1: URL? = null
+           try {
+               url1 = URL(lien)
+           } catch (e: MalformedURLException) {
+               e.printStackTrace()
+           }
+           val request = DownloadManager.Request(Uri.parse(url1.toString()))
+           request.setTitle(nom)
+           request.setMimeType("application/pdf")
+           request.allowScanningByMediaScanner()
+           request.setDescription("Telechargement...")
+           request.setVisibleInDownloadsUi(true)
+           request.setAllowedOverMetered(true)
+           request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+           request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+           request.setDestinationInExternalPublicDir(
+               Environment.DIRECTORY_DOWNLOADS, "$nom.pdf"
+           )
+           val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+           dm.enqueue(request)
+           Toast.makeText(context, "lancement du telechargement...", Toast.LENGTH_SHORT).show()
+       }
+
+     *//*  fun increament_dwnlad(context: Context,pm:String,cle:String){
 
         var promo = pm
         if (promo!="L1" && promo!= "L2"){

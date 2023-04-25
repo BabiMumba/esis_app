@@ -11,6 +11,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.webkit.*
@@ -158,19 +159,14 @@ class HoraireActivity : AppCompatActivity() {
             }
 
             override fun onPageFinished(view: WebView, url: String?) {
-
+                show_toast_util(this@HoraireActivity,"fin")
+                Log.d("View_web","$url")
                 if (title==getString(R.string.app_name)){
                     webView.reload()
                 }else
                 if (!view.url.equals(url)) {
                     view.reload()
-                    return
-                }else
-                if (title == final_link){
-                    show_toast_util(this@HoraireActivity,"pas d'horaire")
-                }else
-
-                {
+                }else{
                     super.onPageFinished(view, url)
                 }
                 

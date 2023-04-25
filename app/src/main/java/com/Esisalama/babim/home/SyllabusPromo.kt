@@ -9,18 +9,22 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.Esisalama.babim.R
+import com.Esisalama.babim.Utils.show_toast_util
 import com.Esisalama.babim.adapters.syllabus_adapters
 import com.Esisalama.babim.model.newsyllabus_model
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_syllabus.*
 
 class SyllabusPromo : AppCompatActivity() {
 
     lateinit var myadaptes_syllabus: syllabus_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
+    lateinit var syllabus:ArrayList<newsyllabus_model>
+    lateinit var db:FirebaseFirestore
 
     private companion object{
         private const val TAG = "BANNER_AD_TAG"
@@ -30,6 +34,8 @@ class SyllabusPromo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_syllabus)
+        db = FirebaseFirestore.getInstance()
+        syllabus = arrayListOf()
 
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
@@ -97,29 +103,39 @@ class SyllabusPromo : AppCompatActivity() {
             val ref = FirebaseFirestore.getInstance().collection("syllabus")
                 .whereEqualTo("nom_promotion",pm)
             recp.layoutManager = linearLayoutManager
-            val options = FirestoreRecyclerOptions.Builder<newsyllabus_model>()
-                .setQuery(
-                    ref,
-                    newsyllabus_model::class.java
-                )
-                .build()
-            myadaptes_syllabus = syllabus_adapters(options)
+            ref.get()
+                .addOnSuccessListener {
+                    if (!it.isEmpty){
+                        for (document in it){
+                            val syllab = document.toObject(newsyllabus_model::class.java)
+                            syllabus.add(syllab)
+                        }
+                    }else{
+                        show_toast_util(this,"pas de documet ")
+                    }
+                }
+            myadaptes_syllabus = syllabus_adapters(syllabus)
         }else{
             val ref = FirebaseFirestore.getInstance().collection("syllabus")
             recp.layoutManager = linearLayoutManager
-            val options = FirestoreRecyclerOptions.Builder<newsyllabus_model>()
-                .setQuery(
-                    ref,
-                    newsyllabus_model::class.java
-                )
-                .build()
-            myadaptes_syllabus = syllabus_adapters(options)
+            ref.get()
+                .addOnSuccessListener {
+                    if (!it.isEmpty){
+                        for (document in it){
+                            val syllab = document.toObject(newsyllabus_model::class.java)
+                            syllabus.add(syllab)
+                        }
+                    }else{
+                        show_toast_util(this,"pas de contenue")
+                    }
+                }
+
+            myadaptes_syllabus = syllabus_adapters(syllabus)
         }
 
 
         recp.adapter = myadaptes_syllabus
         myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
-        myadaptes_syllabus.startListening()
 
     }
     fun isConnectedNetwork(context: Context): Boolean {
@@ -134,6 +150,5 @@ class SyllabusPromo : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        myadaptes_syllabus.stopListening()
     }
 }
