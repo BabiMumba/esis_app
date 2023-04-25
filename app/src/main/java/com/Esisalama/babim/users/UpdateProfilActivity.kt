@@ -135,6 +135,7 @@ class UpdateProfilActivity : AppCompatActivity() {
             "VC_L1",
             "VC_L2",
             "VC_L3",
+            "L2_C",
         )
         alertDialog.setSingleChoiceItems(listItems, checkedItem[0]) { dialog, which ->
             checkedItem[0] = which

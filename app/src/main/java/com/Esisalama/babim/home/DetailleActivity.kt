@@ -301,7 +301,7 @@ class DetailleActivity : AppCompatActivity() {
         db.collection("syllabus").document(doc)
             .update("like",FieldValue.increment(1))
             .addOnSuccessListener {
-                Toast.makeText(this, "lire add", Toast.LENGTH_SHORT).show()
+                Log.d("Detaille_activity","lire add")
             }
             .addOnFailureListener {
                 Toast.makeText(this, "erreur:${it.message}", Toast.LENGTH_SHORT).show()

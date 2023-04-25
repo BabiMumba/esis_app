@@ -84,6 +84,7 @@ class ActualiteActivity : AppCompatActivity() {
 
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
+
                // progressBar.dismiss()
             }
 

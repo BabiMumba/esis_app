@@ -17,9 +17,11 @@ import android.webkit.*
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.Esisalama.babim.R
+import com.Esisalama.babim.Utils.show_toast_util
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_horaire.*
 import org.jetbrains.anko.downloadManager
+import org.jetbrains.anko.toast
 import java.io.File
 import java.io.IOException
 import java.net.MalformedURLException
@@ -46,16 +48,19 @@ class HoraireActivity : AppCompatActivity() {
     }
 
     lateinit var webView: WebView
+  
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val window = window
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_horaire)
 
+        
         registerReceiver(broadcastReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
         val promot_link = intent.getStringExtra("promot_link").toString()
         val lien = "https://www.esisalama.com/assets/upload/horaire/pdf/HORAIRE%20$promot_link.pdf"
+        var final_link = "https://docs.google.com/gview?embedded=true&url=$lien"
 
         if (isConnectedNetwork(this)){
 
@@ -138,6 +143,9 @@ class HoraireActivity : AppCompatActivity() {
             webView.settings.allowContentAccess = true
             webView.settings.allowFileAccess = true
             webView.settings.useWideViewPort = true
+            webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+            webView.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
+            webView.settings.loadWithOverviewMode = true
             webView.settings.domStorageEnabled = true
             webView.settings.loadsImagesAutomatically = true
             webView.setLayerType(View.LAYER_TYPE_SOFTWARE,null)
@@ -149,11 +157,23 @@ class HoraireActivity : AppCompatActivity() {
                 //progressBar.show()
             }
 
-            override fun onPageFinished(view: WebView?, url: String?) {
-                super.onPageFinished(view, url)
+            override fun onPageFinished(view: WebView, url: String?) {
+
                 if (title==getString(R.string.app_name)){
                     webView.reload()
+                }else
+                if (!view.url.equals(url)) {
+                    view.reload()
+                    return
+                }else
+                if (title == final_link){
+                    show_toast_util(this@HoraireActivity,"pas d'horaire")
+                }else
+
+                {
+                    super.onPageFinished(view, url)
                 }
+                
             }
             override fun shouldOverrideUrlLoading(view: WebView, url: String?): Boolean {
                 view.loadUrl(url!!)
@@ -176,7 +196,7 @@ class HoraireActivity : AppCompatActivity() {
 
         }
 
-        webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$lien")
+        webView.loadUrl(final_link)
 
     }
 

@@ -128,7 +128,6 @@ class Add_book : AppCompatActivity() {
             alertDialog.setIcon(R.drawable.pdf_file)
             alertDialog.setTitle("Promotion")
             val listItems = arrayOf(
-                "Toutes les promotions",
                 "L1",
                 "L2_A",
                 "L2_B",

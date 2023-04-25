@@ -4,6 +4,7 @@ import android.app.ProgressDialog
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -34,14 +35,29 @@ class LectureActivity : AppCompatActivity() {
         webView.settings.allowFileAccess = true
         webView.settings.setAppCacheEnabled(true)
         webView.settings.cacheMode = WebSettings.LOAD_DEFAULT
+        webView.scrollBarStyle = View.SCROLLBARS_OUTSIDE_OVERLAY
+        webView.settings.useWideViewPort = true
+        webView.settings.loadWithOverviewMode = true
+
+
 
         webView.webViewClient = object : WebViewClient() {
             override fun onPageStarted(view: WebView, url: String, favicon: Bitmap?) {
-                super.onPageStarted(view, url, favicon)
                 pd.show()
+                view.settings.loadsImagesAutomatically = true;
+                super.onPageStarted(view, url, favicon)
+
+
             }
             override fun onPageFinished(view: WebView, url: String) {
-                super.onPageFinished(view, url)
+                if (!view.url.equals(url)) {
+                    view.reload()
+                    return
+                }else{
+                    title = view.title
+                    super.onPageFinished(view, url)
+                }
+
                 pd.dismiss()
             }
 
@@ -53,8 +69,10 @@ class LectureActivity : AppCompatActivity() {
         }
         webView.loadUrl("https://docs.google.com/gview?embedded=true&url=$url")
         syncroniser.setOnClickListener {
+            pd.show()
             Toast.makeText(this, "Rafraichir", Toast.LENGTH_SHORT).show()
             webView.reload()
+
         }
     }
 }
