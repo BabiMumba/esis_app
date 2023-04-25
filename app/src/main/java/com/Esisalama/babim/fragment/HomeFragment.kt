@@ -127,8 +127,8 @@ class HomeFragment : Fragment() {
         val admin = sharedPreferences.getString("administrateur","")
         if(admin !="non"){
             viewF.findViewById<CardView>(R.id.cat_tous).visibility = View.GONE
-        }
 
+        }
 
         viewF.findViewById<CardView>(R.id.cat_tous).setOnClickListener {
             val intent = Intent(activity, SyllabusPromo::class.java)
@@ -141,13 +141,25 @@ class HomeFragment : Fragment() {
         viewF.findViewById<TextView>(R.id.titre2).text = "Horaire\n$pm"
         viewF.findViewById<TextView>(R.id.promo_syl).text = "$pm"
 
-        viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
-            val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
-            val intent = Intent(activity, ActualiteActivity::class.java)
-            //intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
-            intent.putExtra("url_link",actulaity_link)
-            startActivity(intent)
-        }
+
+
+            viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
+                if (admin=="non") {
+                    //val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+                    val intent = Intent(activity, HoraireActivity::class.java)
+                    intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
+                    //intent.putExtra("url_link",actulaity_link)
+                    startActivity(intent)
+                }else{
+                    val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
+                    val intent = Intent(activity, ActualiteActivity::class.java)
+                    // intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
+                    intent.putExtra("url_link",actulaity_link)
+                    startActivity(intent)
+                }
+
+
+            }
         viewF.findViewById<CardView>(R.id.esis_web).setOnClickListener {
             val actulaity_link = "https://www.esisalama.com/index.php"
             val intent = Intent(activity, ActualiteActivity::class.java)

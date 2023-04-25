@@ -38,7 +38,6 @@ import java.util.*
 class AddnewsActivity : AppCompatActivity() {
 
     var filepath: Uri? = null
-    var liste_promotion = mutableListOf<String>()
     private lateinit var storageReference: StorageReference
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
