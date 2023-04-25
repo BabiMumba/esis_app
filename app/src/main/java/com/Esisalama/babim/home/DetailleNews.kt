@@ -13,6 +13,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.Esisalama.babim.R
 import com.Esisalama.babim.Utils.Constant
+import com.Esisalama.babim.users.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.firestore.FirebaseFirestore
@@ -66,6 +67,12 @@ class DetailleNews : AppCompatActivity() {
             .centerCrop()
             .placeholder(circularProgressDrawable)
             .into(news_image_id)
+
+        news_image_id.setOnClickListener {
+            startActivity(Intent(this, ImageView::class.java)
+                .putExtra("lien_image",image)
+            )
+        }
 
         popup_menu()
     }

@@ -3,9 +3,8 @@ package com.Esisalama.babim.home
 import android.app.Dialog
 import android.content.ContentValues
 import android.content.Context
-import com.Esisalama.babim.R
 import android.content.DialogInterface
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,13 +15,16 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+import com.Esisalama.babim.R
 import com.Esisalama.babim.Utils.Constant
 import com.Esisalama.babim.adapters.commentaire_poste_adapters
 import com.Esisalama.babim.fcm.FcmNotificationsSender
 import com.Esisalama.babim.model.commentaire_poste_model
+import com.Esisalama.babim.users.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -39,6 +41,8 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_poste_detaille.*
 import kotlinx.android.synthetic.main.content_comment.*
+import kotlinx.android.synthetic.main.row_feed.*
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -101,6 +105,12 @@ class PosteDetaille : AppCompatActivity() {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .placeholder(circularProgressDrawable)
                 .into(poste_image_id)
+        }
+        poste_image_id.setOnClickListener {
+            startActivity(
+                Intent(this, ImageView::class.java)
+                .putExtra("lien_image",image_poster)
+            )
         }
 
         setListener()
@@ -171,6 +181,8 @@ class PosteDetaille : AppCompatActivity() {
     }
     fun ajouter_data(msg:String){
         val firebaseUser = firebaseAuth.currentUser
+        //get time
+
         val id_user = firebaseUser?.uid.toString()
         val cal = Calendar.getInstance()
         val sdf1 = SimpleDateFormat("HH:mm dd/M/yyyy")

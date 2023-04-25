@@ -1,6 +1,7 @@
 package com.Esisalama.babim.adapters
 
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.Esisalama.babim.R
+import com.Esisalama.babim.home.DetailleNews
 import com.Esisalama.babim.model.commentaire_poste_model
+import com.Esisalama.babim.users.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
@@ -54,6 +57,16 @@ class commentaire_poste_adapters (options: FirestoreRecyclerOptions<commentaire_
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .placeholder(circularProgressDrawable)
             .into(holder.image)
+
+        holder.image.setOnClickListener {
+        /*    startActivity(
+                Intent(this, ImageView::class.java)
+                .putExtra("lien_image",image)
+            )*/
+            val intent = Intent(holder.itemView.context, ImageView::class.java)
+                .putExtra("lien_image",model.profil)
+            holder.itemView.context.startActivity(intent)
+        }
     }
     override fun onDataChanged() {
         super.onDataChanged()

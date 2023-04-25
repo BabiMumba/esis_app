@@ -158,7 +158,6 @@ class HomeFragment : Fragment() {
                     startActivity(intent)
                 }
 
-
             }
         viewF.findViewById<CardView>(R.id.esis_web).setOnClickListener {
             val actulaity_link = "https://www.esisalama.com/index.php"
