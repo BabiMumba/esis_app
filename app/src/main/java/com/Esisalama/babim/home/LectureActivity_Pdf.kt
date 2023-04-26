@@ -88,14 +88,8 @@ class LectureActivity_Pdf : AppCompatActivity(), Pdf_listener_file {
 
         val sharedPreferences = getSharedPreferences("sharedPref", Context.MODE_PRIVATE)
         val point = sharedPreferences.getInt("point",0)
-        if (point >= 1){
-            runtimePermissions()
-        }else{
-            my_recyclerview.visibility = View.GONE
-            empty_list.visibility = View.VISIBLE
-            empty_txtv.visibility = View.VISIBLE
 
-        }
+        runtimePermissions()
 
 
     }

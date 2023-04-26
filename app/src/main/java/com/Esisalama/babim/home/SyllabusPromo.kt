@@ -6,6 +6,7 @@ import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.Esisalama.babim.R
@@ -15,6 +16,7 @@ import com.Esisalama.babim.model.newsyllabus_model
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.android.gms.ads.*
 import com.google.firebase.database.*
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.toObject
 import kotlinx.android.synthetic.main.activity_syllabus.*
@@ -24,7 +26,6 @@ class SyllabusPromo : AppCompatActivity() {
     lateinit var myadaptes_syllabus: syllabus_adapters
     lateinit var linearLayoutManager: LinearLayoutManager
     lateinit var syllabus:ArrayList<newsyllabus_model>
-    lateinit var db:FirebaseFirestore
 
     private companion object{
         private const val TAG = "BANNER_AD_TAG"
@@ -34,8 +35,8 @@ class SyllabusPromo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_syllabus)
-        db = FirebaseFirestore.getInstance()
         syllabus = arrayListOf()
+
 
         MobileAds.initialize(this){
             Log.d(TAG,"inias complet")
@@ -96,31 +97,42 @@ class SyllabusPromo : AppCompatActivity() {
         linearLayoutManager.reverseLayout = true
         linearLayoutManager.onSaveInstanceState()
         linearLayoutManager.stackFromEnd = true
-
+        recp.layoutManager = linearLayoutManager
         val pm = intent.getStringExtra("promotion").toString()
+        show_toast_util(this,pm)
 
-        if (pm != ""){
-            val ref = FirebaseFirestore.getInstance().collection("syllabus")
-                .whereEqualTo("nom_promotion",pm)
-            recp.layoutManager = linearLayoutManager
-            ref.get()
+        //verifier si la promotion est vide ou pas
+        //si la promotion est vide alors on affiche tout les syllabus sinon on affiche les syllabus de la promotion sur firestore
+        if (pm == ""){
+            FirebaseFirestore.getInstance()
+                .collection("syllabus")
+            //obtenir les données
+                .get()
                 .addOnSuccessListener {
                     if (!it.isEmpty){
+                        progressBar.visibility = View.GONE
                         for (document in it){
                             val syllab = document.toObject(newsyllabus_model::class.java)
                             syllabus.add(syllab)
                         }
                     }else{
-                        show_toast_util(this,"pas de documet ")
+
+                        show_toast_util(this,"pas de contenue")
                     }
+
+                    myadaptes_syllabus = syllabus_adapters(syllabus)
+                    recp.adapter = myadaptes_syllabus
                 }
-            myadaptes_syllabus = syllabus_adapters(syllabus)
+
         }else{
-            val ref = FirebaseFirestore.getInstance().collection("syllabus")
-            recp.layoutManager = linearLayoutManager
-            ref.get()
+            //afficher les syllabus de la promotion en triant par nom de promotion
+            FirebaseFirestore.getInstance()
+                .collection("syllabus")
+                .whereEqualTo("nom_promotion",pm)
+                .get()
                 .addOnSuccessListener {
                     if (!it.isEmpty){
+                        progressBar.visibility = View.GONE
                         for (document in it){
                             val syllab = document.toObject(newsyllabus_model::class.java)
                             syllabus.add(syllab)
@@ -128,27 +140,52 @@ class SyllabusPromo : AppCompatActivity() {
                     }else{
                         show_toast_util(this,"pas de contenue")
                     }
-                }
 
-            myadaptes_syllabus = syllabus_adapters(syllabus)
+                    myadaptes_syllabus = syllabus_adapters(syllabus)
+                    recp.adapter = myadaptes_syllabus
+                }
+            show_toast_util(this,pm)
         }
 
 
-        recp.adapter = myadaptes_syllabus
-        myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
+
+      /*  ref = if (pm == ""){
+            FirebaseFirestore.getInstance()
+                .collection("syllabus")
+
+        }else{
+            FirebaseFirestore.getInstance()
+                .collection("syllabus")
+                .whereEqualTo("nom_promotion",pm) as CollectionReference
+        }
+
+
+            ref.get()
+                .addOnSuccessListener {
+                    if (!it.isEmpty){
+                        progressBar.visibility = View.GONE
+                        for (document in it){
+                            val syllab = document.toObject(newsyllabus_model::class.java)
+                            syllabus.add(syllab)
+                        }
+                    }else{
+
+                        show_toast_util(this,"pas de contenue")
+                    }
+
+                    myadaptes_syllabus = syllabus_adapters(syllabus)
+                    recp.adapter = myadaptes_syllabus
+                }
+                .addOnFailureListener {
+                    Log.d("syllabus_show","${it.message}")
+                }*/
+
+
+       // myadaptes_syllabus.stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
 
     }
     fun isConnectedNetwork(context: Context): Boolean {
         val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         return cm.activeNetworkInfo != null && cm.activeNetworkInfo!!.isConnectedOrConnecting
-    }
-    override fun onStart() {
-        recycler_promo.recycledViewPool.clear()
-        myadaptes_syllabus.notifyDataSetChanged()
-        super.onStart()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }

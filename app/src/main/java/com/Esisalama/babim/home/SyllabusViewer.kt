@@ -7,8 +7,11 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.Esisalama.babim.R
+import com.Esisalama.babim.Utils.show_toast_util
 import com.Esisalama.babim.adapters.syllabusAdaptersNew
 import com.Esisalama.babim.model.newsyllabus_model
 import com.google.android.gms.ads.*
@@ -18,6 +21,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_syllabus_promo.*
 
@@ -111,76 +115,21 @@ class SyllabusViewer : AppCompatActivity() {
 
             for(document in snapshot!!.documents){
                 val nb=  snapshot.count()
-                document?.let {
+                if (document != null){
                     edt_recherche.setHint("Rechercher syllabus($nb)")
+                    progressBar.visibility = View.GONE
+
+                }else{
+
                 }
-                val nom_syllabus = document.getString("nom_syllabus").toString()
-                val nom_user = document.getString("nom_user").toString()
-                val date_push = document.getString("date_heure").toString()
-                val promotion = document.getString("nom_promotion").toString()
-                val commnent = document.get("comment").toString()
-                val like = document.get("like").toString()
-                val download = document.get("download").toString()
-                val lien_image = document.getString("lien_profil").toString()
-                val pochette = document.getString("pochette").toString()
-                val nom_prof = document.getString("nom_prof").toString()
-                val descrip = document.getString("description").toString()
-                val lien_livre = document.getString("lien_du_livre").toString()
-                val id_book = document.getString("id_book").toString()
-                val id_user = document.getString("id_user").toString()
-                val id_storage = document.getString("lien_pdf").toString()
-                val mail_user = document.getString("mail_users").toString()
-                val token_user = document.getString("token_users").toString()
-                val admin_assistant = document.getString("admin_assistant").toString()
-                val adminstrateur = document.getString("administrateur").toString()
-                books.add(newsyllabus_model(nom_syllabus,admin_assistant,adminstrateur,pochette,mail_user,id_user,id_storage,token_user,promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
+             val all_book = document.toObject(newsyllabus_model::class.java)
+                if (all_book != null) {
+                    books.add(all_book)
+                }
             }
             syllabusAdaptersNew.items = books
 
         }
-
-/*
-
-        db.collection("syllabus")
-            //.whereEqualTo("nom_promotion","L3_DESIGN")
-            .get()
-
-            .addOnSuccessListener { result->
-               val nb=  result.count()
-
-                for(document in result){
-                   document?.let {
-                       edt_recherche.setHint("Rechercher syllabus($nb)")
-                   }
-                    val nom_syllabus = document.getString("nom_syllabus").toString()
-                    val nom_user = document.getString("nom_user").toString()
-                    val date_push = document.getString("date_heure").toString()
-                    val promotion = document.getString("nom_promotion").toString()
-                    val commnent = document.get("comment").toString()
-                    val like = document.get("like").toString()
-                    val download = document.get("download").toString()
-                    val lien_image = document.getString("lien_profil").toString()
-                    val pochette = document.getString("pochette").toString()
-                    val nom_prof = document.getString("nom_prof").toString()
-                    val descrip = document.getString("description").toString()
-                    val lien_livre = document.getString("lien_du_livre").toString()
-                    val id_book = document.getString("id_book").toString()
-                    val id_user = document.getString("id_user").toString()
-                    val id_storage = document.getString("lien_pdf").toString()
-                    val mail_user = document.getString("mail_users").toString()
-                    val token_user = document.getString("token_users").toString()
-                    val admin_assistant = document.getString("admin_assistant").toString()
-                    val adminstrateur = document.getString("administrateur").toString()
-                    books.add(newsyllabus_model(nom_syllabus,admin_assistant,adminstrateur,pochette,mail_user,id_user,id_storage,token_user,promotion,descrip,nom_prof,lien_livre,nom_user,date_push,lien_image,"","","","",id_book,like.toInt(),download.toInt(),commnent.toInt()))
-                }
-                syllabusAdaptersNew.items = books
-            }
-
-            .addOnFailureListener {
-                Toast.makeText(this, "erreur ${it.message}", Toast.LENGTH_SHORT).show()
-            }
-*/
-
         edt_recherche.addTextChangedListener(object: TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 

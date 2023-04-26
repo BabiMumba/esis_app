@@ -22,6 +22,7 @@
             >
 
             <ImageView
+                android:visibility="gone"
                 android:id="@+id/dele_pst"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,12 +48,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/_5sdp"
                     android:background="@drawable/file_background"
-                    android:text="Aperçu du livre"
                     android:padding="@dimen/_3sdp"
+                    android:text="Aperçu du livre"
                     android:textAllCaps="false"
                     android:textColor="@color/black"
                     android:textSize="@dimen/_10sdp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
                 <Button
                     android:id="@+id/btn_downl"

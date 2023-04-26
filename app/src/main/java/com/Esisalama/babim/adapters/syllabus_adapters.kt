@@ -28,9 +28,6 @@ class syllabus_adapters(val syllabus_liste: ArrayList<newsyllabus_model>) :
 
     RecyclerView.Adapter<syllabus_adapters.myviewholder>() {
 
-    var progressBar: ProgressBar? = null
-    private var tlc_s: Int? = null
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): myviewholder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.item_syllabus, parent, false)
