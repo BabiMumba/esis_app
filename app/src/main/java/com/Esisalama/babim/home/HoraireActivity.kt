@@ -67,7 +67,6 @@ class HoraireActivity : AppCompatActivity() {
 
         }else{
             //si l'utilisateur est hors connexion
-
             network_visibility.visibility = View.VISIBLE
             visibility_page.visibility = View.GONE
             lyt_btn.visibility = View.GONE

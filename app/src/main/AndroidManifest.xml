@@ -29,6 +29,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.Mydark"
             android:name=".HoraireViewActivity"
             android:exported="false" />
         <activity
