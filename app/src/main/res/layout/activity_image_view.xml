@@ -5,13 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".users.ImageView">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
-        android:src="@drawable/hom_comp"
+        android:src="@drawable/my_boy"
         android:id="@+id/image_viewr"
         />
+
+
+
 
 </RelativeLayout>

@@ -138,6 +138,7 @@ class SyllabusPromo : AppCompatActivity() {
                             syllabus.add(syllab)
                         }
                     }else{
+                        //si la promotion est vide
                         show_toast_util(this,"pas de contenue")
                     }
 

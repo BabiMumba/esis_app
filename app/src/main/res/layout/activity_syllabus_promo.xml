@@ -74,15 +74,13 @@
             tools:listitem="@layout/item_syllabus" />
 
     </RelativeLayout>
-    <com.airbnb.lottie.LottieAnimationView
+    <ImageView
         android:layout_width="@dimen/_200sdp"
         android:layout_height="@dimen/_200sdp"
         android:layout_centerInParent="true"
-        android:visibility="gone"
         android:id="@+id/non_internet"
-        ads:lottie_autoPlay="true"
-        ads:lottie_rawRes="@raw/nini"
-        ads:lottie_loop="true"/>
+        />
+
     <TextView
         android:id="@+id/txvp"
         android:visibility="gone"

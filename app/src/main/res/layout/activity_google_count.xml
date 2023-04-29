@@ -4,35 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:id="@+id/my_relative"
-    android:background="@drawable/hom_comp"
     android:layout_height="match_parent"
-    android:padding="@dimen/_20sdp"
     tools:context=".Authentification.GoogleCountActivity">
 
+    <ImageView
+        android:layout_width="@dimen/_120sdp"
+        android:layout_height="@dimen/_120sdp"
+        android:layout_alignParentTop="true"
+        android:scaleType="fitXY"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ba_top_right"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/_250sdp"
+        android:layout_height="@dimen/_250sdp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icone"
+        android:alpha="0.5"
+        />
+
+    <RelativeLayout
+        android:layout_width="@dimen/_300sdp"
+        android:layout_height="@dimen/_400sdp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:adjustViewBounds="true"
+            android:src="@drawable/my_boy" />
+    </RelativeLayout>
+
     <TextView
+        android:layout_marginStart="@dimen/_10sdp"
         android:id="@+id/txt1"
+        android:textSize="@dimen/_13ssp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/re_lgn"
+        android:layout_below="@id/txt2"
         android:layout_marginBottom="@dimen/_10sdp"
         android:text="Passer votre meilleur cursus academique"
         android:textColor="@color/primary_text"
         android:textStyle="bold" />
 
     <TextView
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginStart="@dimen/_10sdp"
         android:id="@+id/txt2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@id/txt1"
-        android:textSize="@dimen/_10sdp"
-        android:fontFamily="serif"
         android:layout_marginBottom="@dimen/_10sdp"
-        android:text="@string/school_name"
+        android:fontFamily="serif"
+        android:text="@string/school_sepa"
         android:textColor="@color/primary_text"
+        android:textSize="@dimen/_18sdp"
         android:textStyle="bold" />
 
     <RelativeLayout
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
         android:id="@+id/re_lgn"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

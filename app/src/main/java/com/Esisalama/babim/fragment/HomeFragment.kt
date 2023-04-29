@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import com.Esisalama.babim.HoraireViewActivity
 import com.Esisalama.babim.Utils.Constant
 import com.Esisalama.babim.home.*
 import com.Esisalama.babim.R
@@ -146,7 +147,7 @@ class HomeFragment : Fragment() {
             viewF.findViewById<CardView>(R.id.horaire_cat).setOnClickListener {
                 if (admin=="non") {
                     //val actulaity_link = "https://www.esisalama.com/index.php?module=horaire"
-                    val intent = Intent(activity, HoraireActivity::class.java)
+                    val intent = Intent(activity, HoraireViewActivity::class.java)
                     intent.putExtra("promot_link",sharedPreferences.getString("promotion",null))
                     //intent.putExtra("url_link",actulaity_link)
                     startActivity(intent)
