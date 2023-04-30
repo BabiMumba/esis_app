@@ -3,7 +3,9 @@ package com.Esisalama.babim.admin
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.Esisalama.babim.R
+import com.Esisalama.babim.Utils.Constant
 import com.Esisalama.babim.home.Add_book
 import com.Esisalama.babim.home.AddnewsActivity
 import kotlinx.android.synthetic.main.activity_sale_controle.*
@@ -13,8 +15,18 @@ class SaleControleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sale_controle)
 
+        visiblity()
        clikmethode()
 
+    }
+    fun visiblity(){
+      val sharedPreferences = getSharedPreferences(Constant.Save_to_sharep, MODE_PRIVATE)
+        val admin = sharedPreferences.getString("administrateur","")
+        if (admin != "oui"){
+            prof_count.visibility = View.GONE
+            users_page.visibility = View.GONE
+            logout_users.visibility = View.GONE
+        }
     }
     fun clikmethode(){
         users_page.setOnClickListener {
