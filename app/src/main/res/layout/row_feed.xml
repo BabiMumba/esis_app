@@ -138,16 +138,17 @@
 
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_below="@+id/view">
             <RelativeLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
                 <LinearLayout
-                    android:visibility="gone"
                     android:id="@+id/layout_like"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

@@ -37,6 +37,7 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
     var token_id = ""
     lateinit var collection_name:String
     private lateinit var firebaseAuth: FirebaseAuth
+    private val auth = FirebaseAuth.getInstance()
 
     inner class viewholder(itemview:View):RecyclerView.ViewHolder(itemview){
         var nom:TextView
@@ -67,49 +68,6 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             admin_i = itemview.findViewById(R.id.admin_ir)
         }
 
-
-        //si on clik sur le bouton
-
-        fun getlikebuttonstatus(postkey: String?, userid: String?) {
-            likereference = FirebaseDatabase.getInstance().getReference("likes_poste")
-            likereference!!.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.child(postkey!!).hasChild(userid!!)) {
-                        val likecount = snapshot.child(postkey).childrenCount.toInt()
-                        like_text.text = "$likecount"
-                        nb_like.text = "$likecount"
-                        like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
-                    } else {
-                        val likecount = snapshot.child(postkey).childrenCount.toInt()
-                        like_text.text = "$likecount"
-                        nb_like.text = "$likecount"
-                        like_btn.setImageResource(R.drawable.ic_outline_thumb_up_24)
-                    }
-                }
-
-                override fun onCancelled(error: DatabaseError) {}
-            })
-        }
-
-        val user_id = FirebaseAuth.getInstance().currentUser!!.uid
-
-        fun get_status_btn_like(Id_post:String,userid: String){
-            val ref = FirebaseFirestore.getInstance().collection("poste_forum").document(Id_post).collection("like_poste").document(userid)
-                .get()
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful){
-                        val document = task.result
-                        if (document.exists()){
-                            like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
-                        }else{
-
-                        }
-                    }
-
-                }
-        }
-
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewholder {
@@ -131,10 +89,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
         }else{
             Constant.Etudiant
         }
-
         read_name(collection_name)
         get_token()
-        var testclick = false
         val circularProgressDrawable = CircularProgressDrawable(holder.message.context)
         circularProgressDrawable.strokeWidth = 5f
         circularProgressDrawable.centerRadius = 30f
@@ -175,66 +131,34 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
 
 
-        /*holder.getlikebuttonstatus(postkey,userid)*/
-
-        /*holder.layout_like.setOnClickListener {
-            testclick = true
-            likereference!!.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (testclick) {
-                        testclick = if (snapshot.child(postkey!!).hasChild(userid)) {
-                            likereference!!.child(postkey).child(userid).removeValue()
-                            false
-                        } else {
-                            val mediaPlayer = MediaPlayer.create(holder.image.context, R.raw.like_raw)
-                            mediaPlayer.start()
-                            likereference!!.child(postkey).child(userid).setValue(true)
-                            if (model.token_users != token_id){
-                                FcmNotificationsSender.pushNotification(
-                                    holder.message.context,
-                                    model.token_users,
-                                    holder.itemView.context.getString(R.string.app_name),
-                                    "${mon_nom} a aimer votre publication",
-                                )
-                            }
-                            false
-                        }
+      /*  getLikeCount(model.id_poste){likecount->
+            holder.nb_like.text = "$likecount"
+        }
+        likesCollection.document(model.id_poste).collection("likedBy").document(auth.currentUser?.uid?:"").get()
+            .addOnSuccessListener { document ->
+                if (document.exists()){
+                    holder.like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
+                    holder.like_btn.setOnClickListener {
+                        likePost(model.id_poste,auth.currentUser?.uid?:"")
+                        holder.like_btn.setImageResource(R.drawable.ic_outline_thumb_up_24)
+                    }
+                }else{
+                    holder.like_btn.setImageResource(R.drawable.ic_outline_thumb_up_24)
+                    holder.like_btn.setOnClickListener {
+                        likePost(model.id_poste,auth.currentUser?.uid?:"")
+                        holder.like_btn.setImageResource(R.drawable.ic_round_thumb_up_24)
                     }
                 }
 
-                override fun onCancelled(error: DatabaseError) {
-
-                }
-            })
-        }*/
-
-        val user_id = FirebaseAuth.getInstance().currentUser!!.uid
-        holder.get_status_btn_like(model.id_poste,user_id)
-
-        holder.layout_like.setOnClickListener {
-            val db = FirebaseFirestore.getInstance()
-            val data_comment = HashMap<String, Any>()
-            data_comment[user_id] = true
-            db.collection("poste_forum").document(model.id_poste).collection("like_poste").document(user_id)
-                .set(data_comment)
-                .addOnSuccessListener {
-                    Toast.makeText(holder.itemView.context, "vous avez aimer", Toast.LENGTH_SHORT).show()
-                }
-                .addOnFailureListener {
-                    Toast.makeText(holder.itemView.context, "ereur:${it.message}", Toast.LENGTH_SHORT).show()
-                }
-
-        }
-
-
+            }
+        */
         holder.itemView.setOnClickListener {
             //incrementer le nombre de vue
-
             val db = FirebaseFirestore.getInstance()
             db.collection("poste_forum").document(model.id_poste)
                 .update("vue",FieldValue.increment(1))
                 .addOnSuccessListener {
-                    Toast.makeText(holder.itemView.context, "incrementer", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(holder.itemView.context, "incrementer", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
                     Toast.makeText(holder.itemView.context, "erreur:${it.message}", Toast.LENGTH_SHORT).show()
@@ -290,5 +214,29 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
             token_id = token.toString()
         })
     }
+
+   /* val likesCollection = FirebaseFirestore.getInstance().collection("likes")
+    fun likePost(postId: String, userId: String) {
+        // Vérifier si l'utilisateur a déjà liké ce post
+        likesCollection.document(postId).collection("likedBy").document(userId).get().addOnSuccessListener { document ->
+            if (document.exists()) {
+                // L'utilisateur a déjà liké ce post, donc on dislike le post
+                likesCollection.document(postId).update("likes", FieldValue.increment(-1))
+                likesCollection.document(postId).collection("likedBy").document(userId).delete()
+            } else {
+                // L'utilisateur n'a pas encore liké ce post, donc on like le post
+                likesCollection.document(postId).update("likes", FieldValue.increment(1))
+                likesCollection.document(postId).collection("likedBy").document(userId).set(mapOf("liked" to true))
+            }
+        }
+    }
+    fun getLikeCount(postId: String, callback: (Int) -> Unit) {
+        likesCollection.document(postId).get().addOnSuccessListener { document ->
+            val likeCount = document.getLong("likes")
+            callback(likeCount?.toInt() ?: 0)
+        }
+    }
+*/
+
 
 }

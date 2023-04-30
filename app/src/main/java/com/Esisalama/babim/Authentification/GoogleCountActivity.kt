@@ -107,7 +107,8 @@ class GoogleCountActivity : AppCompatActivity() {
                     }else{
                         googleSignInClient.signOut()
                         val builder = AlertDialog.Builder(this)
-                        builder.setMessage("Matricule non reconnu, Veillez selectionnez votre compte d'esis. \n  ")
+                        builder.setMessage("Matricule non reconnu, Veuillez selectionnez votre compte d'esis. \n ou contacter votre coordonnateur pour plus d'informations ")
+
                             .setTitle("Erreur de compte")
                             .setPositiveButton("recommencer") { dialogue: DialogInterface, i: Int ->
                                 dialogue.cancel()
