@@ -205,15 +205,13 @@ class DetailleActivity : AppCompatActivity() {
                 tlc_s?.let { putInt("point", it)
                 }
             }.apply()
-            Toast.makeText(this, "ajouter", Toast.LENGTH_SHORT).show()
-
             Dexter.withContext(
                 applicationContext
             )
                 .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 .withListener(object : PermissionListener {
                     override fun onPermissionGranted(permissionGrantedResponse: PermissionGrantedResponse) {
-                       // telecharger()
+                        telecharger()
                         incrementDowload()
                     }
 

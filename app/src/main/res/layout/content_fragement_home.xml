@@ -145,7 +145,8 @@
                         android:layout_height="wrap_content"
                         app:cardCornerRadius="15dp"
                         app:cardPreventCornerOverlap="true"
-                        android:layout_marginTop="@dimen/_10sdp">
+                        android:layout_marginTop="@dimen/_10sdp"
+                        >
 
                         <net.colindodd.gradientlayout.GradientRelativeLayout
                             android:layout_width="match_parent"

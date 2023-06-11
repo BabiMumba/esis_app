@@ -1,9 +1,10 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'kotlin-android-extensions'
     id 'com.google.gms.google-services'
     id 'com.google.firebase.crashlytics'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -42,9 +43,9 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.7.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.5'
-    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.0'
-    implementation 'com.google.android.gms:play-services-ads:21.5.0'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:18.3.7'
+    implementation 'com.google.firebase:firebase-analytics-ktx:21.2.2'
+    implementation 'com.google.android.gms:play-services-ads:22.0.0'
     implementation 'com.google.android.ads:mediation-test-suite:3.0.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'
@@ -67,11 +68,11 @@ dependencies {
 
     //firebase dependancy
 
-    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.3'
-    implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.6.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:22.0.0'
     implementation 'com.google.firebase:firebase-core:21.1.1'
     implementation 'com.firebase:firebase-client-android:2.4.0'
-    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-analytics:21.2.2'
     implementation 'com.karumi:dexter:6.2.3'
 
     // FirebaseUI for Real time database
@@ -82,7 +83,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:8.0.2'
     // FirebaseUI for Cloud Storage
     implementation 'com.firebaseui:firebase-ui-storage:8.0.2'
-    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.1'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.2'
     implementation 'com.github.dhaval2404:imagepicker:1.7.1'//image picker
     implementation 'com.airbnb.android:lottie:3.5.0'//lottie animation
     implementation 'com.google.firebase:firebase-appcheck-playintegrity:16.1.1'

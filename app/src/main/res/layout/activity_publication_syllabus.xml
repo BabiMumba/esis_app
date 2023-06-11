@@ -28,11 +28,11 @@
 
 
         <RelativeLayout
-            android:layout_marginTop="@dimen/_10sdp"
-            android:layout_below="@id/title"
             android:id="@+id/upload_file"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@id/title"
+            android:layout_marginTop="@dimen/_10sdp"
             android:background="@drawable/background_input_new"
             android:padding="@dimen/_12sdp">
 

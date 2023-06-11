@@ -1,7 +1,6 @@
 package com.Esisalama.babim.model
 
 data class post_model (
-
      var nom:String,
      var admin_assistant:String,
      var administrateur:String,

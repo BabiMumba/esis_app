@@ -9,6 +9,14 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ferme"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/_10sdp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,22 +40,51 @@
                 android:textSize="@dimen/_13sdp"
                 android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/version_code"
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Version: "
+                    android:textColor="@color/black"
+                    />
+                <TextView
+                    android:id="@+id/version_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="2.2.3"
+                    android:textStyle="bold"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Version: 2.2.3"
-                android:textColor="@color/black" />
-
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Taille: "
+                    android:textColor="@color/black"
+                    />
             <TextView
                 android:id="@+id/taille"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/_5sdp"
-                android:text="Taille: 5 Mo"
+                android:text="5Mo"
+                android:textStyle="bold"
                 android:textColor="@color/black" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/message"

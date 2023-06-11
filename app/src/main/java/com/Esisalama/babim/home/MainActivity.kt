@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -49,9 +50,12 @@ class MainActivity : AppCompatActivity() {
                 //chek the difference
                 val version_code_mobil = Constant.version_code
                 if (version_code_mobil != code!!.toInt()){
+                    //toast code
+                    Toast.makeText(this,"$code",Toast.LENGTH_LONG).show()
                     chek_version(cancelable!!,message!!,taille!!,version_code!!)
                 }else{
-                    Toast.makeText(this,"votre application est à jour",Toast.LENGTH_LONG).show()
+                    //version a jour
+                    Toast.makeText(this,"version a jour",Toast.LENGTH_LONG).show()
                 }
 
 
@@ -67,11 +71,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadFragmant(fragment: Fragment) =
-        supportFragmentManager.beginTransaction().apply {
+        supportFragmentManager.beginTransaction()
+            .apply {
             replace(R.id.frame_layout,fragment)
             commit()
         }
     override fun onBackPressed() {
+        super.onBackPressed()
+        finish()
     }
 
 
@@ -87,6 +94,13 @@ class MainActivity : AppCompatActivity() {
         val message = dialog.findViewById<TextView>(R.id.message)
         val taille = dialog.findViewById<TextView>(R.id.taille)
         val version_code = dialog.findViewById<TextView>(R.id.version_code)
+        val cance_btn = dialog.findViewById<ImageView>(R.id.cancel_btn)
+        //cancel visibility
+        if (cancel) {
+            cance_btn.visibility = View.VISIBLE
+        }else{
+            cance_btn.visibility = View.GONE
+        }
         //init the view
         message.text = messages
         taille.text = tailles
@@ -94,7 +108,9 @@ class MainActivity : AppCompatActivity() {
 
         dialog.findViewById<View>(R.id.update_btn).setOnClickListener { v: View? ->
             dialog.cancel()
-
+        }
+        cance_btn.setOnClickListener { v: View? ->
+            dialog.cancel()
         }
         // dialog.findViewById<View>(R.id.btn_feedback).setOnClickListener { v: View? -> startActivity(settg)}
         dialog.show()

@@ -80,7 +80,9 @@ class GoogleCountActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 120){
+
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+
             progressDialog.dismiss()
              if (task.isSuccessful){
                 try {
@@ -93,6 +95,7 @@ class GoogleCountActivity : AppCompatActivity() {
 
                     val firstChar: Char = adm.get(0)
                     val secondChar: Char = adm.get(1)
+
                     val nume = "$firstChar$secondChar"
 
                     if (adm.contains("@esisalama.org")){

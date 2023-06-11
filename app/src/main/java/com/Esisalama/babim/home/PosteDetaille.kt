@@ -208,13 +208,13 @@ class PosteDetaille : AppCompatActivity() {
                 _increment_data()
                 Toast.makeText(this, "commenter", Toast.LENGTH_SHORT).show()
                 add_comment()
-              /*  val nb = findViewById<TextView>(R.id.nb_comment)
+                val nb = findViewById<TextView>(R.id.nb_comment)
                 val MyScore = Integer.parseInt(nb.text.toString());
                 if (MyScore > 1){
                     sendnotif(MyScore)
                 }else if (MyScore<1 ){
                     sendnotifsimple()
-                }*/
+                }
 
             }
             .addOnFailureListener {
@@ -343,7 +343,7 @@ class PosteDetaille : AppCompatActivity() {
                 if (task.isSuccessful){
                   val document = task.result
                     if (document.exists()){
-                        Toast.makeText(this, "document existe", Toast.LENGTH_SHORT).show()
+                        //Toast.makeText(this, "document existe", Toast.LENGTH_SHORT).show()
                         ajouter_data(msg)
                     }else{
 

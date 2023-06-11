@@ -106,6 +106,7 @@ class PublishPost : AppCompatActivity() {
                     }
                 }).check()
         }
+
     }
 
     fun loading(isLoading: Boolean){

@@ -79,11 +79,8 @@ class post_adapters (options: FirestoreRecyclerOptions<post_model>):FirestoreRec
 
         val sharedPreferences = holder.admin_i.context.getSharedPreferences(Constant.Save_to_sharep, Context.MODE_PRIVATE)
         val admin = sharedPreferences.getString("administrateur",null)
-
-
         holder.admin_i.visibility = if (model.admin_assistant == "oui") View.VISIBLE else View.GONE
        // holder.like_text.text = count.toString()
-
         collection_name = if (admin == "oui"){
             Constant.Admin
         }else{
