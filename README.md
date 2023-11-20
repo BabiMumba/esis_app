@@ -1,4 +1,4 @@
-# esis_projet
+# esis app mobile
 Esisalama App est une application mobile📱 qui permet aux étudiants d'ecole superieure d'informatique salama de rester connectés et informés sur les dernières actualités, les événements à venir, le téléchargement des syllabus etc... 
 
 ## 🚀 Technologie utiliser
