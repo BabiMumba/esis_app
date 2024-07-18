@@ -1,3 +1,4 @@
+![pag1](https://github.com/BabiMumba/esis_projet/assets/104514894/c497791f-eec6-4d5f-874e-6281c619d528)
 # esis app mobile
 Esisalama App est une application mobile📱 qui permet aux étudiants d'ecole superieure d'informatique salama de rester connectés et informés sur les dernières actualités, les événements à venir, le téléchargement des syllabus etc... 
 
@@ -38,4 +39,6 @@ Esisalama App est une application mobile📱 qui permet aux étudiants d'ecole s
    
 ## Capture d'ecran
 ![pag1](https://github.com/BabiMumba/esis_projet/assets/104514894/c497791f-eec6-4d5f-874e-6281c619d528)
-![cap1](https://github.com/BabiMumba/esis_projet/assets/104514894/9131213e-7eb4-4dee-9e4c-2e32a8773ca3)
+
+
+          par babi mumba 2022
