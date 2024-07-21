@@ -41,4 +41,5 @@ Esisalama App est une application mobile📱 qui permet aux étudiants d'ecole s
 ![pag1](https://github.com/BabiMumba/esis_projet/assets/104514894/c497791f-eec6-4d5f-874e-6281c619d528)
 
 
-          par babi mumba 2022
+*par babi mumba
+12/03/2022 etudiant en Bac1 a (esisalama) UDBL Actuellement*
